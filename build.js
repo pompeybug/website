@@ -27,11 +27,6 @@ ms.use( layouts( {
     default: 'default.hbs'
 }));
 
-// ms.use( sass({
-//     entries: { './src/style/style.css': 'style.css' }
-// })
-// );
-
 ms.use(assets({
     source: './src/style'
 }));
