@@ -1,0 +1,39 @@
+:root {
+    --orange: #D7713D;
+    --olive: #929D59;
+    --page: #FEFEFE;
+    --text: #222222;
+    --textinv: #EEEEEE;
+    --space: 1rem;
+    --curve: 0.25rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--orange);
+    color: var(--text);
+    font-family: sans-serif;
+    margin: 1rem;
+}
+
+header, article {
+    border-radius: var(--curve);
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.25);
+    padding: var(--space);
+    background-color: var(--page);
+    color: var(--text);
+    margin-bottom: var(--space);
+}
+
+header {
+    background-color: var(--olive);
+    color: var(--textinv);
+}
+
+article {
+}
