@@ -5,7 +5,9 @@
   "main": "index.html",
   "type": "module",
   "scripts": {
-    "start": "node build.js"
+    "start": "npm run build",
+    "build": "node build.js",
+    "publish": "node publish.js"
   },
   "keywords": [
     "PCF",
