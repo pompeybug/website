@@ -27,7 +27,6 @@
     "jstransformer-handlebars": "^1.2.0",
     "metalsmith": "^2.6.1",
     "metalsmith-sitemap": "^1.2.2",
-    "metalsmith-tags": "^2.1.0",
     "recursive-readdir": "^2.2.3"
   }
 }
