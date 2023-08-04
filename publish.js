@@ -14,6 +14,6 @@ ms.build(function (err) {
     console.log('Borked!');
     throw err;
   }
+  console.log('Contents of build folder promoted to publish folder.');
 });
 
-console.log('Published!');
