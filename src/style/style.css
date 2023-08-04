@@ -28,7 +28,7 @@
     }
 }
 
-@media screen and (width > 60rem) {
+@media screen and (width > 30rem) {
     :root {
         --fixedspace: 1rem;
         --collapsiblespace: 1rem;
