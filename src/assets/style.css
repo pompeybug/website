@@ -1,0 +1,164 @@
+:root {
+    --orange: #D7713D;
+    --orange: #D7713D;
+    --olive: #929D59;
+    --page: #FEFEFE;
+    --text: #222222;
+    --textinv: #EEEEEE;
+    --collapsiblespace: 0;
+    --fixedspace: 0.5rem;
+    --curve: calc(var(--collapsiblespace) * 0.25);
+    --lineheight: 1.5rem;
+    --bgcol: var(--page);
+    --link: #33F;
+    --vlink: #90F;
+
+    --gridcols: 1fr;
+    --gridrows: auto;
+    --gridtemplateareas: "header" "menu" "article" "footer";
+
+    --headergridcols: 1fr auto;
+    --headergridrows: auto;
+    --headergridtemplateareas: "h1 h1" "logo text";
+
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bgcol: #222;
+        --page: #222;
+        --text: #EEEEEE;
+        --textinv: #222;
+        --link: #77F;
+        --vlink: #A4F;
+        --padding: 0;
+    }
+}
+
+@media screen and (width > 30rem) {
+    :root {
+        --fixedspace: 1rem;
+        --collapsiblespace: 1rem;
+        --padding: 1rem;
+        --gridcols: 10rem 1fr;
+        --gridrows: auto auto auto auto;
+        --gridtemplateareas: "header header"
+                             "menu article"
+                             "footer footer";
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-columns: var(--gridcols);
+    grid-template-rows: var(--gridrows);
+    grid-template-areas: var(--gridtemplateareas);
+
+    background-color: var(--bgcol);
+    color: var(--text);
+    font-family: sans-serif;
+    margin: var(--collapsiblespace) auto;
+
+    padding: var(--padding);
+    min-height: 100dvh;
+    max-width: 60em;
+
+}
+
+a {
+    color: var(--link);
+}
+
+a:visited {
+    color: var(--vlink);
+}
+
+header, article, footer {
+    border-radius: var(--curve);
+    padding: var(--fixedspace);
+    background-color: var(--page);
+    color: var(--text);
+    margin-bottom: var(--fixedspace);
+}
+
+footer {
+    grid-area: footer;
+    margin-bottom: var(--collapsiblespace);
+}
+
+header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: var(--headergridcols);
+    grid-template-rows: var(--headergridrows);
+    grid-template-areas: var(--headergridtemplateareas);
+
+    align-items: center;
+    gap: var(--fixedspace);
+}
+
+header, footer {
+    background-color: var(--olive);
+    background-color: var(--olive);
+    color: var(--textinv);
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+header #masthead {
+    grid-area: logo;
+    max-height: 4rem;
+}
+
+header h1 {
+    grid-area: h1;
+    margin: 0;
+    padding: 0;
+    font-size: calc(minmax(100vw, 60rem)/14);
+    text-align: center;
+}
+
+header p {
+    grid-area: text;
+}
+
+nav {
+    grid-area: menu;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    border: thin grey solid;
+    border-radius: var(--curve);
+    margin-bottom: 0.25rem;
+}
+
+nav ul li:hover {
+    background-color: var(--orange);
+}
+
+header p {
+    margin: 0;
+    padding: 0;
+}
+
+article {
+    grid-area: article;
+    line-height: var(--lineheight);
+}
+
+
+article img {
+    max-width: 100%;
+}
