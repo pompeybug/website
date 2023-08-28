@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "CYCLING IN SNOW AND ICE"
 date: "2019-02-03"
 categories: 

@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "2020 VISION - A RETROSPECTIVE VIEW"
 date: "2021-02-20"
 categories: 

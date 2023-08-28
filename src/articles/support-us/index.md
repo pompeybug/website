@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "Support Us"
 date: "2020-11-24"
 ---

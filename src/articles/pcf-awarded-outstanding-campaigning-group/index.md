@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "PCF AWARDED ‘OUTSTANDING CAMPAIGNING GROUP’"
 date: "2018-10-13"
 categories: 

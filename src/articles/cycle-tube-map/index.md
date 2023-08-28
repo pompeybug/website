@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "CYCLE TUBE MAP"
 date: "2018-12-28"
 categories: 

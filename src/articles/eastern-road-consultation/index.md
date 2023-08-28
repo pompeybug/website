@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "EASTERN ROAD CONSULTATION"
 date: "2021-02-03"
 categories: 

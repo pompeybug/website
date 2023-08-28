@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "PCC LAUNCHES NEW LONG TERM TRANSPORT STRATEGY"
 date: "2020-12-28"
 categories: 

@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "A TIME TO REMEMBER, A TIME TO ACT"
 date: "2017-06-10"
 categories: 

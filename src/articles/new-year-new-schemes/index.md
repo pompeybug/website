@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "NEW YEAR - NEW SCHEMES"
 date: "2022-01-04"
 categories: 

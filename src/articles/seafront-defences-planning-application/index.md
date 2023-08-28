@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "SEAFRONT DEFENCES PLANNING APPLICATION"
 date: "2019-09-15"
 categories: 

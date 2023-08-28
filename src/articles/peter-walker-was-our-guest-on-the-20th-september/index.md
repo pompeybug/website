@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "PETER WALKER WAS OUR GUEST ON THE 20TH SEPTEMBER"
 date: "2018-09-20"
 categories: 

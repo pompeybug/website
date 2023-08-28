@@ -1,9 +1,12 @@
 ---
-title: PCF Build
+title: PCF Index Page
 description: This is an example build page
-layout: default.hbs
+layout: layouts/base.hbs
+exclude: true
 ---
 
-## It works@
-
-ok, what now?
+<ul>
+    {% for post in collections.all reversed %}
+        <li class="title"><a href="{{post.url}}">{{ post.data.title }}</a></li>
+    {% endfor %}
+</ul>

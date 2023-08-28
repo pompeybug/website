@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "Open Meeting"
 date: "2023-01-21"
 tags: 

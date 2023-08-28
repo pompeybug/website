@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style/style.css">
+
+{{> partials/header }}
+
+{{> partials/navmenu }}
+
+<main>
+  {{#if coverImage }}
+    <img src="images/{{ coverImage }}" alt="{{ title }}">
+  {{/if }}
+  <h1 class=title>{{ title }}</h1>
+
+  <article>
+    {{{ content }}}
+  </article>
+</main>
+
+{{> partials/metadata }}
+
+{{> partials/footer }}

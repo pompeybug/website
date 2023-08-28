@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "URGENT: SUPPORT SAFER CYCLING IN PORTSMOUTH"
 date: "2017-10-15"
 categories: 

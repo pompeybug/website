@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "COMMUNITY CARGO PROJECT"
 date: "2022-03-08"
 categories: 
@@ -10,11 +11,11 @@ tags:
 coverImage: "IMG_20220205_120128.jpg"
 ---
 
-## **How to hire a cargo bike in Portsmouth**
+# How to hire a cargo bike in Portsmouth
 
 In 2021 following a successful Crowdfunder initiated by Southsea Cycles, Sustrans and Portsmouth Climate Action Board, a Community Cargo Project was born. The project aims to make electric cargo bikes available to hire at a low cost so that more people can access the benefits of cargo biking. The funds raised allowed the purchase of two electric cargo bikes. A Babboe Curve trike is now available to try out while second one – a Babboe City Mountain two-wheeler is coming soon.
 
-**What you can hire:**
+## What you can hire:
 
 - Electric Babboe Curve – three-wheeler box bike perfect to transport large weekly shopping or up to 4 children. Benches are equipped with four three-point harnesses. A rain cover can be requested for riding in wet weather. Front box loading capacity is 100 kg.
 
@@ -22,7 +23,7 @@ In 2021 following a successful Crowdfunder initiated by Southsea Cycles, Sustran
 
 - Accessories such as helmets and locks are also available to hire in the shop, just ask.
 
-**Here is how and when:**
+## Here is how and when:
 
 ![](images/IMG_20220205_122537.jpg)
 
@@ -40,7 +41,7 @@ In 2021 following a successful Crowdfunder initiated by Southsea Cycles, Sustran
 
 ![](images/IMG_20220205_122600.jpg)
 
-**Top tips**:
+## Top tips
 
 - Grab a blanket for your passengers if riding in colder weather, they will appreciate it
 - Take it easy if this is your first time, practice makes perfect

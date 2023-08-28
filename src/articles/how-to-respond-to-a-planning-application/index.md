@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "HOW TO RESPOND TO A PLANNING APPLICATION"
 date: "2021-03-17"
 ---

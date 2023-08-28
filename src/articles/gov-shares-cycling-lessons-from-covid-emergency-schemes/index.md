@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "GOV SHARES CYCLING LESSONS FROM COVID EMERGENCY SCHEMES"
 date: "2021-07-31"
 categories: 

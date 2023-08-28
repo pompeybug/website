@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "THERE'S A PLAN AFOOT!"
 date: "2020-12-23"
 categories: 

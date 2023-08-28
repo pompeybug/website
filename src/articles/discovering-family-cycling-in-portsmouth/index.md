@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "DISCOVERING FAMILY CYCLING IN PORTSMOUTH"
 date: "2021-02-22"
 categories: 

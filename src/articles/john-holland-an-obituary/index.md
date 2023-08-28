@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "JOHN HOLLAND: AN OBITUARY"
 date: "2019-01-27"
 categories: 

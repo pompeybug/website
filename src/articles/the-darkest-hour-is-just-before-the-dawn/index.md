@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "THE DARKEST HOUR IS JUST BEFORE THE DAWN"
 date: "2017-06-29"
 categories: 

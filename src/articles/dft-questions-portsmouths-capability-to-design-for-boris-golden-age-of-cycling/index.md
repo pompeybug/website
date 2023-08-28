@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "DFT QUESTIONS PORTSMOUTH'S CAPABILITY TO DESIGN FOR BORIS' GOLDEN AGE OF CYCLING"
 date: "2021-08-02"
 categories: 

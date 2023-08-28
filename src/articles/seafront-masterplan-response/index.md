@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "SEAFRONT MASTERPLAN RESPONSE"
 date: "2020-10-15"
 categories: 

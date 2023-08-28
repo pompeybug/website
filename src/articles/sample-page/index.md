@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "Sample Page"
 date: "2020-11-16"
 ---

@@ -1,8 +1,14 @@
 ---
+layout: layouts/base.hbs
 title: "Open Meeting"
 date: "2023-06-13"
 tags: 
   - "open-meeting"
+  - "university"
+categories: 
+  - "open-meeting"
+  - "meetings"
+  - "pcf"
 ---
 
 The next PCF public meeting takes place on Thursday 15th June at 7pm. Anyone is welcome, whether they are a member or not, so please spread the word!

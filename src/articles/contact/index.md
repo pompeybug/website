@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "Contact Us"
 date: "2020-11-16"
 ---

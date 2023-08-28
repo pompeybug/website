@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "STREETS FOR PEOPLE"
 date: "2019-04-01"
 categories: 

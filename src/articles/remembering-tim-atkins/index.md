@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "REMEMBERING TIM ATKINS"
 date: "2021-06-21"
 categories: 

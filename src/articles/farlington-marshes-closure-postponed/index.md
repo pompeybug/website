@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "FARLINGTON MARSHES CLOSURE POSTPONED"
 date: "2021-06-14"
 categories: 

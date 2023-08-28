@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "FARLINGTON MARSHES CLOSURE- PCF COMMENTS"
 date: "2021-05-19"
 categories: 

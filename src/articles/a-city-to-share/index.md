@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "A City To Share"
 date: "2020-11-24"
 ---

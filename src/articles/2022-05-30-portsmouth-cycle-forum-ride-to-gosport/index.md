@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "Portsmouth Cycle Forum ride to Gosport"
 date: "2022-05-30"
 coverImage: "unnamed.jpg"

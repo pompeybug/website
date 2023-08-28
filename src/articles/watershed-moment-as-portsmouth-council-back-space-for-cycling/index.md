@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "WATERSHED MOMENT AS PORTSMOUTH COUNCIL BACK SPACE FOR CYCLING"
 date: "2017-10-27"
 categories: 

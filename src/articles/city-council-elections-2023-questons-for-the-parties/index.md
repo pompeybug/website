@@ -1,5 +1,6 @@
 ---
-title: "CITY COUNCIL ELECTIONS 2023 - QUESTONS FOR THE PARTIES"
+layout: layouts/base.hbs
+title: "City Council Elections 2023 - Questions for The Parties"
 date: "2023-04-20"
 categories: 
   - "city-council"

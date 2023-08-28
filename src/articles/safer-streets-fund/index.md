@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "SAFER STREETS FUND"
 date: "2021-10-22"
 categories: 

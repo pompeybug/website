@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "MAY 2022 EMAIL BULLETIN - SOCIAL RIDE 12th JUNE"
 date: "2022-05-30"
 categories: 

@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "2021 AGM"
 date: "2021-04-22"
 ---

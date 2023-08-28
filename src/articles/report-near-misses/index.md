@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "REPORTS and REQUESTS"
 date: "2020-11-20"
 ---

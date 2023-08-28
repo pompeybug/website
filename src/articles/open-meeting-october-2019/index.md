@@ -1,4 +1,5 @@
 ---
+layout: layouts/base.hbs
 title: "OPEN MEETING – OCTOBER 2019"
 date: "2019-10-27"
 categories: 
