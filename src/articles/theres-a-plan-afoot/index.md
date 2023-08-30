@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "THERE'S A PLAN AFOOT!"
+title: "There's a plan afoot!"
 date: "2020-12-23"
 categories: 
   - "blog"

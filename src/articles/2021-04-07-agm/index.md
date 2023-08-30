@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "2021 AGM"
+title: "2021 AGM - Advert"
 date: "2021-04-07"
 ---
 

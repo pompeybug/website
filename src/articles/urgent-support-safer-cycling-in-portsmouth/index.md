@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "URGENT: SUPPORT SAFER CYCLING IN PORTSMOUTH"
+title: "Urgent: Support safer cycling in Portsmouth"
 date: "2017-10-15"
 categories: 
   - "campaigns"

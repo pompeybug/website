@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "MAY COMMITTEE MEETING"
+title: "May committee meeting"
 date: "2021-05-17"
 categories: 
   - "city-council"

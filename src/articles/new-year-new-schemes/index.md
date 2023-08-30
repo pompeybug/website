@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "NEW YEAR - NEW SCHEMES"
+title: "New year - new schemes"
 date: "2022-01-04"
 categories: 
   - "city-council"

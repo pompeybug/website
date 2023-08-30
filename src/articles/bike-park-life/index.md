@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "BIKE PARK LIFE"
+title: "Bike Park Life"
 date: "2021-11-18"
 categories: 
   - "bikes"

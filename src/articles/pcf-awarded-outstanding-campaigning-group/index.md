@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "PCF AWARDED ‘OUTSTANDING CAMPAIGNING GROUP’"
+title: "PCF awarded ‘Outstanding Campaigning Group’"
 date: "2018-10-13"
 categories: 
   - "campaigns"

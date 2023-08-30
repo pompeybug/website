@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "MAY 2022 EMAIL BULLETIN - SOCIAL RIDE 12th JUNE"
+title: "May 2022 email bulletin - social ride 12th June"
 date: "2022-05-30"
 categories: 
   - "annual-general-meeting"

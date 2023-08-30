@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "SEAFRONT MASTERPLAN RESPONSE"
+title: "Seafront masterplan response"
 date: "2020-10-15"
 categories: 
   - "city-council"

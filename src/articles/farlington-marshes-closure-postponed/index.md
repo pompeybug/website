@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "FARLINGTON MARSHES CLOSURE POSTPONED"
+title: "Farlington marshes closure postponed"
 date: "2021-06-14"
 categories: 
   - "campaigns"

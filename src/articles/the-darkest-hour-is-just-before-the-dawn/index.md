@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "THE DARKEST HOUR IS JUST BEFORE THE DAWN"
+title: "The Darkest hour is just before the dawn"
 date: "2017-06-29"
 categories: 
   - "campaigns"

@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "POLICE AND CRIME COMMISSIONER ELECTIONS ARE COMING - DOES YOUR CANDIDATE SUPPORT CYCLING?"
+title: "Police and Crime Commissioner elections are coming - does your candidate support cycling?"
 date: "2021-05-04"
 categories: 
   - "elections"

@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "HERE’S WHAT WE DID THIS SUMMER…"
+title: "Here’s what we did this summer…"
 date: "2019-10-27"
 categories: 
   - "annual-general-meeting"

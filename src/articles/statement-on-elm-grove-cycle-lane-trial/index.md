@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "STATEMENT ON ELM GROVE CYCLE LANE TRIAL"
+title: "Statement on Elm Grove cycle lane trial"
 date: "2020-11-28"
 categories: 
   - "city-council"

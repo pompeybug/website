@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "REMEMBERING TIM ATKINS"
+title: "Remembering Tim Atkins"
 date: "2021-06-21"
 categories: 
   - "campaigns"

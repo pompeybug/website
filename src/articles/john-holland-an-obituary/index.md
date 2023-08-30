@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "JOHN HOLLAND: AN OBITUARY"
+title: "John Holland: An obituary"
 date: "2019-01-27"
 categories: 
   - "pcf"

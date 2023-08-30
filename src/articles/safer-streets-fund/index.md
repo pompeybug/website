@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "SAFER STREETS FUND"
+title: "Safer Streets Fund"
 date: "2021-10-22"
 categories: 
   - "campaigns"

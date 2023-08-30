@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "COUNCIL ELECTIONS ARE COMING - DOES YOUR CANDIDATE SUPPORT CYCLING?"
+title: "Council Elections are coming - does your candidate support cycling?"
 date: "2021-05-04"
 categories: 
   - "campaigns"

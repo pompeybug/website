@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "EASTERN ROAD CONSULTATION"
+title: "Eastern Road consultation"
 date: "2021-02-03"
 categories: 
   - "city-council"

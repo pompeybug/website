@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "CYCLING IN SNOW AND ICE"
+title: "Cycling in snow and ice"
 date: "2019-02-03"
 categories: 
   - "city-council"

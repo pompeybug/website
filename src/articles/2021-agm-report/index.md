@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "2021 AGM REPORT"
+title: "2021 AGM - Report"
 date: "2021-05-17"
 categories: 
   - "annual-general-meeting"

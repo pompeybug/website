@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "COMMUNITY CARGO PROJECT"
+title: "Community Cargo Project"
 date: "2022-03-08"
 categories: 
   - "bikes"

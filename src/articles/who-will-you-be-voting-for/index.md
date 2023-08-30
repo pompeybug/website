@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "WHO WILL YOU BE VOTING FOR?"
+title: "Who will you be voting for?"
 date: "2019-04-25"
 categories: 
   - "campaigns"

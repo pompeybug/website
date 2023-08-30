@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "APRIL COMMITTEE MEETING"
+title: "April committee meeting"
 date: "2021-04-10"
 categories: 
   - "annual-general-meeting"

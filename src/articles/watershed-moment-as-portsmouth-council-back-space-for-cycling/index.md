@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "WATERSHED MOMENT AS PORTSMOUTH COUNCIL BACK SPACE FOR CYCLING"
+title: "Watershed moment as Portsmouth Council back space for cycling"
 date: "2017-10-27"
 categories: 
   - "city-council"

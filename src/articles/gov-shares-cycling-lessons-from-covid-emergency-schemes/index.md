@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "GOV SHARES CYCLING LESSONS FROM COVID EMERGENCY SCHEMES"
+title: "Gov't shares cycling lessons from COVID emergency schemes"
 date: "2021-07-31"
 categories: 
   - "dft"

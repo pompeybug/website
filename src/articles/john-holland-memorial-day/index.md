@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "JOHN HOLLAND MEMORIAL DAY"
+title: "John Holland Memorial Day"
 date: "2019-05-13"
 categories: 
   - "events"

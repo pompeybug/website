@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "CYCLE TUBE MAP"
+title: "Cycle Tube Map"
 date: "2018-12-28"
 categories: 
   - "cycle-routes"

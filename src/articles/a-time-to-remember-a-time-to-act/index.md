@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "A TIME TO REMEMBER, A TIME TO ACT"
+title: "A Time To Remember, A Time To Act"
 date: "2017-06-10"
 categories: 
   - "campaigns"

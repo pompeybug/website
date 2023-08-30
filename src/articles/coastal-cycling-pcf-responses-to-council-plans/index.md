@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "COASTAL CYCLING: PCF RESPONSES TO COUNCIL PLANS"
+title: "Coastal cycling: PCF responses to council plans"
 date: "2019-04-01"
 categories: 
   - "campaigns"

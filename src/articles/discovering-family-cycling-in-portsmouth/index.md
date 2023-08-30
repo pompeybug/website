@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "DISCOVERING FAMILY CYCLING IN PORTSMOUTH"
+title: "Discovering family cycling in portsmouth"
 date: "2021-02-22"
 categories: 
   - "bikes"

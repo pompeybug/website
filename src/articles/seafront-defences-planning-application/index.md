@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "SEAFRONT DEFENCES PLANNING APPLICATION"
+title: "Seafront defences planning application"
 date: "2019-09-15"
 categories: 
   - "campaigns"

@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.hbs
-title: "JULY COMMITTEE MEETING"
+title: "July committee meeting"
 date: "2021-07-25"
 categories: 
   - "meetings"
