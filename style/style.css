@@ -198,3 +198,12 @@ aside.metadata p {
     line-height: 1rem;
 }
 
+
+.mainmenu li a {
+    
+    text-decoration: none;
+    list-style-type: none;
+}
+.mainmenu li {
+    list-style-type: none;
+}
