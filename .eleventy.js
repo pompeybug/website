@@ -1,14 +1,23 @@
+
 module.exports = function(eleventyConfig) {
-    eleventyConfig.addPassthroughCopy("**/*.jpg, **/*.jpeg, **/*.png");
+    eleventyConfig.addPassthroughCopy("**/*.jpg,");
+    eleventyConfig.addPassthroughCopy("**/*.jpeg");
+    eleventyConfig.addPassthroughCopy("**/*.png");
+    eleventyConfig.addPassthroughCopy("**/*.webp");
+    eleventyConfig.addPassthroughCopy("**/*.svg");
     eleventyConfig.addPassthroughCopy("images");
     eleventyConfig.addPassthroughCopy("style");
-    eleventyConfig.setQuietMode(true);
+
+    // eleventyConfig.addFilter('excludeFilter', function (collection) {
+    //     console.log("excludeFilter > ", collection);
+    //     return collection.filter(item => item.data.exclude);
+    // });
+
     return {
         dir: {
             input: "src/articles",
             output: "_site",
-			includes: "../../_includes",
-            data: "../_data",
+			includes: "../../_includes"
         },
         breaks: false
     }
