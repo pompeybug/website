@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Sample Page"
 date: "2020-11-16"
 ---

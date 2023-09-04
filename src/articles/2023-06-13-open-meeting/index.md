@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Open Meeting"
 date: "2023-06-13"
 tags: 

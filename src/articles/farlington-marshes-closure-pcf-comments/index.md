@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Farlington marshes closure - PCF comments"
 date: "2021-05-19"
 categories: 

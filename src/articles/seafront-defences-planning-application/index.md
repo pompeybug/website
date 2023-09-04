@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Seafront defences planning application"
 date: "2019-09-15"
 categories: 

@@ -1,6 +1,6 @@
 ---
 title: PCF Deputation – Lake Road (waiting Restrictions & Bus Lane)
-layout: layouts/base.hbs
+layout: layouts/base.njk
 tags:
   - City Council
   - Infrastructure

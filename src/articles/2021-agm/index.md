@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "2021 AGM - Documents"
 date: "2021-03-22"
 categories: 

@@ -6,21 +6,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/style/style.css">
 
-{{> partials/header }}
-
-{{> partials/navmenu }}
+{% include "partials/header.html" %}
+{% include "partials/navmenu.html" %}
+{% include "partials/metadata.njk" %}
 
 <main>
-  {{#if coverImage }}
+  {% if coverImage %}
     <img src="images/{{ coverImage }}" alt="{{ title }}">
-  {{/if }}
+  {% endif %}
   <h1 class=title>{{ title }}</h1>
 
   <article>
-    {{{ content }}}
+    {{ content | safe }}
   </article>
 </main>
 
-{{> partials/metadata }}
-
-{{> partials/footer }}
+{% include "partials/footer.html" %}

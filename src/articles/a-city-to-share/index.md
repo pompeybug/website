@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "A City To Share"
 date: "2020-11-24"
 ---

@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "There's a plan afoot!"
 date: "2020-12-23"
 categories: 

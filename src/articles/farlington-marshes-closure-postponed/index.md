@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Farlington marshes closure postponed"
 date: "2021-06-14"
 categories: 

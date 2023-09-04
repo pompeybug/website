@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Safer Streets Fund"
 date: "2021-10-22"
 categories: 

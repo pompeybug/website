@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "PCF awarded ‘Outstanding Campaigning Group’"
 date: "2018-10-13"
 categories: 

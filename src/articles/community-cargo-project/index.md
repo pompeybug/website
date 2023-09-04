@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Community Cargo Project"
 date: "2022-03-08"
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Urgent: Support safer cycling in Portsmouth"
 date: "2017-10-15"
 categories: 

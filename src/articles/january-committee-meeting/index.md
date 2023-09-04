@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "January committee meeting"
 date: "2021-01-08"
 categories: 

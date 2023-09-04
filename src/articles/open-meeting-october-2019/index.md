@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Open meeting – October 2019"
 date: "2019-10-27"
 categories: 

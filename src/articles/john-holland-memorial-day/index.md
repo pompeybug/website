@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "John Holland Memorial Day"
 date: "2019-05-13"
 categories: 

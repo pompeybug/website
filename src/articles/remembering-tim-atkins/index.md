@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Remembering Tim Atkins"
 date: "2021-06-21"
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Kidical Mass: Families Demand Safe Cycling Infrastructure"
 date: "2023-04-11"
 categories: 

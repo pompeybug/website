@@ -1,0 +1,18 @@
+<aside class=metadata>
+
+  {% if date %}
+    <p>Published: <span class="published">{{date}}</span>
+  {% endif %}
+
+  {% if tags %}
+    <nav class="taglist">
+      <h2>Tags</h2>
+      <ul>
+        {% for tag in tags -%}
+          <li><a class="tag" href="/tags/{{ tag }}">{{ tag }}</a></li> 
+        {%- endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+
+</aside>

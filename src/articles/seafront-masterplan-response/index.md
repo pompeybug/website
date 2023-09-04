@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Seafront masterplan response"
 date: "2020-10-15"
 categories: 

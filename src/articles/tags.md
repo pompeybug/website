@@ -4,7 +4,7 @@ pagination:
   size: 1
   alias: tag
 permalink: /tags/{{ tag }}/
-layout: layouts/base.hbs
+layout: layouts/base.njk
 ---
 <h1>Tag: {{ tag }}</h1>
 

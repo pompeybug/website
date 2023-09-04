@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Peter Walker was out guest on 20th Sept"
 date: "2018-09-20"
 categories: 

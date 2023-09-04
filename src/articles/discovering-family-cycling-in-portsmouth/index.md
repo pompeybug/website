@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Discovering family cycling in portsmouth"
 date: "2021-02-22"
 categories: 

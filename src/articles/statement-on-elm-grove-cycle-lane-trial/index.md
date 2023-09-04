@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Statement on Elm Grove cycle lane trial"
 date: "2020-11-28"
 categories: 

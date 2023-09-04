@@ -4,7 +4,7 @@ tags:
   - City Council
   - Deputation
 date: 2023-08-10
-layout: layouts/base.hbs
+layout: layouts/base.njk
 coverImage: "beryl.jpeg"
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Cycle Tube Map"
 date: "2018-12-28"
 categories: 

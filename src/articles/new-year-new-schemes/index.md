@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "New year - new schemes"
 date: "2022-01-04"
 categories: 

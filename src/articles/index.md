@@ -1,7 +1,7 @@
 ---
 title: Article Index
 description: This is an example build page
-layout: layouts/base.hbs
+layout: layouts/base.njk
 exclude: true
 date: 2000-01-01
 ---

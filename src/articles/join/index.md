@@ -1,12 +1,12 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Become a Member!"
 date: "2020-11-20"
 ---
 
-Membership of the Portsmouth Cycle Forum is currently FREE, although we do require you to sign up to our mailing list to be counted as a member.
+Membership of the Portsmouth Cycle Forum is currently **FREE**, although we do require you to sign up to our mailing list to be counted as a member.
 
- #mc\_embed\_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; } /\* Add your own Mailchimp form style overrides in your site stylesheet or in this style block. We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. \*/ #mc-embedded-subscribe-form input\[type=checkbox\]{display: inline; width: auto;margin-right: 10px;} #mergeRow-gdpr {margin-top: 20px;} #mergeRow-gdpr fieldset label {font-weight: normal;} #mc-embedded-subscribe-form .mc\_fieldset{border:none;min-height: 0px;padding-bottom:0px;}
+#mc-embedded-subscribe-form input\[type=checkbox\]{display: inline; width: auto;margin-right: 10px;} #mergeRow-gdpr {margin-top: 20px;} #mergeRow-gdpr fieldset label {font-weight: normal;} #mc-embedded-subscribe-form .mc\_fieldset{border:none;min-height: 0px;padding-bottom:0px;}
 
 ## Subscribe
 

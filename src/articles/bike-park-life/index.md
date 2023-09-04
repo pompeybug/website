@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Bike Park Life"
 date: "2021-11-18"
 categories: 

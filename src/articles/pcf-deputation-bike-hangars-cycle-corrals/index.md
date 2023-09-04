@@ -1,6 +1,6 @@
 ---
 title: PCF Deputation – Bike Hangers & Cycle Corrals
-layout: layouts/base.hbs
+layout: layouts/base.njk
 date: 2023-08-30
 coverImage: "hangar.jpeg"
 tags:

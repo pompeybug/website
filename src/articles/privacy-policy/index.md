@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "Privacy Policy"
 date: "2020-11-16"
 ---

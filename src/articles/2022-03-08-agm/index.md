@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.hbs
+layout: layouts/base.njk
 title: "2022 AGM"
 date: "2022-03-08"
 ---
