@@ -1,9 +1,9 @@
 :root {
     --orange: #D7713D;
-    --orange: #D7713D;
     --olive: #929D59;
     --page: #FEFEFE;
     --text: #222222;
+    --midgrey: #AAA;
     --textinv: #EEEEEE;
     --collapsiblespace: 1em;
     --fixedspace: 0.5rem;
@@ -12,6 +12,8 @@
     --bgcol: var(--page);
     --link: #33F;
     --vlink: #90F;
+
+    --mainmenu-direction: row;
 
     --gridcols: 1fr;
     --gridrows: auto;
@@ -46,6 +48,7 @@
                              "menu article"
                              "metadata article"
                              "footer footer";
+        --mainmenu-direction: column;
     }
 }
 
@@ -193,28 +196,25 @@ aside.metadata p {
     line-height: 1rem;
 }
 
-
-.mainmenu {
-    padding: 0;
+#navmenu {
+    display: flex;
+    flex-direction: var(--mainmenu-direction);
+    gap: var(--fixedspace);
 }
 
-.mainmenu li a {
-    display: block;
+#navmenu a {
     text-decoration: none;
     list-style-type: none;
     cursor: pointer;
     padding: 0.1em 0.2em;
+    border-radius: var(--curve);
+    border: var(--midgrey) thin solid;
+    color: var(--text);
 }
 
-.mainmenu li a:hover {
+#navmenu a:hover {
     background-color: var(--orange);
     color: var(--textinv);
-    border-radius: var(--curve);
-    overflow: hidden;
-}
-
-.mainmenu li {
-    list-style-type: none;
 }
 
 .taglist ul{
