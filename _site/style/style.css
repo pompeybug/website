@@ -231,3 +231,8 @@ aside.metadata p {
     background: #666;
     color: white;
 }
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+}
