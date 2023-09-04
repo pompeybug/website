@@ -207,3 +207,18 @@ aside.metadata p {
 .mainmenu li {
     list-style-type: none;
 }
+
+.taglist ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: 100%;
+}
+
+.taglist li a {
+    font-size: 90%;
+    padding: 0.2em 0.4em;
+    margin: 0.1em;
+    background: #666;
+    color: white;
+}
