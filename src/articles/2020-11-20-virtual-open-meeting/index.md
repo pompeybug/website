@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: "PCF Open Forum Meeting"
-date: "2020-11-20"
+title: PCF Open Forum Meeting
+date: 2020-11-20
 ---
 
 The first public meeting of the Portsmouth Cycle Forum since October 2019. How did you find cycling in Portsmouth during 2020?

@@ -1,15 +1,15 @@
 ---
 layout: layouts/base.njk
-title: "June committee meeting"
-date: "2021-06-12"
+title: June committee meeting
+date: 2021-06-12
 categories: 
-  - "city-council"
-  - "cycle-routes"
-  - "meetings"
-  - "pcf"
+  - city-council
+  - cycle-routes
+  - meetings
+  - pcf
 tags: 
-  - "farlington-marshes"
-  - "tipner"
+  - farlington-marshes
+  - tipner
 coverImage: "2021-06-12-08_36_10-Tipner-east.png"
 ---
 

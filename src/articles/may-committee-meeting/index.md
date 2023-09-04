@@ -1,17 +1,17 @@
 ---
 layout: layouts/base.njk
-title: "May committee meeting"
-date: "2021-05-17"
+title: May committee meeting
+date: 2021-05-17
 categories: 
-  - "city-council"
-  - "elections"
-  - "meetings"
-  - "pcf"
-  - "police-and-crime-commissioner"
+  - city-council
+  - elections
+  - meetings
+  - pcf
+  - police-and-crime-commissioner
 tags: 
-  - "agm"
-  - "elections"
-  - "roadworks"
+  - agm
+  - elections
+  - roadworks
 coverImage: "PXL_20210511_200023079.NIGHT_-scaled.jpg"
 ---
 

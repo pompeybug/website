@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: "Eastern Road consultation"
-date: "2021-02-03"
+title: Eastern Road consultation
+date: 2021-02-03
 categories: 
-  - "city-council"
-  - "cycle-routes"
-  - "infrastructure"
+  - city-council
+  - cycle-routes
+  - infrastructure
 tags: 
-  - "eastern-road"
-  - "environment"
+  - eastern-road
+  - environment
 coverImage: "Eastern-Road-shared-OCR-14jun20-11.jpg"
 ---
 

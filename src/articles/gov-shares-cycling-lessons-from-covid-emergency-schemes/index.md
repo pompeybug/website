@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: "Gov't shares cycling lessons from COVID emergency schemes"
-date: "2021-07-31"
+title: Gov't shares cycling lessons from COVID emergency schemes
+date: 2021-07-31
 categories: 
-  - "dft"
-  - "infrastructure"
+  - dft
+  - infrastructure
 tags: 
-  - "dft"
-  - "gear-change"
-  - "goverment"
+  - dft
+  - gear-change
+  - goverment
 coverImage: "2021-08-02-21_22_06-Gear-Change_-One-Year-On-gear-change-one-year-on.pdf-—-Mozilla-Firefox.png"
 ---
 

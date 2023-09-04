@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: "Bike Park Life"
-date: "2021-11-18"
+title: Bike Park Life
+date: 2021-11-18
 categories: 
-  - "bikes"
-  - "blog"
-  - "city-council"
-  - "infrastructure"
+  - bikes
+  - blog
+  - city-council
+  - infrastructure
 tags: 
-  - "bike-hangers"
+  - bike-hangers
 coverImage: "IMG_20211106_150629142-small.jpg"
 ---
 

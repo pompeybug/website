@@ -1,6 +1,6 @@
 ---
-title: "Who we are"
-date: "2020-11-16"
+title: Who we are
+date: 2020-11-16
 layout: layouts/base.njk
 tags: pcf
 ---

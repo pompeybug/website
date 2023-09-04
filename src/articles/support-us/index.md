@@ -1,7 +1,6 @@
 ---
 layout: layouts/base.njk
-title: "Support Us"
-date: "2020-11-24"
+title: Donate - Support Us!
 ---
 
 Membership of Portsmouth Cycle Forum is **free**, because we want to encourage as many cyclists as we can to engage with our campaign. However, any campaign has some costs and the cycle forum is no different.

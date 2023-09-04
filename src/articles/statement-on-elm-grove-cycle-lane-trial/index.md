@@ -1,17 +1,17 @@
 ---
 layout: layouts/base.njk
-title: "Statement on Elm Grove cycle lane trial"
-date: "2020-11-28"
+title: Statement on Elm Grove cycle lane trial
+date: 2020-11-28
 categories: 
-  - "city-council"
-  - "cycle-routes"
-  - "infrastructure"
+  - city-council
+  - cycle-routes
+  - infrastructure
 tags: 
-  - "elm-grove"
-  - "environment"
-  - "setup-to-fail"
-  - "streets-for-people"
-  - "wands"
+  - elm-grove
+  - environment
+  - setup-to-fail
+  - streets-for-people
+  - wands
 coverImage: "IMG_2280-1.jpeg"
 ---
 

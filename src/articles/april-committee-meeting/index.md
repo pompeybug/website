@@ -1,16 +1,16 @@
 ---
 layout: layouts/base.njk
-title: "April committee meeting"
-date: "2021-04-10"
+title: April committee meeting
+date: 2021-04-10
 categories: 
-  - "annual-general-meeting"
-  - "meetings"
-  - "pcf"
+  - annual-general-meeting
+  - meetings
+  - pcf
 tags: 
-  - "agm"
-  - "eatf"
-  - "elections"
-  - "roadworks"
+  - agm
+  - eatf
+  - elections
+  - roadworks
 coverImage: "Polling-station.jpg"
 ---
 

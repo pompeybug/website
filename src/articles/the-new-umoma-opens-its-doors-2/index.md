@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: "The New UMoMA Opens its Doors"
-date: "2020-11-16"
+title: The New UMoMA Opens its Doors
+date: 2020-11-16
 coverImage: "2020-landscape-1-2.png"
 ---
 

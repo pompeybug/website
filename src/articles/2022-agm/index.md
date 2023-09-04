@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: "2022 AGM - Registration"
-date: "2022-03-08"
+title: 2022 AGM - Registration
+date: 2022-03-08
 categories: 
-  - "annual-general-meeting"
-  - "events"
-  - "meetings"
-  - "pcf"
+  - annual-general-meeting
+  - events
+  - meetings
+  - pcf
 tags: 
-  - "agm"
+  - agm
 coverImage: "agm4.png"
 ---
 

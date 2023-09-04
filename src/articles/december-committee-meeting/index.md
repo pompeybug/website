@@ -1,15 +1,15 @@
 ---
 layout: layouts/base.njk
-title: "December committee meeting"
-date: "2020-12-11"
+title: December committee meeting
+date: 2020-12-11
 categories: 
-  - "meetings"
-  - "pcf"
+  - meetings
+  - pcf
 tags: 
-  - "facebook"
-  - "ltp4"
-  - "tcf"
-  - "website"
+  - facebook
+  - ltp4
+  - tcf
+  - website
 coverImage: "PXL_20201211_200829478-scaled.jpg"
 ---
 

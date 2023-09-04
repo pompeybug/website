@@ -1,13 +1,13 @@
 ---
 layout: layouts/base.njk
 title: "Kidical Mass: Families Demand Safe Cycling Infrastructure"
-date: "2023-04-11"
+date: 2023-04-11
 categories: 
-  - "cyclerides"
-  - "events"
-  - "latest-news"
+  - cyclerides
+  - events
+  - latest-news
 tags: 
-  - "kidical-mass"
+  - kidical-mass
 coverImage: kidical-mass-portsmouth.jpg
 ---
 

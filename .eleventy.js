@@ -8,10 +8,10 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("images");
     eleventyConfig.addPassthroughCopy("style");
 
-    // eleventyConfig.addFilter('excludeFilter', function (collection) {
-    //     console.log("excludeFilter > ", collection);
-    //     return collection.filter(item => item.data.exclude);
-    // });
+    eleventyConfig.addFilter('excludeFilter', function (collection) {
+        console.log("excludeFilter > ", collection);
+        return collection.filter(item => item.data.exclude);
+    });
 
     return {
         dir: {

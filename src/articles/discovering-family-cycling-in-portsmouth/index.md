@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: "Discovering family cycling in portsmouth"
-date: "2021-02-22"
+title: Discovering family cycling in portsmouth
+date: 2021-02-22
 categories: 
-  - "bikes"
-  - "blog"
+  - bikes
+  - blog
 tags: 
-  - "cargo-bikes"
-  - "children"
-  - "family-cycling"
+  - cargo-bikes
+  - children
+  - family-cycling
 coverImage: "Discovering-family-cycling-photo3.jpg"
 ---
 

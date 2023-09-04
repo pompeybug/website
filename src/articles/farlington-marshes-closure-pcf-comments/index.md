@@ -1,16 +1,16 @@
 ---
 layout: layouts/base.njk
-title: "Farlington marshes closure - PCF comments"
-date: "2021-05-19"
+title: Farlington marshes closure - PCF comments
+date: 2021-05-19
 categories: 
-  - "campaigns"
-  - "city-council"
-  - "cycle-routes"
-  - "infrastructure"
+  - campaigns
+  - city-council
+  - cycle-routes
+  - infrastructure
 tags: 
-  - "eastern-road"
-  - "farlington-marshes"
-  - "roadworks"
+  - eastern-road
+  - farlington-marshes
+  - roadworks
 coverImage: "image6.jpg"
 ---
 

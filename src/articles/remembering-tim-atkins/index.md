@@ -1,15 +1,15 @@
 ---
 layout: layouts/base.njk
-title: "Remembering Tim Atkins"
-date: "2021-06-21"
+title: Remembering Tim Atkins
+date: 2021-06-21
 categories: 
-  - "campaigns"
-  - "city-council"
-  - "infrastructure"
-  - "pcf"
+  - campaigns
+  - city-council
+  - infrastructure
+  - pcf
 tags: 
-  - "eastern-road"
-  - "safety"
+  - eastern-road
+  - safety
 coverImage: "IMG_4876-672x372-1.jpeg"
 ---
 

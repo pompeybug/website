@@ -1,7 +1,8 @@
 ---
 layout: layouts/base.njk
-title: "2022 AGM - Documents"
-date: "2022-03-08"
+title: 2022 AGM - Documents
+date: 2022-03-08
+tags: agm
 ---
 
 Below you will find the supporting documents for the 2022 AGM which will take place on the 24nd March 2022

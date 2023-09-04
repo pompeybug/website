@@ -5,7 +5,7 @@
     --page: #FEFEFE;
     --text: #222222;
     --textinv: #EEEEEE;
-    --collapsiblespace: 0;
+    --collapsiblespace: 1em;
     --fixedspace: 0.5rem;
     --curve: calc(var(--collapsiblespace) * 0.25);
     --lineheight: 1.5rem;
@@ -147,7 +147,6 @@ nav ul {
 
 nav ul li {
     overflow: hidden;
-    transition: 0.1s ease-in-out;
 }
 
 nav ul li a {
@@ -162,10 +161,6 @@ nav ul li a {
 nav ul li a:hover {
     background-color: var(--orange);
     color: var(--textinv);
-}
-
-nav ul li:hover {
-    transform: scale(0.95);
 }
 
 main {
@@ -199,11 +194,25 @@ aside.metadata p {
 }
 
 
+.mainmenu {
+    padding: 0;
+}
+
 .mainmenu li a {
-    
+    display: block;
     text-decoration: none;
     list-style-type: none;
+    cursor: pointer;
+    padding: 0.1em 0.2em;
 }
+
+.mainmenu li a:hover {
+    background-color: var(--orange);
+    color: var(--textinv);
+    border-radius: var(--curve);
+    overflow: hidden;
+}
+
 .mainmenu li {
     list-style-type: none;
 }

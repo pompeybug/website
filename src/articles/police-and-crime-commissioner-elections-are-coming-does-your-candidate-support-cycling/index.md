@@ -1,12 +1,12 @@
 ---
 layout: layouts/base.njk
-title: "Police and Crime Commissioner elections are coming - does your candidate support cycling?"
-date: "2021-05-04"
+title: Police and Crime Commissioner elections are coming - does your candidate support cycling?
+date: 2021-05-04
 categories: 
-  - "elections"
-  - "police-and-crime-commissioner"
+  - elections
+  - police-and-crime-commissioner
 tags: 
-  - "elections"
+  - elections
 coverImage: "PCCHIOW.png"
 ---
 

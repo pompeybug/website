@@ -1,13 +1,13 @@
 ---
 layout: layouts/base.njk
-title: "Who will you be voting for?"
-date: "2019-04-25"
+title: Who will you be voting for?
+date: 2019-04-25
 categories: 
-  - "campaigns"
-  - "city-council"
-  - "elections"
+  - campaigns
+  - city-council
+  - elections
 tags: 
-  - "election"
+  - election
 coverImage: "Polling-station.jpg"
 ---
 

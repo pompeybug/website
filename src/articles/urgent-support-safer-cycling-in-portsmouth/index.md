@@ -1,13 +1,13 @@
 ---
 layout: layouts/base.njk
 title: "Urgent: Support safer cycling in Portsmouth"
-date: "2017-10-15"
+date: 2017-10-15
 categories: 
-  - "campaigns"
-  - "city-council"
-  - "pcf"
+  - campaigns
+  - city-council
+  - pcf
 tags: 
-  - "a-city-to-share"
+  - a-city-to-share
 coverImage: "city-to-share-fb.png"
 ---
 

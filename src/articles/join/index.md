@@ -1,7 +1,12 @@
 ---
 layout: layouts/base.njk
-title: "Become a Member!"
-date: "2020-11-20"
+title: Become a Member!
+tags:
+- pcf
+- membership
+- join
+- subscription
+- mailing list
 ---
 
 Membership of the Portsmouth Cycle Forum is currently **FREE**, although we do require you to sign up to our mailing list to be counted as a member.

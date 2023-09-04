@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: "Privacy Policy"
-date: "2020-11-16"
+title: Privacy Policy
+date: 2020-11-16
 ---
 
 **What data we hold:** We hold basic electronic records of supporters’ names and email addresses.

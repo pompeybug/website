@@ -1,15 +1,15 @@
 ---
 layout: layouts/base.njk
-title: "February committee meeting"
-date: "2021-02-13"
+title: February committee meeting
+date: 2021-02-13
 categories: 
-  - "meetings"
-  - "pcf"
+  - meetings
+  - pcf
 tags: 
-  - "agm"
-  - "cycle-counts"
-  - "e-scooters"
-  - "friends-of-the-earth"
+  - agm
+  - cycle-counts
+  - e-scooters
+  - friends-of-the-earth
 coverImage: "2021-02-12-19_01_17-Window.png"
 ---
 

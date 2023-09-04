@@ -1,16 +1,16 @@
 ---
 layout: layouts/base.njk
-title: "Farlington marshes closure postponed"
-date: "2021-06-14"
+title: Farlington marshes closure postponed
+date: 2021-06-14
 categories: 
-  - "campaigns"
-  - "city-council"
-  - "cycle-routes"
-  - "infrastructure"
+  - campaigns
+  - city-council
+  - cycle-routes
+  - infrastructure
 tags: 
-  - "eastern-road"
-  - "farlington-marshes"
-  - "roadworks"
+  - eastern-road
+  - farlington-marshes
+  - roadworks
 coverImage: "image6.jpg"
 ---
 

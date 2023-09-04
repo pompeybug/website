@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: "How to respond to a planning application"
-date: "2021-03-17"
+title: How to respond to a planning application
+date: 2021-03-17
 ---
 
 **Introduction**

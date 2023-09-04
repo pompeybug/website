@@ -1,16 +1,16 @@
 ---
 layout: layouts/base.njk
-title: "Safer Streets Fund"
-date: "2021-10-22"
+title: Safer Streets Fund
+date: 2021-10-22
 categories: 
-  - "campaigns"
-  - "cycle-routes"
-  - "infrastructure"
-  - "police-and-crime-commissioner"
+  - campaigns
+  - cycle-routes
+  - infrastructure
+  - police-and-crime-commissioner
 tags: 
-  - "barriers"
-  - "crime-prevention"
-  - "safer-streets-fund"
+  - barriers
+  - crime-prevention
+  - safer-streets-fund
 coverImage: "Barriers-stuck-brake-levers-2.jpg"
 ---
 

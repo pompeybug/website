@@ -1,13 +1,13 @@
 ---
 layout: layouts/base.njk
-title: "Community Cargo Project"
-date: "2022-03-08"
+title: Community Cargo Project
+date: 2022-03-08
 categories: 
-  - "bikes"
-  - "latest-news"
+  - bikes
+  - latest-news
 tags: 
-  - "bike-hire"
-  - "cargo-bike"
+  - bike-hire
+  - cargo-bike
 coverImage: "IMG_20220205_120128.jpg"
 ---
 

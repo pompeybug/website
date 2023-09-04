@@ -1,22 +1,22 @@
 ---
 layout: layouts/base.njk
-title: "Here’s what we did this summer…"
-date: "2019-10-27"
+title: Here’s what we did this summer…
+date: 2019-10-27
 categories: 
-  - "annual-general-meeting"
-  - "blog"
-  - "city-council"
-  - "cycle-routes"
-  - "infrastructure"
-  - "opinion"
-  - "pcf"
+  - annual-general-meeting
+  - blog
+  - city-council
+  - cycle-routes
+  - infrastructure
+  - opinion
+  - pcf
 tags: 
-  - "air-quality"
-  - "coastal-defence"
-  - "goldsmith-avenue"
-  - "planning-application"
-  - "summer"
-  - "wands"
+  - air-quality
+  - coastal-defence
+  - goldsmith-avenue
+  - planning-application
+  - summer
+  - wands
 coverImage: "IMG_20200711_051019-EFFECTS-scaled-e1606062257468.jpg"
 ---
 

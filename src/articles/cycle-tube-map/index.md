@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: "Cycle Tube Map"
-date: "2018-12-28"
+title: Cycle Tube Map
+date: 2018-12-28
 categories: 
-  - "cycle-routes"
-  - "infrastructure"
+  - cycle-routes
+  - infrastructure
 tags: 
-  - "cycle-routes"
-  - "safety"
-  - "tube-map"
+  - cycle-routes
+  - safety
+  - tube-map
 coverImage: "2019-01-15-11_38_02-PCF-Tube-Map-March-2018-Google-Drawings-672x372-1.png"
 ---
 

@@ -1,9 +1,9 @@
 ---
 layout: layouts/base.njk
-title: "Open Meeting"
-date: "2023-01-21"
+title: Open Meeting
+date: 2023-01-21
 tags: 
-  - "open-meeting"
+  - open-meeting
 ---
 
 Our aim is to bring you up to speed with all the current projects in development whether they are being funded through the [Local Transport Plan](https://travel.portsmouth.gov.uk/wp-content/uploads/2021/10/Local-Transport-Plan-2021.pdf), [South East Hants Rapid Transit projects](https://www.sehrt.org.uk/schemes/) or are being developed through the wider regeneration of the city.  We hope to have time for some questions, but some of us will probably retire to a local hostelry to discuss the issues raised, if you want to continue the conversation.

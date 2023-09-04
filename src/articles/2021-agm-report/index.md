@@ -1,13 +1,13 @@
 ---
 layout: layouts/base.njk
-title: "2021 AGM - Report"
-date: "2021-05-17"
+title: 2021 AGM - Report
+date: 2021-05-17
 categories: 
-  - "annual-general-meeting"
-  - "meetings"
-  - "pcf"
+  - annual-general-meeting
+  - meetings
+  - pcf
 tags: 
-  - "agm"
+  - agm
 coverImage: "AGM2021-2.jpg"
 ---
 

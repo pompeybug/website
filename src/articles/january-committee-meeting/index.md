@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: "January committee meeting"
-date: "2021-01-08"
+title: January committee meeting
+date: 2021-01-08
 categories: 
-  - "meetings"
-  - "pcf"
+  - meetings
+  - pcf
 tags: 
-  - "eastern-road"
-  - "ltp4"
-  - "open-meeting"
+  - eastern-road
+  - ltp4
+  - open-meeting
 coverImage: "google-meet-1280x720-1.jpg"
 ---
 

@@ -1,18 +1,18 @@
 ---
 layout: layouts/base.njk
-title: "Streets for people"
-date: "2019-04-01"
+title: Streets for people
+date: 2019-04-01
 categories: 
-  - "campaigns"
-  - "city-council"
-  - "environment"
+  - campaigns
+  - city-council
+  - environment
 tags: 
-  - "air-quality"
-  - "environment"
-  - "friends-of-the-earth"
-  - "pollution"
-  - "portsmouth"
-  - "streets-for-people"
+  - air-quality
+  - environment
+  - friends-of-the-earth
+  - pollution
+  - portsmouth
+  - streets-for-people
 coverImage: "a2047-1038x576-1.png"
 ---
 

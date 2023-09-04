@@ -1,13 +1,13 @@
 ---
 layout: layouts/base.njk
-title: "John Holland Memorial Day"
-date: "2019-05-13"
+title: John Holland Memorial Day
+date: 2019-05-13
 categories: 
-  - "events"
+  - events
 tags: 
-  - "bike-ride"
-  - "john-holland"
-  - "memorial"
+  - bike-ride
+  - john-holland
+  - memorial
 coverImage: "for-memorial-day-poster-672x372-1.jpg"
 ---
 

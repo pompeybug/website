@@ -1,18 +1,18 @@
 ---
 layout: layouts/base.njk
-title: "Open meeting – October 2019"
-date: "2019-10-27"
+title: Open meeting – October 2019
+date: 2019-10-27
 categories: 
-  - "events"
-  - "meetings"
+  - events
+  - meetings
 tags: 
-  - "bike-recycling"
-  - "motiv8"
-  - "october-open-meeting"
-  - "parking"
-  - "travel-plan"
-  - "university-of-portsmouth"
-  - "uop"
+  - bike-recycling
+  - motiv8
+  - october-open-meeting
+  - parking
+  - travel-plan
+  - university-of-portsmouth
+  - uop
 coverImage: "12241757_10154340721137067_1229218842759030832_n.jpg"
 ---
 

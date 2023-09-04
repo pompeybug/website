@@ -1,23 +1,23 @@
 ---
 layout: layouts/base.njk
-title: "2020 Vision - A Retrospective View"
-date: "2021-02-20"
+title: 2020 Vision - A Retrospective View
+date: 2021-02-20
 categories: 
-  - "blog"
-  - "campaigns"
-  - "city-council"
-  - "cycle-routes"
-  - "environment"
-  - "infrastructure"
-  - "meetings"
-  - "pcf"
+  - blog
+  - campaigns
+  - city-council
+  - cycle-routes
+  - environment
+  - infrastructure
+  - meetings
+  - pcf
 tags: 
-  - "air-quality"
-  - "eastern-road"
-  - "eatf"
-  - "elm-grove"
-  - "ltn-1-20"
-  - "ltp"
+  - air-quality
+  - eastern-road
+  - eatf
+  - elm-grove
+  - ltn-1-20
+  - ltp
 coverImage: "Sidenham-Terrence.jpg"
 ---
 

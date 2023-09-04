@@ -1,15 +1,15 @@
 ---
 layout: layouts/base.njk
-title: "Seafront defences planning application"
-date: "2019-09-15"
+title: Seafront defences planning application
+date: 2019-09-15
 categories: 
-  - "campaigns"
-  - "city-council"
-  - "cycle-routes"
-  - "environment"
+  - campaigns
+  - city-council
+  - cycle-routes
+  - environment
 tags: 
-  - "coastal-defence"
-  - "planning-application"
+  - coastal-defence
+  - planning-application
 coverImage: "Sea_defences.jpg"
 ---
 

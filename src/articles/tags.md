@@ -8,8 +8,9 @@ layout: layouts/base.njk
 ---
 <h1>Tag: {{ tag }}</h1>
 
-<ul>
-{% for post in collections[ tag ] | reverse %}
+<ul class="mainmenu">
+{% for post in collections[ tag ] reversed %}
   <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
 {% endfor %}
 </ul>
+

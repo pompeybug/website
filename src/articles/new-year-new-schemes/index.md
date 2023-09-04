@@ -1,16 +1,16 @@
 ---
 layout: layouts/base.njk
-title: "New year - new schemes"
-date: "2022-01-04"
+title: New year - new schemes
+date: 2022-01-04
 categories: 
-  - "city-council"
-  - "infrastructure"
+  - city-council
+  - infrastructure
 tags: 
-  - "city-centre"
-  - "consultations"
-  - "eastern-road"
-  - "goldsmith-avenue"
-  - "lake-road"
+  - city-centre
+  - consultations
+  - eastern-road
+  - goldsmith-avenue
+  - lake-road
 coverImage: "Eatern-Road-1.jpg"
 ---
 

@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: "Peter Walker was out guest on 20th Sept"
-date: "2018-09-20"
+title: Peter Walker was out guest on 20th Sept
+date: 2018-09-20
 categories: 
-  - "events"
-  - "meetings"
+  - events
+  - meetings
 tags: 
-  - "books"
-  - "open-meeting"
-  - "peter-walker"
+  - books
+  - open-meeting
+  - peter-walker
 coverImage: "https-_cdn.evbuc_.com_images_48019320_67378900689_1_original.jpg"
 ---
 

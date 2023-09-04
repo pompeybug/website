@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: "2022 AGM"
-date: "2022-03-08"
+title: 2022 AGM
+date: 2022-03-08
 ---
 
 **Our 2022 Annual General Meeting will take place at 7.00pm on Thursday 24nd March.**

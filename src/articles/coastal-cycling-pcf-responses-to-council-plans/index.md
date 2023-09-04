@@ -1,19 +1,19 @@
 ---
 layout: layouts/base.njk
 title: "Coastal cycling: PCF responses to council plans"
-date: "2019-04-01"
+date: 2019-04-01
 categories: 
-  - "campaigns"
-  - "city-council"
-  - "cycle-routes"
-  - "infrastructure"
+  - campaigns
+  - city-council
+  - cycle-routes
+  - infrastructure
 tags: 
-  - "coastal-defence"
-  - "consultation"
-  - "planning-application"
-  - "responses"
-  - "seafront"
-  - "tipner"
+  - coastal-defence
+  - consultation
+  - planning-application
+  - responses
+  - seafront
+  - tipner
 coverImage: "seafront-masterplan-cycling-walking-1038x576-1.png"
 ---
 

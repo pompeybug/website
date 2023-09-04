@@ -1,9 +1,5 @@
 <aside class=metadata>
 
-  {% if date %}
-    <p>Published: <span class="published">{{date}}</span>
-  {% endif %}
-
   {% if tags %}
     <nav class="taglist">
       <h2>Tags</h2>
@@ -14,5 +10,11 @@
       </ul>
     </nav>
   {% endif %}
+
+  {% if date %}
+    <h2>Published</h2>
+    <span class="published">{{ date.getFullYear() }}-{{  1+date.getMonth() }}-{{date.getDate()}}</span>
+  {% endif %}
+
 
 </aside>

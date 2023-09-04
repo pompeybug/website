@@ -1,13 +1,13 @@
 ---
 layout: layouts/base.njk
-title: "The Darkest hour is just before the dawn"
-date: "2017-06-29"
+title: The Darkest hour is just before the dawn
+date: 2017-06-29
 categories: 
-  - "campaigns"
-  - "city-council"
-  - "cycle-routes"
+  - campaigns
+  - city-council
+  - cycle-routes
 tags: 
-  - "tim-atkins"
+  - tim-atkins
 coverImage: "2017_0615AK-672x372-1.jpg"
 ---
 

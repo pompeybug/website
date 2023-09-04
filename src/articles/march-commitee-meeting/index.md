@@ -1,15 +1,15 @@
 ---
 layout: layouts/base.njk
-title: "March commitee meeting"
-date: "2021-03-17"
+title: March commitee meeting
+date: 2021-03-17
 categories: 
-  - "meetings"
-  - "pcf"
+  - meetings
+  - pcf
 tags: 
-  - "agm"
-  - "caz"
-  - "ltn-1-20"
-  - "shipwrights-way"
+  - agm
+  - caz
+  - ltn-1-20
+  - shipwrights-way
 coverImage: "P1020677.jpg"
 ---
 

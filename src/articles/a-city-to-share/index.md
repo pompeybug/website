@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: "A City To Share"
-date: "2020-11-24"
+title: A City To Share
+date: 2020-11-24
 ---
 
 ![](images/city-to-share-fb.png)

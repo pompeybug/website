@@ -1,13 +1,13 @@
 ---
 layout: layouts/base.njk
-title: "Council Elections are coming - does your candidate support cycling?"
-date: "2021-05-04"
+title: Council Elections are coming - does your candidate support cycling?
+date: 2021-05-04
 categories: 
-  - "campaigns"
-  - "city-council"
-  - "elections"
+  - campaigns
+  - city-council
+  - elections
 tags: 
-  - "elections"
+  - elections
 coverImage: "votebike-banner1_1.png"
 ---
 

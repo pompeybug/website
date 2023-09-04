@@ -1,15 +1,15 @@
 ---
 layout: layouts/base.njk
-title: "Cycling in snow and ice"
-date: "2019-02-03"
+title: Cycling in snow and ice
+date: 2019-02-03
 categories: 
-  - "city-council"
-  - "cycle-routes"
-  - "infrastructure"
+  - city-council
+  - cycle-routes
+  - infrastructure
 tags: 
-  - "ice"
-  - "portsmouth-city-council"
-  - "snow"
+  - ice
+  - portsmouth-city-council
+  - snow
 coverImage: "pexels-photo-730130.jpeg"
 ---
 
