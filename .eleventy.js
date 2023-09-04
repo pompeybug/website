@@ -1,6 +1,6 @@
 
 module.exports = function(eleventyConfig) {
-    eleventyConfig.addPassthroughCopy("**/*.jpg,");
+    eleventyConfig.addPassthroughCopy("**/*.jpg");
     eleventyConfig.addPassthroughCopy("**/*.jpeg");
     eleventyConfig.addPassthroughCopy("**/*.png");
     eleventyConfig.addPassthroughCopy("**/*.webp");
