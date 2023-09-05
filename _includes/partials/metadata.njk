@@ -3,16 +3,13 @@
   {% if tags %}
     <nav class="taglist">
       <h2>Tags</h2>
-      <ul>
-        {% for tag in tags -%}
-          <li><a class="tag" href="/tags/{{ tag }}">{{ tag }}</a></li> 
+        {% for tag in tags -%}<a class="tag" href="/tags/{{ tag }}">{{ tag }}</a> 
         {%- endfor %}
-      </ul>
     </nav>
   {% endif %}
 
   {% if date %}
-    <h2>Published</h2>
+    <h2>Date</h2>
     <span class="published">{{ date.getFullYear() }}-{{  1+date.getMonth() }}-{{date.getDate()}}</span>
   {% endif %}
 
