@@ -8,10 +8,9 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("images");
     eleventyConfig.addPassthroughCopy("style");
 
-    eleventyConfig.addFilter('excludeFilter', function (collection) {
-        console.log("excludeFilter > ", collection);
-        return collection.filter(item => item.data.exclude);
-    });
+    // tags.md is used for tag pages so doesn't
+    // exist as its own page.
+    eleventyConfig.ignores.add("**/tags.md");
 
     return {
         dir: {
