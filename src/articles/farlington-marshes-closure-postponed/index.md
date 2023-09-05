@@ -14,13 +14,12 @@ tags:
 coverImage: "image6.jpg"
 ---
 
-![A Cyclist on the Farlington Marshes Path](images/IMG_20190823_152705-225x300.jpg)
-
-A Cyclist on the Farlington Marshes Path
 
 We're pleased to report that Highways England have postponed the closure of the Farlington Marshes shared use path. It appears that they have belatedly recognised that the diversion proposed by their contractor, Keir Construction, was unacceptable.
 
 We reported on the proposed closure four weeks ago and found that it was both dangerous and unpleasant. The many hazards and choke-points meant it would be wholly unsuited to both the volume and variety of users the Farlington Marshes path attracts.
+
+ <img class="floater" alt="A Cyclist on the Farlington Marshes Path" src="images/IMG_20190823_152705-225x300.jpg">
 
 We understand that as well as our objection Highways England came under pressure from both Portsmouth City Council and Hampshire County Council to act. The closure has been postponed, rather than cancelled, whilst a better diversion is worked out. We await details of that with interest.
 
