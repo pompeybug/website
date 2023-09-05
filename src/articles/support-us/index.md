@@ -1,6 +1,8 @@
 ---
 layout: layouts/base.njk
 title: Donate - Support Us!
+tags:
+ - PCF
 ---
 
 Membership of Portsmouth Cycle Forum is **free**, because we want to encourage as many cyclists as we can to engage with our campaign. However, any campaign has some costs and the cycle forum is no different.
