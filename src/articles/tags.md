@@ -1,4 +1,5 @@
 ---
+title: All tags
 pagination:
   data: collections
   size: 1
