@@ -1,9 +1,9 @@
 ---
-title: Article Index
-description: This is an example build page
+title: Articles
+description: A list of all articles on the site
 layout: layouts/base.njk
-exclude: true
 date: 2000-01-01
+eleventyExcludeFromCollections: true
 ---
 
 <ul class="mainmenu">
