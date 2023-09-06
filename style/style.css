@@ -1,28 +1,47 @@
 :root {
-    --orange: #D7713D;
-    --olive: #929D59;
-    --page: #FEFEFE;
+    --col1: #929D59FF;
+    --col1light: #929D5955;
+    --col2: #D7713DFF;
+    --col2light: #D7713D55;
+    --page: #FDFDFD;
     --text: #222222;
-    --midgrey: #AAA;
+    --col3: #555555;
+    --midgrey: #CCC;
     --textinv: #EEEEEE;
-    --collapsiblespace: 1em;
+    --footerspace: 0.5em;
     --fixedspace: 0.5rem;
-    --curve: calc(var(--collapsiblespace) * 0.25);
+    --curve: 0;
+    --buttoncurve: calc(var(--fixedspace) * 0.25);
     --lineheight: 1.5rem;
     --bgcol: var(--page);
-    --link: #33F;
-    --vlink: #90F;
+    --link: var(--col2);
+    --vlink: var(--col1);
 
-    --mainmenu-direction: row;
+    --navmenu-direction: row;
+    --navmenu-gap: var(--fixedspace);
+    --navmenu-padding: var(--fixedspace) var(--fixedspace) 0 var(--fixedspace);
+    --navmenu-curve: 0;
+    --navmenu-margin: 0;
+    --navmenu-wrap: wrap;
+
+    --taglist-direction: row;
+    --taglist-gap: var(--fixedspace);
+    --taglist-padding: var(--fixedspace);
+    --taglist-curve: 0;
+    --taglist-margin: 0;
+    --taglist-wrap: wrap;
+
+    --flexgrow: 1;
 
     --gridcols: 1fr;
-    --gridrows: auto;
-    --gridtemplateareas: "header" "menu" "article" "metadata" "footer";
+    --gridrows: auto auto auto 1fr auto;
+    --gridtemplateareas: "header" "menu" "taglist" "metadata" "article" "footer";
 
-    --headergridcols: 1fr auto;
+    --headergridcols: auto;
     --headergridrows: auto;
     --headergridtemplateareas: "h1 h1" "logo text";
 
+    --footerspace: 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -34,21 +53,48 @@
         --link: #77F;
         --vlink: #A4F;
         --padding: 0;
+        --headergridcols: auto 1fr;
+        --headergridrows: auto auto;
+        --headergridtemplateareas: "h1 h1" "logo text";
+
+        --footerspace: 1em;
+
+        --taglist-direction: column;
+
     }
 }
 
-@media screen and (width > 30rem) {
+@media screen and (width > 40rem) {
     :root {
         --fixedspace: 1rem;
-        --collapsiblespace: 1rem;
+        --footerspace: 0;
         --padding: 1rem;
         --gridcols: 10rem 1fr;
-        --gridrows: auto auto 1fr auto;
+        --gridrows: auto auto auto 1fr auto;
         --gridtemplateareas: "header header"
                              "menu article"
-                             "metadata article"
+                             "taglist article"
+                             ". article"
                              "footer footer";
-        --mainmenu-direction: column;
+
+        --navmenu-direction: column;
+        --navmenu-gap: calc( var(--fixedspace) / 4);
+        --navmenu-padding: calc( var(--fixedspace) / 4);
+        --navmenu-curve: calc( var(--fixedspace) / 2);
+        --navmenu-margin: 1em;
+        --navmenu-wrap: nowrap;
+
+        --taglist-direction: column;
+        --taglist-gap: calc( var(--fixedspace) / 4);
+        --taglist-padding: calc( var(--fixedspace) / 4);
+        --taglist-curve: calc( var(--fixedspace) / 2);
+        --taglist-margin: 1em;
+        --taglist-wrap: nowrap;
+
+        --flexgrow: 0;
+
+        --curve: calc(var(--fixedspace) * 0.25);
+
     }
 }
 
@@ -65,7 +111,7 @@ body {
     background-color: var(--bgcol);
     color: var(--text);
     font-family: sans-serif;
-    margin: var(--collapsiblespace) auto;
+    margin: 0 auto;
 
     padding: var(--padding);
     min-height: 100dvh;
@@ -73,29 +119,47 @@ body {
 
 }
 
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text);
+}
+
 a {
     color: var(--link);
+    background: var(--page);
+    text-decoration: none;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+    margin-left: -0.25em;
+    margin-right: -0.25em;
+    border-radius: var(--curve);
 }
 
 a:visited {
     color: var(--vlink);
 }
 
-header, main, footer {
-    border-radius: var(--curve);
-    padding: var(--fixedspace);
-    background-color: var(--page);
-    color: var(--text);
-    margin-bottom: var(--fixedspace);
+a:hover {
+    background-color: var(--col2);
+    color: var(--page);
 }
 
 main {
-    padding: 0 0 var(--fixedspace) var(--fixedspace);
+    margin: var(--fixedspace);
+    background-color: var(--page);
+    color: var(--text);
+}
+
+header, footer {
+    margin: 0;
+    padding: var(--fixedspace);
+    background-color: var(--page);
+    color: var(--text);
+    border-radius: var(--curve);
 }
 
 footer {
     grid-area: footer;
-    margin-bottom: var(--collapsiblespace);
+    margin-bottom: var(--footerspace);
 }
 
 header {
@@ -110,10 +174,8 @@ header {
 }
 
 header, footer {
-    background-color: var(--olive);
-    background-color: var(--olive);
+    background-color: var(--col2);
     color: var(--textinv);
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.25);
 }
 
 header #masthead {
@@ -126,44 +188,20 @@ header h1 {
     margin: 0;
     padding: 0;
     font-size: calc(minmax(100vw, 60rem)/14);
-    text-align: center;
-}
-
-header p {
-    margin: 0;
-    padding: 0;
 }
 
 header p {
     grid-area: text;
-}
-
-nav {
-    grid-area: menu;
-}
-
-nav ul {
-    list-style-type: none;
     margin: 0;
     padding: 0;
+    display: var(--showhide);
 }
 
-nav ul li {
-    overflow: hidden;
-}
-
-nav ul li a {
-    display: block;
-    padding: 0.5rem;
+header a,
+header a:visited {
+    color: var(--page);
+    background: var(--col2);
     text-decoration: none;
-    border: thin grey solid;
-    border-radius: var(--curve);
-    margin-bottom: 0.25rem;
-}
-
-nav ul li a:hover {
-    background-color: var(--orange);
-    color: var(--textinv);
 }
 
 main {
@@ -172,8 +210,9 @@ main {
 }
 
 main>h1 {
-    color: var(--orange);
+    color: var(--text);
     line-height: 1em;
+    margin:0;
 }
 
 main img {
@@ -182,57 +221,79 @@ main img {
 }
 
 .published, .tags, .categories {
-    color: var(--orange);
+    color: var(--col1);
 }
 
-aside.metadata {
+nav.metadata {
     grid-area: metadata;
 }
 
-aside.metadata p {
-    font-size: 85%;
+nav h2 {
+    display: inline-block;
+    font-size: 1em;
     margin: 0;
-    padding: 0;
-    line-height: 1rem;
+    padding: 0.1em 0.2em;
+    min-width: 4em;
 }
 
 #navmenu {
+    grid-area: menu;
     display: flex;
-    flex-direction: var(--mainmenu-direction);
-    gap: var(--fixedspace);
+    flex-direction: var(--navmenu-direction);
+    padding: var(--navmenu-padding);
+    border-radius: var(--taglist-curve);
+    gap: var(--navmenu-gap);
+    align-content: stretch;
+    background-color: var(--col1light);
+    flex-wrap: var(--navmenu-wrap);
+    margin-top: var(--navmenu-margin)
 }
 
-#navmenu a {
+#taglist {
+    grid-area: taglist;
+    display: flex;
+    flex-direction: var(--taglist-direction);
+    padding: var(--taglist-padding);
+    border-radius: var(--taglist-curve);
+    gap: var(--taglist-gap);
+    align-content: stretch;
+    justify-content: flex-start;
+    background-color: var(--col1light);
+    flex-wrap: var(--taglist-wrap);
+    margin-top: var(--navmenu-margin)
+}
+
+
+#navmenu a,
+#taglist a {
     text-decoration: none;
     list-style-type: none;
     cursor: pointer;
     padding: 0.1em 0.2em;
+    margin: 0;
     border-radius: var(--curve);
-    border: var(--midgrey) thin solid;
     color: var(--text);
+    flex-grow: var(--flexgrow);
+    background: var(--col2);
+    color: var(--page);
+    border: var(--page) solid 1px;
 }
 
-#navmenu a:hover {
-    background-color: var(--orange);
-    color: var(--textinv);
+#navmenu a:hover,
+#taglist a:hover {
+    background: var(--page);
+    color: var(--col2);
+    border: var(--page) solid 1px;
 }
 
-.taglist ul{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    border-radius: 100%;
-}
-
-.taglist li a {
-    font-size: 90%;
-    padding: 0.2em 0.4em;
-    margin: 0.1em;
-    background: #666;
-    color: white;
-}
 
 input[type="text"],
 input[type="email"] {
     width: 100%;
+}
+
+.floater {
+    max-width: 50%;
+    float: right;
+    margin-left: 1em;
 }

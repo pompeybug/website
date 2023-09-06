@@ -9,13 +9,16 @@
 
 {% include "partials/header.html" %}
 {% include "partials/navmenu.html" %}
-{% include "partials/metadata.njk" %}
+{% include "partials/taglist.html" %}
 
 <main>
+  <h1 class=title>{{ title }}</h1>
+
+  {% include "partials/metadata.html" %}
+
   {% if coverImage %}
     <img src="images/{{ coverImage }}" alt="{{ title }}">
   {% endif %}
-  <h1 class=title>{{ title }}</h1>
 
   <article>
     {{ content | safe }}
