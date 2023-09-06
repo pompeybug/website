@@ -19,14 +19,14 @@
 
     --navmenu-direction: row;
     --navmenu-gap: var(--fixedspace);
-    --navmenu-padding: var(--fixedspace) var(--fixedspace) 0 var(--fixedspace);
+    --navmenu-padding: var(--fixedspace);
     --navmenu-curve: 0;
     --navmenu-margin: 0;
     --navmenu-wrap: wrap;
 
     --taglist-direction: row;
     --taglist-gap: var(--fixedspace);
-    --taglist-padding: var(--fixedspace);
+    --taglist-padding: 0 var(--fixedspace) var(--fixedspace) var(--fixedspace);
     --taglist-curve: 0;
     --taglist-margin: 0;
     --taglist-wrap: wrap;
@@ -42,6 +42,8 @@
     --headergridtemplateareas: "h1 h1" "logo text";
 
     --footerspace: 0;
+
+    --showhide: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -68,7 +70,7 @@
     :root {
         --fixedspace: 1rem;
         --footerspace: 0;
-        --padding: 1rem;
+        --padding: 2rem;
         --gridcols: 10rem 1fr;
         --gridrows: auto auto auto 1fr auto;
         --gridtemplateareas: "header header"
@@ -80,20 +82,22 @@
         --navmenu-direction: column;
         --navmenu-gap: calc( var(--fixedspace) / 4);
         --navmenu-padding: calc( var(--fixedspace) / 4);
-        --navmenu-curve: calc( var(--fixedspace) / 2);
+        --navmenu-curve: var(--buttoncurve);
         --navmenu-margin: 1em;
         --navmenu-wrap: nowrap;
 
         --taglist-direction: column;
         --taglist-gap: calc( var(--fixedspace) / 4);
         --taglist-padding: calc( var(--fixedspace) / 4);
-        --taglist-curve: calc( var(--fixedspace) / 2);
+        --taglist-curve: var(--buttoncurve);
         --taglist-margin: 1em;
         --taglist-wrap: nowrap;
 
         --flexgrow: 0;
 
         --curve: calc(var(--fixedspace) * 0.25);
+
+        --showhide: inherit;
 
     }
 }
@@ -129,9 +133,7 @@ a {
     text-decoration: none;
     padding-left: 0.25em;
     padding-right: 0.25em;
-    margin-left: -0.25em;
-    margin-right: -0.25em;
-    border-radius: var(--curve);
+    border-radius: var(--buttoncurve);
 }
 
 a:visited {
@@ -152,14 +154,14 @@ main {
 header, footer {
     margin: 0;
     padding: var(--fixedspace);
-    background-color: var(--page);
-    color: var(--text);
     border-radius: var(--curve);
 }
 
 footer {
     grid-area: footer;
     margin-bottom: var(--footerspace);
+    background-color: var(--col1light);
+    color: var(--text);
 }
 
 header {
@@ -169,13 +171,12 @@ header {
     grid-template-rows: var(--headergridrows);
     grid-template-areas: var(--headergridtemplateareas);
 
-    align-items: center;
-    gap: var(--fixedspace);
-}
-
-header, footer {
     background-color: var(--col2);
     color: var(--textinv);
+    align-items: center;
+    gap: var(--fixedspace);
+
+    container-type: inline-size;
 }
 
 header #masthead {
@@ -187,7 +188,12 @@ header h1 {
     grid-area: h1;
     margin: 0;
     padding: 0;
-    font-size: calc(minmax(100vw, 60rem)/14);
+    font-size: 8cqw;
+    text-align: center;
+}
+
+header h1 a {
+    padding: 0;
 }
 
 header p {
@@ -197,12 +203,32 @@ header p {
     display: var(--showhide);
 }
 
+header img {
+    display: var(--showhide);
+}
+
+
 header a,
 header a:visited {
     color: var(--page);
     background: var(--col2);
     text-decoration: none;
 }
+
+footer a,
+footer a:visited {
+    border: var(--page) solid 1px;
+    color: var(--page);
+    background: var(--col2);
+    text-decoration: none;
+}
+
+footer a:hover {
+    background: var(--page);
+    color: var(--col2);
+    border: var(--col2) solid 1px;
+}
+
 
 main {
     grid-area: article;
@@ -271,7 +297,7 @@ nav h2 {
     cursor: pointer;
     padding: 0.1em 0.2em;
     margin: 0;
-    border-radius: var(--curve);
+    border-radius: var(--buttoncurve);
     color: var(--text);
     flex-grow: var(--flexgrow);
     background: var(--col2);
@@ -283,7 +309,7 @@ nav h2 {
 #taglist a:hover {
     background: var(--page);
     color: var(--col2);
-    border: var(--page) solid 1px;
+    border: var(--col2) solid 1px;
 }
 
 
