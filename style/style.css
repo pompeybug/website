@@ -34,7 +34,7 @@
     --flexgrow: 1;
 
     --gridcols: 1fr;
-    --gridrows: auto auto auto 1fr auto;
+    --gridrows: auto auto auto auto 1fr auto;
     --gridtemplateareas: "header" "menu" "taglist" "metadata" "article" "footer";
 
     --headergridcols: auto;
