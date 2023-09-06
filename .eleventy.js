@@ -10,7 +10,7 @@ module.exports = function(eleventyConfig) {
 
     // tags.md is used for tag pages so doesn't
     // exist as its own page.
-    eleventyConfig.ignores.add("**/tags.md");
+    // eleventyConfig.ignores.add("**/tags.md");
 
     return {
         dir: {
