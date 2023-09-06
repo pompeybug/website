@@ -2,10 +2,9 @@
 layout: layouts/base.njk
 title: July committee meeting
 date: 2021-07-25
-categories: 
+tags:  
   - meetings
-  - pcf
-tags: 
+  - pcf 
   - barriers
   - farlington-marshes
 coverImage: "Barriers-stuck-brake-levers-2.jpg"

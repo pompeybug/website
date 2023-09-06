@@ -2,11 +2,10 @@
 layout: layouts/base.njk
 title: Streets for people
 date: 2019-04-01
-categories: 
+tags:  
   - campaigns
   - city-council
-  - environment
-tags: 
+  - environment 
   - air-quality
   - environment
   - friends-of-the-earth

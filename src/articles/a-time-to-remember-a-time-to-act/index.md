@@ -2,11 +2,10 @@
 layout: layouts/base.njk
 title: A Time To Remember, A Time To Act
 date: 2017-06-10
-categories: 
+tags:  
   - campaigns
   - city-council
-  - events
-tags: 
+  - events 
   - tim-atkins
 coverImage: "IMG_4876-672x372-1.jpeg"
 ---

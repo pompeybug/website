@@ -2,11 +2,10 @@
 layout: layouts/base.njk
 title: City Council Elections 2023 - Questions for The Parties
 date: 2023-04-20
-categories: 
+tags:  
   - city-council
   - elections
-  - latest-news
-tags: 
+  - latest-news 
   - local-elections
   - portsmouth-city-council
 coverImage: "votebike-banner1_1.png"

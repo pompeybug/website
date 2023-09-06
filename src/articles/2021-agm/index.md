@@ -2,13 +2,12 @@
 layout: layouts/base.njk
 title: 2021 AGM - Documents
 date: 2021-03-22
-categories: 
+tags: 
+  - agm
   - annual-general-meeting
   - events
   - meetings
   - pcf
-tags: 
-  - agm
 coverImage: "agm4.png"
 ---
 

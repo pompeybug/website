@@ -2,11 +2,10 @@
 layout: layouts/base.njk
 title: Who will you be voting for?
 date: 2019-04-25
-categories: 
+tags:  
   - campaigns
   - city-council
-  - elections
-tags: 
+  - elections 
   - election
 coverImage: "Polling-station.jpg"
 ---

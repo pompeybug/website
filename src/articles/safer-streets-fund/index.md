@@ -2,12 +2,11 @@
 layout: layouts/base.njk
 title: Safer Streets Fund
 date: 2021-10-22
-categories: 
+tags:  
   - campaigns
   - cycle-routes
   - infrastructure
-  - police-and-crime-commissioner
-tags: 
+  - police-and-crime-commissioner 
   - barriers
   - crime-prevention
   - safer-streets-fund

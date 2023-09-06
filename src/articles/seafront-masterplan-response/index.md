@@ -2,11 +2,10 @@
 layout: layouts/base.njk
 title: Seafront masterplan response
 date: 2020-10-15
-categories: 
+tags:  
   - city-council
   - infrastructure
-  - pcf
-tags: 
+  - pcf 
   - seafront
 coverImage: "IMG_20201009_125502.jpg"
 ---

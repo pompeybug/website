@@ -2,11 +2,10 @@
 layout: layouts/base.njk
 title: Cycling in snow and ice
 date: 2019-02-03
-categories: 
+tags:  
   - city-council
   - cycle-routes
-  - infrastructure
-tags: 
+  - infrastructure 
   - ice
   - portsmouth-city-council
   - snow

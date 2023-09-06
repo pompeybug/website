@@ -2,12 +2,11 @@
 layout: layouts/base.njk
 title: There's a plan afoot!
 date: 2020-12-23
-categories: 
+tags:  
   - blog
   - city-council
   - cycle-routes
-  - infrastructure
-tags: 
+  - infrastructure 
   - consultations
   - lcwip
 coverImage: "IMG_20200531_212143.jpg"

@@ -2,10 +2,9 @@
 layout: layouts/base.njk
 title: DFT questions Portsmouth's ability to design for Boris' golden age of cycling
 date: 2021-08-02
-categories: 
+tags:  
   - dft
-  - infrastructure
-tags: 
+  - infrastructure 
   - capability-fund
   - dft
   - goverment

@@ -2,10 +2,9 @@
 layout: layouts/base.njk
 title: PCF awarded ‘Outstanding Campaigning Group’
 date: 2018-10-13
-categories: 
+tags:  
   - campaigns
-  - pcf
-tags: 
+  - pcf 
   - awards
   - pcf
 coverImage: "IMG_1844-672x372-1.jpg"

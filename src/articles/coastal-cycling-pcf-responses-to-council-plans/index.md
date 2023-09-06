@@ -2,12 +2,11 @@
 layout: layouts/base.njk
 title: "Coastal cycling: PCF responses to council plans"
 date: 2019-04-01
-categories: 
+tags:  
   - campaigns
   - city-council
   - cycle-routes
-  - infrastructure
-tags: 
+  - infrastructure 
   - coastal-defence
   - consultation
   - planning-application

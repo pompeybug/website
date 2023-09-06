@@ -2,11 +2,10 @@
 layout: layouts/base.njk
 title: PCC launches new Long Term Transport Strategy
 date: 2020-12-28
-categories: 
+tags:  
   - blog
   - city-council
-  - infrastructure
-tags: 
+  - infrastructure 
   - consultations
   - ltp4
 coverImage: "IMG_1799.jpeg"

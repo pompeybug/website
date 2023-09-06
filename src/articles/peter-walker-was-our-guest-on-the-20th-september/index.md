@@ -2,10 +2,9 @@
 layout: layouts/base.njk
 title: Peter Walker was out guest on 20th Sept
 date: 2018-09-20
-categories: 
+tags:  
   - events
-  - meetings
-tags: 
+  - meetings 
   - books
   - open-meeting
   - peter-walker

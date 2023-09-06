@@ -2,12 +2,11 @@
 layout: layouts/base.njk
 title: Seafront defences planning application
 date: 2019-09-15
-categories: 
+tags:  
   - campaigns
   - city-council
   - cycle-routes
-  - environment
-tags: 
+  - environment 
   - coastal-defence
   - planning-application
 coverImage: "Sea_defences.jpg"

@@ -2,9 +2,8 @@
 layout: layouts/base.njk
 title: "John Holland: An obituary"
 date: 2019-01-27
-categories: 
-  - pcf
-tags: 
+tags:  
+  - pcf 
   - john-holland
 coverImage: "20090920-101456-1004200953-672x372-1.jpg"
 ---

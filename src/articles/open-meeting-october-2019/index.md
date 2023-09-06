@@ -2,10 +2,9 @@
 layout: layouts/base.njk
 title: Open meeting – October 2019
 date: 2019-10-27
-categories: 
+tags:  
   - events
-  - meetings
-tags: 
+  - meetings 
   - bike-recycling
   - motiv8
   - october-open-meeting

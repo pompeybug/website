@@ -2,10 +2,9 @@
 layout: layouts/base.njk
 title: New year - new schemes
 date: 2022-01-04
-categories: 
+tags:  
   - city-council
-  - infrastructure
-tags: 
+  - infrastructure 
   - city-centre
   - consultations
   - eastern-road
@@ -14,10 +13,9 @@ tags:
 coverImage: "Eatern-Road-1.jpg"
 ---
 
-Twelve months ago it was announced that the Eastern Road path would be widened.  
-12 months later work has now started and there are a number of other schemes being designed and presented for feedback from residents.
-
-We have rounded them up here for you…
+* Twelve months ago it was announced that the Eastern Road path would be widened.  
+* Twelve months later work has now started and there are a number of other schemes being designed and presented for feedback from residents.
+* We have rounded them up here for you…
 
 ## Eastern Road Improvements
 
@@ -33,7 +31,7 @@ Work here is being carried overnight and the road itself is closed to motor vehi
   
 ![](images/Eatern-Road-3.jpg)![](images/Eastern-Road-2.jpg)
 
-* * *
+---
 
 ## Sustainable Travel Schemes
 
@@ -43,6 +41,8 @@ The surveys are to gather feedback prior to further design work and a formal app
   
 You can read more about all of the schemes under the TCF bid at the **[South East Hampshire Rapid Transit (SEHRT) website](https://www.sehrt.org.uk/schemes/).**
 
+---
+
 ### Goldsmith Avenue - Closes 9th January
 
 ![](images/Goldsmith-1024x403.jpg)
@@ -50,6 +50,8 @@ You can read more about all of the schemes under the TCF bid at the **[South Eas
 Goldsmith Avenue is identified in the Local Cycling and Walking Infrastructure Plan (LCWIP) as one of Portsmouth’s key cycle routes, and is a significant section of the east to west corridor. These proposals build on the current cycle scheme on Goldsmith Avenue, extending from Fratton Bridge to the city centre via Sydenham Terrace and Canal Walk.
 
 [**To complete the survey follow this link**](https://www.sehrt.org.uk/schemes/goldsmith-avenue-cycling/)
+
+---
 
 ### Fratton to City Centre Walking Route - Closes 9th January
 
@@ -61,6 +63,8 @@ With 24% of all journeys to work less than 1.2 miles, there is significant poten
 
 [**Complete the survey here**](https://www.sehrt.org.uk/schemes/fratton-bridge-walking/)
 
+---
+
 ### Lake Road Closes 31st January
 
 ![](images/Lake-Road.jpg)
@@ -68,6 +72,8 @@ With 24% of all journeys to work less than 1.2 miles, there is significant poten
 Lake Road is a busy east-west route from the city centre to the residential areas of Landport and Fratton. This route experiences congestion at peak times, especially in the morning. It is a key route for many bus services travelling in and out of the city, and forms part of a popular cycling route. Public transport infrastructure improvements will save time on journeys, and improvements to the roundabout will make it safer for people walking and cycling.
 
 [**Complete the survey here**](https://www.sehrt.org.uk/schemes/lake-road/)
+
+---
 
 ### City Centre North & South - Closes 31st January
 

@@ -2,10 +2,9 @@
 layout: layouts/base.njk
 title: Cycle Tube Map
 date: 2018-12-28
-categories: 
+tags:  
   - cycle-routes
-  - infrastructure
-tags: 
+  - infrastructure 
   - cycle-routes
   - safety
   - tube-map

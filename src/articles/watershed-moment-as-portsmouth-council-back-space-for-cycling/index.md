@@ -2,10 +2,9 @@
 layout: layouts/base.njk
 title: Watershed moment as Portsmouth Council back space for cycling
 date: 2017-10-27
-categories: 
+tags:  
   - city-council
-  - pcf
-tags: 
+  - pcf 
   - a-city-to-share
 coverImage: "city-to-share-fb.png"
 ---

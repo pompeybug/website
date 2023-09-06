@@ -2,10 +2,9 @@
 layout: layouts/base.njk
 title: February committee meeting
 date: 2021-02-13
-categories: 
+tags:  
   - meetings
-  - pcf
-tags: 
+  - pcf 
   - agm
   - cycle-counts
   - e-scooters

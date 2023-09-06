@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 title: 2020 Vision - A Retrospective View
 date: 2021-02-20
-categories: 
+tags: 
   - blog
   - campaigns
   - city-council
@@ -11,7 +11,6 @@ categories:
   - infrastructure
   - meetings
   - pcf
-tags: 
   - air-quality
   - eastern-road
   - eatf

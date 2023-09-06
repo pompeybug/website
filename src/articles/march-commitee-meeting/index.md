@@ -2,10 +2,9 @@
 layout: layouts/base.njk
 title: March commitee meeting
 date: 2021-03-17
-categories: 
+tags:  
   - meetings
-  - pcf
-tags: 
+  - pcf 
   - agm
   - caz
   - ltn-1-20

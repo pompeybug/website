@@ -2,11 +2,10 @@
 layout: layouts/base.njk
 title: April committee meeting
 date: 2021-04-10
-categories: 
+tags:  
   - annual-general-meeting
   - meetings
-  - pcf
-tags: 
+  - pcf 
   - agm
   - eatf
   - elections
