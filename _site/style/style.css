@@ -34,7 +34,7 @@
     --flexgrow: 1;
 
     --gridcols: 1fr;
-    --gridrows: auto auto auto 1fr auto;
+    --gridrows: auto auto auto auto 1fr auto;
     --gridtemplateareas: "header" "menu" "taglist" "metadata" "article" "footer";
 
     --headergridcols: auto;
@@ -97,7 +97,7 @@
 
         --curve: calc(var(--fixedspace) * 0.25);
 
-        --showhide: inherit;
+        --showhide: block;
 
     }
 }
@@ -164,6 +164,11 @@ footer {
     color: var(--text);
 }
 
+footer p {
+    margin: 0;
+    padding: 0;
+}
+
 header {
     grid-area: header;
     display: grid;
@@ -213,6 +218,7 @@ header a:visited {
     color: var(--page);
     background: var(--col2);
     text-decoration: none;
+    display: block;
 }
 
 footer a,
