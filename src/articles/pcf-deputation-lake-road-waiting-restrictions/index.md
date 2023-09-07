@@ -19,15 +19,17 @@ The purpose of report is to consider representations received during the consult
 * Report: [TRO 39/2023: Lake Road (Waiting Restrictions and Bus Lane)](https://democracy.portsmouth.gov.uk/documents/s47384/SEHRT%20Lake%20Road%20TRO%2039%20Waiting%20Restrictions%20and%20Bus%20Lane.pdf)
 * Appendices: [H-Q](https://democracy.portsmouth.gov.uk/mgAi.aspx?ID=22315#mgDocuments) are available with better quality plans.
 
-## Recommendations:
+## Recommendations
 
 It is recommended that the Cabinet Member for Transport approves the Lake Road scheme and the implementation of the TRO 39/2023 for the introduction of Waiting Restrictions and Bus Lane on Lake Road, Portsmouth as advertised, following the formal consultation.
 
-## NB
+## Nota Bene
 
 At the time of uploading this to the PCF website, the council website has not been updated with the formal decision wording.  However the scheme and TRO were both **approved to proceed**, but with some additional stipulations about investigations to discover if three of the trees could be saved by redesigning or re-routing elements.
 
-## PCF Deputation:
+---
+
+## PCF Deputation
 
 Portsmouth Cycle Forum welcomes and supports this project being brought forward some six years after we had our first site meeting with PCC officers at the Holbrook Road roundabout to analyse the issues and discuss improvements to the connectivity and safety for everyone who chooses  to cycle in our city.
 

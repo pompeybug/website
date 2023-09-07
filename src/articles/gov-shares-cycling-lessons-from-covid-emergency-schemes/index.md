@@ -10,9 +10,9 @@ tags:
 coverImage: "2021-08-02-21_22_06-Gear-Change_-One-Year-On-gear-change-one-year-on.pdf-—-Mozilla-Firefox.png"
 ---
 
-Gear Change: One Year On is a review document published by the Department for Transport on 30 July, setting out the successes of the Emergency Active Travel Fund, and government’s 2020 policy “Gear Change” which included guidance for massively improved cycling infrastructure.
+_"Gear Change: One Year On"_ is a review document published by the Department for Transport on 30 July, setting out the successes of the Emergency Active Travel Fund, and government’s 2020 policy “Gear Change” which included guidance for massively improved cycling infrastructure.
 
-Whilst I’m writing this short(ish) summary of the “Gear Change: One Year On”, I’m struck by just how compelling the introduction is. Everyone should go and read it. Every naysayer; every “but I can’t possibly move without a car” touter; everyone who says “but what about when it rains” - [**JUST READ IT**](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1007619/gear-change-one-year-on.pdf).
+Whilst I’m writing this short(ish) summary of the _Gear Change: One Year On_, I’m struck by just how compelling the introduction is. Everyone should go and read it. Every naysayer; every “but I can’t possibly move without a car” touter; everyone who says “but what about when it rains” - [**JUST READ IT**](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1007619/gear-change-one-year-on.pdf).
 
 Here’s a summary. But really, do go and read it: 
 

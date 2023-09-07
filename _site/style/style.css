@@ -347,3 +347,8 @@ input[type="email"] {
     float: right;
     margin-left: 1em;
 }
+
+main .menu a {
+    display: inline-block;
+    vertical-align: top;
+}
