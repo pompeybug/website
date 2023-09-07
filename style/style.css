@@ -31,7 +31,7 @@
     --taglist-margin: 0;
     --taglist-wrap: wrap;
 
-    --flexgrow: 1;
+    --flexgrow: 0;
 
     --gridcols: 1fr;
     --gridrows: auto auto auto auto 1fr auto;
@@ -77,7 +77,7 @@
                              "menu article"
                              "taglist article"
                              ". article"
-                             "footer footer";
+                             ". footer";
 
         --navmenu-direction: column;
         --navmenu-gap: calc( var(--fixedspace) / 4);
@@ -93,7 +93,7 @@
         --taglist-margin: 1em;
         --taglist-wrap: nowrap;
 
-        --flexgrow: 0;
+        --flexgrow: 1;
 
         --curve: calc(var(--fixedspace) * 0.25);
 
@@ -171,6 +171,7 @@ footer {
     margin-bottom: var(--footerspace);
     background-color: var(--col1light);
     color: var(--text);
+    line-height: var(--lineheight);
 }
 
 footer p {
@@ -196,6 +197,7 @@ header {
 header #masthead {
     grid-area: logo;
     max-height: 4rem;
+    margin-inline-start: 2cqw;
 }
 
 header h1 {
@@ -215,6 +217,7 @@ header p {
     margin: 0;
     padding: 0;
     display: var(--showhide);
+    margin-inline-end: 2cqw;
 }
 
 header img {
@@ -269,6 +272,7 @@ nav.metadata {
     grid-area: metadata;
 }
 
+#date h2,
 nav h2 {
     display: inline-block;
     font-size: 1em;
@@ -286,7 +290,6 @@ nav h2 {
     gap: var(--navmenu-gap);
     align-content: stretch;
     background-color: var(--col1light);
-    flex-wrap: var(--navmenu-wrap);
     margin-top: var(--navmenu-margin)
 }
 
@@ -303,7 +306,7 @@ nav h2 {
     margin-top: var(--navmenu-margin)
 }
 
-#taglist .innerlist {
+.innerlist {
     display: flex;
     flex-direction: var(--taglist-direction);
     gap: var(--taglist-gap);
@@ -323,6 +326,7 @@ nav h2 {
     background: var(--col2);
     color: var(--page);
     border: var(--page) solid 1px;
+    display: inline-block;
 }
 
 #navmenu a:hover,

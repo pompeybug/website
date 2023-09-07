@@ -1,6 +1,3 @@
 {% if date %}
-<nav id=metadata>
-  <h2>Date</h2>
-  <span class="published">{{ date.getFullYear() }}-{{  1+date.getMonth() }}-{{date.getDate()}}</span>
-</nav>
+<aside id=date class="published">{{ date.toDateString()}}</aside>
 {% endif %}
