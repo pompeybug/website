@@ -123,9 +123,6 @@ body {
 
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: var(--text);
-}
 
 a {
     color: var(--link);
@@ -150,6 +147,18 @@ main {
     background-color: var(--page);
     color: var(--text);
 }
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text);
+}
+
+main h1 { font-size: 1.6em; }
+main h2 { font-size: 1.45em; }
+main h3 { font-size: 1.3em; }
+main h4 { font-size: 1.2em; }
+main h5 { font-size: 1.1em; }
+main h6 { font-size: 1em; }
 
 header, footer {
     margin: 0;
@@ -291,10 +300,15 @@ nav h2 {
     align-content: stretch;
     justify-content: flex-start;
     background-color: var(--col1light);
-    flex-wrap: var(--taglist-wrap);
     margin-top: var(--navmenu-margin)
 }
 
+#taglist .innerlist {
+    display: flex;
+    flex-direction: var(--taglist-direction);
+    gap: var(--taglist-gap);
+    flex-wrap: var(--taglist-wrap);
+}
 
 #navmenu a,
 #taglist a {
