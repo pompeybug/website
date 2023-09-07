@@ -2,11 +2,12 @@
 layout: layouts/base.njk
 title: A City To Share
 date: 2020-11-24
+tags:
+ - strategy
+ - portsmouth-city-council
 ---
 
-![](images/city-to-share-fb.png)
-
-#### THE VISION
+## THE VISION
 
 Our vision is that Portsmouth becomes the pre-eminent cycling city of the UK.
 
@@ -36,4 +37,5 @@ A shift in transport away from the dominance of the road infrastructure by the p
 
 ## Download “A City to Share”
 
-The complete strategy document is now available to download [here](http://box5193.temp.domains/~pompeybu/wp-content/uploads/2020/11/a-city-to-share-3.pdf)
+Download the complete strategy document ["A City to Share"](strategy.pdf) (PDF) for more detail.
+

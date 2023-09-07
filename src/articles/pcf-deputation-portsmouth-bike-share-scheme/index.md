@@ -1,8 +1,8 @@
 ---
 title: PCF Deputation – Portsmouth Bike Share Scheme
 tags:
-  - City Council
-  - Deputation
+  - city-council
+  - deputation
 date: 2023-08-10
 layout: layouts/base.njk
 coverImage: "beryl.jpeg"

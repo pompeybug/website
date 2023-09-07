@@ -6,8 +6,7 @@ tags:
   - dft
   - infrastructure 
   - capability-fund
-  - dft
-  - goverment
+  - government
 coverImage: "IMG_2280-1.jpeg"
 ---
 

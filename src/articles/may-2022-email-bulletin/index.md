@@ -3,8 +3,6 @@ layout: layouts/base.njk
 title: May 2022 email bulletin - social ride 12th June
 date: 2022-05-30
 tags:  
-  - annual-general-meeting
-  - cyclerides
   - events
   - pcf 
   - agm

@@ -3,18 +3,15 @@ layout: layouts/base.njk
 title: Here’s what we did this summer…
 date: 2019-10-27
 tags:  
-  - annual-general-meeting
+  - agm
   - blog
   - city-council
-  - cycle-routes
+  - bike-route
   - infrastructure
-  - opinion
-  - pcf 
   - air-quality
   - coastal-defence
   - goldsmith-avenue
   - planning-application
-  - summer
   - wands
 coverImage: "IMG_20200711_051019-EFFECTS-scaled-e1606062257468.jpg"
 ---

@@ -4,10 +4,10 @@ layout: layouts/base.njk
 date: 2023-08-30
 coverImage: "hangar.jpeg"
 tags:
-  - City Council
-  - Infrastructure
-  - Bike Hangars
-  - Deputation
+  - city-council
+  - infrastructure
+  - bike-angars
+  - deputation
 ---
 
 # Traffic & Transportation Cabinet Decision Meeting - 10th August 2023

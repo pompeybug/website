@@ -2,10 +2,10 @@
 title: PCF Deputation – Lake Road (waiting Restrictions & Bus Lane)
 layout: layouts/base.njk
 tags:
-  - City Council
-  - Infrastructure
-  - Deputation
-  - SEHRT
+  - city-council
+  - infrastructure
+  - deputation
+  - sehrt
 date: 2023-08-30
 coverImage: "lakeroad.png"
 ---

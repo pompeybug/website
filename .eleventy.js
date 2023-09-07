@@ -1,11 +1,11 @@
 
-module.exports = function(eleventyConfig) {
+module.exports = function(config) {
 
     // copy all images across
-    eleventyConfig.addPassthroughCopy("**/*.{jpg,jpeg,png,pdf,svg,webp}");
+    config.addPassthroughCopy("**/*.{jpg,jpeg,png,pdf,svg,webp}");
 
     // copt the css folder
-    eleventyConfig.addPassthroughCopy("style");
+    config.addPassthroughCopy("style");
 
     return {
         dir: {

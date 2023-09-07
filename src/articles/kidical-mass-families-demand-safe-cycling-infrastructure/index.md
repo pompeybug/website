@@ -3,14 +3,12 @@ layout: layouts/base.njk
 title: "Kidical Mass: Families Demand Safe Cycling Infrastructure"
 date: 2023-04-11
 tags:  
-  - cyclerides
+  - bike-ride
   - events
   - latest-news 
   - kidical-mass
 coverImage: kidical-mass-portsmouth.jpg
 ---
-
-![](images/kidical-mass-portsmouth.jpg)
 
 Portsmouth joins a growing global movement of Kidical Mass cycle rides in a call for safe cycling  infrastructure which a 4-year-old and a 94-year-old could use for daily transport.   Around 40 children and adults joined the first ride in September 2022 during international Kidical Mass weekend which saw over 200 cities in 15 countries taking part, including cities in UK: Bath, Bristol, Barry, Exeter, Bournemouth, London, Norwich, Derby, Birmingham, Leamington Spa Warwickshire, York, Newcastle, North Tyneside, Edinburgh, Dundee and Inverness.  A second Christmas themed ride in December 2022 attracted around 45 participants despite chilly conditions on the day. With the youngest person being just a few months old and traveling in a cargo bike.
 
@@ -28,14 +26,13 @@ Claire Coulter, Kidical Mass participant said: "I cycle everywhere, it is my pri
 
   
 Adam aged 7, who took part in Kidical Mass said:  
-"I would like to cycle to school and everywhere I want in our city. It is good for me; I get exercise  
-when I pedal. It is fun. But I am scared. There are just too many cars."
+>I would like to cycle to school and everywhere I want in our city. It is good for me; I get exercise when I pedal. It is fun. But I am scared. There are just too many cars."
 
 ![](images/PXL_20221204_115231797.MP-FB.jpg)
 
   
-Find out about the next Kidical Mass ride in Portsmouth by following them on [**Facebook**](http://www.facebook.com/KidicalMassPortsmouth)  
-Contact us if you would like to support Kidical Mass ride and help organising one.
+Find out about the next Kidical Mass ride in Portsmouth by following them on [**Facebook: Kidical Mass Portsmouth**](http://www.facebook.com/KidicalMassPortsmouth).
 
-  
+Contact us if you would like to support the next Kidical Mass ride and help organising one.
+
 Make space! Don’t limit children – limit traffic.

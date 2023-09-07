@@ -5,9 +5,8 @@ date: 2021-07-31
 tags:  
   - dft
   - infrastructure 
-  - dft
   - gear-change
-  - goverment
+  - government
 coverImage: "2021-08-02-21_22_06-Gear-Change_-One-Year-On-gear-change-one-year-on.pdf-—-Mozilla-Firefox.png"
 ---
 

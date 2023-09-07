@@ -23,7 +23,11 @@ The time for action is long overdue, we need you to come along and make sure our
 Tim’s sister, Joanna, wrote this about her brother:
 
 > Tim Atkins, a devoted family man, a son with a heart of gold, a brother, uncle, father, partner and friend to everyone.  
+
 > Someone who would do anything for anyone, if he knew you for years or hours… it didn’t matter, Tim would come to the rescue and help you, always putting your needs before his own.  
+
 > Tim could turn his hand to anything, a avid upcyler of pallets to make just about anything you could think of, a sci-fi writer, a computer whizz, it’s probably quicker to to list what he couldn’t do than the extensive list of skills and qualities he has. ex-pub landlord with a cracking sense of humour, love for life and an even greater love for his daughter, who was his world.  
+
 > His passion for all of the above was above and beyond that of anyone else I know.  
+
 > Our family and everyone that knew Tim will miss him beyond belief, for me personally, his ‘lil sis’, this has left a huge hole in my heart and the life of myself, his nieces and nephews, I will never get over this tragedy that could so easily have been prevented, taking the life of my loving brother.
