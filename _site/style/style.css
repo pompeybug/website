@@ -31,7 +31,7 @@
     --taglist-margin: 0;
     --taglist-wrap: wrap;
 
-    --flexgrow: 1;
+    --flexgrow: 0;
 
     --gridcols: 1fr;
     --gridrows: auto auto auto auto 1fr auto;
@@ -77,7 +77,7 @@
                              "menu article"
                              "taglist article"
                              ". article"
-                             "footer footer";
+                             ". footer";
 
         --navmenu-direction: column;
         --navmenu-gap: calc( var(--fixedspace) / 4);
@@ -93,7 +93,7 @@
         --taglist-margin: 1em;
         --taglist-wrap: nowrap;
 
-        --flexgrow: 0;
+        --flexgrow: 1;
 
         --curve: calc(var(--fixedspace) * 0.25);
 
@@ -123,9 +123,6 @@ body {
 
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: var(--text);
-}
 
 a {
     color: var(--link);
@@ -151,6 +148,18 @@ main {
     color: var(--text);
 }
 
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text);
+}
+
+main h1 { font-size: 1.6em; }
+main h2 { font-size: 1.45em; }
+main h3 { font-size: 1.3em; }
+main h4 { font-size: 1.2em; }
+main h5 { font-size: 1.1em; }
+main h6 { font-size: 1em; }
+
 header, footer {
     margin: 0;
     padding: var(--fixedspace);
@@ -162,6 +171,7 @@ footer {
     margin-bottom: var(--footerspace);
     background-color: var(--col1light);
     color: var(--text);
+    line-height: var(--lineheight);
 }
 
 footer p {
@@ -187,6 +197,7 @@ header {
 header #masthead {
     grid-area: logo;
     max-height: 4rem;
+    margin-inline-start: 2cqw;
 }
 
 header h1 {
@@ -206,6 +217,7 @@ header p {
     margin: 0;
     padding: 0;
     display: var(--showhide);
+    margin-inline-end: 2cqw;
 }
 
 header img {
@@ -260,6 +272,7 @@ nav.metadata {
     grid-area: metadata;
 }
 
+#date h2,
 nav h2 {
     display: inline-block;
     font-size: 1em;
@@ -277,7 +290,6 @@ nav h2 {
     gap: var(--navmenu-gap);
     align-content: stretch;
     background-color: var(--col1light);
-    flex-wrap: var(--navmenu-wrap);
     margin-top: var(--navmenu-margin)
 }
 
@@ -291,10 +303,15 @@ nav h2 {
     align-content: stretch;
     justify-content: flex-start;
     background-color: var(--col1light);
-    flex-wrap: var(--taglist-wrap);
     margin-top: var(--navmenu-margin)
 }
 
+.innerlist {
+    display: flex;
+    flex-direction: var(--taglist-direction);
+    gap: var(--taglist-gap);
+    flex-wrap: var(--taglist-wrap);
+}
 
 #navmenu a,
 #taglist a {
@@ -309,6 +326,7 @@ nav h2 {
     background: var(--col2);
     color: var(--page);
     border: var(--page) solid 1px;
+    display: inline-block;
 }
 
 #navmenu a:hover,
