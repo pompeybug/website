@@ -1,5 +1,5 @@
 :root {
-    --col1: #929D59FF;
+    --col1: hsl(70, 68%, 28%);
     --col1light: #929D5955;
     --col2: #D7713DFF;
     --col2light: #D7713D55;
@@ -264,7 +264,7 @@ main img {
     border-radius: var(--curve);
 }
 
-.published, .tags, .categories {
+aside, .tags, .categories {
     color: var(--col1);
 }
 
@@ -351,4 +351,9 @@ input[type="email"] {
 main .menu a {
     display: inline-block;
     vertical-align: top;
+}
+
+aside {
+    display: flex;
+    gap: calc( var(--fixedspace) / 2);
 }
