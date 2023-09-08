@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="1em" height="1em" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <desc>Hand built by Rich Boakes</desc>
-    <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="4"></circle>
-    <line x1="16" y1="16" x2="16" y2="8" stroke="currentColor" stroke-width="3" stroke-linecap="round"></line>
-    <line x1="16" y1="16" x2="25" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+<style>
+:root {
+    --col: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --col: #FDFDFD;
+    }
+}
+* { stroke: var(--col); }
+</style>
+    <circle cx="16" cy="16" r="14" fill="none" stroke-width="4"></circle>
+    <line x1="16" y1="16" x2="16" y2="8" stroke-width="3" stroke-linecap="round"></line>
+    <line x1="16" y1="16" x2="25" y2="6" stroke-width="2" stroke-linecap="round"></line>
 </svg>
