@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?> <svg width="312px" height="173px" viewBox="-5 -5 312 173" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <title>Portsmouth Cycle Forum Logo</title>
 <desc>Rebuilt by hand by Rich Boakes</desc>
+<style>
+:root {
+    --col: #FDFDFD;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --col: #222;
+    }
+}
+#chain { stroke: var(--col); }
+#crank, #cog { fill: var(--col); }
+
+</style>
     <path
         id="chain" stroke="#FFF" fill="none" stroke-width="10"
         d="M90,0.4 C-30,-9.5 -30,170.4 90,161.4 C190,145.4 190,145.4 254,135.4 C318,125.4 318,35.4 254,25.4 C190,15.4 190,15.4 90,0.4 Z"
