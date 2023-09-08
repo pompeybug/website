@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="1em" height="1em" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <desc>Hand built by Rich Boakes</desc>
+<style>
+:root {
+    --col: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --col: #FDFDFD;
+    }
+}
+* { stroke: var(--col); }
+</style>
     <rect x="2" y="8" width="28" height="22" stroke-linejoin="round" fill="none" stroke="currentColor" stroke-width="4"></rect>
     <line x1="10" y1="2" x2="10" y2="12" stroke="currentColor" stroke-width="3" stroke-linecap="round"></line>
     <line x1="22" y1="2" x2="22" y2="12" stroke="currentColor" stroke-width="3" stroke-linecap="round"></line>

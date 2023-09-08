@@ -48,12 +48,16 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bgcol: #222;
+        --col1: hsl(70, 68%, 38%);
+        --col1light: #929D5955;
+        --col2: hsl(20, 85%, 52%);
+        --col2light: #D7713D55;
+            --bgcol: #222;
         --page: #222;
         --text: #EEEEEE;
         --textinv: #222;
-        --link: #77F;
-        --vlink: #A4F;
+        --link: hsl(240, 100%, 73%);
+        --vlink: hsl(273, 100%, 73%);
         --padding: 0;
         --headergridcols: auto 1fr;
         --headergridrows: auto auto;
