@@ -48,20 +48,21 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --col1: hsl(70, 68%, 38%);
-        --col1light: #929D5955;
-        --col2: hsl(20, 85%, 52%);
-        --col2light: #D7713D55;
-            --bgcol: #222;
+        --col1: hsl(70, 68%, 28%);
+        --col1light: hsl(70, 68%, 38%);
+        --col2: hsl(20, 85%, 42%);
+        --col2light: hsl(20, 85%, 62%);
+        --bgcol: #222;
         --page: #222;
         --text: #EEEEEE;
         --textinv: #222;
-        --link: hsl(240, 100%, 73%);
-        --vlink: hsl(273, 100%, 73%);
         --padding: 0;
         --headergridcols: auto 1fr;
         --headergridrows: auto auto;
         --headergridtemplateareas: "h1 h1" "logo text";
+        --link: var(--col2light);
+        --vlink: var(--col1light);
+
 
         --footerspace: 1em;
 
