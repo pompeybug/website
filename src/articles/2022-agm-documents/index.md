@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: 2022 AGM - Documents
 date: 2022-03-08
 tags: agm

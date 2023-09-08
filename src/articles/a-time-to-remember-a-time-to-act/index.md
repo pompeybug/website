@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: A Time To Remember, A Time To Act
 date: 2017-06-10
 tags:  

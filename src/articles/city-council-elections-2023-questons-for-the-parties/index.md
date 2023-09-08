@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: City Council Elections 2023 - Questions for The Parties
 date: 2023-04-20
 tags:  

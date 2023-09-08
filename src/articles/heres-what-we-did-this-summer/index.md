@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Here’s what we did this summer…
 date: 2019-10-27
 tags:  
@@ -13,6 +13,7 @@ tags:
   - goldsmith-avenue
   - planning-application
   - wands
+  - committee
 coverImage: "IMG_20200711_051019-EFFECTS-scaled-e1606062257468.jpg"
 ---
 

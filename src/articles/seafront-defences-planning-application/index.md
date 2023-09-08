@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Seafront defences planning application
 date: 2019-09-15
 tags:  

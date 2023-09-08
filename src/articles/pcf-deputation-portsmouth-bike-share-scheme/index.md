@@ -4,7 +4,7 @@ tags:
   - city-council
   - deputation
 date: 2023-08-10
-layout: layouts/base.njk
+layout: layouts/article.njk
 coverImage: "beryl.jpeg"
 ---
 

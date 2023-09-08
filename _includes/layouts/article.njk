@@ -7,6 +7,13 @@
 <main>
   <h1 class=title>{{ title }}</h1>
 
+  {% include "partials/metadata.html" %}
+  {% include "partials/readingtime.html" %}
+
+  {% if coverImage %}
+    <img src="images/{{ coverImage }}" alt="{{ title }}">
+  {% endif %}
+
   <article>
     {{ content | safe }}
   </article>

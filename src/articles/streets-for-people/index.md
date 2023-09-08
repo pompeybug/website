@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Streets for people
 date: 2019-04-01
 tags:  

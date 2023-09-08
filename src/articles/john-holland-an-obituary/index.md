@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: "John Holland: An obituary"
 date: 2019-01-27
 tags:  

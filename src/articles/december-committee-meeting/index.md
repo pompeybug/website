@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: December committee meeting
 date: 2020-12-11
 tags:  
@@ -9,6 +9,7 @@ tags:
   - ltp4
   - tcf
   - website
+  - committee
 coverImage: "PXL_20201211_200829478-scaled.jpg"
 ---
 

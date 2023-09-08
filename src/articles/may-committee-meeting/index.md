@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: May committee meeting
 date: 2021-05-17
 tags:  
@@ -11,6 +11,7 @@ tags:
   - agm
   - elections
   - roadworks
+  - committee
 coverImage: "PXL_20210511_200023079.NIGHT_-scaled.jpg"
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Seafront masterplan response
 date: 2020-10-15
 tags:  

@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Bike Park Life
 date: 2021-11-18
 tags:  

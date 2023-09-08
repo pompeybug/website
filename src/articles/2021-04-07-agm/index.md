@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: 2021 AGM - Advert
 date: 2021-04-07
 tags: agm

@@ -1,8 +1,10 @@
 ---
 title: Who we are
 date: 2020-11-16
-layout: layouts/base.njk
-tags: pcf
+layout: layouts/article.njk
+tags:
+ - pcf
+ - committee
 ---
 
 Portsmouth Cycle Forum is an award winning, independent, volunteer led cycle campaign group representing close to 450 members and the needs of people who already cycle, or would like to cycle in our city for their everyday journeys.

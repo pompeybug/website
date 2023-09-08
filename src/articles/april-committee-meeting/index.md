@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: April committee meeting
 date: 2021-04-10
 tags: 
@@ -9,6 +9,7 @@ tags:
   - eatf
   - elections
   - roadworks
+  - committee
 coverImage: "Polling-station.jpg"
 ---
 

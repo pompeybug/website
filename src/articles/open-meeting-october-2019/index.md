@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Open meeting – October 2019
 date: 2019-10-27
 tags:  
@@ -12,6 +12,7 @@ tags:
   - travel-plan
   - university-of-portsmouth
   - uop
+  - committee
 coverImage: "12241757_10154340721137067_1229218842759030832_n.jpg"
 ---
 

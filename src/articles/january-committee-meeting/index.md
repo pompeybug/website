@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: January committee meeting
 date: 2021-01-08
 tags:  
@@ -8,6 +8,7 @@ tags:
   - eastern-road
   - ltp4
   - open-meeting
+  - committee
 coverImage: "google-meet-1280x720-1.jpg"
 ---
 

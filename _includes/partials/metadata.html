@@ -1,3 +1,4 @@
 {% if date %}
-<aside id=date class="published">{{ date.toDateString()}}</aside>
+<aside id=date class="published"><img src="/images/calendar.svg" alt="Publication date" title="Publication date">{{ date.toLocaleDateString("en-GB", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).replace(',','')
+ }}</aside>
 {% endif %}

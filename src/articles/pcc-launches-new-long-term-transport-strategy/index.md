@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: PCC launches new Long Term Transport Strategy
 date: 2020-12-28
 tags:  

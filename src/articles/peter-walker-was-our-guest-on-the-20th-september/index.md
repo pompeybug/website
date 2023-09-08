@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Peter Walker was out guest on 20th Sept
 date: 2018-09-20
 tags:  

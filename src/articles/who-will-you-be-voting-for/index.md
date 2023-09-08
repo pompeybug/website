@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Who will you be voting for?
 date: 2019-04-25
 tags:  

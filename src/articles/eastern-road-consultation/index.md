@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Eastern Road consultation
 date: 2021-02-03
 tags:  

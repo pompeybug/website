@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Council Elections are coming - does your candidate support cycling?
 date: 2021-05-04
 tags:  

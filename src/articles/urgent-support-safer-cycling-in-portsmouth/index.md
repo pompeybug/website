@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: "Urgent: Support safer cycling in Portsmouth"
 date: 2017-10-15
 tags:  

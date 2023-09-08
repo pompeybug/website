@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Community Cargo Project
 date: 2022-03-08
 tags:  

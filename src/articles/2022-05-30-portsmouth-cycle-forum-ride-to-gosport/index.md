@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Portsmouth Cycle Forum ride to Gosport
 date: 2022-05-30
 coverImage: "unnamed.jpg"

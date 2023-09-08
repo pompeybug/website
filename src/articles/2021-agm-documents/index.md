@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: 2021 AGM
 date: 2021-04-22
 tags: agm

@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Gov't shares cycling lessons from COVID emergency schemes
 date: 2021-07-31
 tags:  

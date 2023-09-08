@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: March commitee meeting
 date: 2021-03-17
 tags:  
@@ -9,6 +9,7 @@ tags:
   - caz
   - ltn-1-20
   - shipwrights-way
+  - committee
 coverImage: "P1020677.jpg"
 ---
 

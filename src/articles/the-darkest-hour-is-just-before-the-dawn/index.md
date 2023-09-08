@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: The Darkest hour is just before the dawn
 date: 2017-06-29
 tags:  

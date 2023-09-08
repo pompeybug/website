@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: May 2022 email bulletin - social ride 12th June
 date: 2022-05-30
 tags:  
@@ -8,6 +8,7 @@ tags:
   - agm
   - bike-ride
   - friends-of-the-earth
+  - committee
 coverImage: "PXL_20220518_1750315172-scaled.jpg"
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Statement on Elm Grove cycle lane trial
 date: 2020-11-28
 tags:  

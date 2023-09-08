@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: 2021 AGM - Documents
 date: 2021-03-22
 tags: 
@@ -7,6 +7,7 @@ tags:
   - events
   - meetings
   - pcf
+  - committee
 coverImage: "agm4.png"
 ---
 

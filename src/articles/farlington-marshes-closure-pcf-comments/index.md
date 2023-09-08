@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Farlington marshes closure - PCF comments
 date: 2021-05-19
 tags:  

@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: A City To Share
 date: 2020-11-24
 tags:

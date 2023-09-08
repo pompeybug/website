@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Contact Us
 date: 2020-11-16
 tags: 

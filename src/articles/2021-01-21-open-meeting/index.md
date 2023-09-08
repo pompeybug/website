@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Open Meeting
 date: 2023-01-21
 tags: 

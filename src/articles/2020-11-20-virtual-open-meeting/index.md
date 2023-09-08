@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: PCF Open Forum Meeting
 date: 2020-11-20
 ---

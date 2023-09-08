@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Cycling in snow and ice
 date: 2019-02-03
 tags:  

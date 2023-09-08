@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: 2020 Vision - A Retrospective View
 date: 2021-02-20
 tags: 
@@ -17,6 +17,7 @@ tags:
   - elm-grove
   - ltn-1-20
   - ltp
+  - committee
 coverImage: "Sidenham-Terrence.jpg"
 ---
 

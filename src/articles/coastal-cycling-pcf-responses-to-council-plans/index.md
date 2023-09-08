@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: "Coastal cycling: PCF responses to council plans"
 date: 2019-04-01
 tags:  

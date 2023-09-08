@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Safer Streets Fund
 date: 2021-10-22
 tags:  

@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Cycle Tube Map
 date: 2018-12-28
 tags:  

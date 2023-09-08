@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: John Holland Memorial Day
 date: 2019-05-13
 tags:  

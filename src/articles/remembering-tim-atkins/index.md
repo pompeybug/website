@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: Remembering Tim Atkins
 date: 2021-06-21
 tags:  

@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/article.njk
 title: New year - new schemes
 date: 2022-01-04
 tags:  

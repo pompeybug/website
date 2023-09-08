@@ -1,3 +1,4 @@
+const readingTime = require('eleventy-plugin-reading-time');
 
 module.exports = function(config) {
 
@@ -6,6 +7,10 @@ module.exports = function(config) {
 
     // copt the css folder
     config.addPassthroughCopy("style");
+
+    // enable reading time estimates
+    config.addPlugin(readingTime);
+
 
     return {
         dir: {
