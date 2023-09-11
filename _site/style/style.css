@@ -48,26 +48,16 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --col1: hsl(70, 68%, 28%);
-        --col1light: hsl(70, 68%, 38%);
-        --col2: hsl(20, 85%, 42%);
-        --col2light: hsl(20, 85%, 62%);
+        --col1: hsl(70, 0%, 68%);
+        --col1light: hsl(70, 0%, 38%);
+        --col2: hsl(20, 95%, 62%);
+        --col2light: hsl(20, 85%, 72%);
         --bgcol: #222;
         --page: #222;
         --text: #EEEEEE;
         --textinv: #222;
-        --padding: 0;
-        --headergridcols: auto 1fr;
-        --headergridrows: auto auto;
-        --headergridtemplateareas: "h1 h1" "logo text";
         --link: var(--col2light);
-        --vlink: var(--col1light);
-
-
-        --footerspace: 1em;
-
-        --taglist-direction: column;
-
+        --vlink: var(--text);
     }
 }
 

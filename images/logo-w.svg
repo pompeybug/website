@@ -11,10 +11,28 @@
         --col: #222;
     }
 }
-#chain { stroke: var(--col); }
+#chain {
+    stroke: var(--col);
+    stroke-dasharray: 12, 12;
+    stroke-dashoffset: 0;
+    animation: dash 12s linear infinite;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 #crank, #cog { fill: var(--col); }
 
+svg {
+    transform: scaleX(-1);
+}
 </style>
+
     <path
         id="chain" stroke="#FFF" fill="none" stroke-width="10"
         d="M90,0.4 C-30,-9.5 -30,170.4 90,161.4 C190,145.4 190,145.4 254,135.4 C318,125.4 318,35.4 254,25.4 C190,15.4 190,15.4 90,0.4 Z"

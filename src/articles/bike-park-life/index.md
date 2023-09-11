@@ -21,7 +21,7 @@ So the launch of a trial scheme to install nine on-road bike hangers - one of th
 
 Eric de Greef fills in the background, “I went through my emails to find out when I first asked the council about introducing bike hangars in Portsmouth. It went back as far as 2015 when I exchanged emails with the relevant city council officers at the time. I linked it with the University of Portsmouth’s Cycle to Work scheme, saying that for cycling to be convenient you need safe and convenient storage at your destination as well as at home, on top of a safe journey. It never really got any further, I didn’t follow up, and I think my contacts left PCC for pastures new shortly afterwards. It wasn’t until 2018 that I raised it again, after a friend of mine had similar correspondence with PCC. Again, I suspected some staff turnover at PCC, but eventually Jo Hamment had the bit between her teeth and progressed with it and they were installed just before the 2021 local elections.”
 
-![](images/IMG_20211105_134419467_HDR-small-1024x768.jpg)
+![](IMG_20211105_134419467_HDR-small-1024x768.jpg)
 
 As someone who had made previous requests of the council, Eric was on the list to be approached to have one installed in his Southsea road. In July we caught up with him to find out how the first few months were going.
 
@@ -41,7 +41,7 @@ Eric thinks another 2 or 3 hangars in his street alone is possible, and links th
 
 It would seem that Eric’s enthusiasm was justified, as after launching the scheme the council asked residents to register their interest in taking a space in any future hangers installed as a result of a successful trial.  190 requests were subsequently received in the next six months, a rate of around one per day.  The image below shows the geographic spread of those requests.  It’s no surprise that the flat fronted terraced roads in the south of the city were the most popular locations.
 
-![](images/IMG_0322.jpeg)
+![](IMG_0322.jpeg)
 
 On November 2nd 2021, the City Council cabinet made the decision to make the initial trial locations permanent, and also approved expenditure on another eight hangers for a list of roads that were based on residents requests and an assessment of the degree to which the following criteria were met:
 
@@ -55,7 +55,7 @@ PCF’s belief is that based on the costs associated to the installing the new l
 
 This project has demonstrated an appetite from residents for on-street cycle infrastructure.  We can only hope that further roll out results in more people cycling more often, and the arguments against creating better, safer infrastructure for people to use becomes stronger, and thus a virtuous circle is created, and like a wheel it keeps on turning….
 
-![](images/IMG_20211106_150712426_HDR-small-1024x768.jpg)
+![](IMG_20211106_150712426_HDR-small-1024x768.jpg)
 
 More information about the PCC bike hangers and how to request one for your own road can be found here: [https://travel.portsmouth.gov.uk/schemes/bikehangars/](https://travel.portsmouth.gov.uk/schemes/bikehangars/) 
 

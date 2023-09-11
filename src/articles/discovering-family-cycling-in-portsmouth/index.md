@@ -17,7 +17,7 @@ The choice of bicycle to transport our children was never an obvious one. Our pr
 
 Nevertheless, we wanted to continue to enjoy time on the bicycles, even if it was for occasional, recreational trips. The simplest way to get our son on-board was a rear child seat which we sourced second-hand and continued cycling as much as we could. However, things got more complicated when we became parents for the second time. Our daughter hated being on the back of the bicycle and we feared that this was the end for our family rides. Having two children also meant that there was a logistical problem when just one of the parents wanted to take both children on a bike.
 
-![](images/Discovering-Family-cycling-photo1.jpg)
+![](Discovering-Family-cycling-photo1.jpg)
 
 However, this little logistical challenge has become a start of a family adventure. We searched for solutions, but we were unsure what we were looking for. There were no ‘role models’ in our city and we have only seen children traveling on the bicycle in a rear child seat or sometimes in a trailer. There was no immediate, easily accessible information about the options for families if they wanted to use a bicycle for transport. Of course, unless you knew what you were looking for. We did not. And therefore, it took us time to find the solution.  
 

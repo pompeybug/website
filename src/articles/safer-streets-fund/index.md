@@ -37,16 +37,16 @@ Pedals Nottingham - [**Pedals Protest Plans for Cycle Path Barriers**](http://pe
 
 The Ranty Highwayman - [**#BashTheBarriers**](https://therantyhighwayman.blogspot.com/2016/01/bashthebarriers.html)
 
-![](images/Untitled.jpg)
+![](Untitled.jpg)
 
 _Photo 1 Cargo bicycle with loaded front bag_  
 _and child at rear stuck at K-Barrier (Portsmouth)_
 
-![](images/Barriers-Elderly.jpg)
+![](Barriers-Elderly.jpg)
 
 _Photo 2 Elderly person with walker struggling to get past the barrier on a path (Portsmouth)_
 
-![](images/Barriers-Trailer.jpg)
+![](Barriers-Trailer.jpg)
 
   
 _Photo 3 Bicycle with a child trailer struggling to get through a barrier (Portsmouth)_

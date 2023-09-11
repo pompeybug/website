@@ -26,7 +26,7 @@ As time went on and the cycle forum committee was strengthened by some new faces
 
 John understood that the small stuff really matters. That a Community Cycle Centre, giving people access to bikes, one-by-one, really does make a difference. Over the years it’s added up to a huge amount and a great amount of that success is John’s. Person-by-person, bike-by-bike, a massive difference has been made.
 
-![](images/for-memorial-day-poster-672x372-1.jpg)
+![](for-memorial-day-poster-672x372-1.jpg)
 
 _John as ‘Dr Bike’ – fixing bikes and changing lives with the Community Cycle Centre._
 

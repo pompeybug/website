@@ -29,7 +29,7 @@ A further phase will replace the hedged section alongside the caravan park, and 
   
 Work here is being carried overnight and the road itself is closed to motor vehicles, although there should be a safe route along the northbound carriageway for people walking and cycling during working hours.  
   
-![](images/Eatern-Road-3.jpg)![](images/Eastern-Road-2.jpg)
+![](Eatern-Road-3.jpg)![](Eastern-Road-2.jpg)
 
 ---
 
@@ -45,7 +45,7 @@ You can read more about all of the schemes under the TCF bid at the **[South Eas
 
 ### Goldsmith Avenue - Closes 9th January
 
-![](images/Goldsmith-1024x403.jpg)
+![](Goldsmith-1024x403.jpg)
 
 Goldsmith Avenue is identified in the Local Cycling and Walking Infrastructure Plan (LCWIP) as one of Portsmouth’s key cycle routes, and is a significant section of the east to west corridor. These proposals build on the current cycle scheme on Goldsmith Avenue, extending from Fratton Bridge to the city centre via Sydenham Terrace and Canal Walk.
 
@@ -55,7 +55,7 @@ Goldsmith Avenue is identified in the Local Cycling and Walking Infrastructure P
 
 ### Fratton to City Centre Walking Route - Closes 9th January
 
-![](images/Somers-Road.jpg)
+![](Somers-Road.jpg)
 
 Despite its name, this also includes cycling upgrades, notably around Sydenham terrace and the recently closed corner at Canal Walk. This scheme will link with the improved Goldsmith Avenue cycle route.  
   
@@ -67,7 +67,7 @@ With 24% of all journeys to work less than 1.2 miles, there is significant poten
 
 ### Lake Road Closes 31st January
 
-![](images/Lake-Road.jpg)
+![](Lake-Road.jpg)
 
 Lake Road is a busy east-west route from the city centre to the residential areas of Landport and Fratton. This route experiences congestion at peak times, especially in the morning. It is a key route for many bus services travelling in and out of the city, and forms part of a popular cycling route. Public transport infrastructure improvements will save time on journeys, and improvements to the roundabout will make it safer for people walking and cycling.
 
@@ -77,7 +77,7 @@ Lake Road is a busy east-west route from the city centre to the residential area
 
 ### City Centre North & South - Closes 31st January
 
-![](images/Station-Street-1024x380.jpg)
+![](Station-Street-1024x380.jpg)
 
 These schemes propose the introduction of a new bus-only access roads so buses avoid getting caught in, and adding to, congestion in the city centre.
 

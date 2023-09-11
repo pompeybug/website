@@ -8,6 +8,8 @@ module.exports = function(config) {
     // copt the css folder
     config.addPassthroughCopy("style");
 
+    config.addPassthroughCopy("assets");
+
     // enable reading time estimates
     config.addPlugin(readingTime);
 

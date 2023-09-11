@@ -13,11 +13,11 @@ coverImage: "IMG_4876-672x372-1.jpeg"
 
 It is four years since Portsmouth Cycle Forum rallied cyclists in Guildhall Square to mourn the tragic death of Tim Atkins and to demand action from Portsmouth City Council. Tim was involved in a head-on collision with another cyclist on the narrow path and fell into the traffic. His grieving family joined us in calling for urgent action on the Eastern road to avoid the needless loss of any more lives.
 
-![](images/a146ef74-a987-4bc4-802e-c19a259e9848-1024x768.jpg)
+![](a146ef74-a987-4bc4-802e-c19a259e9848-1024x768.jpg)
 
 The rally in Guildhall Square attracted over 200 cyclists as well as a number of local politicians - both councillors and MPs. In the rally and its aftermath enthusiastic support was received from politicians of all parties. Unfortunately that support has not translated into any significant changes.
 
-![](images/2b7ee508-51f5-499c-9a27-2135ab62ca03-1024x576.jpg)
+![](2b7ee508-51f5-499c-9a27-2135ab62ca03-1024x576.jpg)
     
 The plans for significant improvements to the length of the Eastern Road path developed after this incident have not been not been built, excepting some trivial changes around the immediate area of the incident. The Eastern Road Shared Use Path (SUP) is one of the busiest pieces of cycle infrastructure in the area and yet it falls woefully below [acceptable design standards](https://www.gov.uk/government/publications/cycle-infrastructure-design-ltn-120). There are still many narrow sections where cyclists have no separation at all from the traffic risking a repeat of the type of accident that took Tim Atkins' life. This is most notable on the bridge where the issue is further exacerbated by the lamp columns.
 

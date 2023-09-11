@@ -117,7 +117,7 @@ And thus, armed with those thoughts we reached the new year…..
 - Tranche 2 of Active Travel Funding (no longer an emergency apparently) is announced by central Government.  PCC fails to secure the full amount applied for but is awarded £450,000 to upgrade the Eastern Road path between Airport Service Road and Burrfields Road.
 - Annual release of road casualty figures shows that in 2019 Portsmouth remains in the top five cities outside London for cycle casualties.  At 740 per million of population, the figures are a long way short of the 2020 of 450 per million target in our **[City To Share](/a-city-to-share/)** Strategy.  Worryingly, serious injuries are rising despite a drop in the overall casualty figures.  All the trend lines remain upwards though…
 
-![](images/Casualties-2009-2020.jpg)
+![](Casualties-2009-2020.jpg)
 
 - Unsurprisingly the public feedback to the Elm Grove lanes is overwhelmingly against them and the entire scheme is removed within hours of the decision to do so, without any assessment of those areas where it was protecting the existing cycle infrastructure. PCFs statement on the trial can be found **[here](/statement-on-elm-grove-cycle-lane-trial/)**.
 

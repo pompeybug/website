@@ -17,7 +17,7 @@ coverImage: "PXL_20220518_1750315172-scaled.jpg"
 Your health, your climate, your pocket and your community are all better by bike. Take part in Bike Week from 6-12 June 2022. 
 [Cycling UK Bike Week Website for more information](https://www.cyclinguk.org/bikeweek)
 
-![](images/47dffa98-d28f-78b4-3ee2-3d3173571034.jpg)
+![](47dffa98-d28f-78b4-3ee2-3d3173571034.jpg)
 
 **Portsmouth Cycle Forum ride to Gosport Sunday 12th June 11am** 
 
@@ -27,7 +27,7 @@ Lunch and drinks are available to buy at Powder Monkey, but kiddies are welcome 
 
 Other than the ferry, the ride is being provided for free, but donations to help keep us afloat are always welcome.
 
-![](images/0c69f212-4b7c-6541-bcbb-a7f14b926ab0.jpg)
+![](0c69f212-4b7c-6541-bcbb-a7f14b926ab0.jpg)
 
 **Portsmouth Friends of the Earth Ride**  
   
@@ -35,7 +35,7 @@ Join Portsmouth Friends of the Earth for a leisurely bicycle ride with an histor
   
 Full information and to register [please follow this link](https://portsmouthfoe.org/2022/05/13/bike-ride-youre-welcome-finding-refuge-making-a-home-in-portsmouth/)
 
-![](images/e0957b61-be9d-fa9c-7aac-efff2b628e2b.png)
+![](e0957b61-be9d-fa9c-7aac-efff2b628e2b.png)
 
 **Active Travel - The Art of the Possible**
 
@@ -45,7 +45,7 @@ The Netherlands is often cited as the place to visit and experience the differen
 
 In the linked video Liverpool City Region Walking and Cycling Commissioner Simon O'Brien looks at the possibilities around Active Travel. [Watch the](https://pompeybug.us5.list-manage.com/track/click?u=2ed916007f1c294faa614a50f&id=dca0ac41bc&e=d6f4bfca9e) [You Tube Video](https://www.youtube.com/watch?v=5om1yL7Jxaw&ab_channel=LiverpoolCityRegionCombinedAuthority)
 
-![](images/3d62509e-6c94-5f77-2d55-5df248a35529.jpeg)
+![](3d62509e-6c94-5f77-2d55-5df248a35529.jpeg)
 
 **2022 AGM Wrap Up**
 

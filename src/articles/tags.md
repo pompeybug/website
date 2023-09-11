@@ -4,7 +4,7 @@ pagination:
   size: 1
   alias: tag
 permalink: /tags/{{ tag }}/
-layout: layouts/article.njk
+layout: layouts/base.njk
 eleventyExcludeFromCollections: true
 ---
 <h1>Tag: {{ tag }}</h1>

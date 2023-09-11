@@ -24,7 +24,7 @@ In 2021 following a successful Crowdfunder initiated by Southsea Cycles, Sustran
 
 ## Here is how and when:
 
-![](images/IMG_20220205_122537.jpg)
+![](IMG_20220205_122537.jpg)
 
 - Join the Community Cargo Project via three, six or twelve month membership before hiring. Membership can be purchased via Southsea Cycles [**webpage**.](https://www.southsea-cycles.co.uk/collections/cargo-bike-hire)
 - It is not necessary to book in advance, however it is a good idea to check the availability by contacting the shop – either via **[webpage](https://www.southsea-cycles.co.uk/collections/cargo-bike-hire)** or by phone:  023 9229 7549. Saturday hires are especially popular! 
@@ -38,7 +38,7 @@ In 2021 following a successful Crowdfunder initiated by Southsea Cycles, Sustran
 
 <table><tbody><tr><td>Monday</td><td>10am–6:30pm</td></tr><tr><td>Tuesday&nbsp;&nbsp;&nbsp;</td><td>10am–6:30pm</td></tr><tr><td>Wednesday&nbsp;&nbsp;&nbsp;</td><td>10am–6:30pm</td></tr><tr><td>Thursday&nbsp;&nbsp;&nbsp;</td><td>10am–6:30pm</td></tr><tr><td>Friday&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td><td>10am–6:30pm</td></tr><tr><td>Saturday&nbsp; &nbsp; &nbsp; &nbsp;</td><td>9am–5pm</td></tr><tr><td>Sunday&nbsp;&nbsp;&nbsp;</td><td>Closed</td></tr></tbody></table>
 
-![](images/IMG_20220205_122600.jpg)
+![](IMG_20220205_122600.jpg)
 
 ## Top tips
 
