@@ -6,7 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "start": "npx @11ty/eleventy --serve --quiet",
-    "build": "npx @11ty/eleventy"
+    "build": "npx @11ty/eleventy",
+    "publish": "git checkout live; git merge main; git push; git checkout main"
   },
   "keywords": [
     "PCF",
