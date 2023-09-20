@@ -16,9 +16,8 @@ module.exports = function(config) {
 
     return {
         dir: {
-            input: "src/articles",
+            input: "src",
             output: "docs",
-			includes: "../../_includes"
         },
         breaks: false
     }
