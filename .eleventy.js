@@ -6,7 +6,7 @@ module.exports = function(config) {
     config.addPassthroughCopy("**/*.{jpg,jpeg,png,pdf,svg,webp}");
 
     // copt the css folder
-    config.addPassthroughCopy("style");
+    config.addPassthroughCopy("src/style");
 
     config.addPassthroughCopy("assets");
 
