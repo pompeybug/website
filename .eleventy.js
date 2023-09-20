@@ -12,7 +12,8 @@ module.exports = function(config) {
             input: "src",
             output: "docs",
         },
-        breaks: false
+        breaks: false,
+        passthroughFileCopy: true,
     }
   };
   
