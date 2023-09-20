@@ -1,18 +1,11 @@
 const readingTime = require('eleventy-plugin-reading-time');
 
+/** @param {import("@11ty/eleventy").UserConfig} config */
 module.exports = function(config) {
-
-    // copy all images across
-    config.addPassthroughCopy("**/*.{jpg,jpeg,png,pdf,svg,webp}");
-
-    // copt the css folder
-    config.addPassthroughCopy("src/style");
-
     config.addPassthroughCopy("src/assets");
 
     // enable reading time estimates
     config.addPlugin(readingTime);
-
 
     return {
         dir: {
