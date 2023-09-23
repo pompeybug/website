@@ -17,6 +17,16 @@
   <article>
     {{ content | safe }}
   </article>
+
+  {% if todo %}
+    <hr />
+    <h2>Article Todos</h2>
+    <ul>
+      {% for todoItem in todo %}
+        <li>{{ todoItem | safe }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 </main>
 
 {% include "partials/footer.html" %}
