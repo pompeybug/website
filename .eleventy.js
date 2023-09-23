@@ -5,6 +5,10 @@ module.exports = function(config) {
     config.addPassthroughCopy("src/assets");
     config.addPassthroughCopy("src/**/*.{jpg,jpeg,png,pdf,svg,webp}")
 
+    config.addCollection('todoCollection', (collectionApi) => {
+        return collectionApi.getAll().filter((item) => item.data.todo);
+    });
+
     // enable reading time estimates
     config.addPlugin(readingTime);
 
