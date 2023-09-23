@@ -7,7 +7,8 @@
   "scripts": {
     "start": "npx @11ty/eleventy --serve --quiet",
     "build": "npx @11ty/eleventy",
-    "publish": "git checkout live; git merge main; git push; git checkout main"
+    "publish": "git checkout live; git merge main; git push; git checkout main",
+    "dev": "npx @11ty/eleventy --serve --quiet --output=_dev"
   },
   "keywords": [
     "PCF",
