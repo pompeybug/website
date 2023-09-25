@@ -15,7 +15,6 @@ module.exports = function(config) {
     return {
         dir: {
             input: "src",
-            output: "docs",
         },
         breaks: false,
         passthroughFileCopy: true,
