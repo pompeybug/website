@@ -9,6 +9,7 @@ event:
     location: Good Companion, Eastern Road
     contact: Roger Inkpen
     email: roger@inkpen.com
+ok: true
 ---
 
 We cross the top of Langstone Harbour through Havant to Emsworth to its quaint mill pond with ducks.  Mostly flat, cycle tracks, some on-road.  Meet at 10am at Good Companion, Eastern Road.
