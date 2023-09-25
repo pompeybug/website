@@ -7,7 +7,6 @@
   "scripts": {
     "start": "npx @11ty/eleventy --serve --quiet",
     "build": "npx @11ty/eleventy",
-    "publish": "./publish.sh",
     "dev": "npx @11ty/eleventy --serve --quiet --output=_dev"
   },
   "keywords": [
