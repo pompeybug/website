@@ -9,7 +9,6 @@ tags:
   - PCF
 date: 2014-07-21 21:22:59
 todo:
-  - Create the referenced contact us page
   - Find a copy of, and link to the minutes (in the resources section) 
 coverImage: /assets/5432218-large-300x201.jpg
 caption: Community Speedwatch
@@ -19,7 +18,7 @@ We had another successful public meeting on 10th July with presentations from Ha
 
 Maria Joliffe of Hampshire Police kindly stepped in late in the day to present on community speedwatch. Community speed watch is an initiative that allows citizens to volunteer to operate traffic speed monitoring equipment. The volunteers record speeding motorists who will then receive a letter exerting them to mend their ways. No fine can be issued but it does enable police to identify areas that may need enforcement by officers.
 
-Concern was expressed that enforcement of cycling offences is done by paid professionals whereas speeding - which is a factor in many more casualties - is being enforced by volunteers. However, if you'd like to get involved volunteers are currently being recruited in Portsmouth. Contact us through the [contact us page](http://www.pompeybug.co.uk/contact-us/ "Contact Us") and we'll put you in touch with the right officer in the civic offices.
+Concern was expressed that enforcement of cycling offences is done by paid professionals whereas speeding - which is a factor in many more casualties - is being enforced by volunteers. However, if you'd like to get involved volunteers are currently being recruited in Portsmouth. [Contact us](/contact/) and we'll put you in touch with the right officer in the civic offices.
 
 James Roberts - Portsmouth's new active travel officer - described the work the Portsmouth City Council team are doing and what they are planning. He talked about the physical challenges in the city to getting people to travel actively. Recent successes include the Cycle Hub, new cycle parking, the Park and Ride and wayfinding boards. They also propose to improve Pilgrims Way. James is responsible for all rights of way in the city.
 
