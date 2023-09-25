@@ -3,6 +3,7 @@
     --col1light: #929D5955;
     --col2: hsl(20, 85%, 42%);
     --col2light: #D7713D55;
+    --col2dark: hsla(20, 85%, 32%, 50%);
     --page: #FDFDFD;
     --text: #222222;
     --col3: #555555;
@@ -351,4 +352,20 @@ main .menu a {
 aside {
     display: flex;
     gap: calc( var(--fixedspace) / 2);
+}
+
+main figure {
+    margin: 0;
+    position: relative;
+    border-radius: var(--curve);
+    overflow: hidden;
+}
+
+main figure>figcaption {
+    position: absolute;
+    bottom: 0;
+    background: var(--col3);
+    color: var(--page);
+    padding: calc( var(--fixedspace) / 2) var(--fixedspace);
+    width: 100%;
 }

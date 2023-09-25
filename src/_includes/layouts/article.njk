@@ -11,7 +11,13 @@
   {% include "partials/readingtime.html" %}
 
   {% if coverImage %}
-    <img src="{{ coverImage }}" alt="{{ title }}">
+    <figure>
+      {% if caption %}
+        <img src="{{ coverImage }}" alt="{{ caption }}"><figcaption>{{ caption }}</figcaption>
+      {% else %}
+        <img src="{{ coverImage }}" alt="{{ title }}">
+      {% endif %}
+    </figure>
   {% endif %}
 
   <article>
