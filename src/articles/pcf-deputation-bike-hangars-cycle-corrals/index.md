@@ -6,7 +6,7 @@ coverImage: "hangar.jpeg"
 tags:
   - city-council
   - infrastructure
-  - bike-angars
+  - bike-hangars
   - deputation
 ---
 

@@ -10,6 +10,7 @@ todo:
   - Articles on this site are being migrated to a new format.
   - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+  - fix image
 ---
 
 ![Bus Lanes](http://www.pompeybug.co.uk/wp-content/uploads/2014/12/4018132108-300x212.jpg)On Tuesday 2nd December Portsmouth Cycle Forum was invited to the first meeting of the City Council's Transport Stakeholder Liaison Group. The new Tory administration has significantly widened the engagement of these transport stakeholder meetings. There re now no fewer than five groups: A taxi operators group, a bus operators group, a rail operators group, an active travel group and this overarching group which includes all. This is considerably richer than the previous groups which only included taxi, bus and rail operators. A really positive change and well done to Cllr Ellcome doing it.
