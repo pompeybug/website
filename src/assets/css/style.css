@@ -361,6 +361,10 @@ main figure {
     overflow: hidden;
 }
 
+main figure>img {
+    width: 100%;
+}
+
 main figure>figcaption {
     position: absolute;
     bottom: 0;
