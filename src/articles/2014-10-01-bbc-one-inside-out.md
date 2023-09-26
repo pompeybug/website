@@ -3,17 +3,14 @@ layout: layouts/article.njk
 title: BBC One Inside Out
 id: 4216
 tags:
-  - Campaigns
-  - City Council
-  - PCF
+  - campaigns
+  - city-council
+  - pcf
+  - tv
 date: 2014-10-01 16:15:24
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
+coverImage: /assets/insideout.jpg
+caption: Inside Out presenter Jon Cuthill
 ---
-
-<figure id="attachment_4217" align="alignright" width="300"][![Cycling in Portsmouth](http://www.pompeybug.co.uk/wp-content/uploads/2014/10/insideout-300x191.png)](http://www.pompeybug.co.uk/wp-content/uploads/2014/10/insideout.png) Cycling in Portsmouth</figure>
 
 Cycling in Portsmouth was the subject of a 10 minute film shown in BBC One's regional 'Inside Out' show last Monday. The piece focussed on cycle safety following the [recently published DfT accident statistics](http://www.pompeybug.co.uk/2014/09/portsmouths-cyclist-accident-rate-increases-by-9/ "Portsmouth’s Cyclist Accident Rate Increases by 9%") for Portsmouth which show us as being one of the least safe places to cycle in England.
 
