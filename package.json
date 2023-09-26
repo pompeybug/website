@@ -5,9 +5,10 @@
   "main": "index.html",
   "type": "commonjs",
   "scripts": {
-    "start": "npx @11ty/eleventy --serve --quiet",
-    "build": "npx @11ty/eleventy",
-    "dev": "npx @11ty/eleventy --serve --quiet --output=_dev"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "keywords": [
     "PCF",
@@ -19,10 +20,7 @@
   ],
   "author": "Content by PCF Executive Committee",
   "license": "CC-BY-SA-4.0",
-  "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
-  },
   "dependencies": {
-    "eleventy-plugin-reading-time": "^0.0.1"
+    "astro": "^3.1.4"
   }
 }
