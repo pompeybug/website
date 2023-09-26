@@ -1,0 +1,49 @@
+---
+import Base from './Base.astro';
+import TagList from '@components/TagList.astro';
+import Metadata from '@components/Metadata.astro';
+import { toArray } from 'src/utils';
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import ReadingTime from '@components/ReadingTime.astro';
+
+interface Props {
+  title: CollectionEntry<'articles'>['data']['title'];
+  date?: Date;
+  tags?: CollectionEntry<'articles'>['data']['tags'];
+  todo?: CollectionEntry<'articles'>['data']['todo'];
+  coverImage?: CollectionEntry<'articles'>['data']['coverImage'];
+  readingTime?: string;
+  frontmatter?: any;
+}
+
+const { title, date, tags, todo, coverImage, readingTime } = Astro.props.frontmatter || Astro.props;
+---
+
+<Base title={title}>
+    <TagList tags={tags} />
+    <main>
+      <h1 class="title">{title}</h1>
+      {date && (
+        <Metadata date={date} />
+      )}
+      {readingTime && (
+        <ReadingTime readingTime={readingTime} />
+      )}
+      {coverImage && (
+          <Image src={coverImage} alt={title} />
+      )}
+      <article>
+          <slot />
+      </article>
+      {todo && todo.length > 0 && (
+        <hr />
+      <h2>Article Todos</h2>
+      <ul>
+        {toArray(todo).map((todo) => (
+          <li>{todo}</li>
+        ))}
+      </ul>
+      )}
+    </main>
+</Base>

@@ -1,0 +1,355 @@
+:root {
+    --col1: hsl(70, 68%, 28%);
+    --col1light: #929D5955;
+    --col2: hsl(20, 85%, 42%);
+    --col2light: #D7713D55;
+    --page: #FDFDFD;
+    --text: #222222;
+    --col3: #555555;
+    --midgrey: #CCC;
+    --textinv: #EEEEEE;
+    --footerspace: 0.5em;
+    --fixedspace: 0.5rem;
+    --curve: 0;
+    --buttoncurve: calc(var(--fixedspace) * 0.25);
+    --lineheight: 1.5rem;
+    --bgcol: var(--page);
+    --link: var(--col2);
+    --vlink: var(--col1);
+
+    --navmenu-direction: row;
+    --navmenu-gap: var(--fixedspace);
+    --navmenu-padding: var(--fixedspace);
+    --navmenu-curve: 0;
+    --navmenu-margin: 0;
+    --navmenu-wrap: wrap;
+
+    --taglist-direction: row;
+    --taglist-gap: var(--fixedspace);
+    --taglist-padding: 0 var(--fixedspace) var(--fixedspace) var(--fixedspace);
+    --taglist-curve: 0;
+    --taglist-margin: 0;
+    --taglist-wrap: wrap;
+
+    --flexgrow: 0;
+
+    --gridcols: 1fr;
+    --gridrows: auto auto auto auto 1fr auto;
+    --gridtemplateareas: "header" "menu" "taglist" "metadata" "article" "footer";
+
+    --headergridcols: auto;
+    --headergridrows: auto;
+    --headergridtemplateareas: "h1 h1" "logo text";
+
+    --footerspace: 0;
+
+    --showhide: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --col1: hsl(70, 0%, 68%);
+        --col1light: hsl(70, 0%, 38%);
+        --col2: hsl(20, 95%, 62%);
+        --col2light: hsl(20, 85%, 72%);
+        --bgcol: #222;
+        --page: #222;
+        --text: #EEEEEE;
+        --textinv: #222;
+        --link: var(--col2light);
+        --vlink: var(--text);
+    }
+}
+
+@media screen and (width > 40rem) {
+    :root {
+        --fixedspace: 1rem;
+        --footerspace: 0;
+        --padding: 2rem;
+        --gridcols: 10rem 1fr;
+        --gridrows: auto auto auto 1fr auto;
+        --gridtemplateareas: "header header"
+                             "menu article"
+                             "taglist article"
+                             ". article"
+                             ". footer";
+
+        --navmenu-direction: column;
+        --navmenu-gap: calc( var(--fixedspace) / 4);
+        --navmenu-padding: calc( var(--fixedspace) / 4);
+        --navmenu-curve: var(--buttoncurve);
+        --navmenu-margin: 1em;
+        --navmenu-wrap: nowrap;
+
+        --taglist-direction: column;
+        --taglist-gap: calc( var(--fixedspace) / 4);
+        --taglist-padding: calc( var(--fixedspace) / 4);
+        --taglist-curve: var(--buttoncurve);
+        --taglist-margin: 1em;
+        --taglist-wrap: nowrap;
+
+        --flexgrow: 1;
+
+        --curve: calc(var(--fixedspace) * 0.25);
+
+        --showhide: block;
+
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-columns: var(--gridcols);
+    grid-template-rows: var(--gridrows);
+    grid-template-areas: var(--gridtemplateareas);
+
+    background-color: var(--bgcol);
+    color: var(--text);
+    font-family: sans-serif;
+    margin: 0 auto;
+
+    padding: var(--padding);
+    min-height: 100dvh;
+    max-width: 60em;
+
+}
+
+
+a {
+    color: var(--link);
+    background: var(--page);
+    text-decoration: none;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+    border-radius: var(--buttoncurve);
+}
+
+a:visited {
+    color: var(--vlink);
+}
+
+a:hover {
+    background-color: var(--col2);
+    color: var(--page);
+}
+
+main {
+    margin: var(--fixedspace);
+    background-color: var(--page);
+    color: var(--text);
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text);
+}
+
+main h1 { font-size: 1.6em; }
+main h2 { font-size: 1.45em; }
+main h3 { font-size: 1.3em; }
+main h4 { font-size: 1.2em; }
+main h5 { font-size: 1.1em; }
+main h6 { font-size: 1em; }
+
+header, footer {
+    margin: 0;
+    padding: var(--fixedspace);
+    border-radius: var(--curve);
+}
+
+footer {
+    grid-area: footer;
+    margin-bottom: var(--footerspace);
+    background-color: var(--col1light);
+    color: var(--text);
+    line-height: var(--lineheight);
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: var(--headergridcols);
+    grid-template-rows: var(--headergridrows);
+    grid-template-areas: var(--headergridtemplateareas);
+
+    background-color: var(--col2);
+    color: var(--textinv);
+    align-items: center;
+    gap: var(--fixedspace);
+
+    container-type: inline-size;
+}
+
+header #masthead {
+    grid-area: logo;
+    max-height: 4rem;
+    margin-inline-start: 2cqw;
+}
+
+header h1 {
+    grid-area: h1;
+    margin: 0;
+    padding: 0;
+    font-size: 8cqw;
+    text-align: center;
+}
+
+header h1 a {
+    padding: 0;
+}
+
+header p {
+    grid-area: text;
+    margin: 0;
+    padding: 0;
+    display: var(--showhide);
+    margin-inline-end: 2cqw;
+}
+
+header img {
+    display: var(--showhide);
+}
+
+
+header a,
+header a:visited {
+    color: var(--page);
+    background: var(--col2);
+    text-decoration: none;
+    display: block;
+}
+
+footer a,
+footer a:visited {
+    border: var(--page) solid 1px;
+    color: var(--page);
+    background: var(--col2);
+    text-decoration: none;
+}
+
+footer a:hover {
+    background: var(--page);
+    color: var(--col2);
+    border: var(--col2) solid 1px;
+}
+
+
+main {
+    grid-area: article;
+    line-height: var(--lineheight);
+}
+
+main>h1 {
+    color: var(--text);
+    line-height: 1em;
+    margin:0;
+}
+
+main img {
+    max-width: 100%;
+    border-radius: var(--curve);
+    height: auto;
+}
+
+aside, .tags, .categories {
+    color: var(--col1);
+}
+
+nav.metadata {
+    grid-area: metadata;
+}
+
+#date h2,
+nav h2 {
+    display: inline-block;
+    font-size: 1em;
+    margin: 0;
+    padding: 0.1em 0.2em;
+    min-width: 4em;
+}
+
+#navmenu {
+    grid-area: menu;
+    display: flex;
+    flex-direction: var(--navmenu-direction);
+    padding: var(--navmenu-padding);
+    border-radius: var(--taglist-curve);
+    gap: var(--navmenu-gap);
+    align-content: stretch;
+    background-color: var(--col1light);
+    margin-top: var(--navmenu-margin)
+}
+
+#taglist {
+    grid-area: taglist;
+    display: flex;
+    flex-direction: var(--taglist-direction);
+    padding: var(--taglist-padding);
+    border-radius: var(--taglist-curve);
+    gap: var(--taglist-gap);
+    align-content: stretch;
+    justify-content: flex-start;
+    background-color: var(--col1light);
+    margin-top: var(--navmenu-margin)
+}
+
+.innerlist {
+    display: flex;
+    flex-direction: var(--taglist-direction);
+    gap: var(--taglist-gap);
+    flex-wrap: var(--taglist-wrap);
+}
+
+#navmenu a,
+#taglist a {
+    text-decoration: none;
+    list-style-type: none;
+    cursor: pointer;
+    padding: 0.1em 0.2em;
+    margin: 0;
+    border-radius: var(--buttoncurve);
+    color: var(--text);
+    flex-grow: var(--flexgrow);
+    background: var(--col2);
+    color: var(--page);
+    border: var(--page) solid 1px;
+    display: inline-block;
+}
+
+#navmenu a:hover,
+#taglist a:hover {
+    background: var(--page);
+    color: var(--col2);
+    border: var(--col2) solid 1px;
+}
+
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+}
+
+.floater {
+    max-width: 50%;
+    float: right;
+    margin-left: 1em;
+}
+
+main .menu a {
+    display: inline-block;
+    vertical-align: top;
+}
+
+aside {
+    display: flex;
+    gap: calc( var(--fixedspace) / 2);
+}

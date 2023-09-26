@@ -1,9 +1,0 @@
-{% if tags %}
-    <nav id=taglist>
-    <h2>Tags</h2>
-        <span class="innerlist">
-        {% for tag in tags | sort() -%}
-        <a class="tag" href="/tags/{{ tag }}">{{ tag }}</a> {%- endfor %}
-        </span>
-</nav>
-{% endif %}
