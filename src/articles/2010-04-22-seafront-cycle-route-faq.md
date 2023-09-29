@@ -4,7 +4,7 @@ title: Seafront Cycle Route FAQ
 id: 1078
 tags:
   - Campaigns
-  - City Council
+  - pcc
   - Cycle Routes
 date: 2010-04-22 16:01:03
 caption: Alfie Perry-Ward on the Seafront Cycle Route

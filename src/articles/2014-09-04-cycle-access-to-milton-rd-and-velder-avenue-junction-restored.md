@@ -4,13 +4,12 @@ title: Cycle Access to Milton Rd and Velder Avenue Junction Restored
 id: 4191
 
 date: 2014-09-04 12:49:52
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
+todoLater:
+  - rotate image
+coverImage: /assets/Photo-29-08-2014-11-49-17-e1409831266789-225x300.jpg
+caption:  Cycle Activated Signal at Milton & Velder
+supercheck: true;
 ---
-
-<figure id="attachment_4192" align="alignright" width="225">![Cycle Activated Signal at Milton &amp; Velder](http://www.pompeybug.co.uk/wp-content/uploads/2014/09/Photo-29-08-2014-11-49-17-e1409831266789-225x300.jpg) Cycle Activated Signal at Milton &amp; Velder</figure>
 
 A cycle activated traffic light has been installed at the junction of Milton Rd / Velder Avenue.  Located on the corner of Milton Rd and Alverstone Rd it automatically detects waiting cyclists and will stop all traffic in the junction to allow cyclists to safely navigate the junction to any of the four exits - Milton Rd North &amp; South, Velder Avenue and Rodney Rd.  We have been testing the light and it works well - it's fast too, we've never had to wait more than a minute.  This light allows cyclists to approach this busy junction from the quiet streets and lanes around Fratton Park and to get across it quickly and safely.
 

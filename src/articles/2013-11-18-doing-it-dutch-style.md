@@ -10,9 +10,12 @@ todo:
   - Articles on this site are being migrated to a new format.
   - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+coverImage: /assets/Groningen-300x168.png
+caption:  Family cycling in Groningen
+supercheck: true;
 ---
 
-<figure id="attachment_3902" align="alignright" width="300">![Cycling in Groningen](http://www.pompeybug.co.uk/wp-content/uploads/2013/11/Groningen-300x168.png) Family cycling in Groningen</figure>
+
 
 **Portsmouth Cycle Forum Open Meeting, 14th November 2013**
 

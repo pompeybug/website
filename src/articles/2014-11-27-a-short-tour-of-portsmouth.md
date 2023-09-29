@@ -4,7 +4,7 @@ title: A Short Tour of Portsmouth
 id: 4269
 tags:
   - Campaigns
-  - City Council
+  - pcc
 date: 2014-11-27 13:24:14
 caption: Our Route
 figure: tour-mg-nov-14.jpg
