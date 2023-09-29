@@ -1,5 +1,4 @@
 ---
-
 title: 'UPDATED: Open Meeting'
 id: 4177
 tags:
