@@ -7,7 +7,7 @@ tags:
   - city-council
 date: 2015-01-14 09:53:34
 caption: A PHV making creative use of cycle-only lights on Flathouse Road
-coverImage: flat.jpg
+coverImage: ./flat.jpg
 ok: true
 ---
 

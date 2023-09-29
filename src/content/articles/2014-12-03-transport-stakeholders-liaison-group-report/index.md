@@ -6,7 +6,7 @@ tags:
   - city-Council
   - meetings
 date: 2014-12-03 21:39:24
-coverImage: /assets/4018132108-300x212.jpg
+coverImage: ./4018132108-300x212.jpg
 caption: A Bus Lane
 ok: true
 ---
