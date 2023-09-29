@@ -13,7 +13,7 @@ tags:
 coverImage: "./image6.jpg"
 ---
 
-[![Notification from Highways England and the Environment Agency](186291822_5800733793277824_1153850703772730556_n-724x1024.jpg "Notification from Highways England and the Environment Agency")](https://www.pompeybug.co.uk/wp-content/uploads/2021/05/186291822_5800733793277824_1153850703772730556_n.jpg)
+!["Notification from Highways England and the Environment Agency"](./186291822_5800733793277824_1153850703772730556_n.jpg)
 
 The notification from Highways England and the Environment Agency
 

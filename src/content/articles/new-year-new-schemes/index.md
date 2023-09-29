@@ -29,7 +29,7 @@ A further phase will replace the hedged section alongside the caravan park, and 
   
 Work here is being carried overnight and the road itself is closed to motor vehicles, although there should be a safe route along the northbound carriageway for people walking and cycling during working hours.  
   
-![](./Eatern-Road-3.jpg)![](Eastern-Road-2.jpg)
+![](./Eatern-Road-3.jpg)![](./Eastern-Road-2.jpg]
 
 ---
 

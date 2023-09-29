@@ -18,7 +18,7 @@ Portsmouth Cycle Forum was invited to look at the draft drawings of the first ph
 Having seen these drawings and after clarification on some of the plans, we submitted our comments to councillors for consideration.
 
 
-![a contraflow cycle lane in Southsea](seafront-contraflow.jpg)
+![a contraflow cycle lane in Southsea](./seafront-contraflow.jpg]
 # Our concerns
 
 We are particularly concerned that cycle lanes are shown to pass directly behind the echelon car parking for much of the way.  In our view this is very dangerous since drivers reversing from them simply cannot see cyclists approaching.
