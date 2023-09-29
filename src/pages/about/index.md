@@ -32,7 +32,7 @@ A shift in transport away from the dominance of the road infrastructure by the p
 Our committee is a lovely, friendly bunch of volunteers who spend their free time campaigning for better cycle infrastructure for our city. We have a lot of fun too so if you fancy joining the committee – or just trying it out, get in touch at [info@pompeybug.co.uk](mailto:info@pompeybug.co.uk)
 
 **Ian Saunders**
-![](./IanSaunders.jpg)
+![](./_IanSaunders.jpg)
 
 I have over 40 years experience of cycling on UK roads, and so have seen many changes since the 1980s! I want my kids to have the same confidence and ability to cycle around with friends or to events that I had, hence my desire to improve the conditions for cyclists in the city.  
   
@@ -46,7 +46,7 @@ My role on the committee is to keep an eye on infrastructure and network issues.
 _Coming soon_
 
 **Phil Kirkham - Treasurer**
-![](./Phil.jpg)
+![](./_Phil.jpg)
 
 Phil is a leisure cyclist turned commuter who wants safe, direct routes. He also owns a cargo bike to minimise the use of his car.  
   
@@ -59,7 +59,7 @@ Phil is a leisure cyclist turned commuter who wants safe, direct routes. He also
   
 
 **Nicola Waight**
-![](./Nicola.jpg)
+![](./_Nicola.jpg)
 
 Holding up the side for the girls! I volunteer with PCF because I want cycling to be easier for everyone. I want to see our streets transformed into more friendly and healthy places where kids can play and people can get around, doing normal day to day things on their feet, bikes and by public transport. This won’t happen if people are too scared to get on their bikes; so I campaign for better infrastructure. I work as a transport planner, specialising in walking, cycling, data, and public health and use my bike for normal things, like doing the shopping; seeing my friends; and riding into the city centre from just outside the city where I now live. I help out with bike rides (like the “famous women of Portsmouth ride”), website updates (like this page) and responding to Council transport plans.  
   
@@ -68,7 +68,7 @@ Holding up the side for the girls! I volunteer with PCF because I want cycling t
   
 
 **Mike Dobson**
-![](./Mike.jpg)
+![](./_Mike.jpg)
 
 Back in 2006 I was one of the original four founders of the independent Portsmouth Cycle Forum.  I'm a regular commuter cyclist and also a determined campaigner to improve Portsmouth's sub-standard cycle infrastructure, poor road safety record and illegally high levels of air pollution.  Over the years I've gained a lot of technical knowledge about the design of cycle facilities, Dept. for Transport regulations, Highways England standards, road safety requirements and the legal aspects of cycling.  I provide comment on PCC transport plans.
 
@@ -79,7 +79,7 @@ I firmly believe that if the Council did more to encourage people to use public 
   
 
 **Tim Pickering**
-![](./Tim.jpg)
+![](./_Tim.jpg)
 
 After taking a job in Portsmouth in 2015 and getting fed up sitting in vehicular traffic, I now cycle commute nearly every day from the Waterlooville area into Portsmouth for work (and sometimes Gosport/Chichester), and sold my car as it was sitting unused on the drive.
 
@@ -88,6 +88,6 @@ Although I started as a leisure rider back in the day, nowadays I really only ri
 I like diving into data to ensure I'm making evidence based decisions, and can often be found in a pub garden  (or even better camping in a field) somewhere with an ale in hand, talking over the latest research with like minded individuals. This approach carries through to my approach to campaigning for more space for active travel across Portsmouth, Hampshire, and beyond.
 
 **Agata Blazevic**
-![](./Agata.jpg)
+![](./_Agata.jpg)
 
 I am a mum of two and a proud owner of a cargo bike which replaces our car for daily travel around the city. I joined Portsmouth Cycle Forum to help campaign for a safe, inclusive cycle infrastructure which would be suitable for people of all ages and abilities. I am also interested in making cities more child friendly.
