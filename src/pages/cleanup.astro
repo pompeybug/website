@@ -1,0 +1,21 @@
+---
+import Base from "@layouts/Base.astro";
+import { getArticlesWithoutOk } from "@lib/collections/articles";
+
+const articlesWithoutOk = await getArticlesWithoutOk();
+---
+
+<Base title="Cleanup">
+  <main>
+    <p>These are articles have minor improvments needed or cleanups</p>
+    <ol class="menu">
+      {
+        articlesWithoutOk.map((article) => (
+          <li>
+            <a href={`/${article.slug}`}>{article.data.title}</a>
+          </li>
+        ))
+      }
+    </ol>
+  </main>
+</Base>

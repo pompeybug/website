@@ -8,7 +8,8 @@ const articlesCollection = defineCollection({
     date: z.date(),
     coverImage: image().optional(),
     todo: z.array(z.string()).or(z.string()).optional().nullable(),
-    author: z.string().optional()
+    author: z.string().optional(),
+    ok: z.string().or(z.boolean()).optional().transform((val) => typeof val === 'string' ? val === 'true' : val),
   })
 });
 

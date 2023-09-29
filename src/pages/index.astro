@@ -1,17 +1,17 @@
 ---
 import Base from "@layouts/Base.astro";
-import { getCollection } from "astro:content";
+import { getArticlesWithOk } from "@lib/collections/articles";
 
-const articles = await getCollection("articles");
+const okArticles = await getArticlesWithOk();
 ---
 
-<Base title="test">
+<Base title="PCF">
   <main>
     <ul class="menu">
       {
-        articles.map((article) => (
+        okArticles.map((article) => (
           <li>
-            <a href={`/${article.slug}`}>{article.data.title}</a>
+            <a href={`/${article.data}`}>{article.data.title}</a>
           </li>
         ))
       }
