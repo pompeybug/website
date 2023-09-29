@@ -10,7 +10,7 @@ const articlesWithTodos = articles.filter((article) => article.data.todo)
 <Base title="test">
   <main>
     <p>We always have articles with todos, why not take a look and see if you can contribute.</p>
-    <ul class="menu">
+    <ol class="menu">
       {
         articlesWithTodos.map((article) => (
           <li>
@@ -18,6 +18,6 @@ const articlesWithTodos = articles.filter((article) => article.data.todo)
           </li>
         ))
       }
-    </ul>
+    </ol>
   </main>
 </Base>
