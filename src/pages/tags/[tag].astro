@@ -1,0 +1,56 @@
+---
+import Base from "@layouts/Base.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { toArray } from "src/utils";
+export async function getStaticPaths() {
+  const allArticles = await getCollection("articles");
+
+  const tags = allArticles
+    .flatMap((article) => (article.data.tags ? toArray(article.data.tags) : []))
+    .map((tag) => tag.toLowerCase());
+
+  return [...new Set(tags)].map((tag) => ({
+    params: { tag },
+    props: {
+      articles: allArticles.filter((article) => {
+        if (Array.isArray(article.data.tags)) {
+          return article.data.tags
+            ?.map((articleTag) => articleTag.toLowerCase())
+            .includes(tag);
+        } else {
+          return article.data.tags?.toLowerCase() === tag;
+        }
+      }),
+    },
+  }));
+}
+
+interface Props {
+  tag: string;
+  articles: CollectionEntry<"articles">[];
+}
+
+const { tag } = Astro.params;
+const { articles } = Astro.props;
+---
+
+<Base title={`Articles with ${tag} tag`}>
+  <main>
+    <h1>Tag: {tag}</h1>
+    <p>
+      A list of articles that have been tagged: <a href={`/tags/${tag}`}
+        >{tag}</a
+      >
+    </p>
+
+    <ul class="menu">
+      {
+        articles.map((article) => (
+          <li>
+            <a href={`/${article.slug}`}>{article.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Base>

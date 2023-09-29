@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<meta charset="utf-8" />
+{description && <meta name="description" content={description} />}
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/img/logo.svg" />
+<link rel="”mask-icon”" href="/img/logo-w.svg" color='”#FFFFFF"' />
+<link rel="apple-touch-icon" href="/img/logo.png" />
+<title>{title}</title>

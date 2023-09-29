@@ -1,0 +1,23 @@
+---
+import { toArray } from "src/utils";
+interface Props {
+  tags?: string[] | string | null;
+}
+
+const { tags } = Astro.props;
+---
+
+{
+  tags && tags.length > 0 && (
+    <nav id="taglist">
+      <h2>Tags</h2>
+      <span class="innerlist">
+        {toArray(tags).map((tag) => (
+          <a class="tag" href={`/tags/${tag.toLowerCase()}`}>
+            {tag.toLowerCase()}
+          </a>
+        ))}
+      </span>
+    </nav>
+  )
+}

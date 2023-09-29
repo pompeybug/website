@@ -1,0 +1,23 @@
+---
+import Base from "@layouts/Base.astro";
+import { getCollection } from "astro:content";
+
+const articles = await getCollection("articles");
+
+const articlesWithTodos = articles.filter((article) => article.data.todo)
+---
+
+<Base title="test">
+  <main>
+    <p>We always have articles with todos, why not take a look and see if you can contribute.</p>
+    <ol class="menu">
+      {
+        articlesWithTodos.map((article) => (
+          <li>
+            <a href={`/${article.slug}`}>{article.data.title}</a>
+          </li>
+        ))
+      }
+    </ol>
+  </main>
+</Base>
