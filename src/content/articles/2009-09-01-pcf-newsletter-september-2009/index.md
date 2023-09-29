@@ -16,4 +16,4 @@ Contents
 *   Two-way cycling in one-way roads
 *   PCF september meeting
 
-[View the newsletter](2009-09-newsletter.pdf)
+[View the newsletter](/assets/docs/2009-09-newsletter.pdf)

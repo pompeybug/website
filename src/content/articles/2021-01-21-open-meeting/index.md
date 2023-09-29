@@ -13,8 +13,8 @@ Our aim is to bring you up to speed with all the current projects in development
 We aim to start promptly at 7pm on Thursday 26th January and will finish at 8:45pm. We are returning to the University's Richmond Building. Full details and to register in advance can be found via this **[link](https://www.eventbrite.co.uk/e/open-public-meeting-tickets-462527852257)**
 
 ## Slides
-* [EATF](slides/eatf.pptx)
-* [LTN](slides/ltn.pptx)
-* [PCC LTP](slides/ltp.pptx)
-* [lcwip](slides/lcwip.pptx)
-* [Pollution](slides/pollution.pptx)
+* [EATF](/assets/docs/eatf.pptx)
+* [LTN](/assets/docs/ltn.pptx)
+* [PCC LTP](/assets/docs/ltp.pptx)
+* [lcwip](/assets/docs/lcwip.pptx)
+* [Pollution](/assets/docs/pollution.pptx)

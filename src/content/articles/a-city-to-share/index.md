@@ -37,5 +37,5 @@ A shift in transport away from the dominance of the road infrastructure by the p
 
 ## Download “A City to Share”
 
-Download the complete strategy document ["A City to Share"](strategy.pdf) (PDF) for more detail.
+Download the complete strategy document ["A City to Share"](/assets/docs/strategy.pdf) (PDF) for more detail.
 
