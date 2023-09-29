@@ -1,8 +1,8 @@
 ---
 import Base from "@layouts/Base.astro";
-import { getArticlesWithTodos } from "@lib/collections/articles";
+import { getArticlesWithTodos, sort } from "@lib/collections/articles";
 
-const articlesWithTodos = await getArticlesWithTodos();
+const articlesWithTodos = sort(await getArticlesWithTodos());
 ---
 
 <Base title="Todos">

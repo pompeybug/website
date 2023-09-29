@@ -1,28 +1,21 @@
 ---
 import Base from "@layouts/Base.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
-import { toArray } from "src/utils";
+import {
+  getAllArticlesWithTag,
+  getAllUniqueArticleTags,
+} from "@lib/collections/articles";
+import { type CollectionEntry } from "astro:content";
 export async function getStaticPaths() {
-  const allArticles = await getCollection("articles");
+  const uniqueTags = await getAllUniqueArticleTags();
 
-  const tags = allArticles
-    .flatMap((article) => (article.data.tags ? toArray(article.data.tags) : []))
-    .map((tag) => tag.toLowerCase());
-
-  return [...new Set(tags)].map((tag) => ({
-    params: { tag },
-    props: {
-      articles: allArticles.filter((article) => {
-        if (Array.isArray(article.data.tags)) {
-          return article.data.tags
-            ?.map((articleTag) => articleTag.toLowerCase())
-            .includes(tag);
-        } else {
-          return article.data.tags?.toLowerCase() === tag;
-        }
-      }),
-    },
-  }));
+  return await Promise.all(
+    uniqueTags.map(async (tag) => ({
+      params: { tag },
+      props: {
+        articles: await getAllArticlesWithTag(tag),
+      },
+    }))
+  );
 }
 
 interface Props {

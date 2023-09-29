@@ -1,8 +1,8 @@
 ---
 import Base from "@layouts/Base.astro";
-import { getArticlesWithoutOk } from "@lib/collections/articles";
+import { getArticlesWithoutOk, sort } from "@lib/collections/articles";
 
-const articlesWithoutOk = await getArticlesWithoutOk();
+const articlesWithoutOk = sort(await getArticlesWithoutOk());
 ---
 
 <Base title="Cleanup">
