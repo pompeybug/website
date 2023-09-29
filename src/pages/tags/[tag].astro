@@ -40,7 +40,7 @@ const { articles } = Astro.props;
       {
         articles.map((article) => (
           <li>
-            <a href={`/${article.slug}`}>{article.data.title}</a>
+            <a href={`/${article.slug}`} rel="prefetch-intent">{article.data.title}</a>
           </li>
         ))
       }
