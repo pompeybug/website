@@ -1,10 +1,9 @@
 ---
-
 title: "James Callaghan Drive - we've invited Councillors and MPs to take a look on 25th November"
 id: 2828
 tags:
   - Campaigns
-  - City Council
+  - pcc
   - Cycle Routes
   - Infrastructure Issue
   - Opinion

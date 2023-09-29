@@ -1,9 +1,8 @@
 ---
-
 title: Local Transport Plan 3
 id: 461
 tags:
-  - City Council
+  - pcc
 date: 2010-01-12 18:35:46
 caption: Seafront Cycling
 figure: P9202913.jpg

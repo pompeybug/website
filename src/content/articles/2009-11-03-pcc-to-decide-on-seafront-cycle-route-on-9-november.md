@@ -1,10 +1,9 @@
 ---
-
 title: PCC to decide on Seafront Cycle Route on 9 November
 id: 358
 tags:
   - Campaigns
-  - City Council
+  - pcc
   - Cycle Routes
 date: 2009-11-03
 caption: Southsea Seafront Contraflow

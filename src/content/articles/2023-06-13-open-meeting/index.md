@@ -1,5 +1,4 @@
 ---
-
 title: Open Meeting
 date: 2023-06-13
 tags: 
@@ -17,7 +16,7 @@ Once again we'll be meeting in Lecture Theatre 2 of the Richmond Building at the
 
 Our speakers will be Councillor Suzy Horton, Deputy Leader of Portsmouth City Council and Councillor Charlotte Gerada, Labour Party Group Leader.
 
-They will be discussing the issues around active travel policy in their respective parties and how these can be used to improve the situation for those not using motor vehicles to travel around the city. As a reminder, we sent the same set of questions to each party prior the recent Local elections. Only the Labour Party responded with any answers, which you can read here: [https://www.pompeybug.co.uk/city-council-elections-2023.../](https://www.pompeybug.co.uk/city-council-elections-2023-questons-for-the-parties/?fbclid=IwAR10FonbKi-CXPWMaGE4Li7VAJQu-iwcoLuvb0zFsZ6qcBQZLfV5xx1IbhA)
+They will be discussing the issues around active travel policy in their respective parties and how these can be used to improve the situation for those not using motor vehicles to travel around the city. As a reminder, we sent the same set of questions to each party prior the recent Local elections. Only [the Labour Party responded](/city-council-elections-2023-questons-for-the-parties) with any answers.
 
 We'll also give a quick update on the various schemes currently being implemented or consulted upon - as far as we can.
 

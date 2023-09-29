@@ -1,19 +1,13 @@
 ---
-
 title: An Open Letter to Councillors
 id: 4170
 tags:
-  - Campaigns
-  - City Council
-  - Opinion
+  - campaigns
+  - opinion
+  - city-council
 date: 2014-08-20 08:03:54
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
 ---
 
-<figure id="attachment_4171" align="alignright" width="300">![A27 Lorry Fire](http://www.pompeybug.co.uk/wp-content/uploads/2014/08/lorry-fire-portsmouth-21-300x291.jpeg) A27 Lorry Fire</figure>
 
 Dear Councillors,
 
@@ -35,6 +29,6 @@ We are calling on you to act now. Plans need to be made now to fix our transport
 
 The time has come to take action.
 
-Jon Spencer
-Chair
+Jon Spencer<br>
+Chair<br>
 Portsmouth Cycle Forum

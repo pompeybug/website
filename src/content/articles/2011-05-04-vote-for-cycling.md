@@ -1,10 +1,9 @@
 ---
-
 title: 'Vote for Cycling!'
 id: 2289
 tags:
   - Campaigns
-  - City Council
+  - pcc
 date: 2011-05-04 10:05:38
 todo:
   - Articles on this site are being migrated to a new format.

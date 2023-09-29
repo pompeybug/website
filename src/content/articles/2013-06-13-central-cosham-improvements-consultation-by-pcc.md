@@ -1,9 +1,8 @@
 ---
-
 title: Central Cosham Improvements – Consultation by PCC
 id: 3710
 tags:
-  - City Council
+  - pcc
   - Infrastructure Issue
   - Opinion
 date: 2013-06-13 10:09:39

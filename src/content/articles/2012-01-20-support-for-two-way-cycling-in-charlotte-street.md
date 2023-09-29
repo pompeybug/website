@@ -1,10 +1,9 @@
 ---
-
 title: Support for two-way cycling in Charlotte Street
 id: 3065
 tags:
   - Campaigns
-  - City Council
+  - pcc
   - Cycle Routes
   - Infrastructure Issue
 date: 2012-01-20 20:54:42

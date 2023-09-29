@@ -1,10 +1,9 @@
 ---
-
 title: Post-election manifesto support
 id: 4090
 tags:
   - Campaigns
-  - City Council
+  - pcc
 date: 2014-05-23 11:09:06
 todo:
   - Articles on this site are being migrated to a new format.

@@ -1,19 +1,14 @@
 ---
-
 title: Biking is better for you and better for us
 id: 4199
 tags:
-  - Campaigns
-  - City Council
-  - Cycle Routes
+  - campaigns
+  - city-council
+  - cycle-routes
 date: 2014-09-15 09:06:44
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
+coverImage: ./UrsulaBachIMG_2241-300x200.jpg
+caption: Cycle Commuting in Copenhagen
 ---
-
-<figure id="attachment_4200" align="alignright" width="300">![Cycle Commuting in Copenhagen](http://www.pompeybug.co.uk/wp-content/uploads/2014/09/UrsulaBachIMG_2241-300x200.jpg) Cycle Commuting in Copenhagen</figure>
 
 It's often said that Portsmouth is the ideal cycling city being flat, compact and temperate. We spend a lot of time tackling the issues that may stop people from getting their bikes out - mainly the fear of traffic and the fear of bicycle theft. It's worth remembering that despite all this the benefits of cycling far outweigh the hazards.
 

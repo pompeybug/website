@@ -3,10 +3,9 @@ title: A short journey
 id: 3595
 tags:
   - Campaigns
-  - City Council
+  - pcc
   - Cycle Routes
 date: 2013-02-13 07:45:30
-
 ---
 
 Former world and Olympic champion and Tour de France maillot jaune Chris Boardman has produced a short film for British Cycling that poses the question, Who Are Cycle Lanes For?

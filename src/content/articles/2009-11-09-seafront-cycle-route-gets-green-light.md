@@ -1,9 +1,8 @@
 ---
-
 title: Seafront Cycle Route Gets Green Light
 tags:
   - Campaigns
-  - City Council
+  - pcc
   - Cycle Routes
 date: 2009-11-09
 caption: Southsea Seafront Contraflow
