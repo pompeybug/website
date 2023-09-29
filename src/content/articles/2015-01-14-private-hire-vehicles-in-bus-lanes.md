@@ -3,11 +3,12 @@
 title: Private Hire Vehicles in Bus Lanes
 id: 4295
 tags:
-  - Campaigns
-  - City Council
+  - campaigns
+  - city-council
 date: 2015-01-14 09:53:34
 caption: A PHV making creative use of cycle-only lights on Flathouse Road
-figure: flat.jpg
+coverImage: flat.jpg
+ok: true
 ---
 
 Portsmouth City Council is considering allowing Private Hire Vehicles to use bus lanes. To use technical terminology, a Taxi is a Hackney Carriage, and a Minicab is a Private Hire Vehicle (PHV).  A Hackney Carriage licence allows the driver to pick up fares on the street, and a few other perks, for example, in Portsmouth, Taxis may use bus lanes, but PHVs ay not.  Recently it has been proposed that PHVs should be allowed to use Bus Lanes.  In addition to buses and taxis, bicycles are also permitted to use bus lanes.

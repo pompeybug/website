@@ -9,6 +9,7 @@ event:
     location: Gosport Ferry
     contact: Roger Inkpen
     email: roger@inkpen.com
+ok: true
 ---
 
 We follow the NCN2 from Gosport through Lee-on-Solent to Titchfield Haven nature reserve.  Flat, mostly quiet roads and cycle tracks.  Ferry with bike £4.60.  Meet 10am at Gosport ferry.
