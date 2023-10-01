@@ -1,5 +1,5 @@
 ---
-title: 'Cyclenation News: Sydey cycling success'
+title: 'Cyclenation News: Sydney cycling success'
 id: 3398
 tags:
   - cyclenation
