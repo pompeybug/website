@@ -4,9 +4,7 @@ id: 3993
 tags:
   - campaigns
   - pcc
-date: 2014-05-16 09:44:39
-todo:
-  - Fix markdown table (it's not showing as a table for some reason.)
+date: 2014-05-16
 ---
 
 The responses to our manifesto for cycling from election candidates are coming in thick and fast. Detailed comments from candidates (where provided) are linked from the table - some are very interesting.  Comments received from senior Councillors (where they are not themselves up for election) are included below the table.
@@ -17,8 +15,7 @@ The results so far:
 
 
 | Ward | Name | Party | Position | Comments | 
---------------------------------------------
-
+| :---- | :---- | :----- | :-------- | :-------- |
 | Baffins | Stephen HASTINGS | UKIP | Supports | [Comments](/infrastructure/stephen-hastings-comments/) |
 | Baffins | Drusilla MOODY | Liberal Democrat | Supports | [Comments](http://www.pompeybug.co.uk/infrastructure/drusilla-moody-comments/) |
 | Central Southsea | Ian MCCULLOCH | Green Party | Supports | [Comments](http://www.pompeybug.co.uk/infrastructure/ian-mcculloch-comments/) |

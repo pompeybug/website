@@ -5,8 +5,6 @@ tags:
   - campaigns
   - pcc
 date: 2014-05-23
-todo:
-  - find comments from hannah and lee
 ---
 
 Following last yesterday's elections how do the newly elected Councillors appear to stand on cycling?  We asked all candidates before the election to support our cycling [manifesto](/our-cycling-manifesto/), and [many did](manifesto-responses/).  How many of these bike-friendly candidates got themselves elected?
@@ -105,4 +103,4 @@ Following last yesterday's elections how do the newly elected Councillors appear
 </tr>
 </table>
 
-So, the initial analysis is that of 14 newly elected councillors, 5 supported our manifesto for cycling, 1 partially did and 8 did not respond.  Bright spots are [Hannah Hockaday](/infrastructure/hannah-hockaday-comments/) (Con) in Cosham and [Lee Hunt](/infrastructure/lee-hunt-comments/) (Lib Dem) in Central Southsea who both gave us long and thoughtful responses.  Cllr Jonas in Hilsea telephoned us and expressed some very encouraging views too.  Of the new UKIP councillors Stephen Hastings was the most supportive, being himself a regular cyclist.
+So, the initial analysis is that of 14 newly elected councillors, 5 supported our manifesto for cycling, 1 partially did and 8 did not respond.  Bright spots are Hannah Hockaday (Con) in Cosham and Lee Hunt (Lib Dem) in Central Southsea who both gave us long and thoughtful responses.  Cllr Jonas in Hilsea telephoned us and expressed some very encouraging views too.  Of the new UKIP councillors Stephen Hastings was the most supportive, being himself a regular cyclist.

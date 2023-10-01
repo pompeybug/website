@@ -2,8 +2,7 @@
 
 title: Treasurer’s Report and Accounts 2013-14
 id: 3965
-date: 2014-03-21 09:21:19
-todo: convert to a proper MD table
+date: 2014-03-21
 tags:
   - accounts
 ---
@@ -27,34 +26,25 @@ These are the accounts for Portsmouth Cycle Forum, financial year ending 28 Febr
 ---
 
 
-### Income 
-
-Subscriptions 2013-14                  149.68
-
-Total Income                               <span style="text-decoration: underline">149.68</span>
-
-### Expenditure
-
-Printing                                       148.70
-
-Website                                       121.64
-
-Hall hire                                        10.00
-
-Subscriptions to CTC/CN               80.00
-
-Total Expenditure                        <span style="text-decoration: underline">360.34</span>
-
-**2013-14 deficit**                           <span style="text-decoration: underline">£210.66</span>
-
-### Assets
-
-Bank                                            202
-
-Paypal                                           60
-
-**Current Assets**                          <span style="text-decoration: underline">£262</span>               (from £411 in March 2013)
-
+| Accounts                 |                |
+| :----------------------- | -------------: |
+| **Income**               |         149.68 |
+| Subscriptions 2013-14    |         149.68 |
+| Total Income             |     **149.68** |
+|                          |                |
+| **Expenditure**          |                |
+| Printing                 |         148.70 |
+| Website                  |         121.64 |
+| Hall hire                |          10.00 |
+| Subscriptions to CTC/CN  |          80.00 |
+| Total Expenditure        |     **360.34** |
+| **2013-14 deficit**      |    **£210.66** |
+|                          |                |
+| **Assets**               |                |
+| Bank                     |         202.00 |
+| Paypal                   |          60.00 |
+| Current Assets           |    **£262.00** |              
+ (from £411 in March 2013)
 
 Roger Inkpen
 

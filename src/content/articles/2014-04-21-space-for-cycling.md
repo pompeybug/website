@@ -6,8 +6,6 @@ date: 2014-04-21
 coverImage: /public/assets/original-150x150.jpg
 tags:
  - campaigns
-todo:
- - handle small cover images
 ---
 
 CTC, the national cycling charity, has launched a new campaign called "Space for Cycling". You may remember Roger Geffen of CTC briefing us on it at the our Open Meeting in February.  Cycle-friendly streets are the life-blood of safe, pleasant and healthy communities. They are good for everybody's quality of life, whether or not they chose to cycle.
@@ -22,10 +20,9 @@ What Space for Cycling means will depend on the location, with different solutio
 4.  Cycle-friendly town centres
 5.  Safe routes to school
 6.  Routes through green spaces
+
 Following his supportive comments at Portsmouth Cycle Forum's open meeting in February the campaign is supported by leader of Portsmouth City Council and Vice-Chair of the Local Government Association Gerald Vernon-Jackson, who said:
 
-“Cycling provides huge benefits for our health and that of our streets and communities.  Portsmouth has already done a lot to promote cycling, creating 20mph streets and a growing cycle network.  Providing ‘Space for Cycling’ benefits everybody in our society, whether or not they choose to cycle themselves. I would urge cross-party support from councillors throughout the country for this campaign.”
+> “Cycling provides huge benefits for our health and that of our streets and communities.  Portsmouth has already done a lot to promote cycling, creating 20mph streets and a growing cycle network.  Providing ‘Space for Cycling’ benefits everybody in our society, whether or not they choose to cycle themselves. I would urge cross-party support from councillors throughout the country for this campaign.”
 
-You can contact your councillors and ask them to pledge their support via the campaign website:
-
-**[http://www.space4cycling.org.uk/](http://www.space4cycling.org.uk/ "Space for Cycling Campaign")**
+You can contact your councillors and ask them to pledge their support via the campaign website: [http://www.space4cycling.org.uk/](http://www.space4cycling.org.uk/)
