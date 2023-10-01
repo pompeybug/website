@@ -1,18 +1,10 @@
 ---
 title: Dutch Style - Bristol Fashion
 id: 3919
-
 date: 2014-01-24 20:38:22
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
-coverImage: ./4716806811_b91a75d04e_o-300x200.jpg
+coverImage: /public/assets/4716806811_b91a75d04e_o-300x200.jpg
 caption:  Safe Cycling in Bristol
-supercheck: true;
 ---
-
-
 
 We have our next open meeting on Thursday 13 February at 7pm at the [Student Union building on Cambridge Road](https://www.google.co.uk/maps/preview/place/university+of+portsmouth+su/@50.7945485,-1.0963502,17z/data=!3m1!4b1!4m2!3m1!1s0x48745d9ca4d71053:0x7474561a9c6fef4e?hl=en "Meeting location").
 

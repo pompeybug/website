@@ -2,9 +2,9 @@
 title: Support for two-way cycling in Charlotte Street
 id: 3065
 tags:
-  - Campaigns
+  - campaigns
   - pcc
-  - Cycle Routes
+  - cycle-routes
   - Infrastructure Issue
 date: 2012-01-20 20:54:42
 todo:
@@ -13,7 +13,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-[![No Entry Except Cycles](http://www.pompeybug.co.uk/wp-content/uploads/2012/01/No-Entry-except-cycles-217x300.jpg "No Entry Except Cycles")](http://www.pompeybug.co.uk/wp-content/uploads/2012/01/No-Entry-except-cycles.jpg)Cabinet member for Traffic and Transportation, Cllr Jason Fazackarley, gave his support of two-way cycling in Charlotte Street, Landport at his decision meeting on 19 January.
+[![No Entry Except Cycles](http://www.pompeybug.co.uk/wp-content/uploads/2012/01/No-Entry-except-cycles-217x300.jpg "No Entry Except Cycles")](/assets/No-Entry-except-cycles.jpg)Cabinet member for Traffic and Transportation, Cllr Jason Fazackarley, gave his support of two-way cycling in Charlotte Street, Landport at his decision meeting on 19 January.
 
 The comment was made in response to a deputation from Portsmouth Cycle Forum where the experimental traffic regulation order changing the direction of traffic on this one-way street was made permanent.
 

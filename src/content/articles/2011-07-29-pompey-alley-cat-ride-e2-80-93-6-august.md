@@ -3,7 +3,7 @@
 title: Pompey Alley Cat Ride – 6 August
 id: 2606
 tags:
-  - Rides
+  - rides
 date: 2011-07-29 21:15:38
 todo:
   - Articles on this site are being migrated to a new format.
@@ -11,7 +11,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-[![Pompey Alley Cat poster 6 August 2011](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/Pompey-Alleycat-06Aug11.jpg "Pompey Alleycat 06Aug11")](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/Pompey-Alleycat-06Aug11.jpg)Southsea Cycle Club its holding its first public Alley Cat event on Saturday 6 August.
+[![Pompey Alley Cat poster 6 August 2011](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/Pompey-Alleycat-06Aug11.jpg "Pompey Alleycat 06Aug11")](/assets/Pompey-Alleycat-06Aug11.jpg)Southsea Cycle Club its holding its first public Alley Cat event on Saturday 6 August.
 
 An alley cat is a time trial/scavenger hunt style ride popular in bicycle messenger and fixed gear circles. Participants cycle to several checkpoints using whichever they think is best.
 

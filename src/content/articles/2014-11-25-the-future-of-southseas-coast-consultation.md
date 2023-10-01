@@ -2,9 +2,9 @@
 title: "The future of Southsea's coast - consultation"
 id: 4261
 tags:
-  - Campaigns
+  - campaigns
   - pcc
-  - Cycle Routes
+  - cycle-routes
   - Environment
 date: 2014-11-25 19:55:01
 caption: Storm tide in Southsea

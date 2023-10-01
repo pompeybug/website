@@ -3,10 +3,10 @@
 title: Open Meeting
 id: 501
 tags:
-  - Campaigns
-  - Cycle Routes
-  - Events
-  - Meetings
+  - campaigns
+  - cycle-routes
+  - events
+  - meetings
 date: 2010-01-20 19:31:45
 caption: Portsmouth Guildhall
 figure: Porstmouth_01.jpg

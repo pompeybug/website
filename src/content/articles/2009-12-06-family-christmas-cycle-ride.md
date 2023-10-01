@@ -3,8 +3,8 @@
 title: Family Christmas Cycle Ride
 id: 364
 tags:
-  - Events
-  - Rides
+  - events
+  - rides
 date: 2009-12-06
 caption: Langstone Harbour Ride
 figure: me_Langstone_Harbour_circular_ride_leaflet_cover_500.jpg

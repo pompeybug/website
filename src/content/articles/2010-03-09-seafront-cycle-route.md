@@ -2,9 +2,9 @@
 title: Seafront Cycle Route
 id: 1007
 tags:
-  - Campaigns
+  - campaigns
   - pcc
-  - Cycle Routes
+  - cycle-routes
 date: 2010-03-09 12:14:45
 caption: Southsea Seafront Contraflow
 figure: /assets/me_Southsea_seafront_contraflow_cycleway_CTC1-150x150.jpg

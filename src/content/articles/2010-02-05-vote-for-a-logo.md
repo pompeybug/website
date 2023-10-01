@@ -3,7 +3,7 @@
 title: 'Vote for a Logo!'
 id: 860
 tags:
-  - PCF
+  - pcf
 date: 2010-02-05 12:00:17
 caption: Logo Montage
 figure: /assets/logomontage.png

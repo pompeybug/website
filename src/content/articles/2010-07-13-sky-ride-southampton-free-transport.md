@@ -3,7 +3,7 @@
 title: 'Sky Ride Southampton - Free transport!'
 id: 1355
 tags:
-  - Rides
+  - rides
 date: 2010-07-13 17:21:28
 todo:
   - Articles on this site are being migrated to a new format.

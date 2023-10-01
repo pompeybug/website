@@ -2,9 +2,9 @@
 title: Hilsea Station Victory
 id: 654
 tags:
-  - Campaigns
+  - campaigns
   - pcc
-  - Cycle Routes
+  - cycle-routes
 date: 2010-02-03 16:28:09
 
 caption: Hilsea Station

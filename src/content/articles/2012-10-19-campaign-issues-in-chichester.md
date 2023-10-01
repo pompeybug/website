@@ -3,13 +3,9 @@
 title: Campaign issues in Chichester
 id: 3528
 tags:
-  - Campaigns
-  - PCF
-date: 2012-10-19 13:58:38
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
+  - campaigns
+  - pcf
+date: 2012-10-19
 ---
 
 ChiCycle, the Chichester cycle campaign group, have alerted us to the following issues affecting cyclists who use routes to and through Chichester:
@@ -24,9 +20,9 @@ We know that many cyclists are confident enough to use the A259 but please do su
 
 ### Fishbourne Pedestrian Level Crossing
 
-<figure id="attachment_3531" align="alignright" width="300"][![Pedestrian Level Crossing in Fishbourne](http://www.pompeybug.co.uk/wp-content/uploads/2012/10/chi-crossing-300x248.jpg "Pedestrian Level Crossing in Fishbourne")](http://www.pompeybug.co.uk/wp-content/uploads/2012/10/chi-crossing.jpg) Pedestrian Level Crossing in Fishbourne</figure>
-
 The current pedestrian level crossing between Fishbourne Road and Westgate is to be replaced with a bridge. A bridge over the railway at Fishbourne will, we fear, put people off cycling or alternatively encourage cyclists to take the riskier road which is a slipway to the A27.
+
+![Pedestrian Level Crossing in Fishbourne](/assets/chi-crossing.jpg)
 
 The planning Application no is 12/03640/FUL. You can log on [Chichester District Council website](http://pawam.chichester.gov.uk/online-applications/simpleSearchResults.do?action=firstPage) to register views.
 

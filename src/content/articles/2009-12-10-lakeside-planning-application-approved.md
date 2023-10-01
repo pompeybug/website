@@ -1,9 +1,9 @@
 ---
 title: Lakeside Planning Application Approved
 tags:
-  - Campaigns
+  - campaigns
   - pcc
-  - Cycle Routes
+  - cycle-routes
 date: 2009-12-10 13:39:30
 caption: 1000 Lakeside
 figure: me_1000_Lakeside.jpg

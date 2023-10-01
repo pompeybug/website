@@ -4,7 +4,7 @@ title: Successful cycle conference - a showcase for Portsmouth
 id: 1051
 tags:
   - Conference
-  - Events
+  - events
 date: 2010-04-21 15:43:24
 todo:
   - Articles on this site are being migrated to a new format.

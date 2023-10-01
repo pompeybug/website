@@ -3,8 +3,8 @@
 title: "Book Now for the Lord Mayor's Bike Ride"
 id: 3945
 tags:
-  - Events
-  - Rides
+  - events
+  - rides
 date: 2014-02-18 12:09:26
 caption: The Lord Mayor, Councillor Lynne Stagg, launches the Lord mayor's Bike Ride.
 figure: Lord_rdax_225x150.jpg

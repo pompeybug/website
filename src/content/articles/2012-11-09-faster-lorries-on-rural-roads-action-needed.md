@@ -3,17 +3,18 @@
 title: 'Faster Lorries on Rural Roads - Action Needed!'
 id: 3549
 tags:
-  - Campaigns
-  - Opinion
-  - PCF
-date: 2012-11-09 16:57:36
+  - campaigns
+  - opinion
+  - pcf
+date: 2012-11-09
+caption: Say no to faster lorries
+coverImage: /public/assets/2206492974_ed2e28cb90-300x225.jpg 
+smallCover: true
 todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
+  - handle small cover image
 ---
 
-![Say no to faster lorries](http://www.pompeybug.co.uk/wp-content/uploads/2012/11/2206492974_ed2e28cb90-300x225.jpg "Say no to faster lorries")The DfT has opened a consultation on increasing the speed limit for HGV's on single carriageway roads. This seems to be because many lorries ignore the current limit of 40mph anyway. This apparently gives the firms that do ignore the limit a competitive advantage as they are able to deliver goods more quickly.
+The DfT has opened a consultation on increasing the speed limit for HGV's on single carriageway roads. This seems to be because many lorries ignore the current limit of 40mph anyway. This apparently gives the firms that do ignore the limit a competitive advantage as they are able to deliver goods more quickly.
 
 If you don't like the idea of being flattened by high speed hauliers on narrow roads, and perhaps would like to see the current limit better enforced, then please take the time to respond to the consultation.  This can be done online and is linked below.
 

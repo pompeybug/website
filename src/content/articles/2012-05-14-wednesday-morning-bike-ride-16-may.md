@@ -10,7 +10,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-[![Copenhagen cycle chic](http://www.pompeybug.co.uk/wp-content/uploads/2011/08/600px-Copenhagen_cycle_chic-300x300.jpg "Copenhagen cycle chic")](http://www.pompeybug.co.uk/wp-content/uploads/2011/08/600px-Copenhagen_cycle_chic.jpg)Join Gill, Pam and friends for a gentle
+[![Copenhagen cycle chic](http://www.pompeybug.co.uk/wp-content/uploads/2011/08/600px-Copenhagen_cycle_chic-300x300.jpg "Copenhagen cycle chic")](/assets/600px-Copenhagen_cycle_chic.jpg)Join Gill, Pam and friends for a gentle
 
 **WEDNESDAY MORNING BIKE RIDE**
 

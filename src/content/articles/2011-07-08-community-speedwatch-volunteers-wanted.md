@@ -3,7 +3,7 @@
 title: Community SpeedWatch Volunteers Wanted
 id: 2570
 tags:
-  - Campaigns
+  - campaigns
 date: 2011-07-08 18:01:02
 todo:
   - Articles on this site are being migrated to a new format.
@@ -12,7 +12,7 @@ todo:
 ---
 
 <div id="_mcePaste" class="mcePaste" style="position: absolute; width: 1px; height: 1px; overflow: hidden; top: 0px; left: -10000px;">﻿</div>
-[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/PoliceVolunteerSupport-300x160.jpg "Police Volunteer Support")](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/PoliceVolunteerSupport.jpg)Hampshire Police are looking for keen and committed members of the community to help them set up a Community Speed Watch programme in the Fratton and Southsea areas.
+[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/PoliceVolunteerSupport-300x160.jpg "Police Volunteer Support")](/assets/PoliceVolunteerSupport.jpg)Hampshire Police are looking for keen and committed members of the community to help them set up a Community Speed Watch programme in the Fratton and Southsea areas.
 
 Speeding is one of the factors that most affects the quality of life in communities around Hampshire and the Isle of Wight. It can contribute to road traffic collisions and impacts on the day to day lives of people in the community.
 

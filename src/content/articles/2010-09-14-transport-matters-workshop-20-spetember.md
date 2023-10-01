@@ -10,7 +10,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-[](http://www.pompeybug.co.uk/wp-content/uploads/2010/09/tfsh-banner-1.jpg)[![](http://www.pompeybug.co.uk/wp-content/uploads/2010/09/tfsh-banner-01.jpg "tfsh banner 0")](http://www.pompeybug.co.uk/wp-content/uploads/2010/09/tfsh-banner-01.jpg)Are you interested in how we get around within our communities?  By foot, bike, scooter, bus, car, train or boat - transport matters!
+[](http://www.pompeybug.co.uk/wp-content/uploads/2010/09/tfsh-banner-1.jpg)[![](http://www.pompeybug.co.uk/wp-content/uploads/2010/09/tfsh-banner-01.jpg "tfsh banner 0")](/assets/tfsh-banner-01.jpg)Are you interested in how we get around within our communities?  By foot, bike, scooter, bus, car, train or boat - transport matters!
 
 Culture Matters (formerly the Cultural Consortium) invites you to a free workshop to discuss the future of transport in our area.
 

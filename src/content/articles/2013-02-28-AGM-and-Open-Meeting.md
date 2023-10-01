@@ -3,7 +3,7 @@ title: Cycle Forum AGM and Open Meeting 14 March
 id: 3601
 date: 2013-02-28 22:47:48
 tags:
-  - Meetings
+  - meetings
 xfigure: bannerbox-myjourney.gif
 Caption: My Journey
 ---

@@ -4,14 +4,10 @@ title: Palmerston Road street improvement works
 id: 2593
 tags:
   - Infrastructure Issue
-date: 2011-07-22 15:36:09
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
+date: 2011-07-22
 ---
 
-<figure id="attachment_2596" align="alignright" width="300" caption="The southern section of Palmerston Road, Southsea"][![The southern section of Palmerston Road, Southsea](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/Palmerston-Road-Southsea-2-300x225.jpg "Palmerston Road Southsea")](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/Palmerston-Road-Southsea-2.jpg)</figure>
+![The southern section of Palmerston Road, Southsea](/assets/Palmerston-Road-Southsea-2.jpg)
 
 The Cycle Forum met recently with Portsmouth City Council officers to see the current proposals for the street improvement works in Palmerston Road, Southsea.
 

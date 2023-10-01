@@ -3,7 +3,7 @@
 title: PCF to Host CTC/Cyclenation Conference
 tags:
   - Conference
-  - Events
+  - events
 date: 2009-12-29 12:00:12
 caption: Portland Building, University of Portsmouth
 figure: Media75953en-150x150.jpg

@@ -3,9 +3,9 @@
 title: Hayling Billy Trail Opening
 id: 569
 tags:
-  - Cycle Routes
-  - Events
-  - Rides
+  - cycle-routes
+  - events
+  - rides
 date: 2010-01-21 19:52:22
 ---
 

@@ -3,8 +3,8 @@
 title: Cycle Forum Meeting 12 May
 id: 2335
 tags:
-  - Events
-  - Meetings
+  - events
+  - meetings
 date: 2011-05-11 10:17:06
 todo:
   - Articles on this site are being migrated to a new format.
@@ -12,7 +12,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-[![Velo City Sevilla 2011](http://www.pompeybug.co.uk/wp-content/uploads/2011/05/VeloCity-297x300.png "Velo City Sevilla 2011")](http://www.pompeybug.co.uk/wp-content/uploads/2011/05/VeloCity.png)The next meeting of Portsmouth Cycle Forum is on Thursday 12 May at 7pm in Portsmouth Guildhall.
+[![Velo City Sevilla 2011](http://www.pompeybug.co.uk/wp-content/uploads/2011/05/VeloCity-297x300.png "Velo City Sevilla 2011")](/assets/VeloCity.png)The next meeting of Portsmouth Cycle Forum is on Thursday 12 May at 7pm in Portsmouth Guildhall.
 
 This month we will be having a report from the Velo-City conference held in Seville in March.
 

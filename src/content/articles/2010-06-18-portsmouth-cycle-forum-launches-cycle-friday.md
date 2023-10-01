@@ -10,7 +10,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-[](http://www.pompeybug.co.uk/?attachment_id=1209)[![](http://www.pompeybug.co.uk/wp-content/uploads/2010/06/Cycle-Friday-Portsmouth1-150x150.jpg "Cycle Friday Portsmouth")](http://www.pompeybug.co.uk/2010/06/portsmouth-cycle-forum-launches-cycle-friday/cycle-friday-portsmouth-2/)Do you want to have a go at riding to work? Do you want to explore the best route? Do you want to make new cycling friends? Do you want to find out how to keep your wheels turning?
+[](http://www.pompeybug.co.uk/?attachment_id=1209)[![](/assets/Cycle-Friday-Portsmouth1-150x150.jpg "Cycle Friday Portsmouth")](http://www.pompeybug.co.uk/2010/06/portsmouth-cycle-forum-launches-cycle-friday/cycle-friday-portsmouth-2/)Do you want to have a go at riding to work? Do you want to explore the best route? Do you want to make new cycling friends? Do you want to find out how to keep your wheels turning?
 
 Join us with your bike to <span style="color: #333300;">**<span style="color: #008000;">Cycle Friday</span>**</span>, at Cosham Station on June 25th at 7.30am where bike buddies from Portsmouth Cycle Forum will lead you to the City Centre and Gunwharf Quays.
 

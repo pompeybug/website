@@ -3,7 +3,7 @@
 title: Logo Poll Closed
 id: 953
 tags:
-  - PCF
+  - pcf
 date: 2010-02-11 12:09:25
 caption: Logo Montage
 figure: /assets/logomontage.png

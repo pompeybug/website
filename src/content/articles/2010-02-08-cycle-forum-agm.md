@@ -3,8 +3,8 @@
 title: Cycle Forum AGM
 id: 872
 tags:
-  - Meetings
-  - PCF
+  - meetings
+  - pcf
 date: 2010-02-08 11:49:17
 ---
 

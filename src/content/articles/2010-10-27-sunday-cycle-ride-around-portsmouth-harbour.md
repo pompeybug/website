@@ -3,8 +3,8 @@
 title: Sunday Cycle Ride around Portsmouth Harbour
 id: 1484
 tags:
-  - Events
-  - Rides
+  - events
+  - rides
 date: 2010-10-27 12:07:53
 todo:
   - Articles on this site are being migrated to a new format.

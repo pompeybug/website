@@ -3,11 +3,11 @@
 title: September news update
 id: 2690
 tags:
-  - Events
+  - events
   - Infrastructure Issue
-  - Meetings
+  - meetings
   - newsletter
-  - Rides
+  - rides
 date: 2011-09-04 12:26:30
 todo:
   - Articles on this site are being migrated to a new format.
@@ -16,11 +16,11 @@ todo:
 ok: in progress
 ---
 
-![](http://www.pompeybug.co.uk/wp-content/uploads/2011/09/pcf_logo_wide_thumb.png)
+![](/assets/pcf_logo_wide_thumb.png)
 
 ## Open meeting this Thursday - 8 September
 
-[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/09/Eastern-Road-congestion-picture2-150x150.jpg "Eastern Road congestion picture")](http://www.pompeybug.co.uk/wp-content/uploads/2011/09/Eastern-Road-congestion-picture2.jpg)Everyone is welcome to our open meeting this Thursday the 8th September at 7pm. We have two guest speakers from Portsmouth City Council who will be talking about the Local Transport Plan 3 implementation plan and the [Eastern Road Congestion Relief scheme](http://www.portsmouth.gov.uk/living/21986.html "Eastern Road Congestion Relief Sheme") with a focus on the implications for cyclists and pedestrians. Chris will be giving us an update on the Community Cycle Centre. We’d like to hear about your experiences of cycling around Portsmouth too, if you’ve got any issues maybe we can help.
+[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/09/Eastern-Road-congestion-picture2-150x150.jpg "Eastern Road congestion picture")](/assets/Eastern-Road-congestion-picture2.jpg)Everyone is welcome to our open meeting this Thursday the 8th September at 7pm. We have two guest speakers from Portsmouth City Council who will be talking about the Local Transport Plan 3 implementation plan and the [Eastern Road Congestion Relief scheme](http://www.portsmouth.gov.uk/living/21986.html "Eastern Road Congestion Relief Sheme") with a focus on the implications for cyclists and pedestrians. Chris will be giving us an update on the Community Cycle Centre. We’d like to hear about your experiences of cycling around Portsmouth too, if you’ve got any issues maybe we can help.
 
 ## A Frames and Slaloms ride coming up - 11 September
 
@@ -28,7 +28,7 @@ On Sunday 11th September we are meeting at the Guildhall at 10 for a tour around
 
 ## Fish and Chip ride - 25 September
 
-We are also planning another of our popular fish and chip rides, you don't even have to eat fish to enjoy it, [![Fishy Friday Cycle Ride](http://www.pompeybug.co.uk/wp-content/uploads/2011/06/fish-and-chip-shop-sign-150x150.jpg)](http://www.pompeybug.co.uk/2011/06/bike-week-2011-fishy-friday-bike-ride/fish-and-chip-shop-sign/)several regular attendees don't! This time we are going Gosport_wards_ to enjoy our feast at Lee overlooking the Solent. The ride begins at the Hard at 11 on Sunday 25th September and the ferry costs around £4.
+We are also planning another of our popular fish and chip rides, you don't even have to eat fish to enjoy it, [![Fishy Friday Cycle Ride](/assets/fish-and-chip-shop-sign-150x150.jpg)](http://www.pompeybug.co.uk/2011/06/bike-week-2011-fishy-friday-bike-ride/fish-and-chip-shop-sign/)several regular attendees don't! This time we are going Gosport_wards_ to enjoy our feast at Lee overlooking the Solent. The ride begins at the Hard at 11 on Sunday 25th September and the ferry costs around £4.
 
 ## CTC 'longer lorries campaign'
 
@@ -37,11 +37,11 @@ If you want to oppose the plans to allow even [longer lorries](http://e-activist
 
 ## Roller racing at the Dog
 
-![roller racing](http://www.pompeybug.co.uk/wp-content/uploads/2011/09/roller-racing.jpg)](http://www.pompeybug.co.uk/2011/09/news-update/roller-racing/)
+![roller racing](/assets/roller-racing.jpg)](http://www.pompeybug.co.uk/2011/09/news-update/roller-racing/)
 On the last Thursday of every month Solent Bike Hub run a roller racing session at the Dog in Elm grove. Go along and test your cycling speed.
 
 ## Community Cycle Centre
 
-[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/09/cclogosm1.png)](http://www.pompeybug.co.uk/2011/09/news-update/cclogosm-3/)
+[![](/assets/cclogosm1.png)](http://www.pompeybug.co.uk/2011/09/news-update/cclogosm-3/)
 
 Don't forget on the 1st and 3rd Saturdays of each month from 10-12 we are at the [Stacey Centre](http://www.pompeybug.co.uk/community/community-cycle-centre/ "CCC") repairing and recycling bikes.

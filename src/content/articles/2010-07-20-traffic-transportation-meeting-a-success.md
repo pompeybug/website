@@ -10,7 +10,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-<figure id="attachment_1397" align="alignright" width="300" caption="Cosham High Street">![Cosham High Street](http://www.pompeybug.co.uk/wp-content/uploads/2010/07/Cosham-5-300x225.jpg "Cosham High Street")</figure>
+<figure id="attachment_1397" align="alignright" width="300" caption="Cosham High Street"![Cosham High Street](/assets/Cosham-5-300x225.jpg "Cosham High Street")
 
 Portsmouth Cycle Forum presented a deputation at the PCC Traffic &amp; Transportation meeting on the 15th July.  The deputation was against the proposed implementation of echelon-style parking outside the old cinema in Cosham.  Our argument was that echelon parking presents an unacceptable hazard to all vulnerable road users, especially cyclists.
 

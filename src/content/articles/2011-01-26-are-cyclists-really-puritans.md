@@ -3,7 +3,7 @@
 title: Are Cyclists Really Puritans?
 id: 1762
 tags:
-  - Opinion
+  - opinion
 date: 2011-01-26 07:42:57
 todo:
   - Articles on this site are being migrated to a new format.
@@ -11,7 +11,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-![The puritans are coming](http://www.pompeybug.co.uk/wp-content/uploads/2011/01/films-1968-witchfinder-general-150x150.jpg "The puritans are coming")Recently the Economist held a conference on the theme "Creating tomorrow's liveable cities", at which the keynote was Eric Pickles MP, Secretary of State for Communities and Local Government.  I heard an extract on [the Bike Show](http://thebikeshow.net/bike-blogging-jan-gehl-eric-pickles-mp/) and decided to write a response.
+![The puritans are coming](/assets/films-1968-witchfinder-general-150x150.jpg "The puritans are coming")Recently the Economist held a conference on the theme "Creating tomorrow's liveable cities", at which the keynote was Eric Pickles MP, Secretary of State for Communities and Local Government.  I heard an extract on [the Bike Show](http://thebikeshow.net/bike-blogging-jan-gehl-eric-pickles-mp/) and decided to write a response.
 
 After his address Mr Pickles was asked a question, by [Bike Blogger Mark Ames](http://ibikelondon.blogspot.com/2011/01/boris-pickles-gehl-3-men-3-different.html), about the his recent declaration that the so-called war on motorists was over.  His response was “Don’t be such a puritan. Not all of us can pedal up and down in rubber knickers you know …", which struck me at the time as bizarre, and on reflection I think it's an absolute inversion of reality.
 

@@ -10,7 +10,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-[![skate park poster](http://www.pompeybug.co.uk/wp-content/uploads/2011/03/skatepark-211x300.jpg "skate park poster")](http://www.pompeybug.co.uk/wp-content/uploads/2011/03/skatepark.jpg)This coming weekend the skate park is re-born.
+[![skate park poster](http://www.pompeybug.co.uk/wp-content/uploads/2011/03/skatepark-211x300.jpg "skate park poster")](/assets/skatepark.jpg)This coming weekend the skate park is re-born.
 
 They are having an event to launch the skate park as a new enterprise.
 

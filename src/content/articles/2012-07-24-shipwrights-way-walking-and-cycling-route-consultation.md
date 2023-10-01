@@ -3,7 +3,7 @@
 title: "Shipwright's Way Walking and Cycling Route Consultation"
 id: 3440
 tags:
-  - Cycle Routes
+  - cycle-routes
 date: 2012-07-24 21:44:50
 todo:
   - Articles on this site are being migrated to a new format.
@@ -11,7 +11,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-[![Map of the proposed route for the Shipwright](http://www.pompeybug.co.uk/wp-content/uploads/2012/07/Shipwrights-Way-map1-800x509.jpg "Map of the proposed route for the Shipwright")](http://www.pompeybug.co.uk/wp-content/uploads/2012/07/Shipwrights-Way-map1.jpg)The Shipwright's Way is a new 60-mile leisure path starting at Alice Holt Forest near Farnham and ending at Portsmouth Historic Dockyard, home of the Mary Rose, HMS Warrior and HMS Victory. The name reflects the journey of oak grown at Alice Holt to dockyards such as Portsmouth for medieval shipbuilding.
+[![Map of the proposed route for the Shipwright](http://www.pompeybug.co.uk/wp-content/uploads/2012/07/Shipwrights-Way-map1-800x509.jpg "Map of the proposed route for the Shipwright")](/assets/Shipwrights-Way-map1.jpg)The Shipwright's Way is a new 60-mile leisure path starting at Alice Holt Forest near Farnham and ending at Portsmouth Historic Dockyard, home of the Mary Rose, HMS Warrior and HMS Victory. The name reflects the journey of oak grown at Alice Holt to dockyards such as Portsmouth for medieval shipbuilding.
 
 The route enters the City of Portsmouth via the Ferry from Hayling Island at Eastney. From there it follows the Ferry Road, Fort Cumberland Road and Melville Road to the seafront cycle route, ending at South Parade Pier.
 

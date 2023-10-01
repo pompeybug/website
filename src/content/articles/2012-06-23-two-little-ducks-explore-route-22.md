@@ -3,8 +3,8 @@
 title: Two little ducks explore route 22
 id: 3390
 tags:
-  - Events
-  - Rides
+  - events
+  - rides
 date: 2012-06-23 09:56:01
 todo:
   - Articles on this site are being migrated to a new format.
@@ -12,7 +12,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-[![two little ducks](http://www.pompeybug.co.uk/wp-content/uploads/2012/06/ducks1-150x150.jpg)](http://www.pompeybug.co.uk/2012/06/two-little-ducks-explore-route-22/ducks-2/)
+[![two little ducks](/assets/ducks1-150x150.jpg)](http://www.pompeybug.co.uk/2012/06/two-little-ducks-explore-route-22/ducks-2/)
 
 Tomorrow we're off to explore the Sustrans route 22 along the western side of Portsmouth.
 

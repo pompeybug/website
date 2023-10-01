@@ -10,7 +10,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/09/Eastern-Road-congestion-picture2-300x204.jpg "Eastern Road congestion picture")](http://www.pompeybug.co.uk/wp-content/uploads/2011/09/Eastern-Road-congestion-picture2.jpg)At the Cycle Forum’s meeting on 8 September, Pam Turton and Adam Bunce of Portsmouth City Council spoke about the Eastern Road and Velder Avenue/Rodney Road junction improvement schemes.
+[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/09/Eastern-Road-congestion-picture2-300x204.jpg "Eastern Road congestion picture")](/assets/Eastern-Road-congestion-picture2.jpg)At the Cycle Forum’s meeting on 8 September, Pam Turton and Adam Bunce of Portsmouth City Council spoke about the Eastern Road and Velder Avenue/Rodney Road junction improvement schemes.
 
 The plans include: reinstating the 2<sup>nd</sup> southbound vehicle lane on Eastern Road between Swordands Road and Kirpal Road (with the removal of two crossing points at pedestrian refuges); removing the traffic lights (and pedestrian crossing) at the Kirpal Road junction; increasing the capacity at the Milton Road / Velder Ave  traffic lights by banning right turns from Velder Ave and from Alverstone Road; adding pedestrian phases to these traffic lights allowing the crossing of Rodney Road and Milton Road (north of the junction). There are no plans to change the Moorings Way junction where the Eastern Road cycle route abruptly ends.
 

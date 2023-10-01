@@ -3,7 +3,7 @@
 title: What one thing would make cycling in Portsmouth better?
 id: 350
 tags:
-  - Events
+  - events
 date: 2009-06-12
 figure: me_D-Day65_pcf_map_2_66092.jpg
 caption: PCF at D-Day 65

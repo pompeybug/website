@@ -3,9 +3,9 @@
 title: Portsmouth Green Fair
 id: 353
 tags:
-  - Campaigns
+  - campaigns
   - Environment
-  - Events
+  - events
 date: 2009-09-05
 figure: me_greenfairposter09.jpg
 caption: Green Fair Poster

@@ -3,18 +3,14 @@
 title: Butser Cutting Cycle Route
 id: 3304
 tags:
-  - Campaigns
-  - Cycle Routes
-date: 2012-05-14 19:21:36
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
+  - campaigns
+  - cycle-routes
+date: 2012-05-14
 ---
 
-<figure id="attachment_3305" align="alignleft" width="300" caption="The unused old A3"][![The unused old A3](http://www.pompeybug.co.uk/wp-content/uploads/2012/05/Old-A3-300x225.jpg "The unused old A3")](http://www.pompeybug.co.uk/wp-content/uploads/2012/05/Old-A3.jpg)</figure>
-
 In the early 1990s the A3 road north from the A3(M) was replaced by a dual carriageway that, for the vast majority of cyclists, does not offer an acceptable safety level. The Highways Agency built cycle tracks alongside the A3, south from Queen Elizabeth Country Park to North Horndean and from Petersfield to Liphook.
+
+![The unused old A3](/assets/Old-A3.jpg)
 
 The critical section for cyclists, through the Butser Cutting, was left without cycle provision with the loss of the primary cycling route across Hampshire’s South Downs. Over 10 years of campaigning by a large number of cyclists has so far failed to get this unacceptable road design rectified.
 
@@ -30,4 +26,5 @@ Please take the time to support this petition which aims to:
 *   Improve cycling access from the north onto Butser Hill and into the Queen Elizabeth Forest and the wider South Downs National Park;
 *   Improve the safety of those who already cycle along the A3 route;
 *   Increase the level of cycling by making additional cycle routes accessible.
-[Support the petition online here.](http://www.gopetition.com/petitions/cycle-route-through-a3-butser-cutting.html "Butser Cutting Cycle Route, support your local campaign group!")
+
+**Act**: [Support the petition online here.](http://www.gopetition.com/petitions/cycle-route-through-a3-butser-cutting.html)

@@ -4,15 +4,10 @@ title: Southsea Seafront Cyclist Fatality
 id: 1381
 
 date: 2010-07-18 10:49:28
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
+caption: Clarence Pier, Clarence Esplanade, Southsea
+coverImage: /public/assets/Clarence-Pier.jpg
 ---
 
-<figure id="attachment_1386" align="alignright" width="300" caption="Clarence Pier, Clarence Esplanade, Southsea"]**[![](http://www.pompeybug.co.uk/wp-content/uploads/2010/07/Clarence-Pier-300x225.jpg "Clarence Pier, Clarence Esplanade, Southsea")](http://www.pompeybug.co.uk/wp-content/uploads/2010/07/Clarence-Pier.jpg)**</figure>
-
-**Southsea Seafront Cyclist fatality – Statement from Portsmouth Cycle Forum**
 Portsmouth Cycle Forum is very sad to learn of the death in a road accident of a woman cyclist at Clarence Esplanade on Saturday 17 July. Our thoughts lie with her family and friends to whom send our deepest condolences.
 
 The cyclist was involved in collision with a bus in the vicinity of Pier Road and Clarence Esplanade, close to Clarence Pier.

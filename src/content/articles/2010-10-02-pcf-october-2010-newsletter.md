@@ -11,7 +11,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-[](http://www.pompeybug.co.uk/wp-content/uploads/2010/10/PCF-newsletter-October-2010.jpg)[![](http://www.pompeybug.co.uk/wp-content/uploads/2010/10/PCF-newsletter-October-20101.jpg "PCF newsletter October 2010")](http://www.pompeybug.co.uk/wp-content/uploads/2010/10/PCF-newsletter-October-20101.jpg)The [October newsletter](http://www.pompeybug.co.uk/wp-content/uploads/2010/10/PCF-Newsletter-October-2010.pdf "Portsmouth Cycle Forum Newsletter October 2010") from Portsmouth Cycle Forum is now avaialable.
+[](http://www.pompeybug.co.uk/wp-content/uploads/2010/10/PCF-newsletter-October-2010.jpg)[![](http://www.pompeybug.co.uk/wp-content/uploads/2010/10/PCF-newsletter-October-20101.jpg "PCF newsletter October 2010")](http://www.pompeybug.co.uk/wp-content/uploads/2010/10/PCF-newsletter-October-20101.jpg)The [October newsletter](/assets/PCF-Newsletter-October-2010.pdf "Portsmouth Cycle Forum Newsletter October 2010") from Portsmouth Cycle Forum is now avaialable.
 
 Stories this month include
 

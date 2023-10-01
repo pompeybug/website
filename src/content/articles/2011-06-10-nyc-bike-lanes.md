@@ -3,8 +3,8 @@
 title: NYC Bike Lanes
 id: 2422
 tags:
-  - Campaigns
-  - Cycle Routes
+  - campaigns
+  - cycle-routes
 date: 2011-06-10 10:32:25
 todo:
   - Articles on this site are being migrated to a new format.

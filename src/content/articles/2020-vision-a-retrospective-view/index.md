@@ -103,7 +103,7 @@ And thus, armed with those thoughts we reached the new year…..
 **October** 
 
 - The Clean Air Zone consultation closes and a decision is taken to change its size which excludes London Road, Kingston Road Fratton Road & Kingston Crescent
-    - Committee member Mike Dobson has more details **[here](/mike-d-air-quality-slides-open-meeting-01-21/)**.
+    - committee member Mike Dobson has more details **[here](/mike-d-air-quality-slides-open-meeting-01-21/)**.
 - After public consultation that results in extremely mixed feedback, PCC announced that the trial of the Elm Grove / Kings Road pop-up scheme will be cut in half to three weeks starting in early November.
 - PCC Local Transport Strategy consultation launched.  It seeks to set the direction for how transport networks are developed for the next 15 years.
 - Not to be put in the shade by local government consultations, the Dept for Transport announced two consultations to update the rules of the road and help to protect vulnerable road users.
@@ -128,7 +128,7 @@ And thus, armed with those thoughts we reached the new year…..
 - PCC publicly announces its intention to upgrade Eastern Road Path using tranche 2 ATF money including a public consultation to receive feedback on ideas of what is needed along the whole route between Farlington Roundabout and Milton Road / Rodney road junction.
     - Our suggestions can be found **[here](/eastern-road-consultation/)**.
 - Government Future High Streets funding awards announced with PCC winning over three million for each of the Commercial Road and Fratton schemes that were submitted.  
-    - PCF will keep a watching brief on the scheme designs as they develop ensuring that the requirements of cyclists are identified and included.
+    - pcf will keep a watching brief on the scheme designs as they develop ensuring that the requirements of cyclists are identified and included.
 - Brexit deal finally announced and the lorry triage point is opened at Tipner.  PCF feedback leads to extra signage warning drivers of the presence of people walking and cycling in the area as it crosses part of the west side coastal route twice - at Tipner junction of M275 and the International Port entrance itself.
 
 I would like to publicly thank all the City Council officers in the Traffic and Transportation departments for their work during the last year.  They started it on alert for a no-deal EU exit in January and have been at full speed reacting to the Covid emergency, changing government priorities and the various implications since last March.

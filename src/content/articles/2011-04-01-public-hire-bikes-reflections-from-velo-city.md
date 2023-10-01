@@ -3,21 +3,10 @@
 title: Public Hire Bikes - Reflections from Velo-City
 id: 2173
 tags:
-  - Velo-City
+  - velo-city
 date: 2011-04-01 08:03:37
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
 ---
 
-<div class="alignleft">
-
-<figure id="attachment_2175" align="alignnone" width="300" caption="A sea of hire bikes, all locked out of use by the super bike-friendly delegates at Velo-City.  There are 2000 bikes in the Seville system, I'd guess at least 10% of those are locked up here."][![A sea of hire bikes, all locked out of use by the super bike-friendly delegates at Velo-City](http://www.pompeybug.co.uk/wp-content/uploads/2011/03/DSC02160pan2-300x285.jpg "A sea of hire bikes, all locked out of use by the super bike-friendly delegates at Velo-City")](http://www.pompeybug.co.uk/wp-content/uploads/2011/03/DSC02160pan2.jpg)</figure>
-
-<figure id="attachment_2176" align="alignnone" width="300" caption="The last pumpkin in the patch - a lonely, saddle-less hire bike."][![The last pumpkin in the patch - a lonely, saddle-less hire bike.](http://www.pompeybug.co.uk/wp-content/uploads/2011/03/DSC02256-300x225.jpg "The last pumpkin in the patch - a lonely, saddle-less hire bike.")](http://www.pompeybug.co.uk/wp-content/uploads/2011/03/DSC02256.jpg)</figure>
-
-</div>
 One of the key themes of the Expo at Velo-City was public bike hire systems of a similar sort to that now implemented in London.  There were 8 companies offering a variety of public hire bike systems including Bixi (providers of public hire bikes in London, Montreal and many other cities) and JC Decaux (providers of the system in Seville and Paris, amongst others).  One couldn't help but wonder that whilst this was no doubt a growth market,  was there room for all of these companies?
 
 The systems on offer were all broadly similar, although some offered some interesting distinctive features.  In general bikes are hired via an electronic access system, which releases bikes to authenticated users from an automatic docking station.  Bikes are returned to a similar automatic docking station which terminates the hire.

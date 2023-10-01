@@ -11,7 +11,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-[![London Road bus &amp; cycle lane northbound](http://www.pompeybug.co.uk/wp-content/uploads/2012/01/London-Road-bus-cycle-lane-northbound-9may11-2-400x300-300x225.jpg "London Road bus &amp; cycle lane northbound 9May11 (2) (400x300)")](http://www.pompeybug.co.uk/wp-content/uploads/2012/01/London-Road-bus-cycle-lane-northbound-9may11-2-400x300.jpg)
+[![London Road bus &amp; cycle lane northbound](http://www.pompeybug.co.uk/wp-content/uploads/2012/01/London-Road-bus-cycle-lane-northbound-9may11-2-400x300-300x225.jpg "London Road bus &amp; cycle lane northbound 9May11 (2) (400x300)")](/assets/London-Road-bus-cycle-lane-northbound-9may11-2-400x300.jpg)
 
 Portsmouth City Council is considering making changes to the bus and cycle lane at London Road, Hilsea near its junction with Northern Parade.
 

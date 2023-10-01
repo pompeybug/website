@@ -2,10 +2,10 @@
 title: "20's Plenty, but not for Mr Plod"
 id: 3557
 categories:
-  - Campaigns
+  - campaigns
   - pcc
-  - Opinion
-  - PCF
+  - opinion
+  - pcf
 date: 2012-12-08 21:47:21
 tags:
   - police

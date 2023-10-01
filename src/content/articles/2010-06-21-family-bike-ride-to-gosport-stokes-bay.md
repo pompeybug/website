@@ -3,7 +3,7 @@
 title: 'Family Bike Ride to Gosport & Stokes Bay '
 id: 1239
 tags:
-  - Rides
+  - rides
 date: 2010-06-21 10:57:50
 todo:
   - Articles on this site are being migrated to a new format.

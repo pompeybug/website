@@ -4,9 +4,9 @@ title: A Tube Network for the Bike?
 id: 3621
 
 date: 2013-03-27 09:28:29
+caption: Mayor's vision for London
+coverImage: /public/assets/Mayors-vision-for-London-1.jpg
 ---
-
-<figure id="attachment_3624" align="alignright" width="300"][![Mayors vision for London](http://www.pompeybug.co.uk/wp-content/uploads/2013/03/Mayors-vision-for-London-1-300x215.jpg)](http://www.pompeybug.co.uk/wp-content/uploads/2013/03/Mayors-vision-for-London-1.jpg) Mayors vision for London</figure>
 
 Cycle routes named after tube lines, better cycling infrastructure and increases to cycle parking at mainline stations are some of the proposals in the Mayor of London's Cycling Vision which was released in March.
 
@@ -20,4 +20,4 @@ Plans for new infrastructure will also focus on junctions - where 75% of cycle c
 
 Other measures include a new 'Superhub', with space for thousands of bikes to be parked and hundreds of hire bikes available, which will be constructed at one of the mainline stations. The cycle hire scheme will also be extended, increasing the number of bikes available to 11,000.
 
-Thus is breathtakingly ambitious plan - particularly compared with the national picture. The document can be downloaded from [www.london.gov.uk/publication/mayors-vision-cycling](http://www.london.gov.uk/publication/mayors-vision-cycling "Boris").
+Thus is breathtakingly ambitious plan - particularly compared with the national picture. The document can be downloaded from [www.london.gov.uk/publication/mayors-vision-cycling](http://www.london.gov.uk/publication/mayors-vision-cycling).

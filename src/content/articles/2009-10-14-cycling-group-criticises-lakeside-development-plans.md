@@ -2,9 +2,9 @@
 title: Cycling group criticises Lakeside development plans
 id: 355
 tags:
-  - Campaigns
+  - campaigns
   - pcc
-  - Cycle Routes
+  - cycle-routes
 date: 2009-10-14
 caption: Portsbridge Roundabout
 figure: me_Portsbridge_Roundabout_12Sep09_07a.jpg

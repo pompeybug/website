@@ -9,7 +9,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/05/CCC-logo-300x175.png "Community Cycle Centre logo")](http://www.pompeybug.co.uk/wp-content/uploads/2011/05/CCC-logo.png)The Community Cycling Centre is offering it’s first Adopt a Bike Day on Saturday 7 May from 12 to 2 at the Stacey Centre, Walsall Road, Copnor, PO3 6DN.
+[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/05/CCC-logo-300x175.png "Community Cycle Centre logo")](/assets/CCC-logo.png)The Community Cycling Centre is offering it’s first Adopt a Bike Day on Saturday 7 May from 12 to 2 at the Stacey Centre, Walsall Road, Copnor, PO3 6DN.
 
 We have a selection of refurbished child, youth and adult bicycles which we will give away in exchange for a donation to cover our costs.
 

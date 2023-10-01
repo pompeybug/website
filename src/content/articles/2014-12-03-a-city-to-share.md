@@ -2,9 +2,9 @@
 title: A City to Share - Update
 id: 4238
 tags:
-  - Campaigns
+  - campaigns
   - pcc
-  - Events
+  - events
 date: 2014-10-31 10:15:06
 figure: city-to-share-fb.png
 ---

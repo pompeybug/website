@@ -3,8 +3,8 @@
 title: Pro-Bike Pro-Walk Conference 2010
 id: 1439
 tags:
-  - Campaigns
-  - Events
+  - campaigns
+  - events
 date: 2010-09-22 22:09:27
 todo:
   - Articles on this site are being migrated to a new format.
@@ -12,13 +12,13 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-<figure id="attachment_1440" align="alignleft" width="225" caption="A message to the motorists in Chattanooga"][![Share the Road Sign](http://www.pompeybug.co.uk/wp-content/uploads/2010/09/DSC01562-225x300.jpg "Share the Road")](http://www.pompeybug.co.uk/wp-content/uploads/2010/09/DSC01562.jpg)</figure>
-
 I recently attended the Pro-Bike Pro-Walk Conference organised by the US National Center for Biking and Walking and held in Chattanooga, Tennessee.  I was attending on a professional basis and manning a stand in the exhibition hall so was unable to attend the talks but did get to look around the poster sessions and pick up a lot of useful information.
-
+ 
 What was really interesting was how strong the sustainable transport movement has become in the US and what has been achieved.  There was evidence that drivers in Chattanooga really were giving priority to pedestrians and cyclists at non-signal controlled junctions.  This is quite unnerving to a brit, grown used to a bit of argy bargy in these situations.
 
 Admittedly Chattanooga is one small town in a big country, but the signs were positive.
+
+![Share the Road Sign](/assets/DSC01562.jpg)
 
 I did take a bunch of photos of the various posters on display at the Conference, but need to check they are legible first.
 

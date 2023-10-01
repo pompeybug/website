@@ -1,22 +1,13 @@
 ---
 title: Doing it Dutch style
 id: 3901
+date: 2013-11-18
 tags:
-  - Meetings
-  - PCF
-date: 2013-11-18 16:13:52
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
-# coverImage: /assets/Groningen-300x168.png
-caption:  Family cycling in Groningen
-supercheck: true;
+  - meetings
+  - pcf
 ---
 
-
-
-**Portsmouth Cycle Forum Open Meeting, 14th November 2013**
+## Portsmouth Cycle Forum Open Meeting, 14th November 2013
 
 Last Thursday Portsmouth Cycle Forum held one of its best attended meetings yet. The venue was the University of Portsmouth Students Union and the theme was to describe how the Dutch method of designing and building cycle routes could be used in Portsmouth.
 
@@ -32,6 +23,7 @@ Councillor Ken Ellcome (Drayton &amp; Farlington, Con) explained the political c
 
 Cllr Ellcome and his officers acknowledged that Portsmouth is already saturated with motor vehicles and any future economic growth could be hamstrung by transport and parking difficulties.  There was lively debate around these issues, with residents calling for the city council to stop living in fear of a public backlash and take leadership to resolve the chronic transport issues that beset the city.
 
-Portsmouth Cycle Forum chair Jon Spencer said “_Cycling in Portsmouth benefits everyone.  Every cyclist means one less car on our gridlocked streets. It means less pollution and less danger on the roads as well as bringing health and happiness benefits to the individual cyclist.  The city council needs to show leadership on this issue and create an infrastructure that makes cycling pleasant and attractive. Cycling is one of the few viable transport solutions in a compact city like Portsmouth._”
+Portsmouth Cycle Forum chair Jon Spencer said
+> “Cycling in Portsmouth benefits everyone.  Every cyclist means one less car on our gridlocked streets. It means less pollution and less danger on the roads as well as bringing health and happiness benefits to the individual cyclist.  The city council needs to show leadership on this issue and create an infrastructure that makes cycling pleasant and attractive. Cycling is one of the few viable transport solutions in a compact city like Portsmouth.”
 
 The Dutch transport revolution has created pleasant, liveable cities with thriving local businesses.  Citizens are able to navigate their city safely and without being regularly trapped in the gridlock that so often befalls the people of Portsmouth.  Groningen itself has gone on to become one of the most prosperous cities in Europe.

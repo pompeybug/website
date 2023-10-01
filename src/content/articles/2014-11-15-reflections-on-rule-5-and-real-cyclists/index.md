@@ -2,7 +2,7 @@
 title: Reflections on Rule 5 and Real Cyclists
 id: 4252
 tags:
-  - Opinion
+  - opinion
 date: 2014-11-15 17:13:45
 todo:
   - Articles on this site are being migrated to a new format.

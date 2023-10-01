@@ -4,7 +4,7 @@ title: Conference Programme
 id: 1037
 tags:
   - Conference
-  - Events
+  - events
 date: 2010-03-31 22:07:42
 todo: migrate conference pages
 ---

@@ -3,7 +3,7 @@
 title: 'July Open Meeting - Minutes available!'
 id: 3458
 tags:
-  - Meetings
+  - meetings
 date: 2012-07-30 12:21:19
 todo:
   - Articles on this site are being migrated to a new format.

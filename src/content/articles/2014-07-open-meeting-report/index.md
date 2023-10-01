@@ -2,10 +2,10 @@
 title: Open Meeting Report
 id: 4145
 tags:
-  - Campaigns
+  - campaigns
   - pcc
-  - Meetings
-  - PCF
+  - meetings
+  - pcf
 date: 2014-07-21 21:22:59
 todo:
   - Find a copy of, and link to the minutes (in the resources section) 

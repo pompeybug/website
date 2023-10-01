@@ -3,7 +3,7 @@ title: City Centre Road Development
 id: 3862
 tags:
   - pcc
-  - Cycle Routes
+  - cycle-routes
   - Environment
 date: 2013-10-16 18:15:49
 todo:
@@ -12,7 +12,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-<div>[![View of Hope Street - Flathouse Road](http://www.pompeybug.co.uk/wp-content/uploads/2013/10/View-of-Hope-Street-Flathouse-Road-800x127.jpg)](http://www.pompeybug.co.uk/wp-content/uploads/2013/10/View-of-Hope-Street-Flathouse-Road.jpg)</div>
+<div>[![View of Hope Street - Flathouse Road](http://www.pompeybug.co.uk/wp-content/uploads/2013/10/View-of-Hope-Street-Flathouse-Road-800x127.jpg)](/assets/View-of-Hope-Street-Flathouse-Road.jpg)</div>
 Portsmouth City Council is planning changes to the city centre roads and a planning application will be submitted in early 2014\. The area concerned is bounded by Marketway, Hope Street and Commercial Road. The purpose of the scheme is to ensure that the road network will cope efficiently with the future development and growth of the locality and the city. The city centre cycle route network and pedestrian crossing points will be significantly affected by the changes - it's up to us to make sure that those changes are for the better.
 
 There is a leaflet which explains the proposals and at the time of writing this was not available on the PCC Web site so we've made it available for you to download.

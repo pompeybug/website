@@ -3,7 +3,7 @@
 title: Open Meeting 8 July
 id: 1251
 tags:
-  - Meetings
+  - meetings
 date: 2010-06-30 11:16:10
 todo:
   - Articles on this site are being migrated to a new format.
@@ -11,7 +11,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-[![](http://www.pompeybug.co.uk/wp-content/uploads/2010/06/toucan.jpg "toucan")](http://www.pompeybug.co.uk/2010/06/open-meeting-8-july/toucan/)The new Local Transport Plan for Portsmouth (LTP3) and Traffic Control in the city are the main topics for the meeting of Portsmouth Cycle Forum on 8 July.
+[![](/assets/toucan.jpg "toucan")](http://www.pompeybug.co.uk/2010/06/open-meeting-8-july/toucan/)The new Local Transport Plan for Portsmouth (LTP3) and Traffic Control in the city are the main topics for the meeting of Portsmouth Cycle Forum on 8 July.
 
 Pam Turton and Hayley Todd from Portsmouth City Council will speak on LTP 3 which will set out the long term strategy and policies to address the transport challenges and deliver transport improvements for the area.
 

@@ -3,8 +3,8 @@
 title: Strategic Cycle Routes in Portsmouth
 id: 361
 tags:
-  - Campaigns
-  - Cycle Routes
+  - campaigns
+  - cycle-routes
 date: 2009-11-18
 caption: Strategic Cycle Routes
 figure: me_Strategic_cycle_routes_picture_1.jpg

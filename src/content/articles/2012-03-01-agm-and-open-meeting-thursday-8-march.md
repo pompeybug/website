@@ -3,8 +3,8 @@
 title: AGM and Open Meeting Thursday 8 March
 id: 3096
 tags:
-  - Events
-  - Meetings
+  - events
+  - meetings
 date: 2012-03-01 15:02:25
 todo:
   - Articles on this site are being migrated to a new format.
@@ -12,7 +12,7 @@ todo:
   - This message will remain on this page until it has been checked.
 ---
 
-<figure id="" align="alignright" width="259" caption="Elephant&#39;s Feet - no not these!">![Elephant](http://farm3.staticflickr.com/2186/2199859057_aab3e68b50.jpg "Elephant")</figure>
+<figure id="" align="alignright" width="259" caption="Elephant&#39;s Feet - no not these!"![Elephant](http://farm3.staticflickr.com/2186/2199859057_aab3e68b50.jpg "Elephant")
 
 Our next open meeting is on Thursday 8 March in Meeting Room 1 at Portsmouth Guildhall from 7-9pm. The first hour will be given over to our Annual General Meeting where we will elect the officers and committee for the 2012/13.
 

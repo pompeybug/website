@@ -4,7 +4,7 @@ title: Cycle Forum Open Meeting 13 November
 id: 4223
 comment: false
 tags:
-  - Meetings
+  - meetings
 date: 2014-10-28 13:23:09
 todo:
   - Articles on this site are being migrated to a new format.
@@ -14,7 +14,7 @@ todo:
 
 # SOLENT TRANSPORT // A CITY TO SHARE
 
-[![Open meeting 13Nov14 poster cropped](http://www.pompeybug.co.uk/wp-content/uploads/2014/10/Open-meeting-13Nov14-poster-cropped-300x289.jpg)](http://www.pompeybug.co.uk/wp-content/uploads/2014/10/Open-meeting-13Nov14-poster-cropped.jpg)
+[![Open meeting 13Nov14 poster cropped](http://www.pompeybug.co.uk/wp-content/uploads/2014/10/Open-meeting-13Nov14-poster-cropped-300x289.jpg)](/assets/Open-meeting-13Nov14-poster-cropped.jpg)
 Our next public meeting will take place on Thursday 13th November at 7pm. The venue will be room 0.08 in Park Building, part of the University just [behind the Guildhall](http://pompeybug.us5.list-manage.com/track/click?u=2ed916007f1c294faa614a50f&amp;id=ca9cb922ae&amp;e=ce76943ad7 "Park Building").
 
 We are pleased to welcome Phil Marshall, Principal Transport Planner for Solent Transport (the successor organisation to Transport for South Hampshire). Phil will brief us on transport policy and funding in our area.

@@ -3,15 +3,11 @@
 title: Social ride to Rowlands Castle - Sunday 26 August
 id: 3481
 tags:
-  - Rides
-date: 2012-08-23 22:05:23
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
+  - rides
+date: 2012-08-23
+caption: The Green at Rowlands Castle
+coverImage: /public/assets/RowlandsCastleGreen.jpg
 ---
-
-<figure id="attachment_3482" align="alignright" width="275" caption="The Green at Rowlands Castle"][![The Green at Rowlands Castle](http://www.pompeybug.co.uk/wp-content/uploads/2012/08/RowlandsCastleGreen.jpg "The Green at Rowlands Castle")](http://www.pompeybug.co.uk/wp-content/uploads/2012/08/RowlandsCastleGreen.jpg)</figure>
 
 We're off for a ride to Rowlands Castle on Sunday morning.
 
@@ -23,6 +19,6 @@ Join us for this social ride and meet some other people that like to ride too. W
 
 Looking forward to seeing you there.
 
-If you prefer a gentler ride, why not join Gill, Pam and friends for the** WEDNESDAY MORNING BIKE RIDE** Meet at Stacey Centre, Walsall Rd from 10 am
+If you prefer a gentler ride, why not join Gill, Pam and friends for the **WEDNESDAY MORNING BIKE RIDE** Meet at Stacey Centre, Walsall Rd from 10 am
 
 Rides will start at 10.30, last for about 2 hours and include a stop for coffee …

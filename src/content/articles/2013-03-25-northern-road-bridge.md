@@ -2,16 +2,12 @@
 title: Northern Road Bridge
 id: 3627
 tags:
-  - Campaigns
+  - campaigns
   - pcc
-date: 2013-03-25 09:43:25
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
+date: 2013-03-25
+coverImage: /public/assets/NRB01.jpg
+caption: Northern Road Bridge
 ---
-
-<figure id="attachment_3628" align="alignright" width="300"][![Northern Road Bridge](http://www.pompeybug.co.uk/wp-content/uploads/2013/03/NRB01-300x227.jpg)](http://www.pompeybug.co.uk/wp-content/uploads/2013/03/NRB01.jpg) Northern Road Bridge</figure>
 
 If you’ve been hibernating over winter (and why not!) you might have missed the work on Northern Road Bridge in Cosham. Nobody is questioning the need to replace an ageing bridge over the railway line, but it is vital cyclists’ needs are considered when road works are being planned.
 

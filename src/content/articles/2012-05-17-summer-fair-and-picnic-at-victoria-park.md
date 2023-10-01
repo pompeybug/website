@@ -3,7 +3,7 @@
 title: Summer Fair and Picnic at Victoria Park
 id: 3309
 tags:
-  - Events
+  - events
 date: 2012-05-17 09:13:50
 todo:
   - Articles on this site are being migrated to a new format.
@@ -12,7 +12,7 @@ todo:
 ---
 
 
-[![Portsmouth Summer Fair and Picnic at Victoria Park on Saturday 19 May.](http://www.pompeybug.co.uk/wp-content/uploads/2012/05/PSF_2012_Web_banner.jpg "Portsmouth Summer Fair and Picnic")](http://www.pompeybug.co.uk/wp-content/uploads/2012/05/PSF_2012_Web_banner.jpg)There are loads of other attractions so com along for a fun-packed day.
+[![Portsmouth Summer Fair and Picnic at Victoria Park on Saturday 19 May.](http://www.pompeybug.co.uk/wp-content/uploads/2012/05/PSF_2012_Web_banner.jpg "Portsmouth Summer Fair and Picnic")](/assets/PSF_2012_Web_banner.jpg)There are loads of other attractions so com along for a fun-packed day.
 
 Portsmouth Cycle forum and the Community Cycle Centre will be at the Summer Fair and Picnic at Victoria Park on Saturday 19 May.
 

@@ -3,8 +3,8 @@
 title: Portsmouth Cycle Forum Meeting
 id: 357
 tags:
-  - Events
-  - Meetings
+  - events
+  - meetings
 date: 2009-09-10
 todo:
 figure: me_pic1.jpg

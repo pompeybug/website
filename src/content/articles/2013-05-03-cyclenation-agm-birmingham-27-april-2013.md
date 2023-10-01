@@ -1,19 +1,15 @@
 ---
-
-title: 'Cyclenation AGM, Birmingham 27 April 2013.'
+layout: layouts/article.njk
+title: Cyclenation AGM, Birmingham 27 April 2013
 id: 3656
 tags:
-  - Campaigns
-date: 2013-05-03 23:58:57
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
+  - campaigns
+date: 2013-05-03
 ---
 
 The Annual General Meeting in Birmingham was attended by Jayne Rodgers and John Holland who represented Portsmouth Cycle Forum. Cyclenation is the federation of cycle campaign groups across the UK.
 
-**Cyclenation achievements 2012 - 2013.**
+## Cyclenation achievements 2012 - 2013.
 
 *   Cyclenation kept the UK Cycling Alliance, UKCA, together when it was in danger of falling apart. Without this, the co-ordinated approach that led to the Parliamentary Enquiry would not have been possible. For the time in many years the national cycling organisations are speaking with one voice.
 *   Another successful Bike Week was held with a link up with Samsung. The 2013 event runs from 15 to 23 June.
@@ -27,6 +23,8 @@ The Annual General Meeting in Birmingham was attended by Jayne Rodgers and John 
 *   The major campaigns are a twin track approach with one broader theme: a campaign for cycle friendly communities, and a more specific campaign on one way streets.
 *   In the coming year the board will need to focus on building capacity, work with the other members of the  UKCA to agree on what we do following the parliamentary enquiry and report, and encourage groups to maximise the new opportunities for local campaigning.
 *   The existing board was re-elected “as is” (including Jayne Rodgers from Portsmouth). There is a vacancy for one co-opted Board member. If you are interested in helping please get in touch.
-**Cycling parliament**
+
+
+## Cycling parliament
 
 The formal part of the meeting was followed by a Cycling Parliament where issues relating to cycle campaigning in the UK were discussed with a view to developing ideas for activities in the coming year. Priorities include representation, the provision of services &amp; tools,  running conferences &amp; Seminars and providing information to member groups. Campaign themes include building a nation of cycle friendly communities and two way cycling in one way streets. Cyclenation will be issuing guidance on assessing the Economic and Health benefits of cycling using the World Health Organisation’s Health Economic Assessment Tool (HEAT) for Cycling and Walking.

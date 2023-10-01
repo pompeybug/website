@@ -3,8 +3,8 @@
 title: Cycle Quiz Night
 id: 1548
 tags:
-  - Events
-  - Meetings
+  - events
+  - meetings
 date: 2010-11-21 19:06:29
 ---
 

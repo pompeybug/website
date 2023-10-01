@@ -2,17 +2,14 @@
 
 title: PCF Open Meeting
 tags:
-  - Meeting
-  - Open Meeting
+  - meetings
+  - open-meeting
 id: 3665
-date: 2013-05-04 07:41:33
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
+date: 2013-05-04
+caption: Boris and Arnie go biking
+coverImage: /public/assets/Boris-und-Arnie-zimbio.com_1.jpg
 ---
 
-<figure id="attachment_3666" align="alignright" width="300"][![Boris and Arnie go biking](http://www.pompeybug.co.uk/wp-content/uploads/2013/05/Boris-und-Arnie-zimbio.com_1-300x300.jpg)](http://www.pompeybug.co.uk/wp-content/uploads/2013/05/Boris-und-Arnie-zimbio.com_1.jpg) Boris and Arnie go biking</figure>
 
 The next meeting for PCF is on Thursday 9 May at St Lukes Church Hall, next to Charter Academy, starting at 7pm.
 

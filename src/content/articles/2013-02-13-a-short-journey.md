@@ -2,9 +2,9 @@
 title: A short journey
 id: 3595
 tags:
-  - Campaigns
+  - campaigns
   - pcc
-  - Cycle Routes
+  - cycle-routes
 date: 2013-02-13 07:45:30
 ---
 

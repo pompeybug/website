@@ -2,15 +2,10 @@
 
 title: Tour of Traffic Lights
 id: 3717
-
-date: 2013-06-15 09:43:43
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
+date: 2013-06-15
+coverImage: /public/assets/DSC02511.jpg
+caption: Traffic Light Tour Party
 ---
-
-<figure id="attachment_3718" align="alignright" width="300"][![Traffic Light Tour Party](http://www.pompeybug.co.uk/wp-content/uploads/2013/06/DSC02511-300x225.jpg)](http://www.pompeybug.co.uk/wp-content/uploads/2013/06/DSC02511.jpg) Traffic Light Tour Party</figure>
 
 On Wednesday 12th June Portsmouth Cycle Forum took a bike tour of traffic light controlled junctions in the city in the company of Councillor Jason Fazackarley, the Portsmouth city council cabinet member for Traffic and Transportation. Also along on the ride were Simon Brownlie, PCC road network manager and Jayne Rodgers, PCC Active Travel officer.
 
