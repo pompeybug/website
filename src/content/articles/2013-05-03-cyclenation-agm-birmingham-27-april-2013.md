@@ -1,5 +1,4 @@
 ---
-layout: layouts/article.njk
 title: Cyclenation AGM, Birmingham 27 April 2013
 id: 3656
 tags:

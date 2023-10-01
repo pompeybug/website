@@ -15,7 +15,7 @@ caption: Farlington
 
 Highways England and the Environment Agency propose to close the shared use walking and cycling path across Farlington Marshes between Monday 7th June and Saturday 4th July. This  closure has been advertised on social media channels using the image on the right.
 
-![Notification from Highways England and the Environment Agency](186291822_5800733793277824_1153850703772730556_n-724x1024.jpg)
+![Notification from Highways England and the Environment Agency](./186291822_5800733793277824_1153850703772730556_n-724x1024.jpg)
 
 The image shows a simple schematic map of the proposed diversion route and provides two links, one to the Highways England website and one to the Environment Agency website. The latter provides no information about the diversion route but does discuss the reasons the work is required. The former - the Highways England website - provides no information at all about this scheme as of Sunday 16th May 2021. Hence, the only detail on the diversion publicly available is the simple schematic map in this advert.
 
