@@ -4,18 +4,11 @@ id: 4252
 tags:
   - opinion
 date: 2014-11-15 17:13:45
-todo:
-  - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
 coverImage: ./Tom-Simpson-008-300x180.jpg
 caption:  Tom Simpson
-supercheck: true;
 ---
 
-
-
-Recently the topic of [**The Rules**](http://www.velominati.com/the-rules/ "The Rules") has popped it's head up in a couple of discussions over on the [book of faces](https://www.facebook.com/groups/pompeybug/ "Portsmouth Cycle Forum on Facebook"). I should say up front, for people who worry about these things, that The Rules aren't real rules. They are meant to be a tongue in cheek guide to how one should present oneself and one's bicycle if one wishes to be seen as a 'real' cyclist (what is a real cyclist? Good question, and I'll come back to that).
+Recently the topic of [**The Rules**](http://www.velominati.com/the-rules/) has popped it's head up in a couple of discussions over on the [book of faces](https://www.facebook.com/groups/pompeybug/ "Portsmouth Cycle Forum on Facebook"). I should say up front, for people who worry about these things, that The Rules aren't real rules. They are meant to be a tongue in cheek guide to how one should present oneself and one's bicycle if one wishes to be seen as a 'real' cyclist (what is a real cyclist? Good question, and I'll come back to that).
 
 The rules are much beloved amongst our lycra clad brethren, both as a source of fun and spiritual guidance. I say this fondly for I am not unfamiliar with the stretchy wonder-material myself. However, these days I am an [audax rider](http://www.aukweb.net/aboutauk/faq/ "What on earth is an Audax?") rather than a racer and we're a non-conformist bunch who don't worry about rules too much.
 
@@ -29,7 +22,7 @@ This brings us, in a roundabout way, back to the question of which is the real c
 
 The context in which Rule 5 has raised it's head in discussion on our Facebook group is urban cycling. Specifically that cyclists should stop complaining about being forced into conflict with traffic, 'harden the heck up' and get on with it. It's fair to say that a number of people were uncomfortable with this concept.
 
-The reality is we live in a city which desperately needs more people to ride bikes. Ordinary people to ride ordinary bikes in ordinary clothes to do ordinary things. That's what a bike is in the end. A brilliant tool for getting around and doing other things. [In Portsmouth we desperately need more people to make more ordinary journeys by bike  to make themselves and the city a healthier, wealthier place to live](http://acitytoshare.org "A City to Share").
+The reality is we live in a city which desperately needs more people to ride bikes. Ordinary people to ride ordinary bikes in ordinary clothes to do ordinary things. That's what a bike is in the end. A brilliant tool for getting around and doing other things. In Portsmouth we desperately need more people to make more ordinary journeys by bike to make themselves and the city a healthier, wealthier place to live.  This is what [A City to Share](http://acitytoshare.org) is about.
 
 Cycling in a city is a fabulous way of getting around and needs to be accessible to everyone. As soon as you say 'rule 5' in that context you're effectively saying that cycling is only for the strong, those who laugh in the face of danger. I don't think that's helpful.
 
