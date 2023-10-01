@@ -6,8 +6,9 @@ id: 1393
 date: 2010-07-20 14:39:30
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 <figure id="attachment_1397" align="alignright" width="300" caption="Cosham High Street"![Cosham High Street](/assets/Cosham-5-300x225.jpg "Cosham High Street")

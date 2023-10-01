@@ -7,8 +7,9 @@ tags:
 date: 2012-01-20 20:35:59
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 [![London Road bus &amp; cycle lane northbound](http://www.pompeybug.co.uk/wp-content/uploads/2012/01/London-Road-bus-cycle-lane-northbound-9may11-2-400x300-300x225.jpg "London Road bus &amp; cycle lane northbound 9May11 (2) (400x300)")](/assets/London-Road-bus-cycle-lane-northbound-9may11-2-400x300.jpg)

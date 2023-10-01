@@ -8,8 +8,9 @@ tags:
 date: 2011-06-24 10:33:44
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 [![Fishy Friday Cycle Ride](http://www.pompeybug.co.uk/wp-content/uploads/2011/06/fish-and-chip-shop-sign-300x184.jpg "Fishy Friday Cycle Ride")](/assets/fish-and-chip-shop-sign.jpg)Portsmouth Cycle Forum will lead this early evening bike ride to Portchester Castle and stopping for fish and chips on the way on Friday 24 Jun.  Other food options may be available.   The ride will leave the Guildhall Square at 5.30pm and will last approximately 2 hours.

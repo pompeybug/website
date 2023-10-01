@@ -7,8 +7,9 @@ tags:
 date: 2012-01-29 20:39:00
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 ![Cyclenation Logo](http://www.pompeybug.co.uk/wp-content/plugins/wp-cyclenation-news/cnlogo.jpg)A  quick heads-up about a conference we're organising  - please put the  date in your group diaries and start thinking about who from your group  might like to go. We'll let you have more details when they're  finalised. 

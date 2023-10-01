@@ -6,8 +6,9 @@ id: 2763
 date: 2011-09-25 20:49:31
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 [![](http://www.pompeybug.co.uk/wp-content/uploads/2011/09/Eastern-Road-congestion-picture2-300x204.jpg "Eastern Road congestion picture")](/assets/Eastern-Road-congestion-picture2.jpg)At the Cycle Forum’s meeting on 8 September, Pam Turton and Adam Bunce of Portsmouth City Council spoke about the Eastern Road and Velder Avenue/Rodney Road junction improvement schemes.

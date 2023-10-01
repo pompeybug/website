@@ -7,8 +7,9 @@ tags:
 date: 2010-12-02 21:46:17
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 <div class="mceTemp">[![](/assets/santa-and-bike1.jpg)](http://www.pompeybug.co.uk/2010/12/efab-eastney-family-bike-club-christmas-bike-party/santa-and-bike-2/)If you’ve got a new bike for Christmas or even if you want to cherish and love your old bike come along to the Community Centre in Bransbury Park on December 29<sup>th </sup> at 12 until 2.30 for a great launch party to celebrate the start of EFaB.</div>

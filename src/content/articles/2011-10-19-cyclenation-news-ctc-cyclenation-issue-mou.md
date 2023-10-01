@@ -7,8 +7,9 @@ tags:
 date: 2011-10-19 14:36:00
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 ![Cyclenation Logo](http://www.pompeybug.co.uk/wp-content/plugins/wp-cyclenation-news/cnlogo.jpg)<p>The CTC and Cyclenation have issued a Memorandum of Understanding and it can be read [here](https://docs.google.com/document/d/1z_sZk7XAjtLY0R0V-Or-UT847teqYbYU8NgYqtWWyyQ/edit?hl=en_US).

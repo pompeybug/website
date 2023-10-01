@@ -7,8 +7,9 @@ tags:
 date: 2010-06-30 11:16:10
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 [![](/assets/toucan.jpg "toucan")](http://www.pompeybug.co.uk/2010/06/open-meeting-8-july/toucan/)The new Local Transport Plan for Portsmouth (LTP3) and Traffic Control in the city are the main topics for the meeting of Portsmouth Cycle Forum on 8 July.

@@ -7,8 +7,9 @@ tags:
 date: 2011-09-01 14:11:00
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 ![Cyclenation Logo](http://www.pompeybug.co.uk/wp-content/plugins/wp-cyclenation-news/cnlogo.jpg)<p>According to the Local School of Economics (LSE), cycling generates nearly &pound;3bn a year for the UK economy. The figure takes into account factors such as bicycle manufacturing, retail and cycle-related employment. The report says &pound;51m was raised for UK manufacturers from the 3.7 million cycles sold in 2010 - a rise of 28% on the number of cycles sold in 2009.

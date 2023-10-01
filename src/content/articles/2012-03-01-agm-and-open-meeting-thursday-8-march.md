@@ -8,8 +8,9 @@ tags:
 date: 2012-03-01 15:02:25
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 <figure id="" align="alignright" width="259" caption="Elephant&#39;s Feet - no not these!"![Elephant](http://farm3.staticflickr.com/2186/2199859057_aab3e68b50.jpg "Elephant")

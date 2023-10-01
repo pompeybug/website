@@ -7,8 +7,9 @@ tags:
 date: 2012-04-18 12:52:00
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 ![Cyclenation Logo](http://www.pompeybug.co.uk/wp-content/plugins/wp-cyclenation-news/cnlogo.jpg)<p>[London Cycle campaign](http://lcc.org.uk/ "LCC") urging everyone to join them for [the Big BIke Ride](http://lcc.org.uk/articles/lcc-announces-the-big-ride-uks-biggest-ever-mass-cycle-calling-for-safe-and-inviting-streets-for-cycling "big bike ride")

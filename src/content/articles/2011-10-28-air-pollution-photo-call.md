@@ -7,8 +7,9 @@ tags:
 date: 2011-10-28 21:09:35
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 [![](http://www.pompeybug.co.uk/wp-content/uploads/2011/10/Air_Pollution_Publication_Cover-212x300.jpg "Air_Pollution_Publication_Cover")](/assets/Air_Pollution_Publication_Cover.jpg)Keith Taylor, Green MEP for the South East of England has launched a campaign to raise awareness of air pollution and its health impacts in the South East. In his new publication 'Air Pollution - the Invisible Killer' he outlines how air pollution is a much more serious problem than most people realise, contributing to around 200,000 premature deaths each year.

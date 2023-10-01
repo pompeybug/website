@@ -9,8 +9,9 @@ tags:
 date: 2012-01-20 20:54:42
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 [![No Entry Except Cycles](http://www.pompeybug.co.uk/wp-content/uploads/2012/01/No-Entry-except-cycles-217x300.jpg "No Entry Except Cycles")](/assets/No-Entry-except-cycles.jpg)Cabinet member for Traffic and Transportation, Cllr Jason Fazackarley, gave his support of two-way cycling in Charlotte Street, Landport at his decision meeting on 19 January.

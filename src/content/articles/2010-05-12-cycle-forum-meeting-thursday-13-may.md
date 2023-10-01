@@ -6,8 +6,9 @@ id: 1130
 date: 2010-05-12 16:55:14
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 This month we'll be looking back to the conference and asking the question : Portsmouth - A Future Cycling City?

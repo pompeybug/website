@@ -8,8 +8,9 @@ tags:
 date: 2011-06-10 10:32:25
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 A video posted to YouTube by a New York City cyclist fined for not riding in the bike lane provide some laughs as he uses slapstick humour to reinforce the point he made to the NYPD officer ticketing him that the bike lane isn’t always the safest place to be.  Not that the officer was having any of it – he went ahead and issued the summons, telling the cyclist, Casey Neistat, that he faced a fine of anywhere between $10 and $130, despite the rider pointing out that the driver of a nearby vehicle parked in a bus lane wasn’t being given similar treatment.

@@ -7,8 +7,9 @@ tags:
 date: 2011-08-09 20:58:54
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 All aboard the bike bus to the lifeboat station open day.  Join us for a ride to Ferry Road for the fun on Sunday 14th August.

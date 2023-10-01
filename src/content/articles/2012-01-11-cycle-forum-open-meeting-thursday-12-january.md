@@ -7,8 +7,9 @@ tags:
 date: 2012-01-11 09:39:00
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 [![](http://www.pompeybug.co.uk/wp-content/uploads/2012/01/The-Hub-Somerstown-300x211.jpg "An artist")](/assets/The-Hub-Somerstown.jpg)Our next open meeting is on Thursday 12 January when we will be welcoming Redouan Sadak from Portsmouth City Council to speak about Portsmouth’s Air Quality Management Areas and how the City Council plans to eliminate the harmful effects of air pollution.

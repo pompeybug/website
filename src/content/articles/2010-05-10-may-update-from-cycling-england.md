@@ -6,8 +6,9 @@ id: 1092
 date: 2010-05-10 12:18:16
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 <figure id="attachment_1095" align="alignright" width="152" caption="Pedal cycle parking spaces in Brighton"![Pedal cycle parking spaces in Brighton](/assets/pedal-cycle-parking-spaces-in-Brighton2-217x300.jpg "Pedal cycle parking spaces in Brighton")

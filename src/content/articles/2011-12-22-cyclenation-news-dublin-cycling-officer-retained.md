@@ -7,8 +7,9 @@ tags:
 date: 2011-12-22 16:45:00
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 ![Cyclenation Logo](http://www.pompeybug.co.uk/wp-content/plugins/wp-cyclenation-news/cnlogo.jpg)<p>News from Will Andrews&nbsp;(chair) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 

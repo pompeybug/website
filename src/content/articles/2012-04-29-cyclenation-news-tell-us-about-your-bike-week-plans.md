@@ -7,8 +7,9 @@ tags:
 date: 2012-04-29 15:36:00
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 ![Cyclenation Logo](http://www.pompeybug.co.uk/wp-content/plugins/wp-cyclenation-news/cnlogo.jpg)<p>Bike week 2012 is on its way and people are [registering their events](http://www.bikeweek.org.uk/page.php?id=3 "Bike week events registration") for this year.

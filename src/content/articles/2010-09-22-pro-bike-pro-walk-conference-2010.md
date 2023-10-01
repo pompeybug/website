@@ -8,8 +8,9 @@ tags:
 date: 2010-09-22 22:09:27
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 I recently attended the Pro-Bike Pro-Walk Conference organised by the US National Center for Biking and Walking and held in Chattanooga, Tennessee.  I was attending on a professional basis and manning a stand in the exhibition hall so was unable to attend the talks but did get to look around the poster sessions and pick up a lot of useful information.

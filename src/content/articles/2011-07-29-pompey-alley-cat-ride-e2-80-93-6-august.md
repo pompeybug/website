@@ -7,8 +7,9 @@ tags:
 date: 2011-07-29 21:15:38
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 [![Pompey Alley Cat poster 6 August 2011](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/Pompey-Alleycat-06Aug11.jpg "Pompey Alleycat 06Aug11")](/assets/Pompey-Alleycat-06Aug11.jpg)Southsea Cycle Club its holding its first public Alley Cat event on Saturday 6 August.

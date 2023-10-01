@@ -7,8 +7,9 @@ tags:
 date: 2012-04-02 10:13:42
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 [![Life](http://www.pompeybug.co.uk/wp-content/uploads/2012/04/No-fuel-212x300.jpg "No fuel, no problem!")](/assets/No-fuel.jpg)

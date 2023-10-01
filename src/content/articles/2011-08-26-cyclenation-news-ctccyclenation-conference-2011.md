@@ -7,8 +7,9 @@ tags:
 date: 2011-08-26 08:28:00
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 ![Cyclenation Logo](http://www.pompeybug.co.uk/wp-content/plugins/wp-cyclenation-news/cnlogo.jpg)<p>Further details of the annual conference have been released and inc lude the news that Danny Dorling, Professor of Human Geography in the University  of  Sheffield will be one of the speakers and will address the subject of :&ldquo; Social Mobility and Access &ndash; Cycling&rsquo;s contribution? &rdquo;

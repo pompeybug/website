@@ -8,8 +8,9 @@ tags:
 date: 2011-01-06 12:24:34
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 ![PCC Traffic Light Review](/assets/450px-Modern_British_LED_Traffic_Light-225x300.jpg "PCC Traffic Light Review")As you may have read in the Portsmouth Evening News, the City Council is conducting a review of traffic signals across the city with the aim of removing 'failing' signals.  The News reported on 31 December that Councillors Fazackarley (executive member for traffic and transportation)  and Stubbs (conservative group spokesman for traffic and transportation) have toured the city with taxi drivers to understand their views on which junctions work and which don't.

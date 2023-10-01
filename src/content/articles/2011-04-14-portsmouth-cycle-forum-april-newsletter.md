@@ -7,8 +7,9 @@ tags:
 date: 2011-04-14 23:19:07
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 [![Trunk Road!](http://www.pompeybug.co.uk/wp-content/uploads/2011/04/trunk-road-e1302737286209-150x150.jpg "Trunk Road!")](/assets/trunk-road-e1302737286209.jpg)

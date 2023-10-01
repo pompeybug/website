@@ -6,8 +6,9 @@ id: 3299
 date: 2012-05-14 15:46:58
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 [![Copenhagen cycle chic](http://www.pompeybug.co.uk/wp-content/uploads/2011/08/600px-Copenhagen_cycle_chic-300x300.jpg "Copenhagen cycle chic")](/assets/600px-Copenhagen_cycle_chic.jpg)Join Gill, Pam and friends for a gentle

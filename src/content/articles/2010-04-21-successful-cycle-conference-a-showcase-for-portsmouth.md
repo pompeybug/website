@@ -8,8 +8,9 @@ tags:
 date: 2010-04-21 15:43:24
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 Over 80 delegates from all parts of the UK said that last Saturdays National CTC/Cycle Nation Conference here in Portsmouth was “a great success”.  Portsmouth Cycle Forum was chosen to host the Conference.  Chair John Holland said, "This has been a very successful weekend - a showcase for Portsmouth.”

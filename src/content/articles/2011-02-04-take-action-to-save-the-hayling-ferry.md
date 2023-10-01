@@ -8,8 +8,9 @@ tags:
 date: 2011-02-04 22:58:42
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 ![Hayling Ferry](/assets/Hayling-Ferry-300x190.jpg "Hayling Ferry")The proposed city council budget for 2011/12 onwards proposes that the subsidy currently offered to the Hayling Ferry be cancelled.  This will more than likely spell the end for the ferry service which provides a great route into and out of the city for cyclists and pedestrians.  The budget will go to the vote at council on **tuesday 8th February**.  If you would like the service to be saved then **please phone, email or write to your ward councillors** to ask them to oppose the motion to scrap the subsidy.

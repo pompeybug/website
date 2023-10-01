@@ -8,8 +8,9 @@ tags:
 date: 2011-06-26 09:03:25
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 [![Hayling Billy Ride](http://www.pompeybug.co.uk/wp-content/uploads/2011/06/Hayling-Billy-Ride-300x199.jpg "Hayling Billy Ride")](/assets/Hayling-Billy-Ride.jpg)The cycle train standing at platform 9 3/4 at Canoe Lake, Southsea will be the 10 o'clock Billy Special service to Hayling Island, calling at Eastney Beach Huts, Eastney Swimming Pool, Ferry Road Junction, Eastney Point, Hayling Ferry Boat Inn, Sinah Common, Hayling North and Hayling Central.  A service of light refreshments may be available providing you have remembered to bring them.  Please note this cycle train may float en-route - discounted ferry tickets are available - please see the train manager.  Bicycles are welcome on this service - the more the merrier!

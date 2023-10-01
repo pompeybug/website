@@ -7,8 +7,9 @@ tags:
 date: 2010-10-02 11:53:15
 todo:
   - Articles on this site are being migrated to a new format.
-  - <b>This page</b> has been automatically migrated, but requires a manual check-&amp;-tune to ensure the format and links all work as expected.
+  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
   - This message will remain on this page until it has been checked.
+
 ---
 
 [](http://www.pompeybug.co.uk/wp-content/uploads/2010/10/PCF-newsletter-October-2010.jpg)[![](http://www.pompeybug.co.uk/wp-content/uploads/2010/10/PCF-newsletter-October-20101.jpg "PCF newsletter October 2010")](http://www.pompeybug.co.uk/wp-content/uploads/2010/10/PCF-newsletter-October-20101.jpg)The [October newsletter](/assets/PCF-Newsletter-October-2010.pdf "Portsmouth Cycle Forum Newsletter October 2010") from Portsmouth Cycle Forum is now avaialable.
