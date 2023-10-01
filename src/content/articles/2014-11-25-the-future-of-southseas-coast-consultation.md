@@ -8,7 +8,7 @@ tags:
   - environment
 date: 2014-11-25 19:55:01
 caption: Storm tide in Southsea
-figure: ESCP-Storm-photo.jpg
+coverImage: /public/assets/ESCP-Storm-photo.jpg
 ---
 
 **A CITY TO SHARE** includes accessibility for all to our coast and heritage. The proposed new flood defences for Southsea seafront present a once-in-a-lifetime opportunity to complete a missing section of the seafront cycle.
@@ -19,4 +19,4 @@ See the link for details of the consultation roadshows or study the plans online
 
 The consultation closes on 29 December 2014.
 
-[www.escp.org.uk/…/future-southseas-coast-consultation](http://www.escp.org.uk/news/future-southseas-coast-consultation "The future of Southsea")
+**Read**: [The future of Southsea](http://www.escp.org.uk/news/future-southseas-coast-consultation)
