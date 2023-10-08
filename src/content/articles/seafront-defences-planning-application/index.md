@@ -18,4 +18,4 @@ Although we recognise the need to improve our sea defences we are disappointed t
 
 The plans show some very modest improvements on what we have today, but some of their plans make cycling more hazardous, or less enjoyable, with little separation of bikes and cars. They have also failed to do anything about the existing problem faced by cyclists of having to switch sides at several points along the seafront. You can read our response in full below:
 
-[PCF response 1901097FUL](http://www.printsink.co.uk/pcf/wp-content/uploads/2019/09/PCF-response-1901097FUL.pdf).
+[PCF response 1901097FUL](/public/assets/docs/PCF-response-1901097FUL.pdf).

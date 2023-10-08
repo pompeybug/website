@@ -23,7 +23,7 @@ The weather looks set to be fine so the views will be even better from the top.
 
 We start at 6 pm in the Guildhall Square and aim to finish by 8.30.
 
-Download a copy of our current [ride programme](http://www.pompeybug.co.uk/wp-content/uploads/2011/08/Portsmouth-Cycle-Forum-Ride-programme-2011.pdf "Portsmouth Cycle forum ride programme july-October 2011").
+Download a copy of our current [ride programme](/public/assets/Portsmouth-Cycle-Forum-Ride-programme-2011.pdf "Portsmouth Cycle forum ride programme july-October 2011").
 
 
 &nbsp;

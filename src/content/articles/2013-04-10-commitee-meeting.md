@@ -15,6 +15,6 @@ The proposed agenda for the meeting is linked below.  If there is anything else
 
 If you are interested in what happens at our committee meetings and would like to come and see for yourself then let us know. We'll try to fit you in if we can.
 
-[PCF Committee Agenda 12 April 2013](http://www.pompeybug.co.uk/wp-content/uploads/2013/04/PCF-Committee-Agenda-2013-04-12.pdf)
+[PCF Committee Agenda 12 April 2013](/public/assets/PCF-Committee-Agenda-2013-04-12.pdf)
 
 ![PCF Committee Meeting](/assets/Universite-Paris.jpg)

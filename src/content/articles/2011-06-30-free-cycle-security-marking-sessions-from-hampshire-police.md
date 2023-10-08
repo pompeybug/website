@@ -12,6 +12,6 @@ todo:
 
 ---
 
-[![Bike Theft Poster](http://www.pompeybug.co.uk/wp-content/uploads/2011/06/BikeTheftPoster-150x150.jpg "Bike Theft Poster")](/assets/BikeTheftPoster.jpg)Hampshire Constabulary are offering free cycle security marking sessions at various locations across Portsmouth. Follow the link to see the timetable and for more information on bicycle security.
+[![Bike Theft Poster](/public/assets/BikeTheftPoster-150x150.jpg "Bike Theft Poster")](/assets/BikeTheftPoster.jpg)Hampshire Constabulary are offering free cycle security marking sessions at various locations across Portsmouth. Follow the link to see the timetable and for more information on bicycle security.
 
 [Cycle Security Marking from Hampshire Police](http://www.hampshire.police.uk/Internet/localpolicing/portsmouth/Portsmouth+Cycle+Security+Marking.htm "Free cycle security marking sessions from Hampshire Police")

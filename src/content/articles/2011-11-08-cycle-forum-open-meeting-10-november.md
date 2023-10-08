@@ -12,7 +12,7 @@ todo:
 
 ---
 
-[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/11/New-DfT-signing-guidelines-some-of-the-new-signs-300x300.jpg "New DfT signing guidelines - some of the new signs")](/assets/New-DfT-signing-guidelines-some-of-the-new-signs.jpg)At the Cycle Forum's Open Meeting on 10 November we will be reporting on the CTC/Cyclenation conference which was held in Sheffield in October and where the theme was Cycle Campaigning and Localism - Threats and Opportunities.
+[![](/public/assets/New-DfT-signing-guidelines-some-of-the-new-signs-300x300.jpg "New DfT signing guidelines - some of the new signs")](/assets/New-DfT-signing-guidelines-some-of-the-new-signs.jpg)At the Cycle Forum's Open Meeting on 10 November we will be reporting on the CTC/Cyclenation conference which was held in Sheffield in October and where the theme was Cycle Campaigning and Localism - Threats and Opportunities.
 
 Other topics include: Portsmouth City Council's transport plans for 2012/13; our Winter Bike Ride Programme and the Department for Transport's new traffic signs.
 

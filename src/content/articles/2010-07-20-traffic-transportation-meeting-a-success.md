@@ -17,6 +17,6 @@ Portsmouth Cycle Forum presented a deputation at the PCC Traffic &amp; Transport
 
 The outcome was that the decision to implement the echelon parking was deferred until a meeting has taken place between the retail manager for Cosham, the PCC officers responsible and the cycle forum.  The text of our deputation is attached, along with the traffic regulation order (TRO) which proposed the echelon parking.
 
-*   [Traffic Regulation Order 39](http://www.pompeybug.co.uk/wp-content/uploads/2010/07/TRO_39_2009.pdf)
-*   [TRO39 - Officers Responce to Consultation](http://www.pompeybug.co.uk/wp-content/uploads/2010/07/tt20100715r5.pdf)
-*   [TRO 39 - Portsmouth Cycle Forum Deputation](http://www.pompeybug.co.uk/wp-content/uploads/2010/07/Deputation-to-PCC-Traffic-and-Transportation-15Jul10-jas.pdf)
+*   [Traffic Regulation Order 39](/public/assets/TRO_39_2009.pdf)
+*   [TRO39 - Officers Responce to Consultation](/public/assets/tt20100715r5.pdf)
+*   [TRO 39 - Portsmouth Cycle Forum Deputation](/public/assets/Deputation-to-PCC-Traffic-and-Transportation-15Jul10-jas.pdf)

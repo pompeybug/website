@@ -1,13 +1,10 @@
 ---
-
 title: Strategic Cycle Routes in Portsmouth
 id: 361
 tags:
   - campaigns
   - cycle-routes
 date: 2009-11-18
-caption: Strategic Cycle Routes
-figure: me_Strategic_cycle_routes_picture_1.jpg
 ---
 
 In conjunction with the CTC, Portsmouth Cycle Forum has produced a detailed assessment of the current strategic cycle routes in and out of Portsmouth.
@@ -20,5 +17,5 @@ This document therefore provides a baseline to assist planning and development o
 
 The document is split into two sections - the main body which presents an overview and assessment of each route and appendices which provide detailed analysis of each route. Both are available for download:
 
-*   [Commentary on Strategic Cycle Routes in Portsmouth - Main Body (0.5 MB PDF)](http://www.printsink.co.uk/wp-content/uploads/2009/11/cycle_route_commentary_v1.0_main_body.pdf)
-*   [Commentary on Strategic Cycle Routes in Portsmouth - Appendices (5.5 MB PDF)](http://www.printsink.co.uk/wp-content/uploads/2009/11/cycle_route_commentary_v1.0_appendices.pdf)
+*   [Commentary on Strategic Cycle Routes in Portsmouth - Main Body (0.5 MB PDF)](/public/assets/docs/cycle_route_commentary_v1.0_main_body.pdf)
+*   [Commentary on Strategic Cycle Routes in Portsmouth - Appendices (5.5 MB PDF)](/public/assets/docs/cycle_route_commentary_v1.0_appendices.pdf)

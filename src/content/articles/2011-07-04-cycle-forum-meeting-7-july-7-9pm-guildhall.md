@@ -12,10 +12,10 @@ todo:
 
 ---
 
-[![New York City bike lane](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/NYC-bike-lane-150x150.jpg "New York City bike lane")](/assets/NYC-bike-lane.jpg)Cycling in Downtown New York?  You're Joking aren't you?  Well the city council there are making revolutionary changes to their car-choked streets to encourage people to take to their bikes.  We'll hear more about this at the Cycle Forum's meeting on Thursday 7 July along with other topics from the recent Building Cycling Cultures conference .
+[![New York City bike lane](/public/assets/NYC-bike-lane-150x150.jpg "New York City bike lane")](/assets/NYC-bike-lane.jpg)Cycling in Downtown New York?  You're Joking aren't you?  Well the city council there are making revolutionary changes to their car-choked streets to encourage people to take to their bikes.  We'll hear more about this at the Cycle Forum's meeting on Thursday 7 July along with other topics from the recent Building Cycling Cultures conference .
 
 We'll also have updates on schemes affecting cycling locally plus news from the Community Cycling Centre.
 
 The meeting takes place at Portsmouth Guildhall (meeting room 1) from 7 to 9pm.
 
-**<span style="color: #ff0000;">Update 22 July</span>** - Here are the [minutes of the meeting](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/PCF-Open-Meeting-Minutes-7-July-11.pdf "Minutes of the Portsmouth Cycle Forum open meeting 7 July 11").
+**<span style="color: #ff0000;">Update 22 July</span>** - Here are the [minutes of the meeting](/public/assets/PCF-Open-Meeting-Minutes-7-July-11.pdf "Minutes of the Portsmouth Cycle Forum open meeting 7 July 11").

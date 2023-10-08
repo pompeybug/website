@@ -13,7 +13,7 @@ todo:
 ---
 
 <div id="_mcePaste" class="mcePaste" style="position: absolute; width: 1px; height: 1px; overflow: hidden; top: 0px; left: -10000px;">﻿</div>
-[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/PoliceVolunteerSupport-300x160.jpg "Police Volunteer Support")](/assets/PoliceVolunteerSupport.jpg)Hampshire Police are looking for keen and committed members of the community to help them set up a Community Speed Watch programme in the Fratton and Southsea areas.
+[![](/public/assets/PoliceVolunteerSupport-300x160.jpg "Police Volunteer Support")](/assets/PoliceVolunteerSupport.jpg)Hampshire Police are looking for keen and committed members of the community to help them set up a Community Speed Watch programme in the Fratton and Southsea areas.
 
 Speeding is one of the factors that most affects the quality of life in communities around Hampshire and the Isle of Wight. It can contribute to road traffic collisions and impacts on the day to day lives of people in the community.
 
@@ -21,4 +21,4 @@ Speeding traffic is one of the biggest community concerns in the area and as suc
 
 If you are interested in volunteering with your local policing team to set up a SpeedWatch programme then please get in touch by contacting Sergeant Mark Shaw on 0845 045 45 45 or email [mark.shaw@hampshire.pnn.police.uk](mailto:mark.shaw@hampshire.pnn.police.uk).
 
-There is also a [poster](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/SpeedWatch-Volunteer.pdf "SpeedWatch Poster") which you can download and print.
+There is also a [poster](/public/assets/SpeedWatch-Volunteer.pdf "SpeedWatch Poster") which you can download and print.

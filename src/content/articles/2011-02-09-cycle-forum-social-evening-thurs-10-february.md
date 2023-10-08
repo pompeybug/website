@@ -12,5 +12,5 @@ todo:
 
 ---
 
-<div class="mceTemp">[![Eldon Arms, Southsea](http://www.pompeybug.co.uk/wp-content/uploads/2011/02/Eldon-Arms-Southsea-150x150.jpg "Eldon Arms, Southsea")](/assets/Eldon-Arms-Southsea.jpg)Join us at the Eldon Arms from from 8pm for an informal social evening.  It's an opportunity to meet and chat and perhaps have a game of Pool or Bar Billiards. The Eldon Arms is in Eldon Street, Southsea, PO5 4BS.</div>
+<div class="mceTemp">[![Eldon Arms, Southsea](/public/assets/Eldon-Arms-Southsea-150x150.jpg "Eldon Arms, Southsea")](/assets/Eldon-Arms-Southsea.jpg)Join us at the Eldon Arms from from 8pm for an informal social evening.  It's an opportunity to meet and chat and perhaps have a game of Pool or Bar Billiards. The Eldon Arms is in Eldon Street, Southsea, PO5 4BS.</div>
 <div class="mceTemp">[mappress mapid="5"]</div>

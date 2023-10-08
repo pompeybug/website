@@ -12,7 +12,7 @@ todo:
 
 ---
 
-[![Pompey Alley Cat poster 6 August 2011](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/Pompey-Alleycat-06Aug11.jpg "Pompey Alleycat 06Aug11")](/assets/Pompey-Alleycat-06Aug11.jpg)Southsea Cycle Club its holding its first public Alley Cat event on Saturday 6 August.
+[![Pompey Alley Cat poster 6 August 2011](/public/assets/Pompey-Alleycat-06Aug11.jpg "Pompey Alleycat 06Aug11")](/assets/Pompey-Alleycat-06Aug11.jpg)Southsea Cycle Club its holding its first public Alley Cat event on Saturday 6 August.
 
 An alley cat is a time trial/scavenger hunt style ride popular in bicycle messenger and fixed gear circles. Participants cycle to several checkpoints using whichever they think is best.
 

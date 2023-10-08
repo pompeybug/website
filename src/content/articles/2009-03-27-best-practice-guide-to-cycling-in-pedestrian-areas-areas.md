@@ -6,7 +6,7 @@ tags:
     - pcc
     - infrastructured
     - shared-use
-todo: We don't have a copy of this socument any more - perhaps you do, if so, let us know and we'll add it to the archive!
+todo: We don't have a copy of this document any more - perhaps you do, if so, let us know and we'll add it to the archive!
 ok: true
 ---
 

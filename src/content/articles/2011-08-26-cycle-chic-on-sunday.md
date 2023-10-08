@@ -23,7 +23,4 @@ The route for this Sunday's ride will follow mostly quiet residential streets an
 
 
 
-
-
-
-Download a copy of our current [ride programme](../wp-content/uploads/2011/08/Portsmouth-Cycle-Forum-Ride-programme-2011.pdf "Portsmouth Cycle forum ride programme july-October 2011").
+Download a copy of our current [ride programme](/public/assets/docs/Portsmouth-Cycle-Forum-Ride-programme-2011.pdf "Portsmouth Cycle forum ride programme july-October 2011").

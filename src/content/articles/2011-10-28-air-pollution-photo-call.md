@@ -12,7 +12,7 @@ todo:
 
 ---
 
-[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/10/Air_Pollution_Publication_Cover-212x300.jpg "Air_Pollution_Publication_Cover")](/assets/Air_Pollution_Publication_Cover.jpg)Keith Taylor, Green MEP for the South East of England has launched a campaign to raise awareness of air pollution and its health impacts in the South East. In his new publication 'Air Pollution - the Invisible Killer' he outlines how air pollution is a much more serious problem than most people realise, contributing to around 200,000 premature deaths each year.
+[![](/public/assets/Air_Pollution_Publication_Cover-212x300.jpg "Air_Pollution_Publication_Cover")](/assets/Air_Pollution_Publication_Cover.jpg)Keith Taylor, Green MEP for the South East of England has launched a campaign to raise awareness of air pollution and its health impacts in the South East. In his new publication 'Air Pollution - the Invisible Killer' he outlines how air pollution is a much more serious problem than most people realise, contributing to around 200,000 premature deaths each year.
 
 Keith is visiting Portsmouth to speak with the City Council and meet with those affected by poor air quality. Portsmouth is currently exceeding levels of air pollution set by EU legislation and Victoria Road North is one of three areas in Portsmouth above the limit for Nitrogen Dioxide.
 

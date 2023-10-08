@@ -1,19 +1,13 @@
 ---
-
 title: First Burst of Spring Ride ‘n’ Walk Sunday 25 March
 id: 3122
 tags:
   - events
   - rides
-date: 2012-03-23 17:05:54
-todo:
-  - Articles on this site are being migrated to a new format.
-  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
-
+date: 2012-03-23
 ---
 
-[![First Burst of Spring Ride n Walk](http://www.pompeybug.co.uk/wp-content/uploads/2012/03/spring-r-and-w-poster-pdf-142x200.jpg "First Burst of Spring Ride n Walk")](/assets/spring-r-and-w-poster-pdf-142x200.jpg)Winter’s on the way out, so why not go out? Join our <span style="color: #ff6600;">**First Burst of Spring Ride ‘n’ Walk**</span>. on Sunday 25 March.
+Winter’s on the way out, so why not go out? Join our **First Burst of Spring Ride ‘n’ Walk** on Sunday 25 March.
 
 Meet in the Good Companions car park at 10am (bottom of the Eastern Road).
 

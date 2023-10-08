@@ -21,7 +21,7 @@ ok: in progress
 
 ## Open meeting this Thursday - 8 September
 
-[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/09/Eastern-Road-congestion-picture2-150x150.jpg "Eastern Road congestion picture")](/assets/Eastern-Road-congestion-picture2.jpg)Everyone is welcome to our open meeting this Thursday the 8th September at 7pm. We have two guest speakers from Portsmouth City Council who will be talking about the Local Transport Plan 3 implementation plan and the [Eastern Road Congestion Relief scheme](http://www.portsmouth.gov.uk/living/21986.html "Eastern Road Congestion Relief Sheme") with a focus on the implications for cyclists and pedestrians. Chris will be giving us an update on the Community Cycle Centre. We’d like to hear about your experiences of cycling around Portsmouth too, if you’ve got any issues maybe we can help.
+[![](/public/assets/Eastern-Road-congestion-picture2-150x150.jpg "Eastern Road congestion picture")](/assets/Eastern-Road-congestion-picture2.jpg)Everyone is welcome to our open meeting this Thursday the 8th September at 7pm. We have two guest speakers from Portsmouth City Council who will be talking about the Local Transport Plan 3 implementation plan and the [Eastern Road Congestion Relief scheme](http://www.portsmouth.gov.uk/living/21986.html "Eastern Road Congestion Relief Sheme") with a focus on the implications for cyclists and pedestrians. Chris will be giving us an update on the Community Cycle Centre. We’d like to hear about your experiences of cycling around Portsmouth too, if you’ve got any issues maybe we can help.
 
 ## A Frames and Slaloms ride coming up - 11 September
 

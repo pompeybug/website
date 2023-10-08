@@ -11,4 +11,4 @@ We are very excited to announce that our push for cyclists to be allowed to ride
 
 The instructions on how to do that are in the document which is linked below.  Although PCC have distributed the TRO by email it has yet to appear on their own website.
 
-[TRO 16 Cosham High Street](http://www.pompeybug.co.uk/wp-content/uploads/2013/07/TRO-16-2013-Cosham-High-St-Area-PN1.pdf)
+[TRO 16 Cosham High Street](/public/assets/TRO-16-2013-Cosham-High-St-Area-PN1.pdf)

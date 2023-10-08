@@ -12,10 +12,10 @@ todo:
 
 ---
 
-[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/12/efab-poster-pdf-222x300.jpg "Eastney Winter Bike Party")](/assets/efab-poster-pdf.jpg)Come along to the Eastney Winter Bike Party party on 29 December. There'll be festive fun and bike games, security marking, bling your bike, xmas biscuits and bike checks with Dr Bike. Admission free. Everyone welcome!
+[![](/public/assets/efab-poster-pdf-222x300.jpg "Eastney Winter Bike Party")](/assets/efab-poster-pdf.jpg)Come along to the Eastney Winter Bike Party party on 29 December. There'll be festive fun and bike games, security marking, bling your bike, xmas biscuits and bike checks with Dr Bike. Admission free. Everyone welcome!
 
 Where: Eastney Community Centre, Bransbury Park, PO4 9SU.
 
 When: Thursday 29 December, 11am-2pm
 
-Download a poster [here](http://www.pompeybug.co.uk/wp-content/uploads/2011/12/efab-poster-pdf.pdf) - please print it and display in your window, your workplace, or anywhere legal!
+Download a poster [here](/public/assets/efab-poster-pdf.pdf) - please print it and display in your window, your workplace, or anywhere legal!

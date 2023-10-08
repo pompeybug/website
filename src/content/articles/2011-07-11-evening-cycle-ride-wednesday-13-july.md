@@ -12,4 +12,4 @@ todo:
 
 ---
 
-[![](http://www.pompeybug.co.uk/wp-content/uploads/2011/07/Farlington-marshes.bmp "Farlington Marshes")](/assets/Farlington-marshes.bmp)Join us for an evening ride following the shores of Langstone Harbour to Farlington Marshes, home of the Hampshire and Isle of Wight Wildlife Trust's oldest nature reserve.  We'll start at the swimminig pool at Eastney at 6pm and we'll follow quiet roads and cycle tracks throughout.  Total distance (there and back) approx 10 miles.
+[![](/public/assets/Farlington-marshes.bmp "Farlington Marshes")](/assets/Farlington-marshes.bmp)Join us for an evening ride following the shores of Langstone Harbour to Farlington Marshes, home of the Hampshire and Isle of Wight Wildlife Trust's oldest nature reserve.  We'll start at the swimminig pool at Eastney at 6pm and we'll follow quiet roads and cycle tracks throughout.  Total distance (there and back) approx 10 miles.

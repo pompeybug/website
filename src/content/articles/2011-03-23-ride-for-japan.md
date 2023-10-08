@@ -11,7 +11,7 @@ todo:
 
 ---
 
-[![southsea rides for japan](http://www.pompeybug.co.uk/wp-content/uploads/2011/03/ride-japan2-205x300.png "southsea rides for japan")](/assets/ride-japan2.png)On Sunday 3rd April why not go for a ride?
+[![southsea rides for japan](/public/assets/ride-japan2-205x300.png "southsea rides for japan")](/assets/ride-japan2.png)On Sunday 3rd April why not go for a ride?
 
 This charity fund raiser bicycle ride is in aid of Japan and will roam around Southsea.
 

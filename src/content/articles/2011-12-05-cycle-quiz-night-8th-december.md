@@ -12,6 +12,6 @@ todo:
 
 ---
 
-[![Quiz Wheel](http://www.pompeybug.co.uk/wp-content/uploads/2010/11/questions-150x150.jpg "Quiz Wheel")](/assets/questions.jpg)Join our Cycle Quiz Night on Thursday 8 December at the King Street tavern at 7.30pm. The questions shouldn't be too difficult but it won't be a walk-over! Tapas will be served at half-time.
+[![Quiz Wheel](/public/assets/questions-150x150.jpg "Quiz Wheel")](/assets/questions.jpg)Join our Cycle Quiz Night on Thursday 8 December at the King Street tavern at 7.30pm. The questions shouldn't be too difficult but it won't be a walk-over! Tapas will be served at half-time.
 
 &nbsp;

@@ -12,7 +12,7 @@ todo:
 
 ---
 
-[![](http://www.pompeybug.co.uk/wp-content/uploads/2012/01/The-Hub-Somerstown-300x211.jpg "An artist")](/assets/The-Hub-Somerstown.jpg)Our next open meeting is on Thursday 12 January when we will be welcoming Redouan Sadak from Portsmouth City Council to speak about Portsmouth’s Air Quality Management Areas and how the City Council plans to eliminate the harmful effects of air pollution.
+[![](/public/assets/The-Hub-Somerstown-300x211.jpg "An artist")](/assets/The-Hub-Somerstown.jpg)Our next open meeting is on Thursday 12 January when we will be welcoming Redouan Sadak from Portsmouth City Council to speak about Portsmouth’s Air Quality Management Areas and how the City Council plans to eliminate the harmful effects of air pollution.
 
 We'll also be welcoming members of the Somerstown regeneration project team to talk about about The Hub, a new community building which will span Winston Churchill Avenue, and how the pedestrian and cycle routes will be catered for in the plans.
 

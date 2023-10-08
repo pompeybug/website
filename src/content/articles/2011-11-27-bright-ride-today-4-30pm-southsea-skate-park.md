@@ -11,7 +11,7 @@ todo:
 
 ---
 
-[![Poster for our Bright Ride on Sunday 27 November at 4.30pm](http://www.pompeybug.co.uk/wp-content/uploads/2011/11/bright-ride-poster-pdf-552x800.jpg "Bright Ride poster")](/assets/bright-ride-poster-pdf.jpg)Join our 'BRIGHT RIDE' today at 4.30pm. For this lovely family ride we'll adorn our bikes in christamas lights and bright bits and go off along the seafront.
+[![Poster for our Bright Ride on Sunday 27 November at 4.30pm](/public/assets/bright-ride-poster-pdf-552x800.jpg "Bright Ride poster")](/assets/bright-ride-poster-pdf.jpg)Join our 'BRIGHT RIDE' today at 4.30pm. For this lovely family ride we'll adorn our bikes in christamas lights and bright bits and go off along the seafront.
 
 This was such good fun last year seeing how many lights and bright bits the children managed to get on themselves and their bikes!
 

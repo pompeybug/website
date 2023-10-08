@@ -13,7 +13,7 @@ todo:
 
 ---
 
-[![Velo City Sevilla 2011](http://www.pompeybug.co.uk/wp-content/uploads/2011/05/VeloCity-297x300.png "Velo City Sevilla 2011")](/assets/VeloCity.png)The next meeting of Portsmouth Cycle Forum is on Thursday 12 May at 7pm in Portsmouth Guildhall.
+[![Velo City Sevilla 2011](/public/assets/VeloCity-297x300.png "Velo City Sevilla 2011")](/assets/VeloCity.png)The next meeting of Portsmouth Cycle Forum is on Thursday 12 May at 7pm in Portsmouth Guildhall.
 
 This month we will be having a report from the Velo-City conference held in Seville in March.
 

@@ -18,6 +18,6 @@ In a news report about Spokes' action in the Scotsman newspaper, a spokeman for 
 
 Spokes laudable and brave initiative is supported by Cyclenation, which urges other groups to consider whether to follow suit. Cyclenation would also like to gauge the scale of the problem so if any public ride in your area requires helmet use, please let us know the details.
 
-* [Spokes Summer 2012 bulletin](http://www.spokes.org.uk/wordpress/wp-content/uploads/2009/09/pall.pdf) &ndash; see page 6
+* [Spokes Summer 2012 bulletin](/public/assets/docs/pall.pdf) &ndash; see page 6
 * [road.cc report](http://road.cc/content/news/59533-cycle-campaign-group-spokes-ceases-publicising-events-requiring-participants-wear)
 * [The Scotsman](http://www.scotsman.com/news/transport/cycling-body-withdraws-support-for-events-that-encourage-the-use-of-safety-helmets-1-2335354)

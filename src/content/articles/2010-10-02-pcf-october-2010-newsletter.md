@@ -12,7 +12,7 @@ todo:
 
 ---
 
-[](http://www.pompeybug.co.uk/wp-content/uploads/2010/10/PCF-newsletter-October-2010.jpg)[![](http://www.pompeybug.co.uk/wp-content/uploads/2010/10/PCF-newsletter-October-20101.jpg "PCF newsletter October 2010")](http://www.pompeybug.co.uk/wp-content/uploads/2010/10/PCF-newsletter-October-20101.jpg)The [October newsletter](/assets/PCF-Newsletter-October-2010.pdf "Portsmouth Cycle Forum Newsletter October 2010") from Portsmouth Cycle Forum is now avaialable.
+[](/public/assets/PCF-newsletter-October-2010.jpg)[![](/public/assets/PCF-newsletter-October-20101.jpg "PCF newsletter October 2010")](/public/assets/PCF-newsletter-October-20101.jpg)The [October newsletter](/assets/PCF-Newsletter-October-2010.pdf "Portsmouth Cycle Forum Newsletter October 2010") from Portsmouth Cycle Forum is now avaialable.
 
 Stories this month include
 
@@ -29,6 +29,6 @@ Stories this month include
 *   Somerstown Regeneration
 *   BOND bicycle boasts ejector seat and flame
 *   The diary
-[Click here to view the newsletter](http://www.pompeybug.co.uk/wp-content/uploads/2010/10/PCF-Newsletter-October-2010.pdf "Portsmouth Cycle Forum Newsletter October 2010").
+[Click here to view the newsletter](/public/assets/PCF-Newsletter-October-2010.pdf "Portsmouth Cycle Forum Newsletter October 2010").
 
 Portsmouth Cycle Forum is a voluntary group working to make cycling safer, easier and more enjoyable throughout the Portsmouth area.  We’d be pleased to hear from you and perhaps you will join us.  For more information visit [www.pompeybug.org.uk](http://www.pompeybug.org.uk/)
