@@ -2,7 +2,6 @@
 import Base from './Base.astro';
 import TagList from '@components/TagList.astro';
 import Metadata from '@components/Metadata.astro';
-import { toArray } from 'src/utils';
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import ReadingTime from '@components/ReadingTime.astro';
@@ -14,7 +13,7 @@ interface Props {
   todo?: CollectionEntry<'articles'>['data']['todo'];
   coverImage?: CollectionEntry<'articles'>['data']['coverImage'];
   readingTime?: string;
-  frontmatter?: any;
+  frontmatter?: this;
 }
 
 const { title, date, tags, todo, coverImage, readingTime } = Astro.props.frontmatter || Astro.props;
@@ -40,7 +39,7 @@ const { title, date, tags, todo, coverImage, readingTime } = Astro.props.frontma
         <hr />
       <h2>Work in progress&hellip;</h2>
       <ul>
-        {toArray(todo).map((todo) => (
+        {todo.map((todo) => (
           <li>{todo}</li>
         ))}
       </ul>

@@ -1,5 +1,4 @@
 import { getCollection, type CollectionEntry } from "astro:content";
-import { toArray } from "src/utils";
 
 export const sort = (
   articles: CollectionEntry<"articles">[],
@@ -42,7 +41,7 @@ export const getAllUniqueArticleTags = async () => {
   const articles = await getArticles();
 
   const tags = articles
-    .flatMap((article) => (article.data.tags ? toArray(article.data.tags) : []))
+    .flatMap((article) => article.data.tags)
     .map((tag) => tag.toLowerCase());
 
   return [...new Set(tags)];
@@ -51,15 +50,7 @@ export const getAllUniqueArticleTags = async () => {
 export const getAllArticlesWithTag = async (
   tag: string
 ): Promise<CollectionEntry<"articles">[]> => {
-  return await getCollection("articles", ({ data }) => {
-    if (Array.isArray(data.tags)) {
-      return data.tags
-        .map((tag) => tag.toLowerCase())
-        .includes(tag.toLowerCase());
-    } else if (typeof data.tags === "string") {
-      return tag.toLowerCase() === data.tags.toLowerCase();
-    }
-
-    return false;
-  });
+  return await getCollection("articles", ({ data }) =>
+    data.tags.map((tag) => tag.toLowerCase()).includes(tag.toLowerCase())
+  );
 };
