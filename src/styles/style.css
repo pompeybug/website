@@ -280,15 +280,23 @@ nav h2 {
 
 #navmenu {
     grid-area: menu;
+}
+
+#navmenu section {
     display: flex;
     flex-direction: var(--navmenu-direction);
-    padding: var(--navmenu-padding);
+    padding: 0 var(--navmenu-padding) var(--navmenu-padding) var(--navmenu-padding);
     border-radius: var(--taglist-curve);
     gap: var(--navmenu-gap);
     align-content: stretch;
     background-color: var(--col1light);
     margin-top: var(--navmenu-margin)
 }
+
+#navmenu section:first-of-type {
+    padding: var(--navmenu-padding);
+}
+
 
 #taglist {
     grid-area: taglist;
