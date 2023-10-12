@@ -13,6 +13,6 @@ For example
  * here's the [list of website articles](/todos) that need checking for outdated links and other small niggles.
  * here's a [list of technical website issues](https://github.com/pompeybug/website/issues) that are currently waiting to be worked on.
  
-If you help, no matter how small, just [let us know](/contact)!
+If you'd like to help just [let us know](/contact)!
 
 ...or if you're technical, just fork [the repo](https://github.com/pompeybug/website), tackle an issue and send us a PR :-)
