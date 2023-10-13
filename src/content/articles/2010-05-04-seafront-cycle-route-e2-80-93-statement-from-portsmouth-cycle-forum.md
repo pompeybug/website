@@ -1,14 +1,8 @@
 ---
-
 title: 'Seafront Cycle Route – Statement from Portsmouth Cycle Forum '
 id: 1086
-
-date: 2010-05-04 21:24:09
-todo:
-  - Articles on this site are being migrated to a new format.
-  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
-
+date: 2010-05-04
+ok: true
 ---
 
 In its report on an accident which occurred on the new Southsea seafront cycle route, Portsmouth’s local newspaper (The News, 3 May 2010) printed a quote from Portsmouth Cycle Forum Chairman, John Holland.

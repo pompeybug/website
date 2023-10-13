@@ -1,18 +1,13 @@
 ---
-
 title: PCF October 2010 Newsletter
 id: 1459
 tags:
   - newsletter
 date: 2010-10-02 11:53:15
-todo:
-  - Articles on this site are being migrated to a new format.
-  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
-
+ok: true
 ---
 
-[](/public/assets/PCF-newsletter-October-2010.jpg)[![](/public/assets/PCF-newsletter-October-20101.jpg "PCF newsletter October 2010")](/public/assets/PCF-newsletter-October-20101.jpg)The [October newsletter](/assets/PCF-Newsletter-October-2010.pdf "Portsmouth Cycle Forum Newsletter October 2010") from Portsmouth Cycle Forum is now avaialable.
+The [October newsletter](/public/assets/docs/PCF-Newsletter-October-2010.pdf) from Portsmouth Cycle Forum is now avaialable.
 
 Stories this month include
 
@@ -29,6 +24,3 @@ Stories this month include
 *   Somerstown Regeneration
 *   BOND bicycle boasts ejector seat and flame
 *   The diary
-[Click here to view the newsletter](/public/assets/PCF-Newsletter-October-2010.pdf "Portsmouth Cycle Forum Newsletter October 2010").
-
-Portsmouth Cycle Forum is a voluntary group working to make cycling safer, easier and more enjoyable throughout the Portsmouth area.  We’d be pleased to hear from you and perhaps you will join us.  For more information visit [www.pompeybug.org.uk](http://www.pompeybug.org.uk/)
