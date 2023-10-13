@@ -2,7 +2,7 @@
 import Base from './Base.astro';
 import TagList from '@components/TagList.astro';
 import Metadata from '@components/Metadata.astro';
-import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import ReadingTime from '@components/ReadingTime.astro';
 
@@ -30,7 +30,7 @@ const { title, date, tags, todo, coverImage, readingTime } = Astro.props.frontma
         <ReadingTime readingTime={readingTime} />
       )}
       {coverImage && (
-          <Image src={coverImage} alt={title} />
+          <Picture src={coverImage} alt={title} />
       )}
       <article>
           <slot />
