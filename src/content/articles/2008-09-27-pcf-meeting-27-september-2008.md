@@ -4,7 +4,7 @@ tags:
     - open-meeting
 date: 2008-09-27
 todo:
-  - We'd like to locate a copy of the minutes from this meeting - if you have a copy, please let us know.
+  - ...seeking a copy of the minutes from this meeting - if you have a copy, please let us know.
 ---
 
 The September meeting of the Cycle Forum was a lively and well attended event.
