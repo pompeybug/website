@@ -1,8 +1,9 @@
 ---
 import Base from "@layouts/Base.astro";
-import { getArticlesWithOk, sort } from "@lib/collections/articles";
+import { getArticles, getArticlesWithOk, sort } from "@lib/collections/articles";
 
-const okArticles = sort(await getArticlesWithOk());
+// const okArticles = sort(await getArticlesWithOk());
+const okArticles = sort(await getArticles());
 ---
 
 <Base title="PCF">
