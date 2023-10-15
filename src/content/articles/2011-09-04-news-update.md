@@ -3,7 +3,7 @@ title: September News Update
 id: 2690
 tags:
   - events
-  - Infrastructure Issue
+  - Infrastructure
   - meetings
   - newsletter
   - rides

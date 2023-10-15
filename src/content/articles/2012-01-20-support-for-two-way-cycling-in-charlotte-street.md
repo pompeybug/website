@@ -5,7 +5,7 @@ tags:
   - campaigns
   - pcc
   - cycle-routes
-  - Infrastructure Issue
+  - Infrastructure
 date: 2012-01-20
 ---
 

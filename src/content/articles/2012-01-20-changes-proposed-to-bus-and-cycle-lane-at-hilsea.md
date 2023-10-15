@@ -3,7 +3,7 @@ title: Changes proposed to Bus and Cycle Lane at Hilsea
 id: 3048
 tags:
   - pcc
-  - infrastructure issue
+  - infrastructure
 date: 2012-01-20
 coverImage: /public/assets/London-Road-bus-cycle-lane-northbound-9may11-2-400x300-300x225.jpg
 caption: London Road bus & cycle lane northbound
