@@ -3,7 +3,7 @@
 title: "Kidical Mass: Families Demand Safe Cycling Infrastructure"
 date: 2023-04-11
 tags:  
-  - bike-ride
+  - rides
   - events
   - latest-news 
   - kidical-mass
