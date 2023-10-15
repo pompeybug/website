@@ -3,6 +3,7 @@ title: More cycle parking stands hit the streets
 tags:
   - crime
   - infrastructure
+  - "2009"
 date: 2009-05-12
 ok: true
 ---

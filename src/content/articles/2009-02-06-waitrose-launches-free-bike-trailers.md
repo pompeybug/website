@@ -4,6 +4,7 @@ title: Waitrose launches free bike trailers
 date: 2009-02-06
 tags:
     - cargo-bike
+    - "2009"
 ok: true
 ---
 

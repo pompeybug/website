@@ -4,6 +4,7 @@ title: Cyclists find the car is still king
 date: 2008-07-18
 tags:
     - thenews
+    - "2008"
 ok: true
 ---
 

@@ -4,6 +4,7 @@ tags:
   - campaigns
   - pcc
   - cycle-routes
+  - "2009"
 date: 2009-11-09
 caption: Southsea Seafront Contraflow
 figure: me_Southsea_seafront_contraflow_cycleway_CTC.jpg

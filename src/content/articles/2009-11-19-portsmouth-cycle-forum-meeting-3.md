@@ -4,6 +4,7 @@ title: Portsmouth Cycle Forum Meeting
 tags:
   - events
   - meetings
+  - "2009"
 date: 2009-11-19
 caption: A cycle forum meeting
 figure: cu_Tour_de_France_Dalstein_France_1921_A.jpg

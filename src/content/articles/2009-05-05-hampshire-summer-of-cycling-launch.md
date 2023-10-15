@@ -4,6 +4,7 @@ title: Hampshire Summer of Cycling Launch
 date: 2009-05-05
 tags:
     - map
+    - "2009"
 ok: true
 ---
 

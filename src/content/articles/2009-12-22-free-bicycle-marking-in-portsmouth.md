@@ -4,6 +4,7 @@ title: Free Bicycle Marking in Portsmouth
 tags:
   - Security
   - Theft
+  - "2009"
 date: 2009-12-22 17:50:32
 caption: Stamp out bike theft!
 figure: me_bike-theft-415.jpg

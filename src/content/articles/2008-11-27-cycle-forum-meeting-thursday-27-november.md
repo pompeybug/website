@@ -3,6 +3,7 @@ title: Cycle Forum meeting Thursday 27 November
 id: 311
 tags:
   - open-meeting
+  - "2008"
 date: 2008-11-27
 todo:
     - The minutes of this meeting are not available at present - if you have a copy that we can add to the archive, please let us know.

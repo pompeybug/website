@@ -1,6 +1,7 @@
 ---
 title: PCF Meeting 27 September 2008
 tags:
+    - "2008"
     - open-meeting
 date: 2008-09-27
 todo:
