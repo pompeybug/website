@@ -6,7 +6,7 @@ tags:
   - events
   - pcf 
   - agm
-  - bike-ride
+  - rides
   - friends-of-the-earth
   - committee
 coverImage: "./PXL_20220518_1750315172-scaled.jpg"

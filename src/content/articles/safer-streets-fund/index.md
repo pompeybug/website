@@ -1,6 +1,5 @@
 ---
-
-title: Safer Streets Fund
+title: Safer Streets Fund - Barrier Tour
 date: 2021-10-22
 tags:  
   - campaigns
@@ -10,10 +9,11 @@ tags:
   - barriers
   - crime-prevention
   - safer-streets-fund
+  - rides
 coverImage: "./Barriers-stuck-brake-levers-2.jpg"
 ---
 
-**We invited Charles Dickens Ward councillors for a ‘barrier tour’**
+We invited Charles Dickens Ward councillors for a ‘barrier tour’
 
 This summer we welcomed an announcement about Charles Dickens Ward winning a £423,851 grant from the Government's Safer Streets Fund. Projects funded by this initiative aim to improve safety by introducing situational crime prevention measures.
 

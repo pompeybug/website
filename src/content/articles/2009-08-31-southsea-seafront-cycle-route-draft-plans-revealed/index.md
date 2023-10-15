@@ -5,6 +5,7 @@ tags:
   - campaigns
   - pcc
   - cycle-routes
+  - "2009"
 date: 2009-08-31
 caption: A map depicting the proposed route 
 coverImage: "./map.png"

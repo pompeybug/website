@@ -3,6 +3,7 @@
 title: PCF Newsletter October 2009
 tags:
   - newsletter
+  - "2009"
 date: 2009-10-24
 caption: October 2009 Newsletter
 figure: me_Whats_new_PCF_October_2009.jpg

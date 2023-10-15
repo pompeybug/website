@@ -4,7 +4,7 @@ title: John Holland Memorial Day
 date: 2019-05-13
 tags:  
   - events 
-  - bike-ride
+  - rides
   - john-holland
   - memorial
 coverImage: "./for-memorial-day-poster-672x372-1.jpg"

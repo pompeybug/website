@@ -1,8 +1,8 @@
 ---
-
 title: PCF Newsletter June 2009
 tags:
   - newsletter
+  - "2009"
 date: 2009-06-01
 todo:
   - If anyone has a copy of this newsletter in an old email inbox please let us know!

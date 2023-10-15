@@ -1,19 +1,14 @@
 ---
-
 title: NYC Bike Lanes
 id: 2422
 tags:
   - campaigns
   - cycle-routes
-date: 2011-06-10 10:32:25
-todo:
-  - Articles on this site are being migrated to a new format.
-  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
-
+date: 2011-06-10
+ok: true
 ---
 
-A video posted to YouTube by a New York City cyclist fined for not riding in the bike lane provide some laughs as he uses slapstick humour to reinforce the point he made to the NYPD officer ticketing him that the bike lane isn’t always the safest place to be.  Not that the officer was having any of it – he went ahead and issued the summons, telling the cyclist, Casey Neistat, that he faced a fine of anywhere between $10 and $130, despite the rider pointing out that the driver of a nearby vehicle parked in a bus lane wasn’t being given similar treatment.
+A video posted to YouTube by a New York City cyclist fined for not riding in the bike lane provides some laughs as he uses slapstick humour to reinforce the point he made to the NYPD officer ticketing him that the bike lane isn’t always the safest place to be.  Not that the officer was having any of it – he went ahead and issued the summons, telling the cyclist, Casey Neistat, that he faced a fine of anywhere between $10 and $130, despite the rider pointing out that the driver of a nearby vehicle parked in a bus lane wasn’t being given similar treatment.
 
 As it turned out, he was fined $50 despite the minor detail that not riding in a bike lane isn’t actually against the law in the first place. You can see why there's often tension between New York’s finest and the city’s cyclists.
 

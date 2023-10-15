@@ -3,7 +3,7 @@
 title: Palmerston Road street improvement works
 id: 2593
 tags:
-  - Infrastructure Issue
+  - Infrastructure
 date: 2011-07-22
 ---
 

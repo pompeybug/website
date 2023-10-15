@@ -3,6 +3,7 @@
 title: Portsmouth Cycle Forum January Meeting
 id: 330
 tags:
+    - "2009"
     - open-meeting
 date: 2009-01-29
 ok: true

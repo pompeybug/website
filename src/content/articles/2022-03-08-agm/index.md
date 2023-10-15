@@ -4,6 +4,7 @@ date: 2022-03-08
 tags:
  - AGM
  - Meetings
+ok: true
 ---
 
 **Our 2022 Annual General Meeting will take place at 7.00pm on Thursday 24nd March.**

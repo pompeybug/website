@@ -1,21 +1,14 @@
 ---
-
-title: 'Eastern Road Improvements? well that depends on how you travel!'
+title: Eastern Road Improvements? well that depends on how you travel!
 id: 2763
-
-date: 2011-09-25 20:49:31
-todo:
-  - Articles on this site are being migrated to a new format.
-  - This page has been automatically migrated, but requires a manual check-&-tune to ensure the format and links all work as expected.
-  - This message will remain on this page until it has been checked.
-
+date: 2011-09-25
 ---
 
-[![](/public/assets/Eastern-Road-congestion-picture2-300x204.jpg "Eastern Road congestion picture")](/assets/Eastern-Road-congestion-picture2.jpg)At the Cycle Forum’s meeting on 8 September, Pam Turton and Adam Bunce of Portsmouth City Council spoke about the Eastern Road and Velder Avenue/Rodney Road junction improvement schemes.
+At the Cycle Forum’s meeting on 8 September, Pam Turton and Adam Bunce of Portsmouth City Council spoke about the Eastern Road and Velder Avenue/Rodney Road junction improvement schemes.
 
 The plans include: reinstating the 2<sup>nd</sup> southbound vehicle lane on Eastern Road between Swordands Road and Kirpal Road (with the removal of two crossing points at pedestrian refuges); removing the traffic lights (and pedestrian crossing) at the Kirpal Road junction; increasing the capacity at the Milton Road / Velder Ave  traffic lights by banning right turns from Velder Ave and from Alverstone Road; adding pedestrian phases to these traffic lights allowing the crossing of Rodney Road and Milton Road (north of the junction). There are no plans to change the Moorings Way junction where the Eastern Road cycle route abruptly ends.
 
-We learned all the 'obvious' benefits that go with increased capacity for motor vehicles at a road junction. However, we probably weren't so impressed with that as PCC might have hoped. Hilary asked if this was a sensible course of action as most progressive thinking  suggests that increasing road capacity does not work, it only fills up once more. Furthermore, perhaps we would do better to spend more money on encouraging cycling and walking or even public transport.
+We learned all the 'obvious' benefits that go with increased capacity for motor vehicles at a road junction. However, we probably weren't so impressed with that as PCC might have hoped. Hilary asked if this was a sensible course of action as most progressive thinking suggests that increasing road capacity does not work, it only fills up once more. Furthermore, perhaps we would do better to spend more money on encouraging cycling and walking or even public transport.
 
 They went on to explain the **secondary** benefits of the scheme in that pedestrians and cycles would be getting much needed and long awaited crossing facilities over Rodney Road and Milton Road (north). So for some of the less confident cyclists and the local school the benefits are obvious. However, if you prefer to cycle on the road one member pointed out that the capacity savings were at the expense of allowing cycles out of Alverstone Road and therefore preventing them from accessing Eastern Road using an obvious quieter route from the South of the city.
 
@@ -29,4 +22,7 @@ So if you consider that this is an 'area improvement scheme' then it begs the qu
 
 In our opinion there are a few good parts to these proposals for cycles and pedestrians but they are very much a secondary concern in a design that is ALL about maximising capacity on a road that will just fill up again in the very near future.
 
-For more information and to read about all the 'benefits' of this area _improvement_ scheme go the [PCC website](http://www.portsmouth.gov.uk/living/21986.html "eastern road improvements").
+For more information and to read about all the 'benefits' of this area _improvement_ scheme go the [PCC website](http://web.archive.org/web/20111129155700/https://www.portsmouth.gov.uk/living/21986.html).
+
+![](/public/assets/Eastern-Road-congestion-picture2.jpg "Eastern Road congestion picture")
+

@@ -22,7 +22,7 @@ export const getArticles = async (): Promise<CollectionEntry<"articles">[]> => {
 export const getArticlesWithTodos = async (): Promise<
   CollectionEntry<"articles">[]
 > => {
-  return await getCollection("articles", ({ data }) => data.todo);
+  return await getCollection("articles", ({ data }) => data.todo.length > 0);
 };
 
 export const getArticlesWithOk = async (): Promise<

@@ -5,7 +5,7 @@ tags:
   - campaigns
   - pcc
   - meetings
-date: 2014-06-27 07:33:03
+date: 2014-06-27
 coverImage: ./Cyclist-HGV-collision-Hilsea-5may11-2-med-300x192.jpg
 caption:  Cyclist and HGV Incident in Hilsea
 ---

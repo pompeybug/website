@@ -1,8 +1,8 @@
 ---
-
 title: Northern Quarter Cycle Routes
 date: 2009-01-04
 tags:
+    - "2009"
     - pcc
     - northern-quarter
 ok: true

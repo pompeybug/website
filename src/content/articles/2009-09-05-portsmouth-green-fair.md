@@ -6,6 +6,7 @@ tags:
   - campaigns
   - environment
   - events
+  - "2009"
 date: 2009-09-05
 figure: me_greenfairposter09.jpg
 caption: Green Fair Poster

@@ -4,6 +4,7 @@ id: 357
 tags:
   - events
   - meetings
+  - "2009"
 date: 2009-09-10
 coverImage: /public/assets/me_pic1.jpg
 caption: John's Shed
