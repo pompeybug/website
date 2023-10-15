@@ -34,12 +34,16 @@ const { remarkPluginFrontmatter } = await article.render();
         <a href={`/${article.slug}`}>{article.data.title}</a>
       </h2>
       <Metadata date={article.data.date} />
-      <p>{remarkPluginFrontmatter.strippedBody.split(" ").slice(0, 20).join(" ")}...</p>
+      <p>
+        {
+          remarkPluginFrontmatter.strippedBody.split(" ").slice(0, 20).join(" ")
+        }...
+      </p>
       <ul>
         {
           article.data.tags.map((tag) => (
             <li>
-              <a href={`/tags/${tag}`} class="link-block no-visit">
+              <a href={`/tags/${tag}`} class="no-visit">
                 {tag}
               </a>
             </li>

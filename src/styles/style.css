@@ -53,6 +53,9 @@
   --card-curve: calc(var(--fixedspace) * 0.2);
   --card-image-height: 8em;
   --card-gap: calc(var(--fixedspace) * 0.5);
+
+  --pagination-padding: 0 0;
+  --pagination-page-padding: 0.75em 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -103,11 +106,8 @@
     --cardlist-columns: 1fr 1fr;
     --cardlist-gap: var(--fixedspace);
 
-    .pagination a {
-      padding: initial;
-      padding-left: 0.25em;
-      padding-right: 0.25em;
-    }
+    --pagination-padding: 0 10em;
+    --pagination-page-padding: 0.25em 0;
   }
 }
 
@@ -147,6 +147,10 @@ a:visited {
 a:hover {
   background-color: var(--col2);
   color: var(--page);
+}
+
+a.no-visit:visited {
+  color: var(--link);
 }
 
 main {
@@ -373,7 +377,7 @@ nav h2 {
 }
 
 a.link-block.no-visit {
-  color: var(--page)
+  color: var(--page);
 }
 
 input[type="text"],
@@ -428,7 +432,7 @@ ul.cards {
 
 li.card {
   list-style: none;
-  background-color: var(--col3);
+  background-color: #313131;
   border-radius: var(--card-curve);
   min-width: 0;
 }
@@ -437,7 +441,15 @@ li.card > section {
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: var(--card-gap);
+  gap: calc(var(--fixedspace) / 4);
+}
+
+li.card > section > .hidden-link {
+  position: relative;
+  height: var(--card-image-height);
+  overflow: hidden;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 li.card h2,
@@ -445,17 +457,12 @@ li.card p {
   margin: 0;
 }
 
-li.card picture {
-  height: var(--card-image-height);
-}
-
 li.card picture img {
+  position: absolute;
   border-radius: var(--card-curve);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
   width: 100%;
-  height: var(--card-image-height);
-  object-fit: cover;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .placeholder {
@@ -478,12 +485,20 @@ li.card picture img {
 .card-body {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--fixedspace) / 4);
-  padding: 0 calc(var(--fixedspace) / 1.5) calc(var(--fixedspace) / 1.5) calc(var(--fixedspace) / 1.5);
+  gap: calc(var(--fixedspace) / 3);
+  padding: 0 calc(var(--fixedspace) / 1.5) calc(var(--fixedspace) / 1.5)
+    calc(var(--fixedspace) / 1.5);
 }
 
-.card-body > h2 {
+.card-body h2 {
   font-size: 1.1em;
+  font-weight: 900;
+}
+
+.card-body h2 a {
+  color: var(--text);
+  background-color: unset;
+  padding-left: 0;
 }
 
 .card-body > p {
@@ -493,7 +508,7 @@ li.card picture img {
 
 .card-body ul a {
   width: max-content;
-  padding: .2em .25em;
+  padding: 0.2em 0.25em;
 }
 
 .card-body ul {
@@ -535,12 +550,14 @@ main.column {
   display: flex;
   gap: var(--fixedspace);
   justify-content: center;
+  padding: var(--pagination-padding);
 }
 
 .pagination a {
+  flex: 1;
   display: flex;
   justify-content: center;
-  padding: 1em;
+  padding: var(--pagination-page-padding);
 }
 
 .pagination a img {
@@ -551,13 +568,17 @@ main.column {
   color: var(--link);
 }
 
+.pagination a.active:visited {
+  color: var(--page);
+}
+
 .pagination a:hover {
-  color: var(--page)
+  color: var(--page);
 }
 
 a.active {
   background-color: var(--col2);
-  color: var(--page)
+  color: var(--page);
 }
 
 a.no-hover:hover {
