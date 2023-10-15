@@ -1,20 +1,23 @@
 ---
+import ArticleCard from "@components/ArticleCard.astro";
 import Base from "@layouts/Base.astro";
 import { getArticlesWithOk, sort } from "@lib/collections/articles";
 
-const okArticles = sort(await getArticlesWithOk());
+const MAX_HOMEPAGE_ARTICLES = 8;
+
+const okArticles = sort(await getArticlesWithOk()).slice(0, MAX_HOMEPAGE_ARTICLES);
 ---
 
 <Base title="PCF">
-  <main>
-    <ul class="menu">
+  <main class="column">
+    <h1>Recent Articles</h1>
+    <ul class="cards">
       {
         okArticles.map((article) => (
-          <li>
-            <a href={`/${article.slug}`} rel="prefetch-intent">{article.data.title}</a>
-          </li>
+          <ArticleCard article={article} />
         ))
       }
     </ul>
+    <a href="/articles/1" class="link-block no-visit" id="see-more">See More</a>
   </main>
 </Base>

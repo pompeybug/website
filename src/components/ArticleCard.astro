@@ -1,0 +1,51 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Picture } from "astro:assets";
+import Metadata from "./Metadata.astro";
+
+type Props = {
+  article: CollectionEntry<"articles">;
+};
+
+const { article } = Astro.props;
+const { remarkPluginFrontmatter } = await article.render();
+---
+
+<li class="card">
+  <section>
+    <a href={`/${article.slug}`} class="hidden-link">
+      {
+        article.data.coverImage ? (
+          <Picture
+            src={article.data.coverImage}
+            alt={article.data.title}
+            width={300}
+            height={100}
+          />
+        ) : (
+          <div class="placeholder">
+            <img src="/img/question-mark.svg" alt="question mark" />
+          </div>
+        )
+      }
+    </a>
+    <div class="card-body">
+      <h2>
+        <a href={`/${article.slug}`}>{article.data.title}</a>
+      </h2>
+      <Metadata date={article.data.date} />
+      <p>{remarkPluginFrontmatter.strippedBody.split(" ").slice(0, 20).join(" ")}...</p>
+      <ul>
+        {
+          article.data.tags.map((tag) => (
+            <li>
+              <a href={`/tags/${tag}`} class="link-block no-visit">
+                {tag}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</li>

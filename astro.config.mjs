@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
-import { remarkReadingTime } from "./remark-reading-time.mjs";
+import { remarkReadingTime, remarkStripMarkdown } from "./remark-plugins.mjs";
 import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 
@@ -11,6 +11,6 @@ export default defineConfig({
   site: "https://pcf.boakes.org",
   integrations: [mdx(), robotsTxt(), sitemap(), prefetch()],
   markdown: {
-    remarkPlugins: [remarkReadingTime]
+    remarkPlugins: [remarkReadingTime, remarkStripMarkdown]
   }
 });

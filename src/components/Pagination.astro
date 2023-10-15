@@ -1,0 +1,74 @@
+---
+import type { CollectionEntry } from "astro:content";
+import type { Page } from "astro";
+
+type Props = {
+  page: Page<CollectionEntry<"articles">>;
+};
+
+// I need to colour in the svg's so that's why the svg's are pasted in here
+
+const { page } = Astro.props;
+---
+
+<div class="pagination">
+  {
+    page.url.prev && (
+      <a href={page.url.prev}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M15 6l-6 6l6 6" />
+        </svg>
+      </a>
+    )
+  }
+  {page.currentPage !== 1 && <a href="/articles/1">1</a>}
+  {page.currentPage - 2 > 1 && <a class="no-hover">...</a>}
+  {
+    page.currentPage - 1 > 1 && (
+      <a href={`/articles/${page.currentPage - 1}`}>{page.currentPage - 1}</a>
+    )
+  }
+  <a class="no-visit active">{page.currentPage}</a>
+  {
+    page.currentPage + 1 < page.lastPage && (
+      <a href={`/articles/${page.currentPage + 1}`}>{page.currentPage + 1}</a>
+    )
+  }
+  {page.currentPage + 2 < page.lastPage && <a class="no-hover">...</a>}
+  {
+    page.currentPage !== page.lastPage && (
+      <a href={`/articles/${page.lastPage}`}>{page.lastPage}</a>
+    )
+  }
+  {
+    page.url.next && (
+      <a href={page.url.next}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M9 6l6 6l-6 6" />
+        </svg>
+      </a>
+    )
+  }
+</div>
