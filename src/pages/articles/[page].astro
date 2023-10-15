@@ -2,12 +2,12 @@
 import type { GetStaticPaths, Page } from "astro";
 import type { CollectionEntry } from "astro:content";
 import Base from "@layouts/Base.astro";
-import { getArticlesWithOk, sort } from "@lib/collections/articles";
+import { getArticles, sort } from "@lib/collections/articles";
 import ArticleCard from "@components/ArticleCard.astro";
 import Pagination from "@components/Pagination.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const articles = sort(await getArticlesWithOk());
+  const articles = sort(await getArticles());
 
   return paginate(articles, { pageSize: 8 });
 }) satisfies GetStaticPaths;
