@@ -103,11 +103,17 @@
 
     --showhide: block;
 
-    --cardlist-columns: 1fr 1fr;
+    --cardlist-columns: 1fr;
     --cardlist-gap: var(--fixedspace);
 
     --pagination-padding: 0 10em;
     --pagination-page-padding: 0.25em 0;
+  }
+}
+
+@media screen and (width > 50rem) {
+  :root {
+    --cardlist-columns: 1fr 1fr;
   }
 }
 
