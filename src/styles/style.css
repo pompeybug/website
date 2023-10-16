@@ -268,7 +268,7 @@ header a:visited {
 
 footer a,
 footer a:visited {
-  border: var(--page) solid 1px;
+  border: var(--page) solid thin;
   color: var(--page);
   background: var(--col2);
   text-decoration: none;
@@ -277,7 +277,7 @@ footer a:visited {
 footer a:hover {
   background: var(--page);
   color: var(--col2);
-  border: var(--col2) solid 1px;
+  border: var(--col2) solid thin;
 }
 
 main {
@@ -369,7 +369,7 @@ nav h2 {
   flex-grow: var(--flexgrow);
   background: var(--col2);
   color: var(--page);
-  border: var(--page) solid 1px;
+  border: var(--page) solid thin;
   display: inline-block;
 }
 
@@ -379,7 +379,7 @@ nav h2 {
 .link-block.no-visit:hover {
   background: var(--page);
   color: var(--col2);
-  border: var(--col2) solid 1px;
+  border: var(--col2) solid thin;
 }
 
 a.link-block.no-visit {
@@ -472,20 +472,17 @@ li.card picture img {
 }
 
 .placeholder {
-  position: relative;
+  display: flex;
   border-radius: var(--card-curve);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  background-color: var(--midgrey);
+  background-color: var(--col1light);
   height: var(--card-image-height);
+  justify-content: center;
+  align-items: center;
 }
 
 .placeholder img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 48px;
+  color: var(--col2);
+  height: 4em;
 }
 
 .card-body {
