@@ -7,6 +7,8 @@ tags:
 date: 2010-02-05 12:00:17
 caption: Logo Montage
 figure: /assets/logomontage.png
+todo: 
+  - "find the original 'logos' pages"
 ---
 
 Entries for the PCF logo competition have now closed  and voting has opened!

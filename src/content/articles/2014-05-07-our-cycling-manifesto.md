@@ -1,5 +1,4 @@
 ---
-
 title: Our Cycling Manifesto
 id: 3988
 date: 2014-05-07
@@ -7,8 +6,7 @@ date: 2014-05-07
 
 With local elections approaching we dusted off our Cycling Manifesto we sent out to councillors at the last elections in 2012.  Last time we only sent it to existing councillors with limited response, but this time we’ve updated it and sent it out to every candidate in every council ward – that’s 77 in all!  We also gave them a bit more time to respond and we’ll update you on this nearer the election.
 
-
-**CYCLING MANIFESTO FOR PORTSMOUTH**
+## CYCLING MANIFESTO FOR PORTSMOUTH
 
 Dear Councillor/Candidate
 
@@ -36,7 +34,7 @@ We believe that the following would help to bring this about in Portsmouth:
 
 *   **Integration of bikes with public transport.**
 
-    *   Promotion of ‘cycle &amp; ride’ schemes.
+    *   Promotion of ‘cycle & ride’ schemes.
     *   Secure cycle parking at Rail and Bus stations.
 
 *   **Encourage cycling throughout Portsmouth.**

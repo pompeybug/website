@@ -10,7 +10,7 @@ tags:
 coverImage: "./AGM2021-2.jpg"
 ---
 
- Back in April we held our first ever virtual AGM. Last year’s AGM was cancelled due to Covid 19 and the introduction of social distancing. In fact, the night before the very first lock down three of our committee were sat round a kitchen table planning the agenda. This all ended rather abruptly as phones pinged to tell said committee members to get home sharpish. 
+Back in April we held our first ever virtual AGM. Last year’s AGM was cancelled due to Covid 19 and the introduction of social distancing. In fact, the night before the very first lock down three of our committee were sat round a kitchen table planning the agenda. This all ended rather abruptly as phones pinged to tell said committee members to get home sharpish.
 
 And so, 2021’s AGM started as usual, with a warm welcome and a run down of the previous minutes - this time from 2019.  
 
