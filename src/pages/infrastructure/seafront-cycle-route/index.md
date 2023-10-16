@@ -1,5 +1,5 @@
 ---
-# layout: ../../../layouts/Article.astro
+layout: ../../../layouts/Article.astro
 title: Seafront Cycle Route
 date: 2013-07-27
 tags:

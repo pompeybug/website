@@ -1,6 +1,6 @@
 ---
 title: Infrastructure Campaigns
-# layout: ../../layouts/Article.astro
+layout: ../../layouts/Article.astro
 date: 2013-01-01
 tags:
   - infrastructure

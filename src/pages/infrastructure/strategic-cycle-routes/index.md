@@ -1,5 +1,5 @@
 ---
-# layout: ../../layouts/Article.astro
+layout: ../../layouts/Article.astro
 title: Strategic Cycle Routes
 date: 2013-01-01
 tags:

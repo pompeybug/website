@@ -8,7 +8,7 @@ import ReadingTime from '@components/ReadingTime.astro';
 
 interface Props {
   title: CollectionEntry<'articles'>['data']['title'];
-  date?: Date;
+  date?: Date | string;
   tags?: CollectionEntry<'articles'>['data']['tags'];
   todo?: CollectionEntry<'articles'>['data']['todo'];
   coverImage?: CollectionEntry<'articles'>['data']['coverImage'];
@@ -17,6 +17,7 @@ interface Props {
 }
 
 const { title, date, tags, todo, coverImage, readingTime } = Astro.props.frontmatter || Astro.props;
+
 ---
 
 <Base title={title}>
@@ -24,7 +25,7 @@ const { title, date, tags, todo, coverImage, readingTime } = Astro.props.frontma
     <main>
       <h1 class="title">{title}</h1>
       {date && (
-        <Metadata date={date} />
+        <Metadata date={typeof date === 'string' ? new Date(date) : date} />
       )}
       {readingTime && (
         <ReadingTime readingTime={readingTime} />
