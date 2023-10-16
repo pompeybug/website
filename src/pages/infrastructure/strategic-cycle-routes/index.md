@@ -4,8 +4,7 @@ title: Strategic Cycle Routes
 date: 2013-01-01
 tags:
   - infrastructure
-todo:
-  - apply formatting
+
 ---
 
 Portsmouth Cycle Forum, in partnership with the Cyclist Touring Club, delivered a report on the state of the major cycle routes in and out of Portsmouth in November 2009.  The document provides an objective user’s view of the key cycle routes in to and out of Portsmouth. It assesses their safety, their usability by all types of cyclist and how well they meet the Department for Transport (DfT) and Portsmouth City Council (PCC) aspirations for cycle infrastructure.

@@ -4,8 +4,6 @@ title: Seafront Cycle Route
 date: 2013-07-27
 tags:
   - infrastructure
-todo:
-  - apply formatting
 
 ---
 

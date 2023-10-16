@@ -4,8 +4,7 @@ layout: ../../layouts/Article.astro
 date: 2013-01-01
 tags:
   - infrastructure
-todo:
-  - apply formatting
+
 ---
 
 Portsmouth Cycle Forum is constantly campaigning for better cycling infrastructure in Portsmouth. Our current major campaigns are:
