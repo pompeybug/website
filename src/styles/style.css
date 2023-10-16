@@ -432,7 +432,7 @@ ul.cards {
 
 li.card {
   list-style: none;
-  background-color: #313131;
+  background-color: var(--page);
   border-radius: var(--card-curve);
   min-width: 0;
 }
