@@ -22,6 +22,7 @@
   "license": "CC-BY-SA-4.0",
   "dependencies": {
     "@astrojs/mdx": "^1.1.2",
+    "@astrojs/partytown": "^2.0.1",
     "@astrojs/prefetch": "^0.4.1",
     "@astrojs/sitemap": "^3.0.1",
     "@astrojs/ts-plugin": "^1.2.0",
