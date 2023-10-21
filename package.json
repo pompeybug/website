@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A the static website or Portsmouth Cycle Forum",
   "main": "index.html",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
