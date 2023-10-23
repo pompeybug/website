@@ -23,10 +23,10 @@
   "dependencies": {
     "@astrojs/mdx": "^1.1.2",
     "@astrojs/prefetch": "^0.4.1",
-    "@astrojs/sitemap": "^3.0.1",
+    "@astrojs/sitemap": "^3.0.2",
     "@astrojs/svelte": "^4.0.3",
     "@astrojs/ts-plugin": "^1.2.0",
-    "astro": "^3.3.0",
+    "astro": "^3.3.3",
     "astro-robots-txt": "^1.0.0",
     "clsx": "^2.0.0",
     "mdast-util-to-string": "^4.0.0",
