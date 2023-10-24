@@ -463,7 +463,7 @@ li.card p {
   margin: 0;
 }
 
-li.card picture img {
+li.card a img {
   position: absolute;
   border-radius: var(--card-curve);
   width: 100%;
