@@ -61,7 +61,10 @@
   );
 
   const handleScrollToBottom = () => {
-    if (window.innerHeight + window.scrollY >= (document.body.offsetHeight * .9)) {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.offsetHeight * 0.9
+    ) {
       if (pageNumber + 1 <= maxPage) {
         pageNumber += 1;
       }
@@ -98,3 +101,49 @@
     {/each}
   {/key}
 </ul>
+{#if pageNumber === maxPage}
+  <p id="end">End of results</p>
+{/if}
+
+<style>
+  p {
+    margin: 0;
+  }
+
+  #end {
+    color: var(--col1);
+    text-align: center;
+    font-size: 1.15em;
+    margin-bottom: 0.5em;
+  }
+
+  #results {
+    color: var(--col1);
+  }
+
+  #search {
+    flex: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.5em;
+    border-bottom: 1px solid var(--search-colour);
+    color: var(--col1);
+  }
+
+  #search:focus {
+    outline: 1px solid var(--search-colour);
+    border-radius: var(--buttoncurve);
+    border: 1px solid transparent;
+  }
+
+  #search-container {
+    display: flex;
+    gap: calc(var(--fixedspace) / 2);
+    justify-content: center;
+    align-items: center;
+  }
+
+  #search-container :global(.search) {
+    stroke: var(--search-colour);
+  }
+</style>
