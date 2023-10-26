@@ -56,6 +56,8 @@
 
   --pagination-padding: 0 0;
   --pagination-page-padding: 0.75em 0;
+
+  --search-colour: var(--col2);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -70,6 +72,7 @@
     --textinv: #222;
     --link: var(--col2light);
     --vlink: var(--text);
+    --search-colour: var(--col2light);
   }
 }
 
@@ -504,6 +507,10 @@ li.card a img {
   padding-left: 0;
 }
 
+.card-body h2 a:hover {
+  text-decoration: underline;
+}
+
 .card-body > p {
   overflow: hidden;
   line-height: 1.5em;
@@ -587,4 +594,35 @@ a.active {
 a.no-hover:hover {
   color: var(--link);
   background-color: unset;
+}
+
+#search-container {
+  display: flex;
+  gap: calc(var(--fixedspace) / 2);
+  justify-content: center;
+  align-items: center;
+}
+
+#search-container .search {
+  stroke: var(--search-colour);
+}
+
+#results {
+  margin: 0;
+  color: var(--col1)
+}
+
+#search {
+  flex: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .5em;
+  border-bottom: 1px solid var(--search-colour);
+  color: var(--col1);
+}
+
+#search:focus {
+  outline: 1px solid var(--search-colour);
+  border-radius: var(--buttoncurve);
+  border: 1px solid transparent;
 }

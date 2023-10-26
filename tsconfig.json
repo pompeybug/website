@@ -11,6 +11,9 @@
             ],
             "@lib/*": [
                 "src/lib/*"
+            ],
+            "@styles/*": [
+                "src/styles/*"
             ]
         },
         "plugins": [

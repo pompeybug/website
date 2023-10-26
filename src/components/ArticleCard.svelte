@@ -15,6 +15,7 @@
           src={article.data.coverImage.src}
           alt={article.data.title}
           height={100}
+          loading="lazy"
         />
       {:else}
         <div class="placeholder">
