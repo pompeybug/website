@@ -13,4 +13,4 @@ You can [donate to us via _Sumup_](https://pay.sumup.io/b2c/QHGTB2DU) using any 
 
 Many thanks!
 
-![QR Code](/public/assets/pcfqr.jpg)
+![QR Code](/assets/pcfqr.jpg)
