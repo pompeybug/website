@@ -1,23 +1,18 @@
 ---
-import ArticleCard from "@components/ArticleCard.astro";
+import Articles from "@components/Articles.svelte";
 import Base from "@layouts/Base.astro";
 import { getArticles, sort } from "@lib/collections/articles";
 
-const MAX_HOMEPAGE_ARTICLES = 8;
-
-const okArticles = sort(await getArticles()).slice(0, MAX_HOMEPAGE_ARTICLES);
+const okArticles = sort(await getArticles());
+const renderedArticles = await Promise.all(okArticles.map(async (article) => ({
+  collectionEntry: article,
+  rendered: await article.render(),
+})));
 ---
 
 <Base title="PCF">
   <main class="column">
-    <h1>Recent Articles</h1>
-    <ul class="cards">
-      {
-        okArticles.map((article) => (
-          <ArticleCard article={article} />
-        ))
-      }
-    </ul>
-    <a href="/articles/1" class="link-block no-visit" id="see-more">See More</a>
+    <h1>Our Articles</h1>
+    <Articles articles={renderedArticles} client:load />
   </main>
 </Base>

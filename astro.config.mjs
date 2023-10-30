@@ -5,6 +5,7 @@ import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 import prefetch from "@astrojs/prefetch";
 import partytown from "@astrojs/partytown";
+import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,6 +20,7 @@ export default defineConfig({
         forward: "dataLayer.push",
       },
     }),
+    svelte(),
   ],
   markdown: {
     remarkPlugins: [remarkReadingTime, remarkStripMarkdown],
