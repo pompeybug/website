@@ -1,6 +1,6 @@
 ---
 title: A New Site
-date: 2023-11-1
+date: 2023-11-01
 coverImage: ./episode4.jpg
 tags:
  - pcf
