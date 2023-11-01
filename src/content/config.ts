@@ -13,7 +13,7 @@ const articlesCollection = defineCollection({
     title: z.string(),
     id: z.number().or(z.string()).optional(),
     tags: z.union([z.array(z.string()), z.string()]).optional().nullable().transform((val) => toArray(val)),
-    date: z.date(),
+    date: z.coerce.date(),
     coverImage: image().optional(),
     todo: z.union([z.array(z.string()), z.string()]).optional().nullable().transform((val) => toArray(val)),
     author: z.string().optional(),
