@@ -437,43 +437,6 @@ main.column {
   gap: var(--fixedspace);
 }
 
-#see-more {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2.5em;
-}
-
-.pagination {
-  display: flex;
-  gap: var(--fixedspace);
-  justify-content: center;
-  padding: var(--pagination-padding);
-}
-
-.pagination a {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  padding: var(--pagination-page-padding);
-}
-
-.pagination a img {
-  stroke: var(--link);
-}
-
-.pagination a:visited {
-  color: var(--link);
-}
-
-.pagination a.active:visited {
-  color: var(--page);
-}
-
-.pagination a:hover {
-  color: var(--page);
-}
-
 a.active {
   background-color: var(--col2);
   color: var(--page);
