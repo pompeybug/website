@@ -18,15 +18,15 @@ const { title, description } = Astro.props;
 {import.meta.env.PROD && (
   <script
   type="text/partytown"
-  src="/assets/googleanalytics.js"></script>
+  src="https://www.googletagmanager.com/gtag/js?id=UA-189037150-1"></script>
 <script type="text/partytown">
 window.dataLayer = window.dataLayer || [];
 function gtag() {
   dataLayer.push(arguments);
 }
-gtag("set", "linker", { domains: ["pompeybug.co.uk"] });
-gtag("js", new Date());
-gtag("set", "developer_id.dZTNiMT", true);
+// gtag("set", "linker", { domains: ["pompeybug.co.uk"] });
+// gtag("js", new Date());
+// gtag("set", "developer_id.dZTNiMT", true);
 gtag("config", "UA-189037150-1", { anonymize_ip: true });
 // gtag("config", "G-EGJ3FP5YTZ");
 </script>
