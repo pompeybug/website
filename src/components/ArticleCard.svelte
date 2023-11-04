@@ -7,7 +7,7 @@
 </script>
 
 <li class="card">
-  <a href={`/${article.slug}`} class="hidden-link">
+  <a href={`/${article.slug}`} class="hidden-link" title={article.data.title}>
     <div class="image-container">
       {#if article.data.coverImage}
         <!-- Will migrate this back to an optimised image in the future -->
