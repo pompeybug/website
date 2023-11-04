@@ -149,17 +149,9 @@ a {
   border-radius: var(--buttoncurve);
 }
 
-a:visited {
-  color: var(--vlink);
-}
-
 a:hover {
   background-color: var(--col2);
   color: var(--page);
-}
-
-a.no-visit:visited {
-  color: var(--link);
 }
 
 main {
@@ -446,14 +438,14 @@ li.card {
   min-width: 0;
 }
 
-li.card > section {
+li.card > a {
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: calc(var(--fixedspace) / 4);
 }
 
-li.card > section > .hidden-link {
+li.card .image-container {
   position: relative;
   height: var(--card-image-height);
   overflow: hidden;
@@ -466,7 +458,7 @@ li.card p {
   margin: 0;
 }
 
-li.card a img {
+li.card .image-container img {
   position: absolute;
   border-radius: var(--card-curve);
   width: 100%;
@@ -514,6 +506,7 @@ li.card a img {
 .card-body > p {
   overflow: hidden;
   line-height: 1.5em;
+  color: var(--text);
 }
 
 .card-body ul a {
@@ -532,10 +525,6 @@ li.card a img {
 a.hidden-link {
   padding: 0;
   background: unset;
-}
-
-a.hidden-link:visited {
-  color: unset;
 }
 
 a.hidden-link:hover {

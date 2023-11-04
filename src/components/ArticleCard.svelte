@@ -7,8 +7,8 @@
 </script>
 
 <li class="card">
-  <section>
-    <a href={`/${article.slug}`} class="hidden-link">
+  <a href={`/${article.slug}`} class="hidden-link">
+    <div class="image-container">
       {#if article.data.coverImage}
         <!-- Will migrate this back to an optimised image in the future -->
         <img
@@ -22,7 +22,7 @@
           <img src="/img/logo-w.svg" alt="The PCF Logo" />
         </div>
       {/if}
-    </a>
+    </div>
     <div class="card-body">
       <h2>
         <a href={`/${article.slug}`}>{article.data.title}</a>
@@ -44,5 +44,5 @@
         {/each}
       </ul>
     </div>
-  </section>
+  </a>
 </li>
