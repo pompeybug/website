@@ -9,7 +9,7 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://pcf.boakes.org",
+  site: "https://pompeybug.co.uk",
   integrations: [
     mdx(),
     robotsTxt(),

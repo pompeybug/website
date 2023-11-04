@@ -15,9 +15,10 @@ const { title, description } = Astro.props;
 <link rel="apple-touch-icon" href="/img/logo.png" />
 <meta name="theme-color" content="#c64d0f" />
 <title>{title}</title>
-<script
+{import.meta.env.PROD && (
+  <script
   type="text/partytown"
-  src="https://www.googletagmanager.com/gtag/js?id=UA-189037150-1"></script>
+  src="/assets/googleaanalytics.js"></script>
 <script type="text/partytown">
 window.dataLayer = window.dataLayer || [];
 function gtag() {
@@ -27,5 +28,6 @@ gtag("set", "linker", { domains: ["pompeybug.co.uk"] });
 gtag("js", new Date());
 gtag("set", "developer_id.dZTNiMT", true);
 gtag("config", "UA-189037150-1", { anonymize_ip: true });
-gtag("config", "G-EGJ3FP5YTZ");
+// gtag("config", "G-EGJ3FP5YTZ");
 </script>
+)}
