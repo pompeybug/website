@@ -24,9 +24,7 @@
       {/if}
     </div>
     <div class="card-body">
-      <h2>
-        <a href={`/${article.slug}`}>{article.data.title}</a>
-      </h2>
+      <h2>{article.data.title}</h2>
       <Metadata date={article.data.date} />
       <p>
         {rendered.remarkPluginFrontmatter.strippedBody

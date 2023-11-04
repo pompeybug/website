@@ -493,13 +493,7 @@ li.card .image-container img {
   font-weight: 900;
 }
 
-.card-body h2 a {
-  color: var(--text);
-  background-color: unset;
-  padding-left: 0;
-}
-
-.card-body h2 a:hover {
+.card-body h2:hover {
   text-decoration: underline;
 }
 
