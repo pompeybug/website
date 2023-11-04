@@ -3,8 +3,8 @@
   import { onMount } from "svelte";
   import ArticleCard from "./ArticleCard.svelte";
   import Search from "./Icons/Search.svelte";
-  import debounce from "lodash.debounce";
   import type { FormEventHandler } from "svelte/elements";
+  import { debounce } from "@lib/utils";
 
   export let articles: UiCollectionEntry<"articles">[] = [];
 
