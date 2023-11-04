@@ -32,15 +32,17 @@
           .slice(0, 20)
           .join(" ")}...
       </p>
-      <ul>
-        {#each article.data.tags as tag}
-          <li>
-            <a href={`/tags/${tag}`} class="no-visit">
-              {tag}
-            </a>
-          </li>
-        {/each}
-      </ul>
+      {#if article.data.tags.length > 0}
+        <ul>
+          {#each article.data.tags as tag}
+            <li>
+              <a href={`/tags/${tag}`} class="no-visit">
+                {tag}
+              </a>
+            </li>
+          {/each}
+        </ul>
+      {/if}
     </div>
   </a>
 </li>
