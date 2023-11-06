@@ -318,8 +318,7 @@ nav h2 {
 #navmenu section {
   display: flex;
   flex-direction: var(--navmenu-direction);
-  padding: 0 var(--navmenu-padding) var(--navmenu-padding)
-    var(--navmenu-padding);
+  padding: var(--navmenu-padding);
   border-radius: var(--taglist-curve);
   gap: var(--navmenu-gap);
   align-content: stretch;
