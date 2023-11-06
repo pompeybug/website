@@ -12,7 +12,7 @@
 
   let pageNumber = 1;
   let searchQuery = "";
-  $: searchRegex = new RegExp(`.*${searchQuery}.*`, "gmi");
+  $: searchRegex = new RegExp(`.*${searchQuery}.*`, "mi");
 
   let articleSlice: UiCollectionEntry<"articles">[];
   let maxPage = Math.ceil(articles.length / PAGE_SIZE);

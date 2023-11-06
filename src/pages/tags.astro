@@ -43,7 +43,7 @@ const uniqueTags = (await getAllUniqueArticleTags()).sort().map((tag) => ({
 
     const target = ev.target as HTMLInputElement;
 
-    const regex = new RegExp(`.*${target.value}.*`, "gmi");
+    const regex = new RegExp(`.*${target.value}.*`, "mi");
     const tags = document.querySelectorAll<HTMLUListElement>("#tag-list > li");
 
     tags.forEach((tag) => {
