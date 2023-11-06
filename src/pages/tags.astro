@@ -1,0 +1,77 @@
+---
+import SearchIcon from "@components/Icons/SearchIcon.astro";
+import Base from "@layouts/Base.astro";
+import { getAllUniqueArticleTags } from "@lib/collections/articles";
+
+const uniqueTags = (await getAllUniqueArticleTags()).sort().map((tag) => ({
+  slug: tag,
+  tag: tag.replaceAll("-", " "),
+}));
+---
+
+<Base title="Site Tags">
+  <main>
+    <h1>All Site Tags</h1>
+    <div class="search-container">
+      <SearchIcon className="search-icon" />
+      <input
+        id="tag-filter"
+        class="search-input"
+        placeholder="Filter tags..."
+        title="search"
+      />
+    </div>
+    <ul id="tag-list">
+      {
+        uniqueTags.map((tag) => (
+          <li>
+            <a href={`/tags/${tag.slug}`}>{tag.tag}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Base>
+
+<script>
+  const tagFilter = document.querySelector<HTMLInputElement>("#tag-filter");
+
+  const handleInput = (ev: Event) => {
+    if (!ev.target) {
+      return;
+    }
+
+    const target = ev.target as HTMLInputElement;
+
+    const regex = new RegExp(`.*${target.value}.*`, "gmi");
+    const tags = document.querySelectorAll<HTMLUListElement>("#tag-list > li");
+
+    tags.forEach((tag) => {
+      const href = tag.querySelector<HTMLAnchorElement>("a");
+
+      if (href) {
+        if (regex.test(href.textContent ?? "") || target.value.length === 0) {
+          tag.style.display = "";
+        } else {
+          tag.style.display = "none";
+        }
+      }
+    });
+  };
+
+  if (tagFilter) {
+    tagFilter.addEventListener("input", handleInput);
+  }
+</script>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--fixedspace);
+  }
+
+  ul {
+    margin: 0;
+  }
+</style>
