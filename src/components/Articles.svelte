@@ -2,9 +2,9 @@
   import type { UiCollectionEntry } from "@lib/types";
   import { onMount } from "svelte";
   import ArticleCard from "./ArticleCard.svelte";
-  import Search from "./Icons/Search.svelte";
   import type { FormEventHandler } from "svelte/elements";
   import { debounce } from "@lib/utils";
+  import Search from "./Search/Search.svelte";
 
   export let articles: UiCollectionEntry<"articles">[] = [];
 
@@ -81,16 +81,7 @@
 </script>
 
 <svelte:window on:scroll={handleScrollToBottom} />
-<div id="search-container">
-  <Search className="search" />
-  <input
-    id="search"
-    placeholder="Search..."
-    title="search"
-    value={searchQuery}
-    on:input={debouncedHandleSearchInputChange}
-  />
-</div>
+<Search bind:searchValue={searchQuery} handleInput={debouncedHandleSearchInputChange} />
 {#if totalResults !== null && searchQuery.length > 0}
   <p id="results">Results: {totalResults}</p>
 {/if}
@@ -119,31 +110,5 @@
 
   #results {
     color: var(--col1);
-  }
-
-  #search {
-    flex: 1;
-    background-color: transparent;
-    border: 1px solid transparent;
-    padding: 0.5em;
-    border-bottom: 1px solid var(--search-colour);
-    color: var(--col1);
-  }
-
-  #search:focus {
-    outline: 1px solid var(--search-colour);
-    border-radius: var(--buttoncurve);
-    border: 1px solid transparent;
-  }
-
-  #search-container {
-    display: flex;
-    gap: calc(var(--fixedspace) / 2);
-    justify-content: center;
-    align-items: center;
-  }
-
-  #search-container :global(.search) {
-    stroke: var(--search-colour);
   }
 </style>
