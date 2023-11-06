@@ -49,12 +49,10 @@ const uniqueTags = (await getAllUniqueArticleTags()).sort().map((tag) => ({
     tags.forEach((tag) => {
       const href = tag.querySelector<HTMLAnchorElement>("a");
 
-      if (href) {
-        if (regex.test(href.textContent ?? "") || target.value.length === 0) {
-          tag.style.display = "";
-        } else {
-          tag.style.display = "none";
-        }
+      if (regex.test(href?.textContent ?? "") || target.value.length === 0) {
+        tag.style.display = "";
+      } else {
+        tag.style.display = "none";
       }
     });
   };
