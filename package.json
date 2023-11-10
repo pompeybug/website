@@ -23,7 +23,6 @@
   "dependencies": {
     "@astrojs/mdx": "^1.1.4",
     "@astrojs/partytown": "^2.0.2",
-    "@astrojs/prefetch": "^0.4.1",
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/svelte": "^4.0.3",
     "@astrojs/ts-plugin": "^1.3.1",

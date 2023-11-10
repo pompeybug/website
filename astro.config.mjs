@@ -3,7 +3,6 @@ import mdx from "@astrojs/mdx";
 import { remarkReadingTime, remarkStripMarkdown } from "./remark-plugins.mjs";
 import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
-import prefetch from "@astrojs/prefetch";
 import partytown from "@astrojs/partytown";
 import svelte from "@astrojs/svelte";
 
@@ -14,7 +13,6 @@ export default defineConfig({
     mdx(),
     robotsTxt(),
     sitemap(),
-    prefetch(),
     partytown({
       config: {
         forward: "dataLayer.push",
@@ -25,4 +23,5 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkReadingTime, remarkStripMarkdown],
   },
+  prefetch: true,
 });
