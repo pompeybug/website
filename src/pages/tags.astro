@@ -25,7 +25,7 @@ const uniqueTags = (await getAllUniqueArticleTags()).sort().map((tag) => ({
       {
         uniqueTags.map((tag) => (
           <li>
-            <a href={`/tags/${tag.slug}`}>{tag.tag}</a>
+            <a href={`/tags/${tag.slug}`} data-astro-prefetch>{tag.tag}</a>
           </li>
         ))
       }

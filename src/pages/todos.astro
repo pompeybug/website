@@ -12,7 +12,7 @@ const articlesWithTodos = sort(await getArticlesWithTodos());
       {
         articlesWithTodos.map((article) => (
           <li>
-            <a href={`/${article.slug}`} rel="prefetch-intent">{article.data.title}</a>
+            <a href={`/${article.slug}`} data-astro-prefetch>{article.data.title}</a>
           </li>
         ))
       }

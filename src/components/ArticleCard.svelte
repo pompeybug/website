@@ -7,7 +7,7 @@
 </script>
 
 <li class="card">
-  <a href={`/${article.slug}`} class="hidden-link" title={article.data.title}>
+  <a href={`/${article.slug}`} class="hidden-link" title={article.data.title} data-astro-prefetch>
     <div class="image-container">
       {#if article.data.coverImage}
         <!-- Will migrate this back to an optimised image in the future -->
@@ -36,7 +36,7 @@
         <ul>
           {#each article.data.tags as tag}
             <li>
-              <a href={`/tags/${tag}`} class="no-visit">
+              <a href={`/tags/${tag}`} class="no-visit" data-astro-prefetch>
                 {tag}
               </a>
             </li>
