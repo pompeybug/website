@@ -3,18 +3,28 @@
   import type { UiCollectionEntry } from "@lib/types";
   export let articleEntry: UiCollectionEntry<"articles">;
 
-  const { collectionEntry: article, rendered, image: coverImage } = articleEntry;
+  const { collectionEntry: article, rendered, coverImage } = articleEntry;
 </script>
 
 <li class="card">
-  <a href={`/${article.slug}`} class="hidden-link" title={article.data.title} data-astro-prefetch>
+  <a
+    href={`/${article.slug}`}
+    class="hidden-link"
+    title={article.data.title}
+    data-astro-prefetch
+  >
     <div class="image-container">
       {#if coverImage}
-        <img
-          src={coverImage.src}
-          alt={article.data.title}
-          {...coverImage.attributes}
-        />
+        <picture>
+          <source srcset={coverImage.avif.src} type="image/avif" />
+          <source srcset={coverImage.webp.src} type="image/webp" />
+          <img
+            {...coverImage.original}
+            loading="lazy"
+            decoding="async"
+            alt={article.data.title}
+          />
+        </picture>
       {:else}
         <div class="placeholder">
           <img src="/img/logo-w.svg" alt="The PCF Logo" />

@@ -5,11 +5,26 @@ import { getArticles, sort } from "@lib/collections/articles";
 import { getImage } from "astro:assets";
 
 const okArticles = sort(await getArticles());
-const renderedArticles = await Promise.all(okArticles.map(async (article) => ({
-  collectionEntry: article,
-  rendered: await article.render(),
-  image: article.data.coverImage ? await getImage({src: article.data.coverImage, width: 500}) : null,
-})));
+const renderedArticles = await Promise.all(
+  okArticles.map(async (article) => ({
+    collectionEntry: article,
+    rendered: await article.render(),
+    coverImage: article.data.coverImage
+      ? {
+          webp: await getImage({
+            src: article.data.coverImage,
+            width: 500,
+          }),
+          avif: await getImage({
+            src: article.data.coverImage,
+            width: 500,
+            format: "avif",
+          }),
+          original: article.data.coverImage,
+        }
+      : null,
+  }))
+);
 ---
 
 <Base title="PCF">

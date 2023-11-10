@@ -31,7 +31,7 @@ const { title, date, tags, todo, coverImage, readingTime } = Astro.props.frontma
         <ReadingTime readingTime={readingTime} />
       )}
       {coverImage && (
-          <Picture src={coverImage} alt={title} />
+          <Picture src={coverImage} alt={title} formats={['avif', 'webp']} />
       )}
       <article>
           <slot />
