@@ -3,8 +3,9 @@ title: A City to Share - follow up with Donna Jones
 id: 4277
 date: 2014-12-03 21:58:25
 tags:
-- Campaigns
-- Meetings
+  - Campaigns
+  - Meetings
+  - A City to Share
 figure: pcf-city-strategy-portrait-hr-thumb.png
 
 ---

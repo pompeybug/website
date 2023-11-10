@@ -5,6 +5,8 @@ id: 4283
 date: 2014-12-20 17:06:16
 caption: Merry Christmas
 figure: pcfxmasfb.png
+tags:
+   - A City to Share
 ---
 
 A very merry Christmas to one and all from all of us at Portsmouth Cycle Forum. 2014 has been a very successful year for Portsmouth Cycle Forum and I'd like to thank you for the part you've played in that. We began the year with a visit from Bristol Cycle Campaign who told us about the cycling strategy they'd developed for their city, and we finished the year by doing the same. The launch of our cycling strategy '[A City to Share](http://acitytoshare.org "A City to Share")' was more successful than we dared hope and more than justified the huge effort put in to it by a dedicated team of volunteers.

@@ -1,13 +1,14 @@
 ---
-title: PCF Deputation – Bike Hangers & Cycle Corrals
+title: PCF Deputation – Bike Hangars & Cycle Corrals
 
 date: 2023-08-30
 coverImage: "./hangar.jpeg"
 tags:
   - city-council
   - infrastructure
-  - bike-hangars
+  - bike hangars
   - deputation
+
 ---
 
 # Traffic & Transportation Cabinet Decision Meeting - 10th August 2023
@@ -32,15 +33,15 @@ The Cabinet Member for Transport:
 
 Portsmouth Cycle Forum has been extremely supportive of the bike hanger scheme as it is a key delivery area for enabling those people wishing to cycle more to have easy storage of and access to their own cycles, and therefore they are more likely to choose cycling as a transport mode to travel around the city. Cycle security is the second highest mentioned issue after road safety when we talk to people about cycling in the city.
 
-Bike hangers and cycle corrals should be considered as sister schemes – with bike hire hubs being their cousin – as the bike hangers are located in residential areas for the storage of personal cycles at home, while the cycle corrals form the destination cycle parking at shopping, leisure and work locations such as the two installed under the ETRO being considered in this report.
+Bike hangars and cycle corrals should be considered as sister schemes – with bike hire hubs being their cousin – as the bike hangars are located in residential areas for the storage of personal cycles at home, while the cycle corrals form the destination cycle parking at shopping, leisure and work locations such as the two installed under the ETRO being considered in this report.
 
 Our members also highlighted concerns about the accessibility of the Marmion Road corral given that when on foot you have to access it from the carriageway side.  It may be worth approaching other authorities about how they approach such issues.  I noted a number of bike corrals in the Waterloo area of London last night as I walked along The Cut between the Old Vic and Young Vic theatres.
 
 Some members also remarked that there is still some progress to be made on the ability to store non-standard cycles such as family cargo bikes, mobility trikes or other wider or longer cycles that add to the mix of transport options in the city. This is also a more general ongoing issue with regards to the accessibility of the identified cycle network in the city, and one which the council needs to address to ensure they are complying with equalities law.
 
-We are pleased to read that despite a rejection of one site for a bike hanger, the unit itself was able to be relocated to another over subscribed location, and we know that, as well as the bike hire hubs noted in our deputation on the previous item, there is a large waiting list for bike hangers from residents. We also note that further funding for another phase of hangers was included in the 2023/24 municipal budget to continue the roll out of locations.
+We are pleased to read that despite a rejection of one site for a bike hanger, the unit itself was able to be relocated to another over subscribed location, and we know that, as well as the bike hire hubs noted in our deputation on the previous item, there is a large waiting list for bike hangars from residents. We also note that further funding for another phase of hangers was included in the 2023/24 municipal budget to continue the roll out of locations.
 
-This in turn highlights to the council that there is a demand across the city for more cycle infrastructure.  These specific ones might relate to cycle parking and storage,  with many of the considerations for the hire bike scheme, bike hangers and cycle corrals are very similar.  They involve parking transport options and consider the availability and accessibility for people to travel more sustainably around the city. 
+This in turn highlights to the council that there is a demand across the city for more cycle infrastructure.  These specific ones might relate to cycle parking and storage,  with many of the considerations for the hire bike scheme, bike hangars and cycle corrals are very similar.  They involve parking transport options and consider the availability and accessibility for people to travel more sustainably around the city. 
 
 As such, we look forward to seeing how these opportunities are factored into the Council’s parking strategy currently being developed. As seen with some of the consultation comments about the Languard Road bike hanger, there is still some education to be done with regards to highlighting the fee to secure a bike hanger space against the cost of vehicle parking permits, especially for second vehicles registered to an address.
 

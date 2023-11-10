@@ -7,6 +7,7 @@ tags:
   - city-council
   - elections 
   - election
+  - A City to Share
 coverImage: "./Polling-station.jpg"
 ---
 

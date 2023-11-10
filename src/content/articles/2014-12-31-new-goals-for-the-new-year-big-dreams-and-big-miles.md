@@ -5,6 +5,7 @@ id: 4289
 tags:
   - campaigns
   - opinion
+  - A City to Share
 date: 2014-12-31 18:19:21
 caption: Tommy Godwin, Year record holder (source Tommygodwin.com)
 figure: Tommy-Godwin-Year-record-holder-300x199.jpg

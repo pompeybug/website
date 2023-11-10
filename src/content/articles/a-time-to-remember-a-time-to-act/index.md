@@ -7,6 +7,7 @@ tags:
   - city-council
   - events 
   - tim-atkins
+  - A City to Share
 coverImage: "./IMG_4876-672x372-1.jpeg"
 ---
 

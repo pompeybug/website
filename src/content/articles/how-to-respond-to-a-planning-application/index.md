@@ -2,9 +2,14 @@
 
 title: How to respond to a planning application
 date: 2021-03-17
+tags:
+  - Help
+  - A City to Share
+todo: 
+  - Fix the link to the tube map
 ---
 
-**Introduction**
+# Introduction
 
 Every month there are around five or six planning applications that we feel require a response from Portsmouth Cycle Forum  to make sure that people riding bikes are considered when developments happen where we are riding. 
 
@@ -15,7 +20,7 @@ Responding to a planning application can seem daunting - but really it’s easie
 
 Responding to planning applications is all part of the democratic process and is a chance to have your say on things that affect where you live, or where you cycle within the city - it can also help make good use of developer funding to improve cycle infrastructure, and make your local representatives aware that their residents want to see improvements. 
 
-**Support or Object**
+# Support or Object
 
 Reasons why we might **support** an application could be that the developer has taken a really positive approach to improving walking and cycling infrastructure and we want to support that so the Council’s planning panel knows it will get a positive response, and they can be brave in accepting it.
 
@@ -29,7 +34,7 @@ Reasons why we might **object** could include:
 
 The Council’s  planning panel takes into account all the responses they receive and have to balance these to decide whether to grant or deny planning permission, or sometimes make conditions that the developer has to stick to in order to achieve permission.
 
-# **Where to find the applications** 
+# Where to find the applications
 
 Developers upload their planning applications to the “planning portal” and can be found on the Council’s website. You can find them [here](http://publicaccess.portsmouth.gov.uk/online-applications/).
 
@@ -51,7 +56,7 @@ When you find the application site there will be a whole list of documents under
 
 ![](https://lh6.googleusercontent.com/V1R-faHeEIXbv-2sqhsBN0aR1U8f037GtsWAgvUu8m4_ad161NvCj0DeD5ksUMa3VvybO6ILbrhIds_dKmu8qIQd5an2Pnp_sjZ33J6fVqoBzS-cTbWQQy64z8hSQWxxutw8fOGTeyFnXk1IUQ)
 
-# **Which documents should I look at?**
+# Which documents should I look at?
 
 From this “documents” page the documents you should be checking through are:
 
@@ -69,7 +74,7 @@ A routing strategy would be needed for sites that have HGVs like distribution ce
 
 The amount of time you can put aside, and the level of detail you want to go into will determine how much you will read of these documents. If you want to do it quickly, look at the Location Plan, Site Plan and Design and Access Statement. If you want to get more technical, go for the transport assessment or statement, and if you want to look at how the developer will encourage active travel and discourage car use through travel demand measures e.g. car clubs, bus vouchers and cycle training for new residents then look at the travel plan. We’re happy for any input from our members so don’t feel you need to do it all!
 
-## **How does the application fit with PCC’s standards and policies?**
+## How does the application fit with PCC’s standards and policies?
 
 If you want to help review planning applications, you’ll need to get familiar with a few documents. This will take a little bit of reading but once you’ve done it, you’ll be much better equipped to challenge the development based on things that PCC already publicly supports. These documents are the Local Transport Plan 3 (LTP3) and the Parking standards and transport assessments document, and hopefully soon (not yet published) PCC’s own Local Cycling and Walking and Investment Plan (LCWIP)**.**  If a developer isn’t meeting these, the Council has clout to get them to comply. 
 
@@ -83,7 +88,7 @@ Here’s a brief summary...
 
 Get familiar with LTP3!
 
-**Parking standards and transport assessments** 
+# Parking standards and transport assessments
 
 Is the car parking  and cycle parking in line with [PCC standards](https://www.portsmouth.gov.uk/ext/development-and-planning/planning/parking-standards-and-transport-assessments-spd) – often cycle parking is underprovided (particularly in student halls and blocks of flats). Sometimes, new shops won’t provide any car parking but might have a cash machine on the front which would encourage cars to pull up right in front of the store to withdraw cash – sometimes in a cycle lane (like Sainsbury’s on Albert Road).  We like to see retail applications incorporate parking underneath them where they can (like Tesco Fratton) rather than taking precious space in the city for car parking. 
 
@@ -95,21 +100,20 @@ Other sets of guidance such as [Sustrans cycle friendly design guide](https://ww
 
 BUT keep in mind that the road will need to be safe too; routes considered suitable for children might be shared-use paths, which lots of cyclists don’t like as they’re very slow and they get shouted at by pedestrians.
 
-**Documents made by our members**
+# Documents made by our members
 
 And of course, we have a massive wealth of knowledge among our own members. With our large membership, and years of collective campaigning, it’s likely that we know the city’s cycle routes far better than any one planning officer, and many of our members have been around a lot longer so can remember the history of sites in great detail. 
 
-Our key member made documents is our manifesto: [A City to Share](http://acitytoshare.org/). It’s even been endorsed by the Council. We try and push links to this one at every opportunity. Check out how the application compares with our key principles.
+Our key member-made documents is our manifesto: [A City to Share](http://acitytoshare.org/). It’s even been endorsed by the Council. We try and push links to this one at every opportunity. Check out how the application compares with our key principles.
 
-**Portsmouth Cycle Forum’s** [**cycle tube map**](http://www.pompeybug.co.uk/?s=tube+map) 
-
+# Portsmouth Cycle Forum’s cycle tube map
 Check out where the new development sits on [this map](http://www.pompeybug.co.uk/?s=tube+map). Is it on a route we consider good? Or one that needs serious improvement –  a new development could be a great opportunity to bring in developer contributions (through what are called Section 106 or Section 278 agreements, or the Community Infrastructure Levy - CIL) to fix it. There’s very little money coming from anywhere else at the moment! 
 
-**Portsmouth Cycle Forum’s project ideas list (available to Planning Application volunteers)**
+# Portsmouth Cycle Forum’s project ideas list (available to Planning Application volunteers)**
 
 Same as above  -  is the new development near some of these sites, already identified by our members, that would be cheap and easy to fix? If the development is counting on people cycling as part of their trip rate (which it will) then contributions may be taken to help pay for these quick fixes. PCC needs good evidence in order to challenge the developers, and possibly doesn’t always push as hard as it could for these contributions but loads of other cities and counties successfully do this – so don’t go quietly! If you don’t ask, you don’t get. 
 
-# **What should my response look like?** 
+# What should my response look like?
 
 Here’s a recent example of a response we submitted for Cobourg House student halls. It’s a page long, but packs in all the key points. We’re not looking for essays, just making our case clearly and concisely. Remember that someone has to read all the responses to every application - they’ll appreciate something that makes the key points clearly. 
 
@@ -149,7 +153,7 @@ _Regards_
 
 _Portsmouth Cycle Forum_
 
-# **What happens next?** 
+# What happens next?
 
 You MUST submit your planning response by the deadline set on planning website, if it’s late, the Planning department doesn’t legally have to take your view into account.
 
@@ -159,6 +163,6 @@ _If no one asks for it to go to Committee_ (where the elected members get involv
 
 _If the application gets to Planning Committee_ **YOU WILL BE INFORMED** if you’ve submitted a response**.** You can attend, and you can (but don’t have to) ask to make a deputation – which is a short speech summarising what was in your response. This is a good idea as it’s possible that the Committee members won’t have actually studied the all objections in close detail.  Be aware, these meetings can go on a little bit. Take something to do, and listen out for the application you’re interested in.  When you’re application comes up it can be pretty exciting; the Committee will weigh up all the information they have and make a decision.  Even if they approve, they might add planning conditions which otherwise would have been missed – you did that – congratulations!
 
-## **Any questions?**
+## Any questions?
 
 We have some resident gurus – they can be contacted [planning@pompeybug.co.uk](mailto:planning@pompeybug.co.uk)  Don’t be intimidated – it’s easier than it looks and you'll learn a lot about city planning and how decisions are made – and have a hand in influencing them too. We’re always there to lend support if you need a hand in getting started. Good luck and thank you for helping make our city safer for cycling!

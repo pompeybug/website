@@ -3,6 +3,7 @@
 title: PCC launches new Long Term Transport Strategy
 date: 2020-12-28
 tags:  
+  - A City to Share
   - blog
   - city-council
   - infrastructure 
@@ -17,7 +18,7 @@ Given the Full Council declaration of a climate emergency in 2019, the Local Tra
 
 We encouraged all PCF members to take part in PCC’s consultation, and the committee worked on a detailed response. We were absolutely delighted to read that the  plan for the next decade and a half is to develop “a people-centred travel network that prioritises walking, cycling and public transport to help deliver “a safer, healthier and more prosperous city” by “improving journeys for a greener, healthier and better connected future”. As policy goes, what could be better? And it goes on....
 
-The LTP stated that this is an “opportunity to reduce the dominance of cars … through reallocating road space so that there is more space to walk and cycle and more priority for public transport.”  This is a key part of our [**A City To Share**](https://www.pompeybug.co.uk/a-city-to-share/) strategy which PCC has adopted - another excellent outcome. 
+The LTP stated that this is an “opportunity to reduce the dominance of cars … through reallocating road space so that there is more space to walk and cycle and more priority for public transport.”  This is a key part of our [**A City To Share**](/a-city-to-share) strategy which PCC has adopted - another excellent outcome. 
 
 The LTP is full of brilliant, forward thinking policies that could genuinely make all the difference to the city’s health and prosperity. Like the Council’s ambitious Seafront Masterplan” (which is _still_ in draft) - this is a plan we wholeheartedly support. 
 
