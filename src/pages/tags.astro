@@ -12,65 +12,76 @@ const uniqueTags = (await getAllUniqueArticleTags()).sort().map((tag) => ({
 <Base title="Tags">
   <main>
     <h1>Tags</h1>
-    <p>Articles on this site are tagged to aid navigation.  This page lists all the tags currently in use.
-    <div class="search-container">
-      <SearchIcon className="search-icon" />
-      <input
-        id="tag-filter"
-        class="search-input"
-        placeholder="Filter tags..."
-        title="search"
-      />
-    </div>
-    <ul id="tag-list">
-      {
-        uniqueTags.map((tag) => (
-          <li>
-            <a href={`/tags/${tag.slug}`} data-astro-prefetch>{tag.tag}</a>
-          </li>
-        ))
-      }
-    </ul>
+    <p>
+      Articles on this site are tagged to aid navigation. This page lists all
+      the tags currently in use.
+      <div class="search-container">
+        <SearchIcon className="search-icon" />
+        <input
+          id="tag-filter"
+          class="search-input"
+          placeholder="Filter tags..."
+          title="search"
+        />
+      </div>
+      <ul id="tag-list">
+        {
+          uniqueTags.map(({ tag, slug }) => (
+            <li>
+              <a href={`/tags/${slug}/`} data-astro-prefetch>
+                {tag}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </p>
   </main>
-</Base>
 
-<script>
-  const tagFilter = document.querySelector<HTMLInputElement>("#tag-filter");
+  <script define:vars={{ uniqueTags }}>
+    const tagFilter = document.querySelector("#tag-filter");
 
-  const handleInput = (ev: Event) => {
-    if (!ev.target) {
-      return;
+    const handleInput = (ev) => {
+      if (!ev.target) {
+        return;
+      }
+
+      const target = ev.target;
+
+      const regex = new RegExp(`.*${target.value}.*`, "mi");
+      const tagList = document.querySelector("#tag-list");
+
+      while (tagList.lastChild) {
+        tagList.removeChild(tagList.lastChild);
+      }
+
+      uniqueTags.forEach(({ tag, slug }) => {
+        if (regex.test(tag) || target.value.length === 0) {
+          const listItem = document.createElement("li");
+          const tagLink = document.createElement("a");
+          tagLink.href = `/tags/${slug}/`;
+          tagLink.textContent = tag;
+          tagLink.setAttribute("data-astro-prefetch", "");
+          listItem.appendChild(tagLink);
+          tagList.appendChild(listItem);
+        }
+      });
+    };
+
+    if (tagFilter) {
+      tagFilter.addEventListener("input", handleInput);
+    }
+  </script>
+
+  <style>
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: var(--fixedspace);
     }
 
-    const target = ev.target as HTMLInputElement;
-
-    const regex = new RegExp(`.*${target.value}.*`, "mi");
-    const tags = document.querySelectorAll<HTMLUListElement>("#tag-list > li");
-
-    tags.forEach((tag) => {
-      const href = tag.querySelector<HTMLAnchorElement>("a");
-
-      if (regex.test(href?.textContent ?? "") || target.value.length === 0) {
-        tag.style.display = "";
-      } else {
-        tag.style.display = "none";
-      }
-    });
-  };
-
-  if (tagFilter) {
-    tagFilter.addEventListener("input", handleInput);
-  }
-</script>
-
-<style>
-  main {
-    display: flex;
-    flex-direction: column;
-    gap: var(--fixedspace);
-  }
-
-  ul {
-    margin: 0;
-  }
-</style>
+    ul {
+      margin: 0;
+    }
+  </style>
+</Base>
