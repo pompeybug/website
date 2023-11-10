@@ -7,6 +7,7 @@ tags:
   - meetings
   - pcf
   - committee
+
 coverImage: "./AGM2021-2.jpg"
 ---
 
@@ -32,7 +33,7 @@ Ian also announced that this will be his last year as chair and reminded everyon
 
 Then followed a quick update on the accounts. Although we’re still not charging for membership, costs last year were very low as everything went online and no venue booking fees were required. We have around £500 in the bank. Enough to keep us afloat but any new publications or events are likely to require crowdfunding, which has worked well before. 
 
-The rest of the AGM was then spent as an open Q&A between all the members who joined us. We thought it worked really well, and hope you did too. The wide ranging conversation covered everything and anything including: the power of stories; infrastructure; pop-up schemes;  e-scooters; cycling accessibility and adapted cycles; cycling with children; facebook group rules; cycle theft and bike hangers.
+The rest of the AGM was then spent as an open Q&A between all the members who joined us. We thought it worked really well, and hope you did too. The wide ranging conversation covered everything and anything including: the power of stories; infrastructure; pop-up schemes;  e-scooters; cycling accessibility and adapted cycles; cycling with children; facebook group rules; cycle theft and bike hangars.
 
 There’s no sign that 2021 will be any less exciting that 2020 as far as cycling is concerned so again, if you’re interested in finding out how you could get more involved - or just to test to the water - please do get it touch, we’re a friendly bunch! 
 

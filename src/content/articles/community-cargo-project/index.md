@@ -6,7 +6,7 @@ tags:
   - bikes
   - latest-news 
   - bike-hire
-  - cargo-bike
+  - cargo-bikes
 coverImage: "./IMG_20220205_120128.jpg"
 ---
 

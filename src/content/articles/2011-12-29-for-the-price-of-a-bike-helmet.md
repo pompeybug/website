@@ -4,7 +4,7 @@ title: For the price of a bike helmet...
 tags:
   - bicycle
   - budget
-  - campaign
+  - campaigns
   - helmet
   - infrastructure
   - petition

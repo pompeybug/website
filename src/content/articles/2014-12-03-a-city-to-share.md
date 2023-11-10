@@ -5,18 +5,18 @@ tags:
   - campaigns
   - pcc
   - events
+  - A City to Share
 date: 2014-10-31 10:15:06
 figure: city-to-share-fb.png
 ---
 
-* Read the full document at [acitytoshare.org](http://acitytoshare.org "A City to Share")
-* Join the debate on twitter using the hashtag [#acitytoshare](https://twitter.com/hashtag/acitytoshare "Join the debate on twitter")
 
-On Monday 3rd November Portsmouth Cycle Forum will launch "A City to Share", its strategy to put safe cycling at the heart of Portsmouth’s transport policy.
+
+On Monday 3rd November Portsmouth Cycle Forum will launch "[A City to Share](http://localhost:4321/assets/docs/strategy.pdf)", its strategy to put safe cycling at the heart of Portsmouth’s transport policy.
 
 The proposal will  be presented to city leaders at a launch event hosted by the University of Portsmouth. It sets out a vision for the city where there is space for cyclists, drivers and pedestrians to co-operate with each other and treat one another with courtesy and respect.
 
-Cllr Donna Jones invited Portsmouth Cycle Forum to propose improvements to transport in the city, following an open letter it wrote to the council in August 2014\. The challenge now handed back to all local leaders in the strategy is how to work together to deliver these changes.
+Cllr Donna Jones invited Portsmouth Cycle Forum to propose improvements to transport in the city, following an open letter it wrote to the council in August 2014. The challenge now handed back to all local leaders in the strategy is how to work together to deliver these changes.
 
 "A City to Share" sets out a vision where cyclists and pedestrians who live, work, study and visit Portsmouth can be safely accommodated alongside drivers. The strategy aims to deliver a steep reduction in the number of accidents involving cyclists and pedestrians by changing the way the streets are designed.
 

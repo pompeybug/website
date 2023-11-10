@@ -1,7 +1,8 @@
 ---
-
 title: Reports and requests
 date: 2020-11-20
+tags:
+  - bike hangars
 ---
 
 ## Report Near Misses!
@@ -16,4 +17,4 @@ For problems with a cycle lane or cycle parking use this [**link**](https://my.p
 
 ## Request A Bike Hanger
 
-More information about the PCC bike hangers and how to request one for your own road can be found here: [**https://travel.portsmouth.gov.uk/schemes/bikehangars/**](https://travel.portsmouth.gov.uk/schemes/bikehangars/)
+More information about the PCC bike hangars and how to request one for your own road can be found here: [**https://travel.portsmouth.gov.uk/schemes/bikehangars/**](https://travel.portsmouth.gov.uk/schemes/bikehangars/)

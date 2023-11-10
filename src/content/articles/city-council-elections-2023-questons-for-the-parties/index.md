@@ -7,7 +7,8 @@ tags:
   - elections
   - latest-news 
   - local-elections
-  - portsmouth-city-council
+  - PCC
+  - A City to Share
 coverImage: "./votebike-banner1_1.png"
 ---
 

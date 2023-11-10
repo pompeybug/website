@@ -4,7 +4,7 @@ title: Best Practice Guide to Cycling in Pedestrian Areas areas
 date: 2009-03-27
 tags:
     - pcc
-    - infrastructured
+    - infrastructure
     - shared-use
     - "2009"
 todo: We don't have a copy of this document any more - perhaps you do, if so, let us know and we'll add it to the archive!

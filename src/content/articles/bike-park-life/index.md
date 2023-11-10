@@ -7,7 +7,7 @@ tags:
   - blog
   - city-council
   - infrastructure 
-  - bike-hangers
+  - bike hangars
 coverImage: "./IMG_20211106_150629142-small.jpg"
 ---
 
@@ -17,7 +17,7 @@ The majority of our time as a campaign is spent trying to persuade people to cre
 
 However, cycle security and parking spaces are clearly the second most important aspect of this.  No-one wants to commit to cycling if they are constantly concerned about where and how their precious two-wheeled steed will be parked when it is not being used.  This is especially true in residential areas where there are few off road spaces to store a bike at home without dragging through the house or having to store it in the living room or hall of a flat or house share.
 
-So the launch of a trial scheme to install nine on-road bike hangers - one of those was a quick addition after a road was so heavily subscribed it could fill a second unit - in March 2021 and was particularly welcomed by PCF members and committee, as it had been a long time coming, and in fact was a direct result from the launch of our #ACityToShare strategy in November 2014.
+So the launch of a trial scheme to install nine on-road bike hangars - one of those was a quick addition after a road was so heavily subscribed it could fill a second unit - in March 2021 and was particularly welcomed by PCF members and committee, as it had been a long time coming, and in fact was a direct result from the launch of our #ACityToShare strategy in November 2014.
 
 Eric de Greef fills in the background, “I went through my emails to find out when I first asked the council about introducing bike hangars in Portsmouth. It went back as far as 2015 when I exchanged emails with the relevant city council officers at the time. I linked it with the University of Portsmouth’s Cycle to Work scheme, saying that for cycling to be convenient you need safe and convenient storage at your destination as well as at home, on top of a safe journey. It never really got any further, I didn’t follow up, and I think my contacts left PCC for pastures new shortly afterwards. It wasn’t until 2018 that I raised it again, after a friend of mine had similar correspondence with PCC. Again, I suspected some staff turnover at PCC, but eventually Jo Hamment had the bit between her teeth and progressed with it and they were installed just before the 2021 local elections.”
 
@@ -37,7 +37,7 @@ As with many issues around active travel, there is often a negative backlash to 
 
 So after four or five months experiencing how they are used for everyday life, do our trialists feel this is a scheme worth persevering with? Laura is extremely positive, “I’d be delighted to see more hangars across the city, it’s such a simple way to make cycling more accessible.”
 
-Eric thinks another 2 or 3 hangars in his street alone is possible, and links this to a way of changing transport in the city. “If you extrapolate that across the rest of Portsmouth that would mean hundreds more bike hangers. Cycling would suddenly have a much increased presence on Portsmouth roads. They could be integrated in traffic calming road designs, or we could extend the trials on the existing roads by marking cycle spaces to remind motorists of the need to share the roads with cyclists. It would be a bold political statement and I hope that our progressive parties take the lead on this.”
+Eric thinks another 2 or 3 hangars in his street alone is possible, and links this to a way of changing transport in the city. “If you extrapolate that across the rest of Portsmouth that would mean hundreds more bike hangars. Cycling would suddenly have a much increased presence on Portsmouth roads. They could be integrated in traffic calming road designs, or we could extend the trials on the existing roads by marking cycle spaces to remind motorists of the need to share the roads with cyclists. It would be a bold political statement and I hope that our progressive parties take the lead on this.”
 
 It would seem that Eric’s enthusiasm was justified, as after launching the scheme the council asked residents to register their interest in taking a space in any future hangers installed as a result of a successful trial.  190 requests were subsequently received in the next six months, a rate of around one per day.  The image below shows the geographic spread of those requests.  It’s no surprise that the flat fronted terraced roads in the south of the city were the most popular locations.
 
@@ -57,7 +57,7 @@ This project has demonstrated an appetite from residents for on-street cycle inf
 
 ![](./IMG_20211106_150712426_HDR-small-1024x768.jpg)
 
-More information about the PCC bike hangers and how to request one for your own road can be found here: [https://travel.portsmouth.gov.uk/schemes/bikehangars/](https://travel.portsmouth.gov.uk/schemes/bikehangars/) 
+More information about the PCC bike hangars and how to request one for your own road can be found here: [https://travel.portsmouth.gov.uk/schemes/bikehangars/](https://travel.portsmouth.gov.uk/schemes/bikehangars/) 
 
 **The Spring 2021 trial locations:**
 

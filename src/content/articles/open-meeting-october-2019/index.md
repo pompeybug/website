@@ -10,8 +10,7 @@ tags:
   - october-open-meeting
   - parking
   - travel-plan
-  - university-of-portsmouth
-  - uop
+  - university
   - committee
 coverImage: "./12241757_10154340721137067_1229218842759030832_n.jpg"
 ---

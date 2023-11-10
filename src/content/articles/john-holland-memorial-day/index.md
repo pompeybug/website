@@ -5,7 +5,6 @@ date: 2019-05-13
 tags:  
   - events 
   - rides
-  - john-holland
   - memorial
 coverImage: "./for-memorial-day-poster-672x372-1.jpg"
 ---

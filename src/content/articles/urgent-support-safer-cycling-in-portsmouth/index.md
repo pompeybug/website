@@ -6,7 +6,7 @@ tags:
   - campaigns
   - city-council
   - pcf 
-  - a-city-to-share
+  - A City to Share
 coverImage: "./city-to-share-fb.png"
 ---
 
