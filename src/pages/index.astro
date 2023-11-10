@@ -2,11 +2,13 @@
 import Articles from "@components/Articles.svelte";
 import Base from "@layouts/Base.astro";
 import { getArticles, sort } from "@lib/collections/articles";
+import { getImage } from "astro:assets";
 
 const okArticles = sort(await getArticles());
 const renderedArticles = await Promise.all(okArticles.map(async (article) => ({
   collectionEntry: article,
   rendered: await article.render(),
+  image: article.data.coverImage ? await getImage({src: article.data.coverImage, width: 500}) : null,
 })));
 ---
 

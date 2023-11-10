@@ -3,19 +3,17 @@
   import type { UiCollectionEntry } from "@lib/types";
   export let articleEntry: UiCollectionEntry<"articles">;
 
-  const { collectionEntry: article, rendered } = articleEntry;
+  const { collectionEntry: article, rendered, image: coverImage } = articleEntry;
 </script>
 
 <li class="card">
   <a href={`/${article.slug}`} class="hidden-link" title={article.data.title}>
     <div class="image-container">
-      {#if article.data.coverImage}
-        <!-- Will migrate this back to an optimised image in the future -->
+      {#if coverImage}
         <img
-          src={article.data.coverImage.src}
+          src={coverImage.src}
           alt={article.data.title}
-          height={100}
-          loading="lazy"
+          {...coverImage.attributes}
         />
       {:else}
         <div class="placeholder">
