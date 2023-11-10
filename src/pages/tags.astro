@@ -9,9 +9,10 @@ const uniqueTags = (await getAllUniqueArticleTags()).sort().map((tag) => ({
 }));
 ---
 
-<Base title="Site Tags">
+<Base title="Tags">
   <main>
-    <h1>All Site Tags</h1>
+    <h1>Tags</h1>
+    <p>Articles on this site are tagged to aid navigation.  This page lists all the tags currently in use.
     <div class="search-container">
       <SearchIcon className="search-icon" />
       <input
