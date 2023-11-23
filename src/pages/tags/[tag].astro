@@ -5,34 +5,36 @@ import {
   getAllUniqueArticleTags,
 } from "@lib/collections/articles";
 import { type CollectionEntry } from "astro:content";
+import type { Tag } from "@lib/types";
+
 export async function getStaticPaths() {
   const uniqueTags = await getAllUniqueArticleTags();
 
   return await Promise.all(
-    uniqueTags.map(async (tag) => ({
-      params: { tag },
+    uniqueTags.map(async ({ tag, slug }) => ({
+      params: { tag: slug },
       props: {
         articles: await getAllArticlesWithTag(tag),
+        tag,
       },
     }))
   );
 }
 
 interface Props {
-  tag: string;
+  tag: Tag;
   articles: CollectionEntry<"articles">[];
 }
 
-const { tag } = Astro.params;
-const { articles } = Astro.props;
+const { articles, tag: tagItem } = Astro.props;
 ---
 
-<Base title={`Articles with ${tag} tag`}>
+<Base title={`Articles with ${tagItem.pretty} tag`}>
   <main>
-    <h1>Tag: {tag}</h1>
+    <h1>Tag: {tagItem.pretty}</h1>
     <p>
-      A list of articles that have been tagged: <a href={`/tags/${tag}`}
-        >{tag}</a
+      A list of articles that have been tagged: <a
+        href={`/tags/${tagItem.slug}`}>{tagItem.pretty}</a
       >
     </p>
 
@@ -40,7 +42,9 @@ const { articles } = Astro.props;
       {
         articles.map((article) => (
           <li>
-            <a href={`/${article.slug}`} data-astro-prefetch>{article.data.title}</a>
+            <a href={`/${article.slug}`} data-astro-prefetch>
+              {article.data.title}
+            </a>
           </li>
         ))
       }

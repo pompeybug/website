@@ -1,3 +1,6 @@
+import type { Tag } from "@lib/types";
+import { toTitleCase } from "@lib/utils";
+import slugify from "@sindresorhus/slugify";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 export const sort = (
@@ -37,14 +40,16 @@ export const getArticlesWithoutOk = async (): Promise<
   return await getCollection("articles", ({ data }) => !data.ok);
 };
 
-export const getAllUniqueArticleTags = async () => {
+export const getAllUniqueArticleTags = async (): Promise<Tag[]> => {
   const articles = await getArticles();
 
-  const tags = articles
-    .flatMap((article) => article.data.tags)
-    .map((tag) => tag.toLowerCase());
+  const tags = articles.flatMap((article) => article.data.tags);
 
-  return [...new Set(tags)];
+  return [...new Set(tags)].map((tag) => ({
+    tag,
+    slug: slugify(tag),
+    pretty: toTitleCase(tag.replaceAll("-", " ")),
+  }));
 };
 
 export const getAllArticlesWithTag = async (

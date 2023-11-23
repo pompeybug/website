@@ -1,6 +1,8 @@
 <script lang="ts">
   import Metadata from "./Metadata.svelte";
   import type { UiCollectionEntry } from "@lib/types";
+  import { toTitleCase } from "@lib/utils";
+  import slugify from "@sindresorhus/slugify";
   export let articleEntry: UiCollectionEntry<"articles">;
 
   const { collectionEntry: article, rendered, coverImage } = articleEntry;
@@ -44,8 +46,12 @@
         <ul>
           {#each article.data.tags as tag}
             <li>
-              <a href={`/tags/${tag}`} class="no-visit" data-astro-prefetch>
-                {tag}
+              <a
+                href={`/tags/${slugify(tag)}`}
+                class="no-visit"
+                data-astro-prefetch
+              >
+                {toTitleCase(tag.replaceAll("-", " "))}
               </a>
             </li>
           {/each}
