@@ -11,10 +11,10 @@ export async function getStaticPaths() {
   const uniqueTags = await getAllUniqueArticleTags();
 
   return await Promise.all(
-    uniqueTags.map(async ({ tag, slug }) => ({
-      params: { tag: slug },
+    uniqueTags.map(async (tag) => ({
+      params: { tag: tag.slug },
       props: {
-        articles: await getAllArticlesWithTag(tag),
+        articles: await getAllArticlesWithTag(tag.tag),
         tag,
       },
     }))
@@ -26,15 +26,15 @@ interface Props {
   articles: CollectionEntry<"articles">[];
 }
 
-const { articles, tag: tagItem } = Astro.props;
+const { articles, tag } = Astro.props;
 ---
 
-<Base title={`Articles with ${tagItem.pretty} tag`}>
+<Base title={`Articles with ${tag.pretty} tag`}>
   <main>
-    <h1>Tag: {tagItem.pretty}</h1>
+    <h1>Tag: {tag.pretty}</h1>
     <p>
-      A list of articles that have been tagged: <a
-        href={`/tags/${tagItem.slug}`}>{tagItem.pretty}</a
+      A list of articles that have been tagged: <a href={`/tags/${tag.slug}`}
+        >{tag.pretty}</a
       >
     </p>
 
