@@ -1,3 +1,9 @@
+---
+import FacebookIcon from "./Icons/FacebookIcon.astro";
+import InstagramIcon from "./Icons/InstagramIcon.astro";
+import TwitterIcon from "./Icons/TwitterIcon.astro";
+---
+
 <nav id="navmenu">
   <section>
     <h2>Inform</h2>
@@ -17,4 +23,44 @@
       <a href="/help">Help</a>
     </span>
   </section>
+
+  <section>
+    <h2>Socials</h2>
+    <div class="socials">
+      <a
+        href="https://www.facebook.com/PortsmouthCycleForum"
+        title="Facebook"
+        target="_blank"
+        rel="noopener me"><FacebookIcon /></a
+      >
+      <a
+        href="https://www.instagram.com/pompey.bike"
+        title="Instagram"
+        target="_blank"
+        rel="noopener me"><InstagramIcon /></a
+      >
+      <a
+        href="https://twitter.com/PompeyBUG"
+        title="X (Twitter)"
+        target="_blank"
+        rel="noopener me"><TwitterIcon /></a
+      >
+    </div>
+  </section>
 </nav>
+
+<style>
+  .socials {
+    display: flex;
+    gap: calc(var(--fixedspace) / 4);
+  }
+
+  .socials a {
+    display: flex !important;
+    justify-content: center;
+  }
+
+  .socials a :global(svg) {
+    height: 32px;
+  }
+</style>
