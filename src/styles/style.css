@@ -58,6 +58,8 @@
   --pagination-page-padding: 0.75em 0;
 
   --search-colour: var(--col2);
+
+  --navmenu-aside-position: relative;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -111,6 +113,7 @@
 
     --pagination-padding: 0 10em;
     --pagination-page-padding: 0.25em 0;
+    --navmenu-aside-position: sticky;
   }
 }
 
@@ -317,6 +320,9 @@ nav h2 {
 
 #navmenu {
   grid-area: menu;
+  position: var(--navmenu-aside-position);
+  align-self: start;
+  top: 0;
 }
 
 #navmenu section {
