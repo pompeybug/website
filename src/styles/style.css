@@ -326,6 +326,12 @@ header a:hover {
   color: var(--text);
 }
 
+.header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
 footer a,
 footer a:visited {
   border: var(--page) solid thin;
