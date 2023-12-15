@@ -60,6 +60,12 @@
   --search-colour: var(--col2);
 
   --navmenu-aside-position: relative;
+
+  --hambuger-button-container-display: flex;
+
+  --header-font-size: 7cqw;
+
+  --header-justify: flex-start;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -114,6 +120,9 @@
     --pagination-padding: 0 10em;
     --pagination-page-padding: 0.25em 0;
     --navmenu-aside-position: sticky;
+    --hambuger-button-display: none;
+    --header-font-size: 8cqw;
+    --header-justify: center;
   }
 }
 
@@ -232,15 +241,35 @@ header #masthead {
   margin-inline-start: 2cqw;
 }
 
-header h1 {
+header > div {
   grid-area: h1;
-  margin: 0;
-  padding: 0;
-  font-size: 8cqw;
-  text-align: center;
+  display: flex;
+  justify-content: var(--header-justify);
+  gap: var(--fixedspace)
 }
 
-header h1 a {
+header > div > button {
+  display: var(--hambuger-button-display);
+  background-color: transparent;
+  border: none;
+  padding: var(--fixedspace) var(--fixedspace) var(--fixedspace) 0;
+}
+
+header > div > button svg {
+  height: 32px;
+  width: 32px;
+}
+
+header > div h1 {
+  margin: 0;
+  padding: 0;
+  font-size: var(--header-font-size);
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+header > div h1 a {
   padding: 0;
 }
 
