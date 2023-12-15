@@ -1,4 +1,18 @@
-<nav id="navmenu">
+---
+import CloseIcon from "./Icons/CloseIcon.astro";
+import FacebookIcon from "./Icons/FacebookIcon.astro";
+import InstagramIcon from "./Icons/InstagramIcon.astro";
+import TwitterIcon from "./Icons/TwitterIcon.astro";
+---
+
+<nav id="navmenu" class="navmenu-hidden">
+  <div class="close">
+    <button class="close-button">
+      <CloseIcon />
+    </button>
+    <h1><a href="/">Portsmouth Cycle Forum</a></h1>
+  </div>
+
   <section>
     <h2>Inform</h2>
     <span class="innerlist">
@@ -17,4 +31,85 @@
       <a href="/help">Help</a>
     </span>
   </section>
+
+  <section>
+    <h2>Socials</h2>
+    <div class="socials">
+      <a
+        href="https://www.facebook.com/PortsmouthCycleForum"
+        title="Facebook"
+        target="_blank"
+        rel="noopener me"><FacebookIcon /></a
+      >
+      <a
+        href="https://www.instagram.com/pompey.bike"
+        title="Instagram"
+        target="_blank"
+        rel="noopener me"><InstagramIcon /></a
+      >
+      <a
+        href="https://twitter.com/PompeyBUG"
+        title="X (Twitter)"
+        target="_blank"
+        rel="noopener me"><TwitterIcon /></a
+      >
+    </div>
+  </section>
 </nav>
+
+<script>
+  document.querySelector(".close-button")?.addEventListener("click", () => {
+    document.querySelector("#navmenu")?.classList.toggle("navmenu-hidden");
+    document.querySelector("body")?.classList.toggle("disable-overflow");
+  });
+</script>
+
+<style>
+  .socials {
+    display: flex;
+    gap: calc(var(--fixedspace) / 4);
+  }
+
+  .socials a {
+    display: flex !important;
+    justify-content: center;
+    flex: 1 !important;
+  }
+
+  .socials a :global(svg) {
+    height: var(--navmenu-socials-icon-size);
+    width: var(--navmenu-socials-icon-size);
+  }
+
+  .close {
+    display: var(--navmenu-close-display);
+    gap: var(--fixedspace);
+  }
+
+  .close h1 {
+    margin: 0;
+    font-size: calc(var(--header-font-size) - .5cqw);
+    display: flex;
+    align-items: center;
+  }
+
+  .close h1 a {
+    background-color: transparent !important;
+    color: var(--col2) !important;
+    padding: 0 !important;
+  }
+
+  .close-button {
+    background-color: var(--col2);
+    border: none;
+    border-radius: var(--buttoncurve);
+    width: 40px;
+    height: 40px;
+    padding: 0;
+  }
+
+  .close-button :global(svg) {
+    width: 40px;
+    height: 40px;
+  }
+</style>

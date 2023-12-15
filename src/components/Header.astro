@@ -1,13 +1,26 @@
+---
+import HamburgerIcon from "./Icons/HamburgerIcon.astro";
+---
+
 <header>
-  <img
-    id="masthead"
-    src="/img/logo-w.svg"
-    alt="Portsmouth Cycle Forum"
-  />
-  <h1><a href="/">Portsmouth Cycle Forum</a></h1>
+  <img id="masthead" src="/img/logo-w.svg" alt="Portsmouth Cycle Forum" />
+  <div>
+    <button id="navmenuToggle">
+      <HamburgerIcon />
+    </button>
+    <h1><a href="/">Portsmouth Cycle Forum</a></h1>
+  </div>
   <p>
     <a href="/"
       >Portsmouth Cycle Forum is a group for anyone who cycles, or wants to
-      cycle, in and around Portsmouth UK.</a>
+      cycle, in and around Portsmouth UK.</a
+    >
   </p>
 </header>
+
+<script>
+  document.querySelector("#navmenuToggle")?.addEventListener("click", () => {
+    document.querySelector("#navmenu")?.classList.toggle("navmenu-hidden");
+    document.querySelector('body')?.classList.toggle("disable-overflow");
+  });
+</script>

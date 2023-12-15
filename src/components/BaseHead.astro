@@ -30,3 +30,27 @@ gtag("config", "UA-189037150-1", { anonymize_ip: true });
 gtag("config", "G-EGJ3FP5YTZ");
 </script>
 )}
+
+<script>
+  let upticks = 0;
+  let lastScroll = 0;
+
+  const navmenu = document.querySelector('body > header');
+
+  document.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop
+
+    if (scrollTop < lastScroll) {
+      upticks++;
+
+      if (upticks > 50) {
+        navmenu?.classList.add('header-sticky');
+      }
+    } else {
+      navmenu?.classList.remove('header-sticky');
+      upticks = 0;
+    }
+
+    lastScroll = scrollTop < 0 ? 0 : scrollTop;
+  });
+</script>

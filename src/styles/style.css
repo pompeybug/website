@@ -18,25 +18,36 @@
   --link: var(--col2);
   --vlink: var(--col1);
 
-  --navmenu-direction: row;
-  --navmenu-gap: var(--fixedspace);
-  --navmenu-padding: var(--fixedspace);
-  --navmenu-curve: 0;
-  --navmenu-margin: 0;
-  --navmenu-wrap: wrap;
+  --navmenu-direction: column;
+  --navmenu-gap: calc(var(--fixedspace) / 4);
+  --navmenu-padding: calc(var(--fixedspace) / 4);
+  --navmenu-curve: var(--buttoncurve);
+  --navmenu-margin: 1em;
+  --navmenu-wrap: nowrap;
+  --navmenu-aside-position: fixed;
+  --navmenu-width: 100%;
+  --navmenu-height: 100%;
+  --navmenu-background: #222;
+  --navmenu-container-padding: calc(var(--fixedspace) * 2);
+  --navmenu-close-display: flex;
+  --navmenu-default-display: none;
+  --navmenu-a-padding: 0.5em 0.2em;
+  --navmenu-socials-icon-size: 32px;
 
-  --taglist-direction: row;
-  --taglist-gap: var(--fixedspace);
-  --taglist-padding: 0 var(--fixedspace) var(--fixedspace) var(--fixedspace);
-  --taglist-curve: 0;
-  --taglist-margin: 0;
-  --taglist-wrap: wrap;
+  --taglist-direction: column;
+  --taglist-gap: calc(var(--fixedspace) / 4);
+  --taglist-padding: calc(var(--fixedspace) / 4);
+  --taglist-curve: var(--buttoncurve);
+  --taglist-margin: 1em;
+  --taglist-wrap: nowrap;
+
+  --header-sticky: sticky;
 
   --flexgrow: 0;
 
   --gridcols: 1fr;
   --gridrows: auto auto auto auto 1fr auto;
-  --gridtemplateareas: "header" "menu" "taglist" "metadata" "article" "footer";
+  --gridtemplateareas: "header" "menu" "metadata" "article" "taglist" "footer";
 
   --headergridcols: auto;
   --headergridrows: auto;
@@ -58,6 +69,12 @@
   --pagination-page-padding: 0.75em 0;
 
   --search-colour: var(--col2);
+
+  --hambuger-button-container-display: flex;
+
+  --header-font-size: 7cqw;
+
+  --header-justify: flex-start;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -86,19 +103,19 @@
     --gridtemplateareas: "header header" "menu article" "taglist article"
       ". article" ". footer";
 
-    --navmenu-direction: column;
-    --navmenu-gap: calc(var(--fixedspace) / 4);
-    --navmenu-padding: calc(var(--fixedspace) / 4);
-    --navmenu-curve: var(--buttoncurve);
-    --navmenu-margin: 1em;
-    --navmenu-wrap: nowrap;
+    --navmenu-aside-position: sticky;
+    --navmenu-width: unset;
+    --navmenu-height: unset;
+    --navmenu-background: transparent;
+    --navmenu-container-padding: 0;
+    --navmenu-close-display: none;
+    --navmenu-default-display: unset;
+    --navmenu-a-padding: 0.1em 0.2em;
+    --navmenu-socials-icon-size: 26px;
 
-    --taglist-direction: column;
-    --taglist-gap: calc(var(--fixedspace) / 4);
-    --taglist-padding: calc(var(--fixedspace) / 4);
-    --taglist-curve: var(--buttoncurve);
-    --taglist-margin: 1em;
-    --taglist-wrap: nowrap;
+    --taglist-margin: 0;
+
+    --header-sticky: relative;
 
     --flexgrow: 1;
 
@@ -111,6 +128,9 @@
 
     --pagination-padding: 0 10em;
     --pagination-page-padding: 0.25em 0;
+    --hambuger-button-display: none;
+    --header-font-size: 8cqw;
+    --header-justify: center;
   }
 }
 
@@ -229,15 +249,35 @@ header #masthead {
   margin-inline-start: 2cqw;
 }
 
-header h1 {
+header > div {
   grid-area: h1;
-  margin: 0;
-  padding: 0;
-  font-size: 8cqw;
-  text-align: center;
+  display: flex;
+  justify-content: var(--header-justify);
+  gap: var(--fixedspace);
 }
 
-header h1 a {
+header > div > button {
+  display: var(--hambuger-button-display);
+  background-color: transparent;
+  border: none;
+  padding: var(--fixedspace) var(--fixedspace) var(--fixedspace) 0;
+}
+
+header > div > button svg {
+  height: 32px;
+  width: 32px;
+}
+
+header > div h1 {
+  margin: 0;
+  padding: 0;
+  font-size: var(--header-font-size);
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+header > div h1 a {
   padding: 0;
 }
 
@@ -263,6 +303,12 @@ header a:visited {
 
 header a:hover {
   color: var(--text);
+}
+
+.header-sticky {
+  position: var(--header-sticky);
+  top: 0;
+  z-index: 999;
 }
 
 footer a,
@@ -317,6 +363,19 @@ nav h2 {
 
 #navmenu {
   grid-area: menu;
+  position: var(--navmenu-aside-position);
+  align-self: start;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: var(--navmenu-background);
+  height: var(--navmenu-height);
+  width: var(--navmenu-width);
+  padding: var(--navmenu-container-padding);
+}
+
+.navmenu-hidden {
+  display: var(--navmenu-default-display);
 }
 
 #navmenu section {
@@ -345,6 +404,9 @@ nav h2 {
   justify-content: flex-start;
   background-color: var(--col1light);
   margin-top: var(--navmenu-margin);
+  margin-bottom: var(--navmenu-margin);
+  margin-left: var(--taglist-margin);
+  margin-right: var(--taglist-margin);
 }
 
 .innerlist {
@@ -354,13 +416,27 @@ nav h2 {
   flex-wrap: var(--taglist-wrap);
 }
 
-#navmenu a,
-#taglist a,
 .link-block {
   text-decoration: none;
   list-style-type: none;
   cursor: pointer;
   padding: 0.1em 0.2em;
+  margin: 0;
+  border-radius: var(--buttoncurve);
+  color: var(--text);
+  flex-grow: var(--flexgrow);
+  background: var(--col2);
+  color: var(--page);
+  border: var(--page) solid thin;
+  display: inline-block;
+}
+
+#navmenu a,
+#taglist a {
+  text-decoration: none;
+  list-style-type: none;
+  cursor: pointer;
+  padding: var(--navmenu-a-padding);
   margin: 0;
   border-radius: var(--buttoncurve);
   color: var(--text);
@@ -474,4 +550,8 @@ a.no-hover:hover {
 
 .search-container .search-icon {
   stroke: var(--search-colour);
+}
+
+.disable-overflow {
+  overflow: hidden;
 }
