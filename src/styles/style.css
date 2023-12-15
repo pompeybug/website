@@ -41,6 +41,8 @@
   --taglist-margin: 1em;
   --taglist-wrap: nowrap;
 
+  --header-sticky: sticky;
+
   --flexgrow: 0;
 
   --gridcols: 1fr;
@@ -111,7 +113,9 @@
     --navmenu-a-padding: 0.1em 0.2em;
     --navmenu-socials-icon-size: 26px;
 
-  --taglist-margin: 0;
+    --taglist-margin: 0;
+
+    --header-sticky: relative;
 
     --flexgrow: 1;
 
@@ -302,7 +306,7 @@ header a:hover {
 }
 
 .header-sticky {
-  position: sticky;
+  position: var(--header-sticky);
   top: 0;
   z-index: 999;
 }
