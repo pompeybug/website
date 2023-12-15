@@ -5,7 +5,7 @@ import HamburgerIcon from "./Icons/HamburgerIcon.astro";
 <header>
   <img id="masthead" src="/img/logo-w.svg" alt="Portsmouth Cycle Forum" />
   <div>
-    <button>
+    <button id="navmenuToggle">
       <HamburgerIcon />
     </button>
     <h1><a href="/">Portsmouth Cycle Forum</a></h1>
@@ -17,3 +17,10 @@ import HamburgerIcon from "./Icons/HamburgerIcon.astro";
     >
   </p>
 </header>
+
+<script>
+  document.querySelector("#navmenuToggle")?.addEventListener("click", () => {
+    document.querySelector("#navmenu")?.classList.toggle("navmenu-hidden");
+    document.querySelector('body')?.classList.toggle("disable-overflow");
+  });
+</script>
