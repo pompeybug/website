@@ -27,7 +27,7 @@
   --navmenu-aside-position: fixed;
   --navmenu-width: 100%;
   --navmenu-height: 100%;
-  --navmenu-background: #222;
+  --navmenu-background: var(--page);
   --navmenu-container-padding: calc(var(--fixedspace) * 2);
   --navmenu-close-display: flex;
   --navmenu-default-display: none;
@@ -260,7 +260,7 @@ header > div > button {
   display: var(--hambuger-button-display);
   background-color: transparent;
   border: none;
-  padding: var(--fixedspace) var(--fixedspace) var(--fixedspace) 0;
+  padding: 1em var(--fixedspace) var(--fixedspace) 0;
 }
 
 header > div > button svg {
