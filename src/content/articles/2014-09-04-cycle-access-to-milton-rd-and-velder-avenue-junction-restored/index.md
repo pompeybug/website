@@ -8,6 +8,8 @@ todoLater:
 coverImage: ./Photo-29-08-2014-11-49-17-e1409831266789-225x300.jpg
 caption:  Cycle Activated Signal at Milton & Velder
 supercheck: true;
+tags:
+ - velder-ave
 ---
 
 A cycle activated traffic light has been installed at the junction of Milton Rd / Velder Avenue.  Located on the corner of Milton Rd and Alverstone Rd it automatically detects waiting cyclists and will stop all traffic in the junction to allow cyclists to safely navigate the junction to any of the four exits - Milton Rd North &amp; South, Velder Avenue and Rodney Rd.  We have been testing the light and it works well - it's fast too, we've never had to wait more than a minute.  This light allows cyclists to approach this busy junction from the quiet streets and lanes around Fratton Park and to get across it quickly and safely.

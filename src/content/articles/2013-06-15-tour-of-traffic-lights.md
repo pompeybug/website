@@ -5,6 +5,8 @@ id: 3717
 date: 2013-06-15
 coverImage: /public/assets/DSC02511.jpg
 caption: Traffic Light Tour Party
+tags:
+ - velder-ave
 ---
 
 On Wednesday 12th June Portsmouth Cycle Forum took a bike tour of traffic light controlled junctions in the city in the company of Councillor Jason Fazackarley, the Portsmouth city council cabinet member for Traffic and Transportation. Also along on the ride were Simon Brownlie, PCC road network manager and Jayne Rodgers, PCC Active Travel officer.
