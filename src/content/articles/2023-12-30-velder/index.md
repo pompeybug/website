@@ -12,7 +12,7 @@ The cycling infrastructure at the Velder Avenue junction has been improved after
 
 Alverstone Road features low-level cycle-phase lights with auto-acknowledgement, however this has been dogged by activation issues.  These problems have been solved by the addition of a push-button mechanism.
 
-The original [idea for the cycle filter phase](/2012-03-06-no-crossings-for-pedestrians-or-cyclists-at-velder-ave-junction) was from former PCF Chair Jon Spencer.
+The original [idea for the cycle filter phase](/2013-06-15-tour-of-traffic-lights) was from former PCF Chair Jon Spencer.
 
 See also:
  * [Google Maps](https://maps.app.goo.gl/4XVjnJvhNsYxQjuD9)
