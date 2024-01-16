@@ -6,7 +6,7 @@ tags:
 coverImage: ./werideportsmouth.png
 ---
 
-Influenced by similar projects globally we're excited to introduce [#WeRidePortsmouth](/tags/werideportsmouth).
+Influenced by similar projects globally we're excited to introduce [#WeRidePortsmouth](/tags/we-ride-portsmouth).
 
 A project dedicated to telling the stories of people using their bikes for their everyday transport in our city.
 
