@@ -1,4 +1,4 @@
-—
+---
 January 2024 committee meeting: everything that happened.
 date: 2024-01-10
 tags: 
@@ -7,7 +7,7 @@ tags:
 - planning 
 - werideportsmouth
 coverImage: IMG_20240112_WA0008.jpg
-—
+---
 
 Happy New Year PCF-ers! Hope you all had a great break and have been enjoying the milder weather for all your cycling journeys.
 
