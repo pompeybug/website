@@ -1,5 +1,5 @@
 ---
-title: WeRidePortsmouth - Alison Newman
+title: WeRidePortsmouth - Alison
 date: 2024-01-27
 tags:
  - WeRidePortsmouth
