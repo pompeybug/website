@@ -6,6 +6,7 @@ tags:
  - women-cycling
  - stories
 coverImage: ./alison.jpg
+coverImageAlignment: top
 ---
 
 I’m Alison, and I use my bike to get about in Portsmouth for both chores and hobbies

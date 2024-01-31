@@ -15,7 +15,10 @@
     title={article.data.title}
     data-astro-prefetch
   >
-    <div class="image-container">
+    <div
+      class="image-container"
+      style={`align-items: ${article.data.coverImageAlignment}`}
+    >
       {#if coverImage}
         <picture>
           <source srcset={coverImage.avif.src} type="image/avif" />
@@ -77,7 +80,7 @@
   }
 
   li.card .image-container {
-    position: relative;
+    display: flex;
     height: var(--card-image-height);
     overflow: hidden;
     border-bottom-left-radius: 0;
@@ -90,11 +93,8 @@
   }
 
   li.card .image-container img {
-    position: absolute;
     border-radius: var(--card-curve);
     width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
   }
 
   .placeholder {
@@ -104,6 +104,7 @@
     height: var(--card-image-height);
     justify-content: center;
     align-items: center;
+    width: 100%;
   }
 
   .placeholder img {
