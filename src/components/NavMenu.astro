@@ -3,6 +3,7 @@ import CloseIcon from "./Icons/CloseIcon.astro";
 import FacebookIcon from "./Icons/FacebookIcon.astro";
 import InstagramIcon from "./Icons/InstagramIcon.astro";
 import TwitterIcon from "./Icons/TwitterIcon.astro";
+import YoutubeIcon from "./Icons/YoutubeIcon.astro";
 ---
 
 <nav id="navmenu" class="navmenu-hidden">
@@ -38,20 +39,30 @@ import TwitterIcon from "./Icons/TwitterIcon.astro";
       <a
         href="https://www.facebook.com/PortsmouthCycleForum"
         title="Facebook"
+        aria-label="Facebook"
         target="_blank"
         rel="noopener me"><FacebookIcon /></a
       >
       <a
         href="https://www.instagram.com/pompey.bike"
         title="Instagram"
+        aria-label="Instagram"
         target="_blank"
         rel="noopener me"><InstagramIcon /></a
       >
       <a
         href="https://twitter.com/PompeyBUG"
         title="X (Twitter)"
+        aria-label="X (Twitter)"
         target="_blank"
         rel="noopener me"><TwitterIcon /></a
+      >
+      <a
+        href="https://youtube.com/@PompeyBUG"
+        title="Youtube"
+        aria-label="Youtube"
+        target="_blank"
+        rel="noopener me"><YoutubeIcon /></a
       >
     </div>
   </section>
@@ -89,7 +100,7 @@ import TwitterIcon from "./Icons/TwitterIcon.astro";
 
   .close h1 {
     margin: 0;
-    font-size: calc(var(--header-font-size) - .5cqw);
+    font-size: calc(var(--header-font-size) - 0.5cqw);
     display: flex;
     align-items: center;
   }
