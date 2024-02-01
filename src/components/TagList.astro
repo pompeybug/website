@@ -10,7 +10,7 @@ const { tags } = Astro.props;
 
 {
   tags && tags.length > 0 && (
-    <>
+    <section>
       <h2>Tags</h2>
       <span class="innerlist">
         {tags.map((tag) => (
@@ -19,6 +19,6 @@ const { tags } = Astro.props;
           </a>
         ))}
       </span>
-    </>
+    </section>
   )
 }
