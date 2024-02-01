@@ -372,6 +372,7 @@ nav h2 {
   height: var(--navmenu-height);
   width: var(--navmenu-width);
   padding: var(--navmenu-container-padding);
+  overflow-y: auto;
 }
 
 .navmenu-hidden {
@@ -394,7 +395,7 @@ nav h2 {
 }
 
 #taglist {
-  grid-area: taglist;
+  /* grid-area: taglist; */
   display: flex;
   flex-direction: var(--taglist-direction);
   padding: var(--taglist-padding);

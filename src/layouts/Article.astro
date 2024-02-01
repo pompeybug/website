@@ -44,5 +44,5 @@ const { title, date, tags, todo, coverImage, readingTime } = Astro.props.frontma
       </ul>
       )}
     </main>
-    <TagList tags={tags} />
+    <TagList tags={tags} slot='tags' />
 </Base>
