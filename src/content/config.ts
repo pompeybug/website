@@ -12,13 +12,13 @@ const articlesCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      id: z.number().or(z.string()).nullish(),
+      id: z.number().or(z.string()).optional(),
       tags: z
         .union([z.array(z.string()), z.string()])
         .nullish()
         .transform((val) => toArray(val)),
       date: z.coerce.date(),
-      coverImage: image().nullish(),
+      coverImage: image().optional(),
       coverImageAlignment: z
         .union([z.literal("top"), z.literal("middle"), z.literal("bottom")])
         .nullish()
