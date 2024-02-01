@@ -20,6 +20,15 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+      - name: Checkout content repo
+        uses: actions/checkout@v4
+        with:
+          repository: "pompeybug/content"
+          path: "content_temp"
+      - name: Make script executable
+        run: chmod +x sync_content.sh
+      - name: Copy content
+        run: ./sync_content.sh --pages
       - name: Install, build, and upload your site
         uses: withastro/action@v1
   deploy:
