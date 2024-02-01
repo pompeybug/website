@@ -8,7 +8,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "sync-content": "./sync_content.sh"
   },
   "keywords": [
     "PCF",
