@@ -12,18 +12,16 @@ const articlesCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      id: z.number().or(z.string()).optional(),
+      id: z.number().or(z.string()).nullish(),
       tags: z
         .union([z.array(z.string()), z.string()])
-        .optional()
-        .nullable()
+        .nullish()
         .transform((val) => toArray(val)),
       date: z.coerce.date(),
-      coverImage: image().optional(),
+      coverImage: image().nullish(),
       coverImageAlignment: z
         .union([z.literal("top"), z.literal("middle"), z.literal("bottom")])
-        .optional()
-        .nullable()
+        .nullish()
         .transform((val) => {
           if (val === "top") {
             return "flex-start";
@@ -35,10 +33,9 @@ const articlesCollection = defineCollection({
         }),
       todo: z
         .union([z.array(z.string()), z.string()])
-        .optional()
-        .nullable()
+        .nullish()
         .transform((val) => toArray(val)),
-      author: z.string().optional(),
+      author: z.string().nullish(),
       ok: z
         .union([z.string(), z.boolean()])
         .optional()
