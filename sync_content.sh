@@ -1,10 +1,13 @@
 #!/bin/bash
 
-if [ "$1" != '--pages' ];
-then
-  rm -rf content_temp
+if [ "$1" != '--pages' ]; then
   rm -rf src/content/*/
-  git clone git@github.com:pompeybug/content.git content_temp
+
+  if [ ! -d "content" ]; then
+    git clone git@github.com:pompeybug/content.git content
+  else
+    git -C content pull -q
+  fi
 fi
-mv content_temp/* src/content
-rm -rf content_temp
+
+cp -r content/* src/content
