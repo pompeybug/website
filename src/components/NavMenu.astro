@@ -1,15 +1,11 @@
 ---
-import CloseIcon from "./Icons/CloseIcon.astro";
-import FacebookIcon from "./Icons/FacebookIcon.astro";
-import InstagramIcon from "./Icons/InstagramIcon.astro";
-import TwitterIcon from "./Icons/TwitterIcon.astro";
-import YoutubeIcon from "./Icons/YoutubeIcon.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <nav id="navmenu" class="navmenu-hidden">
   <div class="close">
     <button class="close-button">
-      <CloseIcon />
+      <Icon name="close" />
     </button>
     <h1><a href="/">Portsmouth Cycle Forum</a></h1>
   </div>
@@ -41,28 +37,28 @@ import YoutubeIcon from "./Icons/YoutubeIcon.astro";
         title="Facebook"
         aria-label="Facebook"
         target="_blank"
-        rel="noopener me"><FacebookIcon /></a
+        rel="noopener me"><Icon name="facebook" /></a
       >
       <a
         href="https://www.instagram.com/pompey.bike"
         title="Instagram"
         aria-label="Instagram"
         target="_blank"
-        rel="noopener me"><InstagramIcon /></a
+        rel="noopener me"><Icon name="instagram" /></a
       >
       <a
         href="https://twitter.com/PompeyBUG"
         title="X (Twitter)"
         aria-label="X (Twitter)"
         target="_blank"
-        rel="noopener me"><TwitterIcon /></a
+        rel="noopener me"><Icon name="twitter" /></a
       >
       <a
         href="https://youtube.com/@PompeyBUG"
         title="Youtube"
         aria-label="Youtube"
         target="_blank"
-        rel="noopener me"><YoutubeIcon /></a
+        rel="noopener me"><Icon name="youtube" /></a
       >
     </div>
   </section>
@@ -87,7 +83,7 @@ import YoutubeIcon from "./Icons/YoutubeIcon.astro";
     flex: 1 !important;
   }
 
-  .socials a :global(svg) {
+  .socials a [data-icon] {
     height: var(--navmenu-socials-icon-size);
     width: var(--navmenu-socials-icon-size);
   }
@@ -121,7 +117,7 @@ import YoutubeIcon from "./Icons/YoutubeIcon.astro";
     margin-right: var(--fixedspace);
   }
 
-  .close-button :global(svg) {
+  [data-icon="close"] {
     width: 40px;
     height: 40px;
     color: var(--page);

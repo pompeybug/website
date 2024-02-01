@@ -548,8 +548,10 @@ a.no-hover:hover {
   align-items: center;
 }
 
-.search-container .search-icon {
-  stroke: var(--search-colour);
+.search-container [data-icon="search"] {
+  color: var(--search-colour);
+  height: 24px;
+  width: 24px;
 }
 
 .disable-overflow {
