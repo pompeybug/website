@@ -12,6 +12,9 @@ export function remarkReadingTime() {
 
 export function remarkStripMarkdown() {
   return function (tree, { data }) {
+    // strip imports, javascript stuff from mdx for descriptions
+    tree.children = tree.children.filter((child) => !child.type.toLowerCase().startsWith('mdxjs'));
+
     const textOnPage = toString(tree);
     data.astro.frontmatter.strippedBody = strip(textOnPage, {
       useImgAltText: false,
