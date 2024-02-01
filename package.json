@@ -21,6 +21,7 @@
   "author": "Content by PCF Executive Committee",
   "license": "CC-BY-SA-4.0",
   "dependencies": {
+    "@astro-community/astro-embed-youtube": "^0.4.4",
     "@astrojs/mdx": "^2.1.1",
     "@astrojs/partytown": "^2.0.4",
     "@astrojs/sitemap": "^3.0.5",
