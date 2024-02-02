@@ -5,6 +5,7 @@ tags:
  - WeRidePortsmouth
  - women-cycling
  - stories
+ - example
 coverImage: ./alison.jpg
 coverImageAlignment: top
 ---
