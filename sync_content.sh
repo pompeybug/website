@@ -11,3 +11,4 @@ if [ "$1" != '--pages' ]; then
 fi
 
 cp -r content/* src/content
+rm -rf src/content/.github
