@@ -9,7 +9,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "sync-content": "./sync_content.sh"
+    "sync-content": "./sync_content.sh",
+    "sync-content-http": "./sync_content.sh --http"
   },
   "keywords": [
     "PCF",
