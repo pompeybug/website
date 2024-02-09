@@ -33,6 +33,7 @@
     "astro-critters": "^2.0.11",
     "astro-icon": "^1.0.4",
     "astro-robots-txt": "^1.0.0",
+    "astro-seo": "^0.8.0",
     "clsx": "^2.1.0",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
