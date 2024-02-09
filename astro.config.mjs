@@ -6,19 +6,32 @@ import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 import svelte from "@astrojs/svelte";
 import icon from "astro-icon";
-
+import { loadEnv } from "vite";
 import critters from "astro-critters";
+
+const { HTTPS, DOMAIN } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
+
+const site =
+  HTTPS.toLowerCase() === "true" ? `https://${DOMAIN}` : `http://${DOMAIN}`;
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://pompeybug.co.uk",
-  integrations: [mdx(), robotsTxt(), sitemap(), partytown({
-    config: {
-      forward: "dataLayer.push"
-    }
-  }), svelte(), icon(), critters()],
+  site,
+  integrations: [
+    mdx(),
+    robotsTxt(),
+    sitemap(),
+    partytown({
+      config: {
+        forward: "dataLayer.push",
+      },
+    }),
+    svelte(),
+    icon(),
+    critters(),
+  ],
   markdown: {
-    remarkPlugins: [remarkReadingTime, remarkStripMarkdown]
+    remarkPlugins: [remarkReadingTime, remarkStripMarkdown],
   },
-  prefetch: true
+  prefetch: true,
 });
