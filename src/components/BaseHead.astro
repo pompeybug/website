@@ -1,5 +1,5 @@
 ---
-import {SEO, type Props as SeoProps } from 'astro-seo';
+import {Seo, type SeoProps } from 'astro-seo-meta';
 
 interface Props {
   title?: string;
@@ -12,10 +12,10 @@ const { title, description, seo } = Astro.props;
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="/img/logo.svg" />
-<link rel="”mask-icon”" href="/img/logo-w.svg" color='”#FFFFFF"' />
+<link rel="mask-icon" href="/img/logo-w.svg" color='#FFFFFF' />
 <link rel="apple-touch-icon" href="/img/logo.png" />
 <meta name="theme-color" content="#c64d0f" />
-<SEO title={title} description={description} charset='UTF-8' {...seo} />
+<Seo title={title} description={description} {...seo} />
 {import.meta.env.PROD && (
   <script
   type="text/partytown"

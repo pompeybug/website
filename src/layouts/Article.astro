@@ -23,7 +23,7 @@ const { title, date, tags, todo, coverImage, readingTime, description } =
 const coverImageRendered = coverImage
   ? await getImage({
       src: coverImage,
-      format: "avif",
+      format: "jpg",
       height: 1200,
       width: 630,
     })
@@ -33,38 +33,23 @@ const coverImageRendered = coverImage
 <Base
   seo={{
     title,
-    description,
-    openGraph: {
-      basic: {
-        title,
-        type: "article",
-        image: coverImageRendered
-          ? `${import.meta.env.SITE}${coverImageRendered.src}`
-          : `${import.meta.env.SITE}/img/logo-w.svg`,
-      },
-      image: {
-        type: coverImageRendered?.src ? "image/avif" : "image/svg+xml",
-        height: 1200,
-        width: 630,
-        alt: title,
-      },
-      article: {
-        publishedTime: (typeof date === "string"
-          ? new Date(date)
-          : date
-        )?.toISOString(),
-        tags,
-      },
-    },
+    description:
+      description?.split(" ").slice(0, 20).join(" ").replace(/\D$/gi, "") +
+      "...",
+    keywords: tags,
     twitter: {
       card: "summary_large_image",
       site: "@PompeyBUG",
-      title,
       image: coverImageRendered
         ? `${import.meta.env.SITE}${coverImageRendered.src}`
         : `${import.meta.env.SITE}/img/logo-w.svg`,
-      imageAlt: title,
-      description,
+    },
+    facebook: {
+      image: coverImageRendered
+        ? `${import.meta.env.SITE}${coverImageRendered.src}`
+        : `${import.meta.env.SITE}/img/logo-w.svg`,
+      url: Astro.request.url,
+      type: "article",
     },
   }}
 >

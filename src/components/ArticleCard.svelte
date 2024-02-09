@@ -43,7 +43,8 @@
         {rendered.remarkPluginFrontmatter.description
           .split(" ")
           .slice(0, 20)
-          .join(" ")}...
+          .join(" ")
+          .replace(/\D$/gi, "")}...
       </p>
       {#if article.data.tags.length > 0}
         <ul>
