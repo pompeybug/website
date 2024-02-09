@@ -12,10 +12,11 @@ export function remarkReadingTime() {
 
 export function remarkStripMarkdown() {
   return function (tree, { data }) {
+    const treeClone = {...tree};
     // strip imports, javascript stuff from mdx for descriptions
-    tree.children = tree.children.filter((child) => child.type.toLowerCase() === 'paragraph');
+    treeClone.children = treeClone.children.filter((child) => child.type.toLowerCase() === 'paragraph');
 
-    const textOnPage = toString(tree);
+    const textOnPage = toString(treeClone);
     data.astro.frontmatter.description = strip(textOnPage, {
       useImgAltText: false,
     });
