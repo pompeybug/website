@@ -28,6 +28,10 @@ const coverImageRendered = coverImage
       width: 1200,
     })
   : null;
+
+const image = coverImageRendered
+        ? `${import.meta.env.SITE}${coverImageRendered.src}`
+        : `${import.meta.env.SITE}/img/logo-seo.jpg`;
 ---
 
 <Base
@@ -40,14 +44,10 @@ const coverImageRendered = coverImage
     twitter: {
       card: "summary_large_image",
       site: "@PompeyBUG",
-      image: coverImageRendered
-        ? `${import.meta.env.SITE}${coverImageRendered.src}`
-        : `${import.meta.env.SITE}/img/logo-w.svg`,
+      image
     },
     facebook: {
-      image: coverImageRendered
-        ? `${import.meta.env.SITE}${coverImageRendered.src}`
-        : `${import.meta.env.SITE}/img/logo-w.svg`,
+      image,
       url: Astro.request.url,
       type: "article",
     },
