@@ -5,7 +5,7 @@ import Metadata from "@components/Metadata.svelte";
 import { Picture, getImage } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import ReadingTime from "@components/ReadingTime.astro";
-import fallbackSeoLogo from "../assets/article/seo-logo.webp";
+import fallbackSeoLogo from "@assets/article/seo-logo.webp";
 
 interface Props {
   title: CollectionEntry<"articles">["data"]["title"];
