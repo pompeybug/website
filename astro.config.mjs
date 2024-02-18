@@ -7,7 +7,6 @@ import partytown from "@astrojs/partytown";
 import svelte from "@astrojs/svelte";
 import icon from "astro-icon";
 import { loadEnv } from "vite";
-import critters from "astro-critters";
 import purgecss from 'astro-purgecss';
 
 const { HTTPS, DOMAIN } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
@@ -29,7 +28,6 @@ export default defineConfig({
     }),
     svelte(),
     icon(),
-    critters(),
     purgecss(),
   ],
   markdown: {
