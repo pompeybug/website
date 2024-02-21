@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: "pompeybug/content"
-          path: "content_temp"
+          path: "content"
       - name: Make script executable
         run: chmod +x sync_content.sh
       - name: Copy content
