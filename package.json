@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "sync-content": "./sync_content.sh",
     "sync-content-http": "./sync_content.sh --http"
@@ -24,6 +24,7 @@
   "license": "CC-BY-SA-4.0",
   "dependencies": {
     "@astro-community/astro-embed-youtube": "^0.4.4",
+    "@astrojs/check": "^0.5.5",
     "@astrojs/mdx": "^2.1.1",
     "@astrojs/partytown": "^2.0.4",
     "@astrojs/sitemap": "^3.0.5",
@@ -41,6 +42,7 @@
     "purgecss": "^5.0.0",
     "reading-time": "^1.5.0",
     "remove-markdown": "^0.5.0",
-    "svelte": "^4.2.11"
+    "svelte": "^4.2.11",
+    "typescript": "^5.3.3"
   }
 }
