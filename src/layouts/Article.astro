@@ -1,48 +1,84 @@
 ---
-import Base from './Base.astro';
-import TagList from '@components/TagList.astro';
-import Metadata from '@components/Metadata.svelte';
-import { Picture } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import ReadingTime from '@components/ReadingTime.astro';
+import Base from "./Base.astro";
+import TagList from "@components/TagList.astro";
+import Metadata from "@components/Metadata.svelte";
+import { Picture, getImage } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import ReadingTime from "@components/ReadingTime.astro";
+import fallbackSeoLogo from "@assets/article/seo-logo.webp";
 
 interface Props {
-  title: CollectionEntry<'articles'>['data']['title'];
+  title: CollectionEntry<"articles">["data"]["title"];
   date?: Date | string;
-  tags?: CollectionEntry<'articles'>['data']['tags'];
-  todo?: CollectionEntry<'articles'>['data']['todo'];
-  coverImage?: CollectionEntry<'articles'>['data']['coverImage'];
+  tags?: CollectionEntry<"articles">["data"]["tags"];
+  todo?: CollectionEntry<"articles">["data"]["todo"];
+  coverImage?: CollectionEntry<"articles">["data"]["coverImage"];
   readingTime?: string;
+  description?: string;
   frontmatter?: this;
 }
 
-const { title, date, tags, todo, coverImage, readingTime } = Astro.props.frontmatter || Astro.props;
+const { title, date, tags, todo, coverImage, readingTime, description } =
+  Astro.props.frontmatter || Astro.props;
+
+const coverImageRendered = await getImage({
+  src: coverImage ?? fallbackSeoLogo,
+  format: "jpg",
+  height: 630,
+  width: 1200,
+});
+
+const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
 ---
 
-<Base title={title}>
-    <main>
-      <h1 class="title">{title}</h1>
-      {date && (
-        <Metadata date={typeof date === 'string' ? new Date(date) : date} />
-      )}
-      {readingTime && (
-        <ReadingTime readingTime={readingTime} />
-      )}
-      {coverImage && (
-          <Picture src={coverImage} alt={title} formats={['avif', 'webp']} />
-      )}
-      <article>
-          <slot />
-      </article>
-      {todo && todo.length > 0 && (
-        <hr />
-      <h2>Work in progress&hellip;</h2>
-      <ul>
-        {todo.map((todo) => (
-          <li>{todo}</li>
-        ))}
-      </ul>
-      )}
-    </main>
-    <TagList tags={tags} slot='tags' />
+<Base
+  seo={{
+    title,
+    description:
+      description?.split(" ").slice(0, 20).join(" ").replace(/\D$/gi, "") +
+      "...",
+    keywords: tags,
+    twitter: {
+      card: "summary_large_image",
+      site: "@PompeyBUG",
+      image,
+    },
+    facebook: {
+      image,
+      url: Astro.request.url,
+      type: "article",
+    },
+  }}
+>
+  <main>
+    <h1 class="title">{title}</h1>
+    {
+      date && (
+        <Metadata date={typeof date === "string" ? new Date(date) : date} />
+      )
+    }
+    {readingTime && <ReadingTime readingTime={readingTime} />}
+    {
+      coverImage && (
+        <Picture src={coverImage} alt={title} formats={["avif", "webp"]} />
+      )
+    }
+    <article>
+      <slot />
+    </article>
+    {
+      todo && todo.length > 0 && (
+        <>
+          <hr />
+          <h2>Work in progress&hellip;</h2>
+          <ul>
+            {todo.map((todo) => (
+              <li>{todo}</li>
+            ))}
+          </ul>
+        </>
+      )
+    }
+  </main>
+  <TagList tags={tags} slot="tags" />
 </Base>

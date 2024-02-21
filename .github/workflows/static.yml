@@ -29,6 +29,10 @@ jobs:
         run: chmod +x sync_content.sh
       - name: Copy content
         run: ./sync_content.sh --pages
+      - name: Make fetch_gtag.sh executable
+        run: chmod +x fetch_gtag.sh
+      - name: Fetch gtag.js
+        run: ./fetch_gtag.sh
       - name: Install, build, and upload your site
         uses: withastro/action@v1
   deploy:

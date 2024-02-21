@@ -1,24 +1,26 @@
 ---
+import {Seo, type SeoProps } from 'astro-seo-meta';
+
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
+  seo?: SeoProps;
 }
 
-const { title, description } = Astro.props;
+const { title, description, seo } = Astro.props;
 ---
 
-<meta charset="utf-8" />
-{description && <meta name="description" content={description} />}
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="/img/logo.svg" />
-<link rel="”mask-icon”" href="/img/logo-w.svg" color='”#FFFFFF"' />
+<link rel="mask-icon" href="/img/logo-w.svg" color='#FFFFFF' />
 <link rel="apple-touch-icon" href="/img/logo.png" />
 <meta name="theme-color" content="#c64d0f" />
-<title>{title}</title>
+<Seo title={title} description={description} {...seo} />
 {import.meta.env.PROD && (
   <script
   type="text/partytown"
-  src="https://www.googletagmanager.com/gtag/js?id=UA-189037150-1"></script>
+  src="/js/gtag.js"></script>
 <script type="text/partytown">
 window.dataLayer = window.dataLayer || [];
 function gtag() {

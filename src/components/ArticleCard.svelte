@@ -40,10 +40,11 @@
       <h2>{article.data.title}</h2>
       <Metadata date={article.data.date} />
       <p>
-        {rendered.remarkPluginFrontmatter.strippedBody
+        {rendered.remarkPluginFrontmatter.description
           .split(" ")
           .slice(0, 20)
-          .join(" ")}...
+          .join(" ")
+          .replace(/\D$/gi, "")}...
       </p>
       {#if article.data.tags.length > 0}
         <ul>
