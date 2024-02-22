@@ -38,6 +38,7 @@ jobs:
           git commit -am "Updated submodules" && git push || echo "No changes to commit"
   build:
     runs-on: ubuntu-latest
+    if: always()
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
