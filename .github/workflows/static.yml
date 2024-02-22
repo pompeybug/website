@@ -41,11 +41,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          ref: ${{ needs.update-submodules.outputs.commit_hash }}
+          ref: ${{ needs.update-submodules.outputs.commit_hash == '' && 'main' || needs.update-submodules.outputs.commit_hash }}
       - name: Make fetch_gtag.sh executable
         run: chmod +x fetch_gtag.sh
       - name: check outputs
-        run: echo ${{ needs.update-submodules.outputs.commit_hash }}
+        run: echo ${{ needs.update-submodules.outputs.commit_hash == '' && 'true' || 'false' }}
       - name: Fetch gtag.js
         run: ./fetch_gtag.sh
       - name: Install, build, and upload your site
