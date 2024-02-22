@@ -20,12 +20,8 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-      - name: Checkout content repo
-        uses: actions/checkout@v4
         with:
-          repository: "pompeybug/content"
-          path: "content"
-          submodules: "recursive"
+          submodules: recursive
       - name: Make fetch_gtag.sh executable
         run: chmod +x fetch_gtag.sh
       - name: Fetch gtag.js
