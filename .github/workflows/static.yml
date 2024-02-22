@@ -25,10 +25,7 @@ jobs:
         with:
           repository: "pompeybug/content"
           path: "content"
-      - name: Make script executable
-        run: chmod +x sync_content.sh
-      - name: Copy content
-        run: ./sync_content.sh --pages
+          submodules: "recursive"
       - name: Make fetch_gtag.sh executable
         run: chmod +x fetch_gtag.sh
       - name: Fetch gtag.js
