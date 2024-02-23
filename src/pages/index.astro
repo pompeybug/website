@@ -4,8 +4,6 @@ import Base from "@layouts/Base.astro";
 import { getArticles, sort } from "@lib/collections/articles";
 import { getImage } from "astro:assets";
 
-export const prerender = true;
-
 const okArticles = sort(await getArticles());
 const renderedArticles = await Promise.all(
   okArticles.map(async (article) => ({

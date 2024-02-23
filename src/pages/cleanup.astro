@@ -2,8 +2,6 @@
 import Base from "@layouts/Base.astro";
 import { getArticlesWithoutOk, sort } from "@lib/collections/articles";
 
-export const prerender = true;
-
 const articlesWithoutOk = sort(await getArticlesWithoutOk());
 ---
 
