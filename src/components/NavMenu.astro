@@ -3,6 +3,7 @@ import { Icon } from "astro-icon/components";
 import { getSession } from "auth-astro/server";
 
 const session = await getSession(Astro.request);
+console.debug(session);
 ---
 
 <nav id="navmenu" class="navmenu-hidden">
@@ -12,9 +13,6 @@ const session = await getSession(Astro.request);
     </button>
     <h1><a href="/">Portsmouth Cycle Forum</a></h1>
   </div>
-
-  <button id="login">Login</button>
-  <button id="logout">Logout</button>
 
   <section>
     <h2>Inform</h2>
@@ -45,6 +43,19 @@ const session = await getSession(Astro.request);
       </section>
     )
   }
+
+  <section>
+    <h2>Account</h2>
+    <span class="innerlist">
+      {
+        session ? (
+          <button id="logout">Logout</button>
+        ) : (
+          <button id="login">Login</button>
+        )
+      }
+    </span>
+  </section>
 
   <section>
     <h2>Socials</h2>
@@ -85,10 +96,18 @@ const session = await getSession(Astro.request);
 
 <script>
   const { signIn, signOut } = await import("auth-astro/client");
-  document
-    .querySelector("#login")!
-    .addEventListener("click", () => signIn("github"));
-  document.querySelector("#logout")!.addEventListener("click", () => signOut());
+
+  const login = document.querySelector("#login");
+
+  if (login) {
+    login.addEventListener("click", () => signIn("github"));
+  }
+  const logout = document.querySelector("#logout");
+
+  if (logout) {
+    logout.addEventListener("click", () => signOut());
+  }
+
   document.querySelector(".close-button")?.addEventListener("click", () => {
     document.querySelector("#navmenu")?.classList.toggle("navmenu-hidden");
     document.querySelector("body")?.classList.toggle("disable-overflow");
