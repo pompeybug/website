@@ -39,7 +39,7 @@ export default defineConfig({
       session.accessToken = token.accessToken;
       return session;
     },
-    async token({ token, account }) {
+    async jwt({ token, account }) {
       if (account) {
         token.accessToken = account.access_token;
       }
