@@ -1,0 +1,14 @@
+---
+import { getSession } from "auth-astro/server";
+import Base from "@layouts/Base.astro";
+
+const session = await getSession(Astro.request);
+
+if (!session) {
+  return Astro.redirect("/");
+}
+---
+
+<Base title="Editor">
+  <h1>test</h1>
+</Base>
