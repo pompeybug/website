@@ -11,9 +11,10 @@ interface Props {
   title?: string;
   description?: string;
   seo?: SeoProps;
+  showLogin?: boolean;
 }
 
-const { title, description, seo } = Astro.props;
+const { title, description, seo, showLogin } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,7 +24,7 @@ const { title, description, seo } = Astro.props;
   </Head>
   <body>
     <Header />
-    <NavMenu>
+    <NavMenu showLogin={showLogin}>
       <slot name="tags" />
     </NavMenu>
     <slot />

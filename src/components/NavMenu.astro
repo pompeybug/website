@@ -2,6 +2,12 @@
 import { Icon } from "astro-icon/components";
 import { getSession } from "auth-astro/server";
 
+interface Props {
+  showLogin?: boolean;
+}
+
+const { showLogin } = Astro.props;
+
 const session = await getSession(Astro.request);
 console.debug(session);
 ---
@@ -44,18 +50,20 @@ console.debug(session);
     )
   }
 
-  <section>
-    <h2>Account</h2>
-    <span class="innerlist">
-      {
-        session ? (
-          <button id="logout">Logout</button>
-        ) : (
-          <button id="login">Login</button>
-        )
-      }
-    </span>
-  </section>
+  {
+    showLogin && (
+      <section>
+        <h2>Account</h2>
+        <span class="innerlist">
+          {session ? (
+            <button id="logout">Logout</button>
+          ) : (
+            <button id="login">Login</button>
+          )}
+        </span>
+      </section>
+    )
+  }
 
   <section>
     <h2>Socials</h2>

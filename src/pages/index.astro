@@ -27,7 +27,7 @@ const renderedArticles = await Promise.all(
 );
 ---
 
-<Base title="PCF">
+<Base title="PCF" showLogin>
   <main class="column">
     <h1>Our Articles</h1>
     <Articles articles={renderedArticles} client:load />
