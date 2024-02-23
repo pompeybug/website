@@ -4,3 +4,5 @@ node_modules
 .astro
 dist
 .vscode
+.env
+.env.local
