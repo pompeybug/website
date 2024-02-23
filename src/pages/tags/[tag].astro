@@ -4,31 +4,19 @@ import {
   getAllArticlesWithTag,
   getAllUniqueArticleTags,
 } from "@lib/collections/articles";
-import { type CollectionEntry } from "astro:content";
 import type { Tag } from "@lib/types";
 
-export const prerender = true;
+const { tag: tagParam } = Astro.params;
 
-export async function getStaticPaths() {
-  const uniqueTags = await getAllUniqueArticleTags();
+const uniqueTags = await getAllUniqueArticleTags();
 
-  return await Promise.all(
-    uniqueTags.map(async (tag) => ({
-      params: { tag: tag.slug },
-      props: {
-        articles: await getAllArticlesWithTag(tag.tag),
-        tag,
-      },
-    }))
-  );
+const tag = uniqueTags.find((tag) => tag.slug === tagParam);
+
+if (!tag) {
+  return Astro.redirect("/404");
 }
 
-interface Props {
-  tag: Tag;
-  articles: CollectionEntry<"articles">[];
-}
-
-const { articles, tag } = Astro.props;
+const articles = await getAllArticlesWithTag(tag.tag);
 ---
 
 <Base title={`Articles with ${tag.pretty} tag`}>

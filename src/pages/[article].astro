@@ -1,22 +1,19 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
 import ArticleComponent from "@layouts/Article.astro";
+import { getEntry } from "astro:content";
 
-export const prerender = true;
+const { article: articleParam } = Astro.params;
 
-export async function getStaticPaths() {
-  const articleEntries = await getCollection("articles");
-  return articleEntries.map((article) => ({
-    params: { article: article.slug },
-    props: { article },
-  }));
+if (!articleParam) {
+  return Astro.redirect("/404");
 }
 
-interface Props {
-  article: CollectionEntry<"articles">;
+const article = await getEntry("articles", articleParam);
+
+if (!article) {
+  return Astro.redirect("/404");
 }
 
-const { article } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await article.render();
 ---
 
