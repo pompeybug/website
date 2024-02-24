@@ -2,7 +2,7 @@
   import { onMount, onDestroy } from "svelte";
   import { Editor } from "@tiptap/core";
   import StarterKit from "@tiptap/starter-kit";
-  import { Markdown } from 'tiptap-markdown';
+  import { Markdown } from "tiptap-markdown";
 
   let element: HTMLDivElement;
   let editor: Editor;
@@ -24,33 +24,59 @@
       editor.destroy();
     }
   });
+
+  const submit = async (e: SubmitEvent) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget as HTMLFormElement);
+
+    formData.set("content", editor.storage.markdown.getMarkdown());
+
+    const response = await fetch("/api/submit", {
+      method: "PUT",
+      body: formData,
+    });
+  };
 </script>
 
 <div>
-  {#if editor}
-    <button
-      on:click={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-      class:active={editor.isActive("heading", { level: 1 })}
-    >
-      H1
-    </button>
-    <button
-      on:click={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-      class:active={editor.isActive("heading", { level: 2 })}
-    >
-      H2
-    </button>
-    <button
-      on:click={() => editor.chain().focus().setParagraph().run()}
-      class:active={editor.isActive("paragraph")}
-    >
-      P
-    </button>
-  {:else}
-  <p>loading...</p>
-  {/if}
+  <form on:submit={submit}>
+    {#if editor}
+      <label
+        >Title
+        <input type="text" id="title" name="title" required />
+      </label>
 
-  <div bind:this={element} />
+      <button
+        on:click={() =>
+          editor.chain().focus().toggleHeading({ level: 1 }).run()}
+        class:active={editor.isActive("heading", { level: 1 })}
+      >
+        H1
+      </button>
+      <button
+        on:click={() =>
+          editor.chain().focus().toggleHeading({ level: 2 }).run()}
+        class:active={editor.isActive("heading", { level: 2 })}
+      >
+        H2
+      </button>
+      <button
+        on:click={() => editor.chain().focus().setParagraph().run()}
+        class:active={editor.isActive("paragraph")}
+      >
+        P
+      </button>
+    {:else}
+      <p>loading...</p>
+    {/if}
+
+    <div bind:this={element} />
+
+    {#if editor}
+      <button>Submit</button>
+    {/if}
+  </form>
 </div>
 
 <style>
