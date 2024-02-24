@@ -29,6 +29,7 @@
     "@astrojs/sitemap": "^3.1.1",
     "@astrojs/svelte": "^5.0.3",
     "@astrojs/ts-plugin": "^1.5.3",
+    "@octokit/rest": "^20.0.2",
     "@sindresorhus/slugify": "^2.2.1",
     "@tiptap/core": "^2.2.4",
     "@tiptap/pm": "^2.2.4",
