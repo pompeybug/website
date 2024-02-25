@@ -17,7 +17,7 @@ interface Props {
   readingTime?: string;
   description?: string;
   frontmatter?: this;
-  slug: string;
+  slug?: string;
 }
 
 const { title, date, tags, todo, coverImage, readingTime, description, slug } =
@@ -55,11 +55,15 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
   <main>
     <div id="title">
       <h1 class="title">{title}</h1>
-      <button id="edit-button" role="link" data-show="false">
-        <a href={`/editor?article=${slug}`} title="edit article">
-          <Icon name="edit" />
-        </a>
-      </button>
+      {
+        slug && (
+          <button id="edit-button" role="link" data-show="false">
+            <a href={`/editor?article=${slug}`} title="edit article">
+              <Icon name="edit" />
+            </a>
+          </button>
+        )
+      }
     </div>
     {
       date && (
