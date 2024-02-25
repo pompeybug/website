@@ -108,15 +108,12 @@ console.debug(session);
 
     const session = await res.json();
 
-    const editorSection = document.querySelector(
-      "#navmenu #edit"
-    ) as HTMLDivElement | null;
-    const loginButton = document.querySelector(
-      "#navmenu #login"
-    ) as HTMLDivElement | null;
-    const logoutButton = document.querySelector(
-      "#navmenu #logout"
-    ) as HTMLDivElement | null;
+    const editorSection =
+      document.querySelector<HTMLDivElement>("#navmenu #edit");
+    const loginButton =
+      document.querySelector<HTMLDivElement>("#navmenu #login");
+    const logoutButton =
+      document.querySelector<HTMLDivElement>("#navmenu #logout");
 
     if (session) {
       if (editorSection) {
