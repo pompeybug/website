@@ -1,8 +1,5 @@
 ---
 import { Icon } from "astro-icon/components";
-
-const session = Astro.locals.session;
-console.debug(session);
 ---
 
 <nav id="navmenu" class="navmenu-hidden">
@@ -32,7 +29,7 @@ console.debug(session);
     </span>
   </section>
 
-  <section data-show={session ? "true" : "false"} id="edit">
+  <section data-show="false" id="edit">
     <h2>Edit</h2>
     <span class="innerlist">
       <a href="/editor">Editor</a>
@@ -42,8 +39,8 @@ console.debug(session);
   <section>
     <h2>Account</h2>
     <span class="innerlist">
-      <button id="logout" data-show={session ? "true" : "false"}>Logout</button>
-      <button id="login" data-show={session ? "false" : "true"}>Login</button>
+      <button id="logout" data-show="false">Logout</button>
+      <button id="login" data-show="true">Login</button>
     </span>
   </section>
 
