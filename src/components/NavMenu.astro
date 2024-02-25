@@ -1,14 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
-import { getSession } from "auth-astro/server";
 
-interface Props {
-  showLogin?: boolean;
-}
-
-const { showLogin } = Astro.props;
-
-const session = await getSession(Astro.request);
+const session = Astro.locals.session;
 console.debug(session);
 ---
 
@@ -39,31 +32,20 @@ console.debug(session);
     </span>
   </section>
 
-  {
-    session && (
-      <section>
-        <h2>Edit</h2>
-        <span class="innerlist">
-          <a href="/editor">Editor</a>
-        </span>
-      </section>
-    )
-  }
+  <section data-show={session ? "true" : "false"} id="edit">
+    <h2>Edit</h2>
+    <span class="innerlist">
+      <a href="/editor">Editor</a>
+    </span>
+  </section>
 
-  {
-    showLogin && (
-      <section>
-        <h2>Account</h2>
-        <span class="innerlist">
-          {session ? (
-            <button id="logout">Logout</button>
-          ) : (
-            <button id="login">Login</button>
-          )}
-        </span>
-      </section>
-    )
-  }
+  <section>
+    <h2>Account</h2>
+    <span class="innerlist">
+      <button id="logout" data-show={session ? "true" : "false"}>Logout</button>
+      <button id="login" data-show={session ? "false" : "true"}>Login</button>
+    </span>
+  </section>
 
   <section>
     <h2>Socials</h2>
@@ -120,6 +102,40 @@ console.debug(session);
     document.querySelector("#navmenu")?.classList.toggle("navmenu-hidden");
     document.querySelector("body")?.classList.toggle("disable-overflow");
   });
+
+  const getSession = async () => {
+    const res = await fetch("/api/auth/session");
+
+    const session = await res.json();
+
+    const editorSection = document.querySelector(
+      "#navmenu #edit"
+    ) as HTMLDivElement | null;
+    const loginButton = document.querySelector(
+      "#navmenu #login"
+    ) as HTMLDivElement | null;
+    const logoutButton = document.querySelector(
+      "#navmenu #logout"
+    ) as HTMLDivElement | null;
+
+    if (session) {
+      if (editorSection) {
+        editorSection.dataset.show = "true";
+      }
+
+      if (loginButton && logoutButton) {
+        loginButton.dataset.show = "false";
+        logoutButton.dataset.show = "true";
+      }
+    } else {
+      if (logoutButton && loginButton) {
+        logoutButton.dataset.show = "false";
+        loginButton.dataset.show = "true";
+      }
+    }
+  };
+
+  await getSession();
 </script>
 
 <style>
@@ -172,5 +188,13 @@ console.debug(session);
     width: 40px;
     height: 40px;
     color: var(--page);
+  }
+
+  #navmenu section[data-show="false"] {
+    display: none;
+  }
+
+  #navmenu button[data-show="false"] {
+    display: none;
   }
 </style>

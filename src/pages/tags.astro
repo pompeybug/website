@@ -3,6 +3,8 @@ import Base from "@layouts/Base.astro";
 import { getAllUniqueArticleTags } from "@lib/collections/articles";
 import { Icon } from "astro-icon/components";
 
+export const prerender = true;
+
 const uniqueTags = (await getAllUniqueArticleTags()).sort((a, b) => {
   if (a.tag < b.tag) {
     return -1;

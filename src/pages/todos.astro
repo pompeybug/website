@@ -2,6 +2,8 @@
 import Base from "@layouts/Base.astro";
 import { getArticlesWithTodos, sort } from "@lib/collections/articles";
 
+export const prerender = true;
+
 const articlesWithTodos = sort(await getArticlesWithTodos());
 ---
 
