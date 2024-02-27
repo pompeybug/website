@@ -73,7 +73,7 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
     {readingTime && <ReadingTime readingTime={readingTime} />}
     {
       coverImage && (
-        <Picture src={coverImage} alt={title} formats={["avif", "webp"]} />
+        <Picture src={coverImage} alt={title} formats={["avif", "webp"]} height={1000} />
       )
     }
     <article>

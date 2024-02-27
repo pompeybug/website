@@ -1,9 +1,8 @@
 ---
-import { getSession } from "auth-astro/server";
 import Base from "@layouts/Base.astro";
-import Editor from "@components/Editor.svelte";
+import Editor from "@components/EditorPage.svelte";
 
-const session = await getSession(Astro.request);
+const session = Astro.locals.session;
 
 if (!session) {
   return Astro.redirect("/");

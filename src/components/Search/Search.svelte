@@ -1,5 +1,6 @@
 <script lang="ts">
   import SearchIcon from "@components/Icons/SearchIcon.svelte";
+  import Input from "@components/Input/Input.svelte";
   import type { FormEventHandler } from "svelte/elements";
 
   export let id = "search";
@@ -11,32 +12,10 @@
 
 <div class="search-container">
   <SearchIcon className="search-icon" />
-  <input
-    id={id}
-    placeholder={placeholder}
-    title={title}
-    value={searchValue}
-    on:input={handleInput}
-    class="search-input"
-  />
+  <Input {id} {placeholder} {title} value={searchValue} {handleInput} />
 </div>
 
 <style>
-  .search-input {
-    flex: 1;
-    background-color: transparent;
-    border: 1px solid transparent;
-    padding: 0.5em;
-    border-bottom: 1px solid var(--search-colour);
-    color: var(--col1);
-  }
-
-  .search-input:focus {
-    outline: 1px solid var(--search-colour);
-    border-radius: var(--buttoncurve);
-    border: 1px solid transparent;
-  }
-
   .search-container {
     display: flex;
     gap: calc(var(--fixedspace) / 2);

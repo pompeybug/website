@@ -16,3 +16,5 @@ export interface Tag {
   slug: string;
   pretty: string;
 }
+
+export type MaybePromise<T> = Promise<T> | T;
