@@ -173,7 +173,8 @@
         {:else if $editor.isActive("image")}
           <Button title="Delete image" onClick={deleteImage}>
             <p>
-              {uploadedFiles.get($editor.getAttributes("image").id)?.name ?? ""}
+              {uploadedFiles.get($editor.getAttributes("image").id)?.name ??
+                $editor.getAttributes("image").alt}
             </p>
             <TrashIcon />
           </Button>

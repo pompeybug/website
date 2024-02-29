@@ -15,6 +15,7 @@
 
   type ArticleData = Pick<CollectionEntry<"articles">, "body" | "data"> & {
     coverImage?: GetImageResult;
+    originalFiles: Record<string, string>;
   };
 
   let editor: Readable<Editor>;
@@ -93,7 +94,7 @@
         },
       },
       onCreate: () => {
-        const k = $editor.$nodes('image');
+        const k = $editor.$nodes("image");
         console.debug(k);
       },
     });

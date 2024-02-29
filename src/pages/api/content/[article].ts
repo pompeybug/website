@@ -1,18 +1,15 @@
-import { getArticles } from "@lib/collections/articles";
-import type { APIRoute } from "astro";
+import { type APIRoute, type GetImageResult } from "astro";
 import { getImage } from "astro:assets";
-import { fromMarkdown } from "mdast-util-from-markdown";
-import { toMarkdown } from "mdast-util-to-markdown";
-import path from "path";
-import { marked } from 'marked';
-import fs from "fs/promises"
+import { getEntry } from "astro:content";
 
 export const GET: APIRoute = async ({ params, url }) => {
   const articleSlug = params.article;
 
-  const articles = await getArticles();
+  if (!articleSlug) {
+    return new Response("Article slug missing", { status: 400 });
+  }
 
-  const article = articles.find((article) => article.slug === articleSlug);
+  const article = await getEntry("articles", articleSlug);
 
   if (!article) {
     return new Response("Article not found", { status: 404 });
@@ -31,40 +28,27 @@ export const GET: APIRoute = async ({ params, url }) => {
     });
   }
 
-  console.debug(article);
+  const originalFiles: Record<string, string> = {};
 
-  console.debug(process.cwd());
+  if (article.data.images) {
+    for (const image of article.data.images) {
+      const renderedImage = (await getImage({
+        src: image.image,
+      })) as GetImageResult;
 
-  const markdown = fromMarkdown(article.body);
+      originalFiles[renderedImage.src] = image.file;
 
-  for (const childNode of markdown.children) {
-    if (childNode.type === "paragraph") {
-      const images = childNode.children.filter((c) => c.type === "image") as {
-        url: string;
-        alt: string;
-      }[];
-
-      for (const image of images) {
-        const imagePath = `${import.meta.env.PROD ? '../../../../' : '/'}src/content/articles/${
-          article.slug
-        }/${path.basename(image.url)}`;
-        const imageImport = await import(/* @vite-ignore */ imagePath);
-
-        console.debug(imageImport);
-
-        const renderedImage = await getImage({
-          src: imageImport.default,
-        });
-
-        image.url = renderedImage.src;
-      }
+      article.body = article.body.replace(`./${image.file}`, renderedImage.src);
     }
   }
 
-  article.body = toMarkdown(markdown);
-
   return new Response(
-    JSON.stringify({ body: article.body, data: article.data, coverImage }),
+    JSON.stringify({
+      body: article.body,
+      data: article.data,
+      coverImage,
+      originalFiles,
+    }),
     {
       status: 200,
       headers: { "Content-Type": "application/json" },
