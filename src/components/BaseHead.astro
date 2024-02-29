@@ -19,9 +19,10 @@ const { title, description, seo } = Astro.props;
 <Seo title={title} description={description} {...seo} />
 {import.meta.env.PROD && (
   <script
+  is:inline
   type="text/partytown"
   src="/js/gtag.js"></script>
-<script type="text/partytown">
+<script type="text/partytown" is:inline>
 window.dataLayer = window.dataLayer || [];
 function gtag() {
   dataLayer.push(arguments);

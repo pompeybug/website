@@ -45,7 +45,7 @@ const uniqueTags = (await getAllUniqueArticleTags()).sort((a, b) => {
     </p>
   </main>
 
-  <script define:vars={{ uniqueTags }}>
+  <script define:vars={{ uniqueTags }} is:inline>
     const tagFilter = document.querySelector("#tag-filter");
 
     const handleInput = (ev) => {
