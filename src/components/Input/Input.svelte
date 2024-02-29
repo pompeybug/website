@@ -10,6 +10,7 @@
     undefined;
   export let className = "";
   export let onEnter: (() => MaybePromise<void>) | undefined = undefined;
+  export let name = id;
 
   const onKeyDown = async (ev: KeyboardEvent) => {
     if (ev.key === "Enter") {
@@ -24,6 +25,7 @@
   {id}
   {placeholder}
   {title}
+  {name}
   bind:value
   on:input={handleInput}
   on:keydown={onKeyDown}

@@ -3,15 +3,16 @@
   import type { MaybePromise } from "@lib/types";
 
   export let label: string;
-  export let value = '';
-  export let id = "input";
+  export let value = "";
+  export let id: string;
+  export let name = id;
   export let placeholder = "";
   export let onEnter: (() => MaybePromise<void>) | undefined = undefined;
 </script>
 
 <div class="input">
   <label for={id}>{label}</label>
-  <Input {id} {placeholder} {onEnter} bind:value />
+  <Input {id} {placeholder} {onEnter} {name} bind:value />
 </div>
 
 <style>

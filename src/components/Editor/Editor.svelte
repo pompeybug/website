@@ -27,6 +27,7 @@
   import type { BubbleMenuPluginProps } from "@tiptap/extension-bubble-menu";
   import Button from "@components/Button.svelte";
   import { nanoid } from "nanoid";
+  import LabelledCheckbox from "@components/Input/LabelledCheckbox.svelte";
 
   export let editor: Readable<Editor>;
   export let editorReady: boolean;
@@ -336,18 +337,16 @@
       <div id="link-modal">
         <LabelledInput
           bind:value={linkUrl}
+          id="link-url-input"
           label="Link URL"
           placeholder="Link url"
           onEnter={onLinkSubmit}
         />
-        <div id="external-link-input">
-          <label for="external-link">External link:</label>
-          <input
-            id="external-link"
-            type="checkbox"
-            bind:checked={externalLink}
-          />
-        </div>
+        <LabelledCheckbox
+          bind:checked={externalLink}
+          label="External link:"
+          id="external-link-checkbox"
+        />
       </div>
     </Modal>
   {/if}
@@ -369,6 +368,7 @@
         />
         <LabelledInput
           bind:value={imageDescription}
+          id="image-description-input"
           label="Image description"
           placeholder="Image description"
         />
@@ -439,16 +439,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--fixedspace);
-  }
-
-  :global(#link-modal) #external-link-input {
-    display: flex;
-    align-items: center;
-    gap: calc(var(--fixedspace) * 0.5);
-  }
-
-  :global(#link-modal) #external-link-input input {
-    margin: 0;
   }
 
   :global(#image-modal) {
