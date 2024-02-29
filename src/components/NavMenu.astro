@@ -29,16 +29,12 @@ import { Icon } from "astro-icon/components";
     </span>
   </section>
 
-  <section data-show="false" id="edit">
-    <h2>Edit</h2>
-    <span class="innerlist">
-      <a href="/editor">Editor</a>
-    </span>
-  </section>
-
   <section>
     <h2>Account</h2>
     <span class="innerlist">
+      <div data-show="false" id="hidden-account-options">
+        <a href="/editor">New Article</a>
+      </div>
       <button id="logout" data-show="false">Logout</button>
       <button id="login" data-show="true">Login</button>
     </span>
@@ -105,16 +101,16 @@ import { Icon } from "astro-icon/components";
 
     const session = await res.json();
 
-    const editorSection =
-      document.querySelector<HTMLDivElement>("#navmenu #edit");
+    const accountOptions =
+      document.querySelector<HTMLDivElement>("#navmenu #hidden-account-options");
     const loginButton =
       document.querySelector<HTMLDivElement>("#navmenu #login");
     const logoutButton =
       document.querySelector<HTMLDivElement>("#navmenu #logout");
 
     if (session) {
-      if (editorSection) {
-        editorSection.dataset.show = "true";
+      if (accountOptions) {
+        accountOptions.dataset.show = "true";
       }
 
       if (loginButton && logoutButton) {
@@ -184,11 +180,11 @@ import { Icon } from "astro-icon/components";
     color: var(--page);
   }
 
-  #navmenu section[data-show="false"] {
-    display: none;
+  #hidden-account-options {
+    display: flex;
   }
 
-  #navmenu button[data-show="false"] {
+  #navmenu *[data-show="false"] {
     display: none;
   }
 </style>
