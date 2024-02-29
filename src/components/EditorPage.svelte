@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, onDestroy } from "svelte";
+  import { onMount } from "svelte";
   import StarterKit from "@tiptap/starter-kit";
   import Link from "@tiptap/extension-link";
   import Underline from "@tiptap/extension-underline";
@@ -10,14 +10,17 @@
   import type { CollectionEntry } from "astro:content";
   import type { GetImageResult } from "astro";
   import ImageUpload from "./ImageUpload.svelte";
-  import { BubbleMenu, createEditor, Editor } from "svelte-tiptap";
+  import { createEditor, Editor } from "svelte-tiptap";
   import type { Readable } from "svelte/store";
+  import LabelledCheckbox from "./Input/LabelledCheckbox.svelte";
+  import LabelledInput from "./Input/LabelledInput.svelte";
 
   type ArticleData = Pick<CollectionEntry<"articles">, "body" | "data"> & {
     coverImage?: GetImageResult;
     originalFiles: Record<string, string>;
   };
 
+  export let session: import("@auth/core/types").Session;
   let editor: Readable<Editor>;
   let contentLoaded = false;
   let title = "";
@@ -25,6 +28,7 @@
   let renderCoverImage = false;
   let coverImageElement: HTMLImageElement | undefined;
   let uploadedFiles: Map<string, File> = new Map();
+  let showAuthor = true;
 
   $: editorReady = $editor && contentLoaded;
 
@@ -121,14 +125,26 @@
       }
     });
 
-    formData.set("content", markdownContent);
+    if (originalArticleData?.originalFiles) {
+      Object.entries(originalArticleData.originalFiles)
+        .filter(([url]) => !markdownContent.includes(url))
+        .forEach(([, file]) => formData.append("deletedFiles", file));
 
-    console.debug(markdownContent);
+      Object.entries(originalArticleData.originalFiles).forEach(
+        ([url, file]) => {
+          markdownContent = markdownContent.replace(url, `./${file}`);
+        }
+      );
+    }
 
-    // const response = await fetch("/api/submit", {
-    //   method: "PUT",
-    //   body: formData,
-    // });
+    formData.append("content", markdownContent);
+
+    console.debug([...formData.entries()]);
+
+    const response = await fetch("/api/submit", {
+      method: "PUT",
+      body: formData,
+    });
   };
 </script>
 
@@ -148,9 +164,36 @@
       message="Upload cover image"
     />
     <EditorComponent {editor} {editorReady} {uploadedFiles} />
+    <div id="article-options">
+      <h2>Article Options</h2>
+      <div>
+        <LabelledCheckbox
+          label="Publish article:"
+          id="publish-article-checkbox"
+        />
+        <p>
+          If left unchecked, this article will only be visible to logged in
+          users and in the UNPUBLISHED-PAGE
+        </p>
+      </div>
+      <LabelledCheckbox
+        label="Show author:"
+        name="showAuthor"
+        id="show-author-checkbox"
+        bind:checked={showAuthor}
+      />
+      {#if showAuthor}
+        <LabelledInput
+          id="author-name-input"
+          name="authorName"
+          label="Author Name"
+          placeholder="author name"
+          value={session.user?.name ?? ""}
+        />
+      {/if}
+    </div>
     <button>submit</button>
   </div>
-  <div id="sidebar"></div>
 </form>
 
 <style>
@@ -163,18 +206,19 @@
   #editor {
     display: flex;
     flex-direction: column;
-    flex: 3;
     background-color: var(--col1dark);
     padding: var(--fixedspace);
     border-radius: var(--buttoncurve);
     gap: var(--fixedspace);
   }
 
-  #sidebar {
-    position: sticky;
+  #article-options {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    background-color: var(--col1extradark);
+    padding: var(--fixedspace);
+    border-radius: var(--buttoncurve);
+    gap: var(--fixedspace);
   }
 
   :global(.title-input) {
