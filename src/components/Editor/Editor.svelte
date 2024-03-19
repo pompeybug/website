@@ -48,11 +48,11 @@
       return;
     }
 
-    editorElement.append(...Array.from($editor.options.element.childNodes))
+    editorElement.append(...Array.from($editor.options.element.childNodes));
     $editor.setOptions({ element: editorElement });
 
     initialised = true;
-  }
+  };
 
   onMount(init);
   beforeUpdate(init);
@@ -193,8 +193,11 @@
         {:else if $editor.isActive("image")}
           <Button title="Delete image" onClick={deleteImage}>
             <p>
-              {uploadedFiles.get($editor.getAttributes("image").id)?.name ??
-                $editor.getAttributes("image").alt}
+              {
+              uploadedFiles.get($editor.getAttributes("image").src)?.name ?? // For original images
+                uploadedFiles.get($editor.getAttributes("image").id)?.name ?? // For uploaded images
+                $editor.getAttributes("image").alt
+                }
             </p>
             <TrashIcon />
           </Button>
@@ -215,7 +218,7 @@
           </option>
         {/each}
       </select>
-      <div class="separator" role="separator" />
+      <div class="separator" />
       <div class="editor-toolbar-group">
         <ToolbarButton
           {editor}
@@ -246,7 +249,7 @@
           onClick={toggleUnderline}
         />
       </div>
-      <div class="separator" role="separator" />
+      <div class="separator" />
       <div class="editor-toolbar-group">
         <ToolbarButton
           {editor}
@@ -263,7 +266,7 @@
           onClick={toggleOrderedList}
         />
       </div>
-      <div class="separator" role="separator" />
+      <div class="separator" />
       <div class="editor-toolbar-group">
         <ToolbarButton
           {editor}
@@ -280,7 +283,7 @@
           onClick={toggleBlockquote}
         />
       </div>
-      <div class="separator" role="separator" />
+      <div class="separator" />
       <div class="editor-toolbar-group">
         <ToolbarButton
           {editor}
@@ -296,7 +299,7 @@
           onClick={unsetLink}
         />
       </div>
-      <div class="separator" role="separator" />
+      <div class="separator" />
       <div class="editor-toolbar-group">
         <ToolbarButton
           {editor}
@@ -312,7 +315,7 @@
           onClick={deleteImage}
         />
       </div>
-      <div class="separator" role="separator" />
+      <div class="separator" />
       <div class="editor-toolbar-group">
         <ToolbarButton
           {editor}

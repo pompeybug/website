@@ -23,16 +23,13 @@
 
   export let session: import("@auth/core/types").Session;
   let editor: Readable<Editor>;
-  let contentLoaded = false;
+  let editorReady = false;
   let title = "";
   let originalArticleData: ArticleData;
   let renderCoverImage = false;
   let coverImageElement: HTMLImageElement | undefined;
   let uploadedFiles: Map<string, File> = new Map();
   let showAuthor = true;
-  let coverImageDeleted = false;
-
-  $: editorReady = $editor && contentLoaded;
 
   onMount(async () => {
     let content = "<p>Your content here</p>";
@@ -50,6 +47,13 @@
         title = originalArticleData.data.title;
 
         console.debug(originalArticleData);
+
+        // Add original files to uploaded files Map so we can get the filename
+        Object.entries(originalArticleData.originalFiles).forEach(
+          ([src, filename]) => {
+            uploadedFiles.set(src, new File([], filename));
+          }
+        );
 
         if (originalArticleData.coverImage) {
           renderCoverImage = true;
@@ -101,7 +105,7 @@
       },
     });
 
-    contentLoaded = true;
+    editorReady = true;
   });
 
   const submit = async (e: SubmitEvent) => {
@@ -110,11 +114,18 @@
     let markdownContent: string = $editor.storage.markdown.getMarkdown();
 
     uploadedFiles.forEach((file, id) => {
+      // Skip original files that were appended with an empty File object
+      if (file.size === 0) {
+        return;
+      }
+
+      // Make sure the upload still exists in the document, may have been removed via an undo/redo or another way we're not tracking
       const uploadedImage = document.querySelector<HTMLImageElement>(
         `.editor img[id="${id}"]`
       );
 
       if (uploadedImage) {
+        // Replace the base64 string src with the markdown compatible image reference
         markdownContent = markdownContent.replace(
           uploadedImage.src,
           `./${file.name}`
@@ -124,10 +135,12 @@
     });
 
     if (originalArticleData?.originalFiles) {
+      // Determine whether any original files have been deleted
       Object.entries(originalArticleData.originalFiles)
         .filter(([url]) => !markdownContent.includes(url))
         .forEach(([, file]) => formData.append("deletedFiles", file));
 
+      // Replace the astro image url src with the markdown compatible image reference
       Object.entries(originalArticleData.originalFiles).forEach(
         ([url, file]) => {
           markdownContent = markdownContent.replace(url, `./${file}`);
