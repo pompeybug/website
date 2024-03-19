@@ -27,8 +27,8 @@
   import { nanoid } from "nanoid";
   import LabelledCheckbox from "@components/Input/LabelledCheckbox.svelte";
   import BubbleMenu from "./BubbleMenu.svelte";
+  import { beforeUpdate, onMount, tick } from "svelte";
   import type { Editor } from "@tiptap/core";
-  import { onMount, tick } from "svelte";
 
   export let editor: Readable<Editor>;
   export let editorReady: boolean;
@@ -39,12 +39,23 @@
   let showAddImageDialog = false;
   let imageDescription = "";
   let editorElement: HTMLDivElement;
+  let initialised = false;
 
-  onMount(async () => {
+  const init = async () => {
     await tick();
+
+    if (!$editor?.options.element || initialised) {
+      return;
+    }
+
     editorElement.append(...Array.from($editor.options.element.childNodes))
     $editor.setOptions({ element: editorElement });
-  })
+
+    initialised = true;
+  }
+
+  onMount(init);
+  beforeUpdate(init);
 
   let currentImageFileList: FileList | undefined;
   let currentImageBase64: string;

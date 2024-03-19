@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, tick } from "svelte";
   import StarterKit from "@tiptap/starter-kit";
   import Link from "@tiptap/extension-link";
   import Underline from "@tiptap/extension-underline";
@@ -54,14 +54,14 @@
         if (originalArticleData.coverImage) {
           renderCoverImage = true;
 
-          setTimeout(() => {
-            if (originalArticleData.coverImage && coverImageElement) {
-              coverImageElement.setAttribute(
-                "src",
-                originalArticleData.coverImage.src
-              );
-            }
-          }, 1);
+          await tick();
+
+          if (originalArticleData.coverImage && coverImageElement) {
+            coverImageElement.setAttribute(
+              "src",
+              originalArticleData.coverImage.src
+            );
+          }
         }
       }
     }
