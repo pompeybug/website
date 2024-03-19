@@ -46,8 +46,6 @@
         content = originalArticleData.body;
         title = originalArticleData.data.title;
 
-        console.debug(originalArticleData);
-
         // Add original files to uploaded files Map so we can get the filename
         Object.entries(originalArticleData.originalFiles).forEach(
           ([src, filename]) => {
@@ -56,16 +54,14 @@
         );
 
         if (originalArticleData.coverImage) {
-          renderCoverImage = true;
-
-          await tick();
-
           if (originalArticleData.coverImage && coverImageElement) {
             coverImageElement.setAttribute(
               "src",
               originalArticleData.coverImage.src
             );
           }
+
+          renderCoverImage = true;
         }
       }
     }

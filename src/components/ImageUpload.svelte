@@ -18,14 +18,13 @@
       const coverImage = imageFiles[0];
 
       if (coverImage) {
-        renderImage = true;
-
         const reader = new FileReader();
 
         reader.addEventListener("load", () => {
           if (imageElement && reader.result) {
-            imageElement.setAttribute("src", reader.result.toString());
             imageBase64 = reader.result.toString();
+            imageElement.setAttribute("src", imageBase64);
+            renderImage = true;
           }
         });
 
@@ -51,8 +50,7 @@
 
 <div class="image-upload-container">
   <label for={name}>
-    {#if renderImage}
-      <div class="image-upload-button-container">
+      <div class="image-upload-button-container" style={`display: ${renderImage ? 'unset' : 'none'}`}>
         <button on:click|preventDefault={onImageClear} type="button">
           <CloseIcon />
         </button>
@@ -62,7 +60,6 @@
         {#each imageFiles as imageFile}
           <p>{imageFile.name}</p>
         {/each}
-      {/if}
     {:else}
       <UploadIcon className="upload-icon" />
     {/if}
