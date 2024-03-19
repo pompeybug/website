@@ -1,6 +1,7 @@
 <script lang="ts">
   import UploadIcon from "@components/Icons/UploadIcon.svelte";
   import CloseIcon from "@components/Icons/CloseIcon.svelte";
+  import type { MaybePromise } from "@lib/types";
 
   export let id = "imageUpload";
   export let name = id;
@@ -9,7 +10,8 @@
   export let imageFiles: FileList | undefined = undefined;
   export let renderImage = false;
   export let message = "Upload image";
-  export let imageBase64 = '';
+  export let imageBase64 = "";
+  export let onClear: (() => MaybePromise<void>) | undefined = undefined;
 
   const onImageChange = () => {
     if (imageFiles) {
@@ -36,11 +38,14 @@
     renderImage = false;
   };
 
-  const onImageClear = () => {
+  const onImageClear = async () => {
+    if (onClear) {
+      await onClear();
+    }
     if (imageInputElement) {
       imageInputElement.value = "";
-      renderImage = false;
     }
+    renderImage = false;
   };
 </script>
 

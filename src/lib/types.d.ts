@@ -18,3 +18,8 @@ export interface Tag {
 }
 
 export type MaybePromise<T> = Promise<T> | T;
+
+export interface FrontmatterImage {
+  image: string;
+  file: string;
+}

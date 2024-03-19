@@ -1,12 +1,13 @@
 import type { Octokit } from "@octokit/rest";
 import type { Endpoints } from "@octokit/types";
 
-export async function getFile(client: Octokit, path: string) {
+export async function getFile(client: Octokit, path: string, ref = 'main') {
   try {
     return await client.repos.getContent({
       owner: import.meta.env.GITHUB_ORGANISATION,
       repo: import.meta.env.GITHUB_CONTENT_REPOSITORY,
       path,
+      ref,
     });
   } catch (error) {
     return null;
