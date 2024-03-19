@@ -15,6 +15,7 @@ interface ImportMetaEnv {
   readonly AUTH_SECRET: string;
   readonly GITHUB_ORGANISATION: string;
   readonly GITHUB_CONTENT_REPOSITORY: string;
+  readonly GITHUB_CONTENT_REPOSITORY_BRANCH: string;
 }
 
 interface ImportMeta {

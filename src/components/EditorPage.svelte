@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, tick } from "svelte";
+  import { onMount } from "svelte";
   import StarterKit from "@tiptap/starter-kit";
   import Link from "@tiptap/extension-link";
   import Underline from "@tiptap/extension-underline";
@@ -45,6 +45,8 @@
         originalArticleData = await res.json();
         content = originalArticleData.body;
         title = originalArticleData.data.title;
+
+        console.debug(originalArticleData);
 
         // Add original files to uploaded files Map so we can get the filename
         Object.entries(originalArticleData.originalFiles).forEach(
@@ -148,19 +150,40 @@
 
     if (originalArticleData?.data) {
       formData.append(
-        "originalSlug",
-        originalArticleData.data.originalSlug ?? ""
+        "originalFrontmatter",
+        JSON.stringify(originalArticleData.data)
       );
+    }
+
+    // Empty file inputs still have a file object in them, it's just a File object with a size of 0.
+    // We can't set the input element value programmatically, so when loading a cover image from an existing article
+    // the size of the File object will be 0.
+    // But we reset the src attribute on the preview image when the user actually delete the upload, which indicates
+    // the cover image has been deleted.
+    // File size > 0: User has uploaded a new cover image
+    // File size = 0: User hasn't touched the cover image
+    // Preview image src = '': User has removed the existing cover image
+    if (!coverImageElement?.getAttribute("src")) {
+      formData.delete("coverImage");
     }
 
     console.debug([...formData.entries()]);
 
-    return;
+    // return;
 
-    const response = await fetch("/api/submit", {
-      method: "PUT",
-      body: formData,
-    });
+    let response: Response;
+
+    if (originalArticleData) {
+      response = await fetch("/api/content/submit", {
+        method: "PUT",
+        body: formData,
+      });
+    } else {
+      response = await fetch("/api/content/submit", {
+        method: "POST",
+        body: formData,
+      });
+    }
   };
 </script>
 

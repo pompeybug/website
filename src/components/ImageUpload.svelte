@@ -41,8 +41,9 @@
     if (onClear) {
       await onClear();
     }
-    if (imageInputElement) {
+    if (imageInputElement && imageElement) {
       imageInputElement.value = "";
+      imageElement.src = "";
     }
     renderImage = false;
   };
@@ -50,16 +51,19 @@
 
 <div class="image-upload-container">
   <label for={name}>
-      <div class="image-upload-button-container" style={`display: ${renderImage ? 'unset' : 'none'}`}>
-        <button on:click|preventDefault={onImageClear} type="button">
-          <CloseIcon />
-        </button>
-        <img bind:this={imageElement} src="" alt="cover preview" />
-      </div>
-      {#if imageFiles}
-        {#each imageFiles as imageFile}
-          <p>{imageFile.name}</p>
-        {/each}
+    <div
+      class="image-upload-button-container"
+      style={`display: ${renderImage ? "unset" : "none"}`}
+    >
+      <button on:click|preventDefault={onImageClear} type="button">
+        <CloseIcon />
+      </button>
+      <img bind:this={imageElement} src="" alt="cover preview" />
+    </div>
+    {#if imageFiles && renderImage}
+      {#each imageFiles as imageFile}
+        <p>{imageFile.name}</p>
+      {/each}
     {:else}
       <UploadIcon className="upload-icon" />
     {/if}
