@@ -3,21 +3,14 @@ import slugify from "@sindresorhus/slugify";
 import { getSession } from "auth-astro/server";
 import type { Session } from "@auth/core/types";
 import { Octokit } from "@octokit/rest";
-import {
-  createBlob,
-  createCommit,
-  createTree,
-  getFile,
-  getRef,
-  updateReference,
-} from "@lib/api/content";
 import matter from "gray-matter";
 import type { Endpoints } from "@octokit/types";
 import type { FrontmatterImage } from "@lib/types";
 import path from "path";
+import GithubApi from "@lib/githubApi";
 
 async function buildCommitTree(
-  client: Octokit,
+  client: GithubApi,
   slug: string,
   content: string,
   coverImage: File | null,
@@ -31,7 +24,7 @@ async function buildCommitTree(
     [];
 
   const contentEncoded = Buffer.from(content).toString("base64");
-  const articleBlob = await createBlob(client, contentEncoded);
+  const articleBlob = await client.createBlob(contentEncoded);
 
   if (articleBlob) {
     tree.push({
@@ -48,7 +41,7 @@ async function buildCommitTree(
     const coverImageBuffer = await coverImage.arrayBuffer();
     const coverImageEncoded = Buffer.from(coverImageBuffer).toString("base64");
 
-    const coverImageBlob = await createBlob(client, coverImageEncoded);
+    const coverImageBlob = await client.createBlob(coverImageEncoded);
 
     if (coverImageBlob) {
       tree.push({
@@ -76,7 +69,7 @@ async function buildCommitTree(
     const content = await file.arrayBuffer();
     const encodedContent = Buffer.from(content).toString("base64");
 
-    const blob = await createBlob(client, encodedContent);
+    const blob = await client.createBlob(encodedContent);
 
     if (blob) {
       tree.push({
@@ -132,9 +125,8 @@ function getData(formData: FormData, session: Session) {
   };
 }
 
-async function getExistingArticleFrontmatter(client: Octokit, slug: string) {
-  const existingFile = await getFile(
-    client,
+async function getExistingArticleFrontmatter(client: GithubApi, slug: string) {
+  const existingFile = await client.getFile(
     `articles/${slug}/index.md`,
     "test2"
   );
@@ -264,14 +256,9 @@ export const PUT: APIRoute = async ({ request }) => {
   // always use original slug since changing the title would result in the slug changing
   const slug = data.originalSlug ?? slugify(data.title);
 
-  const octokit = new Octokit({
-    auth: session.accessToken,
-  });
+  const client = GithubApi.makeGithubApi(session.accessToken);
 
-  const existingFrontmatter = await getExistingArticleFrontmatter(
-    octokit,
-    slug
-  );
+  const existingFrontmatter = await getExistingArticleFrontmatter(client, slug);
 
   console.debug("existingFrontmatter", existingFrontmatter);
 
@@ -285,7 +272,7 @@ export const PUT: APIRoute = async ({ request }) => {
 
   try {
     commitTree = await buildCommitTree(
-      octokit,
+      client,
       slug,
       data.content,
       data.coverImage,
@@ -303,7 +290,7 @@ export const PUT: APIRoute = async ({ request }) => {
     return new Response("Unknown error occured", { status: 500 });
   }
 
-  const mainBranchRef = await getRef(octokit, "heads/test2");
+  const mainBranchRef = await client.getRef("heads/test2");
 
   if (!mainBranchRef) {
     return new Response(JSON.stringify({ error: "Failed to get branch ref" }), {
@@ -311,8 +298,7 @@ export const PUT: APIRoute = async ({ request }) => {
     });
   }
 
-  const createdTree = await createTree(
-    octokit,
+  const createdTree = await client.createTree(
     commitTree,
     mainBranchRef.data.object.sha
   );
@@ -326,7 +312,7 @@ export const PUT: APIRoute = async ({ request }) => {
     );
   }
 
-  const createdCommit = await createCommit(octokit, createdTree.data.sha, [
+  const createdCommit = await client.createCommit(createdTree.data.sha, [
     mainBranchRef.data.object.sha,
   ]);
 
@@ -339,8 +325,7 @@ export const PUT: APIRoute = async ({ request }) => {
     );
   }
 
-  const updatedReference = await updateReference(
-    octokit,
+  const updatedReference = await client.updateReference(
     "heads/test2",
     createdCommit.data.sha
   );
