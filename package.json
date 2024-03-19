@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "rimraf ./dist && astro check && astro build",
     "preview": "astro preview"
   },
   "keywords": [
@@ -22,13 +22,13 @@
   "license": "CC-BY-SA-4.0",
   "dependencies": {
     "@astro-community/astro-embed-youtube": "^0.4.4",
-    "@astrojs/check": "^0.5.6",
-    "@astrojs/mdx": "^2.1.1",
-    "@astrojs/node": "^8.2.3",
+    "@astrojs/check": "^0.5.9",
+    "@astrojs/mdx": "^2.2.0",
+    "@astrojs/node": "^8.2.4",
     "@astrojs/partytown": "^2.0.4",
     "@astrojs/sitemap": "^3.1.1",
     "@astrojs/svelte": "^5.2.0",
-    "@astrojs/ts-plugin": "^1.5.3",
+    "@astrojs/ts-plugin": "^1.6.0",
     "@octokit/rest": "^20.0.2",
     "@sindresorhus/slugify": "^2.2.1",
     "@tiptap/core": "^2.2.4",
@@ -38,7 +38,7 @@
     "@tiptap/extension-underline": "^2.2.4",
     "@tiptap/pm": "^2.2.4",
     "@tiptap/starter-kit": "^2.2.4",
-    "astro": "^4.4.8",
+    "astro": "^4.5.6",
     "astro-capo": "^0.0.1",
     "astro-icon": "^1.1.0",
     "astro-purgecss": "^4.1.0",
@@ -54,6 +54,9 @@
     "remove-markdown": "^0.5.0",
     "svelte": "^4.2.12",
     "tiptap-markdown": "^0.8.9",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.2"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5"
   }
 }
