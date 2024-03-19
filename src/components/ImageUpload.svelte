@@ -1,6 +1,6 @@
 <script lang="ts">
-  import UploadIcon from "@components/Icons/UploadIcon.svelte";
-  import CloseIcon from "@components/Icons/CloseIcon.svelte";
+  import TablerUpload from 'icons:svelte/tabler/upload';
+  import TablerX from 'icons:svelte/tabler/x';
   import type { MaybePromise } from "@lib/types";
 
   export let id = "imageUpload";
@@ -56,7 +56,7 @@
       style={`display: ${renderImage ? "unset" : "none"}`}
     >
       <button on:click|preventDefault={onImageClear} type="button">
-        <CloseIcon />
+        <TablerX />
       </button>
       <img bind:this={imageElement} src="" alt="cover preview" />
     </div>
@@ -65,7 +65,7 @@
         <p>{imageFile.name}</p>
       {/each}
     {:else}
-      <UploadIcon className="upload-icon" />
+      <TablerUpload class="upload-icon" />
     {/if}
     {message}
     <input

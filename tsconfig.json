@@ -23,7 +23,13 @@
             {
                 "name": "@astrojs/ts-plugin"
             }
-        ]
+        ],
+        "types": [
+            "unplugin-icons/types/astro",
+            "unplugin-icons/types/svelte"
+          ]
     },
-    "include": ["src/**/*"]
+    "include": [
+        "src/**/*"
+    ]
 }

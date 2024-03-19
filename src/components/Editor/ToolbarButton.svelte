@@ -42,4 +42,8 @@
     cursor: pointer;
     background-color: var(--col1light);
   }
+
+  button > :global(svg) {
+    font-size: 1.5em;
+  }
 </style>

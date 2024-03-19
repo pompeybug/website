@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SearchIcon from "@components/Icons/SearchIcon.svelte";
+  import TablerSearch from 'icons:svelte/tabler/search';
   import Input from "@components/Input/Input.svelte";
   import type { FormEventHandler } from "svelte/elements";
 
@@ -11,7 +11,7 @@
 </script>
 
 <div class="search-container">
-  <SearchIcon className="search-icon" />
+  <TablerSearch class="search-icon" />
   <Input {id} {placeholder} {title} value={searchValue} {handleInput} />
 </div>
 
@@ -24,6 +24,6 @@
   }
 
   .search-container :global(.search-icon) {
-    stroke: var(--search-colour);
+    color: var(--search-colour);
   }
 </style>

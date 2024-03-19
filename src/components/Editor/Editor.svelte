@@ -1,22 +1,22 @@
 <script lang="ts">
   import type { Level } from "@tiptap/extension-heading";
-  import LoadIcon from "@components/Icons/LoadIcon.svelte";
-  import BoldIcon from "@components/Icons/BoldIcon.svelte";
-  import ItalicIcon from "@components/Icons/ItalicIcon.svelte";
-  import StrikethroughIcon from "@components/Icons/StrikethroughIcon.svelte";
-  import BulletListIcon from "@components/Icons/BulletListIcon.svelte";
-  import NumberListIcon from "@components/Icons/NumberListIcon.svelte";
-  import UnderlineIcon from "@components/Icons/UnderlineIcon.svelte";
-  import CodeIcon from "@components/Icons/CodeIcon.svelte";
-  import BlockquoteIcon from "@components/Icons/BlockquoteIcon.svelte";
-  import LinkIcon from "@components/Icons/LinkIcon.svelte";
-  import UnlinkIcon from "@components/Icons/UnlinkIcon.svelte";
-  import UndoIcon from "@components/Icons/UndoIcon.svelte";
-  import RedoIcon from "@components/Icons/RedoIcon.svelte";
-  import PhotoAddIcon from "@components/Icons/PhotoAddIcon.svelte";
-  import PhotoMinusIcon from "@components/Icons/PhotoMinusIcon.svelte";
-  import EditIcon from "@components/Icons/EditIcon.svelte";
-  import TrashIcon from "@components/Icons/TrashIcon.svelte";
+  import TablerBold from 'icons:svelte/tabler/bold';
+  import TablerLoader2 from 'icons:svelte/tabler/loader-2';
+  import TablerItalic from 'icons:svelte/tabler/italic';
+  import TablerStrikethrough from 'icons:svelte/tabler/strikethrough';
+  import TablerList from 'icons:svelte/tabler/list';
+  import TablerListNumbers from 'icons:svelte/tabler/list-numbers';
+  import TablerUnderline from 'icons:svelte/tabler/underline';
+  import TablerCode from 'icons:svelte/tabler/code';
+  import TablerBlockquote from 'icons:svelte/tabler/blockquote';
+  import TablerLink from 'icons:svelte/tabler/link';
+  import TablerLinkOff from 'icons:svelte/tabler/link-off';
+  import TablerRedo from 'icons:svelte/tabler/arrow-forward-up';
+  import TablerUndo from 'icons:svelte/tabler/arrow-back-up';
+  import TablerPhotoPlus from 'icons:svelte/tabler/photo-plus';
+  import TablerPhotoMinus from 'icons:svelte/tabler/photo-minus';
+  import TablerEdit from 'icons:svelte/tabler/edit';
+  import TablerTrash from 'icons:svelte/tabler/trash';
   import ToolbarButton from "./ToolbarButton.svelte";
   import Modal from "@components/Modal.svelte";
   import ImageUpload from "@components/ImageUpload.svelte";
@@ -185,10 +185,10 @@
             <p>
               {$editor.getAttributes("link").href}
             </p>
-            <EditIcon />
+            <TablerEdit />
           </Button>
           <Button title="Delete link" onClick={unsetLink}>
-            <UnlinkIcon />
+            <TablerLinkOff />
           </Button>
         {:else if $editor.isActive("image")}
           <Button title="Delete image" onClick={deleteImage}>
@@ -199,7 +199,7 @@
                 $editor.getAttributes("image").alt
                 }
             </p>
-            <TrashIcon />
+            <TablerTrash />
           </Button>
         {/if}
       </div>
@@ -224,28 +224,28 @@
           {editor}
           activeType="bold"
           title="toggle bold"
-          icon={BoldIcon}
+          icon={TablerBold}
           onClick={toggleBold}
         />
         <ToolbarButton
           {editor}
           activeType="italic"
           title="toggle italic"
-          icon={ItalicIcon}
+          icon={TablerItalic}
           onClick={toggleItalic}
         />
         <ToolbarButton
           {editor}
           activeType="strike"
           title="toggle strikethrough"
-          icon={StrikethroughIcon}
+          icon={TablerStrikethrough}
           onClick={toggleStrikethrough}
         />
         <ToolbarButton
           {editor}
           activeType="underline"
           title="toggle underline"
-          icon={UnderlineIcon}
+          icon={TablerUnderline}
           onClick={toggleUnderline}
         />
       </div>
@@ -255,14 +255,14 @@
           {editor}
           activeType="bulletList"
           title="toggle bullet list"
-          icon={BulletListIcon}
+          icon={TablerList}
           onClick={toggleBulletList}
         />
         <ToolbarButton
           {editor}
           activeType="orderedList"
           title="toggle numbered list"
-          icon={NumberListIcon}
+          icon={TablerListNumbers}
           onClick={toggleOrderedList}
         />
       </div>
@@ -272,14 +272,14 @@
           {editor}
           activeType="code"
           title="toggle code"
-          icon={CodeIcon}
+          icon={TablerCode}
           onClick={toggleCode}
         />
         <ToolbarButton
           {editor}
           activeType="blockquote"
           title="toggle blockquote"
-          icon={BlockquoteIcon}
+          icon={TablerBlockquote}
           onClick={toggleBlockquote}
         />
       </div>
@@ -288,14 +288,14 @@
         <ToolbarButton
           {editor}
           title="add link"
-          icon={LinkIcon}
+          icon={TablerLink}
           onClick={onShowLinkDialog}
         />
         <ToolbarButton
           {editor}
           activeType="link"
           title="remove link"
-          icon={UnlinkIcon}
+          icon={TablerLinkOff}
           onClick={unsetLink}
         />
       </div>
@@ -304,14 +304,14 @@
         <ToolbarButton
           {editor}
           title="add image"
-          icon={PhotoAddIcon}
+          icon={TablerPhotoPlus}
           onClick={onShowAddImageDialog}
         />
         <ToolbarButton
           {editor}
           activeType="image"
           title="delete image"
-          icon={PhotoMinusIcon}
+          icon={TablerPhotoMinus}
           onClick={deleteImage}
         />
       </div>
@@ -320,13 +320,13 @@
         <ToolbarButton
           {editor}
           activeType="undo (ctrl/cmd + z)"
-          icon={UndoIcon}
+          icon={TablerUndo}
           onClick={undo}
         />
         <ToolbarButton
           {editor}
           activeType="redo (ctrl/cmd + shift + z)"
-          icon={RedoIcon}
+          icon={TablerRedo}
           onClick={redo}
         />
       </div>
@@ -340,7 +340,7 @@
     </div>
   {:else}
     <div id="loader">
-      <LoadIcon className="load-icon" />
+      <TablerLoader2 class="load-icon" />
     </div>
   {/if}
 

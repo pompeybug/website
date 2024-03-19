@@ -1,7 +1,7 @@
 <script lang="ts">
   import Portal from "@components/Portal.svelte";
   import { onDestroy, onMount } from "svelte";
-  import CloseIcon from "./Icons/CloseIcon.svelte";
+  import TablerX from 'icons:svelte/tabler/x';
   import Button from "./Button.svelte";
   import type { MaybePromise } from "@lib/types";
 
@@ -59,7 +59,7 @@
     <div class="close-bar">
       <h1>{title}</h1>
       <Button onClick={onClose} title="close">
-        <CloseIcon className="close-icon" />
+        <TablerX class="close-icon" />
       </Button>
     </div>
     <div class="body">
