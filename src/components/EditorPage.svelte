@@ -15,6 +15,7 @@
   import LabelledInput from "./Input/LabelledInput.svelte";
   import createEditor from "src/stores/editor";
   import type { Editor } from "@tiptap/core";
+  import Loader from "./Loader.svelte";
 
   type ArticleData = Pick<CollectionEntry<"articles">, "body" | "data"> & {
     coverImage?: GetImageResult;
@@ -30,6 +31,7 @@
   let coverImageElement: HTMLImageElement | undefined;
   let uploadedFiles: Map<string, File> = new Map();
   let showAuthor = true;
+  let saving = false;
 
   onMount(async () => {
     let content = "<p>Your content here</p>";
@@ -171,6 +173,8 @@
 
     // return;
 
+    saving = true;
+
     let response: Response;
 
     if (originalArticleData) {
@@ -184,6 +188,8 @@
         body: formData,
       });
     }
+
+    saving = false;
   };
 </script>
 
@@ -193,7 +199,7 @@
       id="title"
       placeholder="Article title"
       title="title"
-      className="title-input"
+      class="title-input"
       bind:value={title}
     />
     <ImageUpload
@@ -234,6 +240,12 @@
     </div>
     <button>submit</button>
   </div>
+  {#if saving}
+    <div id="loader">
+      <Loader />
+      <h1>Saving</h1>
+    </div>
+  {/if}
 </form>
 
 <style>
@@ -241,6 +253,30 @@
     display: flex;
     flex-direction: column;
     gap: var(--fixedspace);
+    position: relative;
+  }
+
+  #loader {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: var(--page);
+    opacity: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--fixedspace);
+    flex-direction: column;
+  }
+
+  #loader h1 {
+    margin: 0;
+    font-size: 2em;
+    font-weight: 500;
+  }
+
+  #loader :global(svg) {
+    font-size: 2em;
   }
 
   #editor {

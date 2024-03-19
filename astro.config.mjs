@@ -5,7 +5,6 @@ import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 import svelte from "@astrojs/svelte";
-// import icon from "astro-icon";
 import { loadEnv } from "vite";
 import purgecss from "astro-purgecss";
 import auth from "auth-astro";

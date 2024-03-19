@@ -1,22 +1,21 @@
 <script lang="ts">
   import type { Level } from "@tiptap/extension-heading";
-  import TablerBold from 'icons:svelte/tabler/bold';
-  import TablerLoader2 from 'icons:svelte/tabler/loader-2';
-  import TablerItalic from 'icons:svelte/tabler/italic';
-  import TablerStrikethrough from 'icons:svelte/tabler/strikethrough';
-  import TablerList from 'icons:svelte/tabler/list';
-  import TablerListNumbers from 'icons:svelte/tabler/list-numbers';
-  import TablerUnderline from 'icons:svelte/tabler/underline';
-  import TablerCode from 'icons:svelte/tabler/code';
-  import TablerBlockquote from 'icons:svelte/tabler/blockquote';
-  import TablerLink from 'icons:svelte/tabler/link';
-  import TablerLinkOff from 'icons:svelte/tabler/link-off';
-  import TablerRedo from 'icons:svelte/tabler/arrow-forward-up';
-  import TablerUndo from 'icons:svelte/tabler/arrow-back-up';
-  import TablerPhotoPlus from 'icons:svelte/tabler/photo-plus';
-  import TablerPhotoMinus from 'icons:svelte/tabler/photo-minus';
-  import TablerEdit from 'icons:svelte/tabler/edit';
-  import TablerTrash from 'icons:svelte/tabler/trash';
+  import TablerBold from "icons:svelte/tabler/bold";
+  import TablerItalic from "icons:svelte/tabler/italic";
+  import TablerStrikethrough from "icons:svelte/tabler/strikethrough";
+  import TablerList from "icons:svelte/tabler/list";
+  import TablerListNumbers from "icons:svelte/tabler/list-numbers";
+  import TablerUnderline from "icons:svelte/tabler/underline";
+  import TablerCode from "icons:svelte/tabler/code";
+  import TablerBlockquote from "icons:svelte/tabler/blockquote";
+  import TablerLink from "icons:svelte/tabler/link";
+  import TablerLinkOff from "icons:svelte/tabler/link-off";
+  import TablerRedo from "icons:svelte/tabler/arrow-forward-up";
+  import TablerUndo from "icons:svelte/tabler/arrow-back-up";
+  import TablerPhotoPlus from "icons:svelte/tabler/photo-plus";
+  import TablerPhotoMinus from "icons:svelte/tabler/photo-minus";
+  import TablerEdit from "icons:svelte/tabler/edit";
+  import TablerTrash from "icons:svelte/tabler/trash";
   import ToolbarButton from "./ToolbarButton.svelte";
   import Modal from "@components/Modal.svelte";
   import ImageUpload from "@components/ImageUpload.svelte";
@@ -29,6 +28,7 @@
   import BubbleMenu from "./BubbleMenu.svelte";
   import { beforeUpdate, onMount, tick } from "svelte";
   import type { Editor } from "@tiptap/core";
+  import Loader from "@components/Loader.svelte";
 
   export let editor: Readable<Editor>;
   export let editorReady: boolean;
@@ -193,11 +193,9 @@
         {:else if $editor.isActive("image")}
           <Button title="Delete image" onClick={deleteImage}>
             <p>
-              {
-              uploadedFiles.get($editor.getAttributes("image").src)?.name ?? // For original images
+              {uploadedFiles.get($editor.getAttributes("image").src)?.name ?? // For original images
                 uploadedFiles.get($editor.getAttributes("image").id)?.name ?? // For uploaded images
-                $editor.getAttributes("image").alt
-                }
+                $editor.getAttributes("image").alt}
             </p>
             <TablerTrash />
           </Button>
@@ -340,11 +338,14 @@
     </div>
   {:else}
     <div id="loader">
-      <TablerLoader2 class="load-icon" />
+      <Loader style="font-size: 2em;" />
     </div>
   {/if}
 
-  <div bind:this={editorElement} />
+  <div
+    bind:this={editorElement}
+    style={`display: ${editorReady ? "contents" : "none"}`}
+  />
 
   {#if showLinkDialog}
     <Modal
@@ -432,22 +433,6 @@
     background-color: var(--midgrey);
     margin-left: 1px;
     margin-right: 1px;
-  }
-
-  :global(.load-icon) {
-    animation: spin 1s ease-in-out infinite;
-    width: 50px;
-    height: 50px;
-    color: var(--col1);
-  }
-
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
   }
 
   #loader {

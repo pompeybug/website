@@ -6,10 +6,9 @@
   export let type: "button" | "submit" | "reset" = "button";
   export let title: string;
   export let onClick: () => MaybePromise<T>;
-  export let className = "";
 </script>
 
-<button {type} {title} on:click={onClick} class={className}>
+<button {type} {title} on:click={onClick} class={$$props.class}>
   <slot />
 </button>
 

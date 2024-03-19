@@ -1,4 +1,5 @@
 <script lang="ts">
+  import cn from "@lib/cx";
   import type { MaybePromise } from "@lib/types";
   import type { FormEventHandler } from "svelte/elements";
 
@@ -8,7 +9,6 @@
   export let value = "";
   export let handleInput: FormEventHandler<HTMLInputElement> | undefined =
     undefined;
-  export let className = "";
   export let onEnter: (() => MaybePromise<void>) | undefined = undefined;
   export let name = id;
 
@@ -29,7 +29,7 @@
   bind:value
   on:input={handleInput}
   on:keydown={onKeyDown}
-  class={"search-input " + className}
+  class={cn("search-input", $$props.class)}
 />
 
 <style>
