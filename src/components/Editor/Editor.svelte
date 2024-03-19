@@ -21,13 +21,14 @@
   import Modal from "@components/Modal.svelte";
   import ImageUpload from "@components/ImageUpload.svelte";
   import LabelledInput from "@components/Input/LabelledInput.svelte";
-  import { BubbleMenu, EditorContent } from "svelte-tiptap";
   import type { Readable } from "svelte/store";
-  import type { Editor } from "svelte-tiptap";
   import type { BubbleMenuPluginProps } from "@tiptap/extension-bubble-menu";
   import Button from "@components/Button.svelte";
   import { nanoid } from "nanoid";
   import LabelledCheckbox from "@components/Input/LabelledCheckbox.svelte";
+  import BubbleMenu from "./BubbleMenu.svelte";
+  import type { Editor } from "@tiptap/core";
+  import { onMount, tick } from "svelte";
 
   export let editor: Readable<Editor>;
   export let editorReady: boolean;
@@ -37,6 +38,13 @@
   let externalLink = false;
   let showAddImageDialog = false;
   let imageDescription = "";
+  let editorElement: HTMLDivElement;
+
+  onMount(async () => {
+    await tick();
+    editorElement.append(...Array.from($editor.options.element.childNodes))
+    $editor.setOptions({ element: editorElement });
+  })
 
   let currentImageFileList: FileList | undefined;
   let currentImageBase64: string;
@@ -322,7 +330,7 @@
     </div>
   {/if}
 
-  <EditorContent editor={$editor} />
+  <div bind:this={editorElement} />
 
   {#if showLinkDialog}
     <Modal

@@ -10,10 +10,11 @@
   import type { CollectionEntry } from "astro:content";
   import type { GetImageResult } from "astro";
   import ImageUpload from "./ImageUpload.svelte";
-  import { createEditor, Editor } from "svelte-tiptap";
   import type { Readable } from "svelte/store";
   import LabelledCheckbox from "./Input/LabelledCheckbox.svelte";
   import LabelledInput from "./Input/LabelledInput.svelte";
+  import createEditor from "src/stores/editor";
+  import type { Editor } from "@tiptap/core";
 
   type ArticleData = Pick<CollectionEntry<"articles">, "body" | "data"> & {
     coverImage?: GetImageResult;
@@ -29,6 +30,7 @@
   let coverImageElement: HTMLImageElement | undefined;
   let uploadedFiles: Map<string, File> = new Map();
   let showAuthor = true;
+  let coverImageDeleted = false;
 
   $: editorReady = $editor && contentLoaded;
 
@@ -97,10 +99,6 @@
           class: "editor",
         },
       },
-      onCreate: () => {
-        const k = $editor.$nodes("image");
-        console.debug(k);
-      },
     });
 
     contentLoaded = true;
@@ -139,7 +137,16 @@
 
     formData.append("content", markdownContent);
 
+    if (originalArticleData?.data) {
+      formData.append(
+        "originalSlug",
+        originalArticleData.data.originalSlug ?? ""
+      );
+    }
+
     console.debug([...formData.entries()]);
+
+    return;
 
     const response = await fetch("/api/submit", {
       method: "PUT",
@@ -170,6 +177,7 @@
         <LabelledCheckbox
           label="Publish article:"
           id="publish-article-checkbox"
+          name="publish"
         />
         <p>
           If left unchecked, this article will only be visible to logged in
