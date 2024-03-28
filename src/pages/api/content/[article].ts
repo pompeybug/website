@@ -46,6 +46,7 @@ export const GET: APIRoute = async ({ params, url }) => {
     JSON.stringify({
       body: article.body,
       data: article.data,
+      slug: article.slug,
       coverImage,
       originalFiles,
     }),

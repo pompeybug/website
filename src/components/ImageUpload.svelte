@@ -1,81 +1,70 @@
 <script lang="ts">
-  import TablerUpload from 'icons:svelte/tabler/upload';
-  import TablerX from 'icons:svelte/tabler/x';
+  import TablerUpload from "icons:svelte/tabler/upload";
+  import TablerX from "icons:svelte/tabler/x";
   import type { MaybePromise } from "@lib/types";
+  import { readFileAsBase64 } from "@lib/utils";
 
   export let id = "imageUpload";
   export let name = id;
-  export let imageInputElement: HTMLInputElement | undefined = undefined;
-  export let imageElement: HTMLImageElement | undefined = undefined;
-  export let imageFiles: FileList | undefined = undefined;
-  export let renderImage = false;
   export let message = "Upload image";
-  export let imageBase64 = "";
+  export let onUpload: (file: File | null) => MaybePromise<void>;
   export let onClear: (() => MaybePromise<void>) | undefined = undefined;
+  export let initialImageOverride: string | undefined = undefined;
 
-  const onImageChange = () => {
-    if (imageFiles) {
-      const coverImage = imageFiles[0];
+  let imageInputElement: HTMLInputElement;
+  let uploadedFile: File | null = null;
+  $: uploadedFileDataUrl = initialImageOverride ?? null;
 
-      if (coverImage) {
-        const reader = new FileReader();
+  const onChange = async () => {
+    uploadedFile = imageInputElement.files?.item(0) ?? null;
 
-        reader.addEventListener("load", () => {
-          if (imageElement && reader.result) {
-            imageBase64 = reader.result.toString();
-            imageElement.setAttribute("src", imageBase64);
-            renderImage = true;
-          }
-        });
-
-        reader.readAsDataURL(coverImage);
-
-        return;
-      }
-    }
-
-    renderImage = false;
+    await onUpload(uploadedFile);
   };
 
   const onImageClear = async () => {
     if (onClear) {
       await onClear();
     }
-    if (imageInputElement && imageElement) {
-      imageInputElement.value = "";
-      imageElement.src = "";
-    }
-    renderImage = false;
+    uploadedFile = null;
+    imageInputElement.value = "";
   };
+
+  const readUploadedImage = async (uploadedFile: File | null) => {
+    if (!uploadedFile) {
+      uploadedFileDataUrl = null;
+      return;
+    }
+
+    uploadedFileDataUrl = await readFileAsBase64(uploadedFile);
+  };
+
+  $: readUploadedImage(uploadedFile);
 </script>
 
 <div class="image-upload-container">
   <label for={name}>
     <div
       class="image-upload-button-container"
-      style={`display: ${renderImage ? "unset" : "none"}`}
+      style={`display: ${uploadedFile || uploadedFileDataUrl ? "unset" : "none"}`}
     >
       <button on:click|preventDefault={onImageClear} type="button">
         <TablerX />
       </button>
-      <img bind:this={imageElement} src="" alt="cover preview" />
+      <img src={uploadedFileDataUrl} alt="cover preview" />
     </div>
-    {#if imageFiles && renderImage}
-      {#each imageFiles as imageFile}
-        <p>{imageFile.name}</p>
-      {/each}
+    {#if uploadedFile}
+      <p>{uploadedFile.name}</p>
     {:else}
       <TablerUpload class="upload-icon" />
     {/if}
     {message}
     <input
       bind:this={imageInputElement}
-      bind:files={imageFiles}
-      on:change={onImageChange}
+      on:change={onChange}
       {id}
       {name}
       type="file"
-      accept="image/png, image/jpeg, image/avif, image/webp"
+      accept="image/png, image/jpeg, image/avif, image/webp, image/gif"
     />
   </label>
 </div>

@@ -2,10 +2,10 @@
 import Base from "@layouts/Base.astro";
 import Editor from "@components/EditorPage.svelte";
 
-const session = Astro.locals.session;
+const session = Astro.locals.session as import("@auth/core/types").Session;
 
 if (!session) {
-  return Astro.redirect("/");
+  // return Astro.redirect("/");
 }
 ---
 

@@ -9,33 +9,63 @@
   import EditorComponent from "@components/Editor/Editor.svelte";
   import type { CollectionEntry } from "astro:content";
   import type { GetImageResult } from "astro";
-  import ImageUpload from "./ImageUpload.svelte";
   import type { Readable } from "svelte/store";
   import LabelledCheckbox from "./Input/LabelledCheckbox.svelte";
   import LabelledInput from "./Input/LabelledInput.svelte";
   import createEditor from "src/stores/editor";
   import type { Editor } from "@tiptap/core";
   import Loader from "./Loader.svelte";
+  import ImageUpload from "./ImageUpload.svelte";
+  import createUploadedFiles, {
+    type UploadedFileStore,
+  } from "src/stores/uploadedFiles";
 
-  type ArticleData = Pick<CollectionEntry<"articles">, "body" | "data"> & {
+  type ArticleData = Pick<
+    CollectionEntry<"articles">,
+    "body" | "data" | "slug"
+  > & {
     coverImage?: GetImageResult;
     originalFiles: Record<string, string>;
+  };
+
+  type ArticleStateCoverImageInitial = {
+    isInitialCoverImage: true;
+    file: string;
+  };
+
+  type ArticleStateCoverImageNormal = {
+    isInitialCoverImage: false;
+    file: File | null;
+  };
+
+  type ArticleState = {
+    title: string;
+    coverImage: ArticleStateCoverImageInitial | ArticleStateCoverImageNormal;
+    uploadedFiles: UploadedFileStore;
+    author: string;
+    showAuthor: boolean;
   };
 
   export let session: import("@auth/core/types").Session;
   let editor: Readable<Editor>;
   let editorReady = false;
-  let title = "";
   let originalArticleData: ArticleData;
-  let renderCoverImage = false;
-  let coverImageElement: HTMLImageElement | undefined;
-  let uploadedFiles: Map<string, File> = new Map();
   let showAuthor = true;
   let saving = false;
 
+  const data: ArticleState = {
+    title: "",
+    coverImage: {
+      isInitialCoverImage: false,
+      file: null,
+    },
+    uploadedFiles: createUploadedFiles(),
+    author: session.user?.name ?? "",
+    showAuthor: true,
+  };
+
   onMount(async () => {
     let content = "<p>Your content here</p>";
-
     const urlParams = new URLSearchParams(window.location.search);
 
     const article = urlParams.get("article");
@@ -46,26 +76,17 @@
       if (res.ok) {
         originalArticleData = await res.json();
         content = originalArticleData.body;
-        title = originalArticleData.data.title;
+        data.title = originalArticleData.data.title;
 
-        console.debug(originalArticleData);
-
-        // Add original files to uploaded files Map so we can get the filename
         Object.entries(originalArticleData.originalFiles).forEach(
           ([src, filename]) => {
-            uploadedFiles.set(src, new File([], filename));
+            data.uploadedFiles.addFile(filename, null, src);
           }
         );
 
         if (originalArticleData.coverImage) {
-          if (originalArticleData.coverImage && coverImageElement) {
-            coverImageElement.setAttribute(
-              "src",
-              originalArticleData.coverImage.src
-            );
-          }
-
-          renderCoverImage = true;
+          data.coverImage.isInitialCoverImage = true;
+          data.coverImage.file = originalArticleData.coverImage.src;
         }
       }
     }
@@ -87,16 +108,51 @@
               alt: {
                 default: undefined,
               },
-              title: {
-                default: undefined,
-              },
-              id: {
-                default: undefined,
-              },
             };
           },
         }),
       ],
+      onTransaction({ transaction }) {
+        const history = transaction.getMeta("history$");
+
+        if (!history) {
+          return;
+        }
+
+        const addedFiles: string[] = [];
+        const deletedFiles: string[] = [];
+
+        transaction.steps.forEach((step) => {
+          const stepJson = step.toJSON();
+
+          if (stepJson.slice) {
+            addedFiles.push(
+              ...stepJson.slice.content
+                .filter((content: any) => content.type === "image")
+                .map((content: any) => content.attrs.src)
+            );
+          }
+
+          const deletion = transaction.before.slice(stepJson.from, stepJson.to);
+
+          deletion.content.forEach((node) => {
+            if (node.type.name === "image") {
+              deletedFiles.push(node.attrs.src);
+            }
+          });
+        });
+
+        deletedFiles.forEach((filename) => {
+          data.uploadedFiles.updateFileByMarkdownFilename(filename, {
+            deleted: true,
+          });
+        });
+        addedFiles.forEach((filename) => {
+          data.uploadedFiles.updateFileByMarkdownFilename(filename, {
+            deleted: false,
+          });
+        });
+      },
       content,
       editorProps: {
         attributes: {
@@ -111,50 +167,34 @@
   const submit = async (e: SubmitEvent) => {
     const formData = new FormData(e.currentTarget as HTMLFormElement);
 
-    let markdownContent: string = $editor.storage.markdown.getMarkdown();
+    let markdownContent = $editor.storage.markdown.getMarkdown() as string;
 
-    uploadedFiles.forEach((file, id) => {
-      // Skip original files that were appended with an empty File object
-      if (file.size === 0) {
+    $uploadedFiles.forEach((file) => {
+      if (file.deleted && file.type === 'local') {
         return;
       }
 
-      // Make sure the upload still exists in the document, may have been removed via an undo/redo or another way we're not tracking
-      const uploadedImage = document.querySelector<HTMLImageElement>(
-        `.editor img[id="${id}"]`
+      markdownContent = markdownContent.replace(
+        file.markdownFilename,
+        `./${file.filename}`
       );
 
-      if (uploadedImage) {
-        // Replace the base64 string src with the markdown compatible image reference
-        markdownContent = markdownContent.replace(
-          uploadedImage.src,
-          `./${file.name}`
-        );
-        formData.append("uploads", file, file.name);
+      if (file.file) {
+        formData.append("uploads", file.file, file.filename);
+      } else {
+        formData.append("uploads", new File([], file.filename), file.filename);
       }
-    });
 
-    if (originalArticleData?.originalFiles) {
-      // Determine whether any original files have been deleted
-      Object.entries(originalArticleData.originalFiles)
-        .filter(([url]) => !markdownContent.includes(url))
-        .forEach(([, file]) => formData.append("deletedFiles", file));
-
-      // Replace the astro image url src with the markdown compatible image reference
-      Object.entries(originalArticleData.originalFiles).forEach(
-        ([url, file]) => {
-          markdownContent = markdownContent.replace(url, `./${file}`);
-        }
+      formData.append(
+        "uploadStates",
+        JSON.stringify({ deleted: file.deleted, type: file.type })
       );
-    }
+    });
 
     formData.append("content", markdownContent);
 
     if (originalArticleData?.data) {
-      formData.append(
-        "originalFrontmatter",
-        JSON.stringify(originalArticleData.data)
-      );
+      formData.append("slug", originalArticleData.slug);
     }
 
     // Empty file inputs still have a file object in them, it's just a File object with a size of 0.
@@ -191,24 +231,41 @@
 
     saving = false;
   };
+
+  $: console.dir(data);
+  const { uploadedFiles } = data;
+  $: console.dir($uploadedFiles);
 </script>
 
-<form id="container" on:submit|preventDefault={submit}>
+<div id="container">
   <div id="editor">
     <Input
       id="title"
       placeholder="Article title"
       title="title"
       class="title-input"
-      bind:value={title}
+      bind:value={data.title}
     />
     <ImageUpload
       id="coverImage"
-      bind:imageElement={coverImageElement}
-      bind:renderImage={renderCoverImage}
       message="Upload cover image"
+      onUpload={(file) => {
+        data.coverImage.file = file;
+        data.coverImage.isInitialCoverImage = false;
+      }}
+      onClear={() => {
+        data.coverImage.file = null;
+        data.coverImage.isInitialCoverImage = false;
+      }}
+      initialImageOverride={data.coverImage.isInitialCoverImage
+        ? data.coverImage.file
+        : undefined}
     />
-    <EditorComponent {editor} {editorReady} {uploadedFiles} />
+    <EditorComponent
+      {editor}
+      {editorReady}
+      uploadedFiles={data.uploadedFiles}
+    />
     <div id="article-options">
       <h2>Article Options</h2>
       <div>
@@ -226,7 +283,7 @@
         label="Show author:"
         name="showAuthor"
         id="show-author-checkbox"
-        bind:checked={showAuthor}
+        bind:checked={data.showAuthor}
       />
       {#if showAuthor}
         <LabelledInput
@@ -234,11 +291,11 @@
           name="authorName"
           label="Author Name"
           placeholder="author name"
-          value={session.user?.name ?? ""}
+          bind:value={data.author}
         />
       {/if}
     </div>
-    <button>submit</button>
+    <button on:click|preventDefault={submit}>submit</button>
   </div>
   {#if saving}
     <div id="loader">
@@ -246,7 +303,7 @@
       <h1>Saving</h1>
     </div>
   {/if}
-</form>
+</div>
 
 <style>
   #container {

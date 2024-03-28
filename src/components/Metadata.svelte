@@ -3,7 +3,7 @@
 </script>
 
 {#if date}
-  <aside id="date" class="published">
+  <aside id="date" class="published" data-pagefind-ignore>
     <img
       src="/img/calendar.svg"
       alt="Publication date"

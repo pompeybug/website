@@ -52,7 +52,7 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
     },
   }}
 >
-  <main>
+  <main data-pagefind-body>
     <div id="title">
       <h1 class="title">{title}</h1>
       {
@@ -102,7 +102,7 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
 
     const session = await res.json();
 
-    if (session) {
+    if (true) {
       const editButton = document.querySelector<HTMLButtonElement>(
         "main #title #edit-button"
       );

@@ -17,27 +17,23 @@
   import TablerEdit from "icons:svelte/tabler/edit";
   import TablerTrash from "icons:svelte/tabler/trash";
   import ToolbarButton from "./ToolbarButton.svelte";
-  import Modal from "@components/Modal.svelte";
-  import ImageUpload from "@components/ImageUpload.svelte";
-  import LabelledInput from "@components/Input/LabelledInput.svelte";
   import type { Readable } from "svelte/store";
   import type { BubbleMenuPluginProps } from "@tiptap/extension-bubble-menu";
   import Button from "@components/Button.svelte";
-  import { nanoid } from "nanoid";
-  import LabelledCheckbox from "@components/Input/LabelledCheckbox.svelte";
   import BubbleMenu from "./BubbleMenu.svelte";
   import { beforeUpdate, onMount, tick } from "svelte";
   import type { Editor } from "@tiptap/core";
   import Loader from "@components/Loader.svelte";
+  import ImageUploadModal from "./ImageUploadModal.svelte";
+  import { readFileAsBase64 } from "@lib/utils";
+  import AddLinkModal from "./AddLinkModal.svelte";
+  import type { UploadedFileStore } from "src/stores/uploadedFiles";
 
   export let editor: Readable<Editor>;
   export let editorReady: boolean;
-  export let uploadedFiles: Map<string, File>;
+  export let uploadedFiles: UploadedFileStore;
   let showLinkDialog = false;
-  let linkUrl: string;
-  let externalLink = false;
   let showAddImageDialog = false;
-  let imageDescription = "";
   let editorElement: HTMLDivElement;
   let initialised = false;
 
@@ -56,16 +52,6 @@
 
   onMount(init);
   beforeUpdate(init);
-
-  let currentImageFileList: FileList | undefined;
-  let currentImageBase64: string;
-
-  type ImageAttributes = {
-    src: string;
-    alt?: string;
-    title?: string;
-    id?: string;
-  };
 
   const textTypeOptions = [
     { value: 0, text: "Paragraph" },
@@ -92,15 +78,11 @@
   };
 
   const onShowLinkDialog = () => {
-    linkUrl = $editor.getAttributes("link").href || "";
-    externalLink = $editor.getAttributes("link").target === "_blank";
     showLinkDialog = true;
   };
 
-  const onLinkSubmit = () => {
-    showLinkDialog = false;
-
-    if (linkUrl.length === 0) {
+  const onLinkSubmit = (linkUrl: string | null, externalLink: boolean) => {
+    if (!linkUrl || linkUrl.length === 0) {
       return;
     }
 
@@ -114,36 +96,31 @@
       })
       .run();
 
-    linkUrl = "";
-    externalLink = false;
+    showLinkDialog = false;
   };
 
   const onShowAddImageDialog = () => {
     showAddImageDialog = true;
   };
 
-  const onImageUploadSubmit = () => {
-    if (!currentImageFileList || currentImageFileList.length === 0) {
+  const onImageUploadSubmit = async (
+    file: File | null,
+    imageDescription: string
+  ) => {
+    if (!file) {
       return;
     }
 
-    const uploadedImage = currentImageFileList[0];
+    const imageBase64 = await readFileAsBase64(file);
 
-    const id = nanoid();
-
-    const args: ImageAttributes = {
-      src: currentImageBase64,
+    $editor.commands.setImage({
+      src: imageBase64,
       alt: imageDescription,
-      id,
-    };
+    });
 
-    $editor.commands.setImage(args);
-
-    uploadedFiles.set(id, uploadedImage);
+    uploadedFiles.addFile(file.name, file, imageBase64);
 
     showAddImageDialog = false;
-    currentImageFileList = undefined;
-    imageDescription = "";
   };
 
   const shouldShow: BubbleMenuPluginProps["shouldShow"] = () => {
@@ -166,14 +143,17 @@
 
   const deleteImage = () => {
     if ($editor.isActive("image")) {
-      const id = $editor.getAttributes("image").id;
-      uploadedFiles.delete(id);
+      const src = $editor.getAttributes("image").src;
+      uploadedFiles.updateFileByMarkdownFilename(src, { deleted: true });
       $editor.commands.deleteSelection();
     }
   };
 
   const undo = () => $editor.commands.undo();
   const redo = () => $editor.commands.redo();
+
+  const getUploadedFile = (filename: string) =>
+    $uploadedFiles.find((file) => file.filename === filename);
 </script>
 
 <div id="editor-container">
@@ -193,8 +173,7 @@
         {:else if $editor.isActive("image")}
           <Button title="Delete image" onClick={deleteImage}>
             <p>
-              {uploadedFiles.get($editor.getAttributes("image").src)?.name ?? // For original images
-                uploadedFiles.get($editor.getAttributes("image").id)?.name ?? // For uploaded images
+              {getUploadedFile($editor.getAttributes("image").src)?.filename ??
                 $editor.getAttributes("image").alt}
             </p>
             <TablerTrash />
@@ -348,55 +327,23 @@
   />
 
   {#if showLinkDialog}
-    <Modal
-      title="Add a link"
+    <AddLinkModal
       onClose={() => {
         showLinkDialog = false;
       }}
-      withCancel
-      withSubmit
       onSubmit={onLinkSubmit}
-    >
-      <div id="link-modal">
-        <LabelledInput
-          bind:value={linkUrl}
-          id="link-url-input"
-          label="Link URL"
-          placeholder="Link url"
-          onEnter={onLinkSubmit}
-        />
-        <LabelledCheckbox
-          bind:checked={externalLink}
-          label="External link:"
-          id="external-link-checkbox"
-        />
-      </div>
-    </Modal>
+      initialLinkUrl={$editor.getAttributes("link").href}
+      initialExternalLink={$editor.getAttributes("link").target === "_blank"}
+    />
   {/if}
 
   {#if showAddImageDialog}
-    <Modal
-      title="Add an image"
+    <ImageUploadModal
       onClose={() => {
         showAddImageDialog = false;
       }}
-      withCancel
-      withSubmit
       onSubmit={onImageUploadSubmit}
-    >
-      <div id="image-modal">
-        <ImageUpload
-          bind:imageFiles={currentImageFileList}
-          bind:imageBase64={currentImageBase64}
-        />
-        <LabelledInput
-          bind:value={imageDescription}
-          id="image-description-input"
-          label="Image description"
-          placeholder="Image description"
-        />
-      </div>
-    </Modal>
+    />
   {/if}
 </div>
 

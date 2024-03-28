@@ -16,3 +16,22 @@ export const toTitleCase = (text: string) => {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 };
+
+export const readFileAsBase64 = async (file: File) => {
+  return new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.addEventListener("load", () => {
+      if (reader.result) {
+        resolve(reader.result.toString());
+      } else {
+        reject();
+      }
+    });
+
+    reader.addEventListener("abort", () => reject());
+    reader.addEventListener("error", () => reject());
+
+    reader.readAsDataURL(file);
+  });
+};

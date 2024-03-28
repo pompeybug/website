@@ -4,7 +4,7 @@ import type { Session } from "@auth/core/types";
 import slugify from "@sindresorhus/slugify";
 import path from "path";
 import matter from "gray-matter";
-import GithubApi from "@lib/githubApi";
+import GithubApi, { type CommitTree } from "@lib/githubApi";
 import type { Endpoints } from "@octokit/types";
 import type { FrontmatterImage } from "@lib/types";
 
@@ -71,11 +71,35 @@ async function buildCommitTree(
   deletedFiles: string[],
   deletedCoverImage?: string
 ): Promise<CommitTree> {
-  const tree: Endpoints["POST /repos/{owner}/{repo}/git/trees"]["request"]["data"]["tree"] =
-    [];
+  const tree: CommitTree = [];
 
   const contentEncoded = Buffer.from(content).toString("base64");
   const articleBlob = await client.createBlob(contentEncoded);
+
+  const mainBranchRef = await client.getRef(
+    `heads/${import.meta.env.GITHUB_CONTENT_REPOSITORY_BRANCH}`
+  );
+
+  if (!mainBranchRef) {
+    throw new Error("womp");
+  }
+
+  const currentTree = await client.getTree(
+    mainBranchRef.data.object.sha,
+    "true"
+  );
+
+  if (!currentTree) {
+    throw new Error("rere");
+  }
+
+  const files = currentTree.data.tree
+    .filter((leaf) => leaf?.type === 'blob' && leaf.path?.startsWith(`articles/${slug}`))
+    .map((leaf) => ({ ...leaf, sha: null })) as CommitTree;
+
+  tree.push(...files);
+
+  console.dir(files, { depth: null });
 
   if (articleBlob) {
     tree.push({
@@ -224,9 +248,6 @@ const buildUpdatedFrontmatterData = (
 
   return frontmatterData;
 };
-
-type CommitTree =
-  Endpoints["POST /repos/{owner}/{repo}/git/trees"]["request"]["data"]["tree"];
 
 type FormData = Awaited<ReturnType<typeof getData>>;
 

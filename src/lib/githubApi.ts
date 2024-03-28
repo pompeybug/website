@@ -1,6 +1,8 @@
 import { Octokit } from "@octokit/rest";
 import type { Endpoints } from "@octokit/types";
 
+export type CommitTree = Endpoints["POST /repos/{owner}/{repo}/git/trees"]["request"]["data"]["tree"];
+
 export default class GithubApi {
   readonly client: Octokit;
   readonly accessToken: string;
@@ -124,6 +126,23 @@ export default class GithubApi {
         repo: import.meta.env.GITHUB_CONTENT_REPOSITORY,
         content,
         encoding,
+      });
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
+  async getTree(
+    treeSha: string,
+    recursive: 'true' | 'false' = 'false'
+  ) {
+    try {
+      return await this.client.git.getTree({
+        owner: import.meta.env.GITHUB_ORGANISATION,
+        repo: import.meta.env.GITHUB_CONTENT_REPOSITORY,
+        tree_sha: treeSha,
+        recursive,
       });
     } catch (error) {
       console.error(error);
