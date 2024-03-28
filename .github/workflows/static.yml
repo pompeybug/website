@@ -39,7 +39,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     needs: update-submodules
-    if: ${{ inputs.only-update-submodules == false }}
+    if: ${{ inputs.only-update-submodules == false || inputs.only-update-submodules == 'false' }}
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
@@ -55,7 +55,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ inputs.only-update-submodules == false }}
+    if: ${{ inputs.only-update-submodules == false || inputs.only-update-submodules == 'false' }}
     environment:
       name: github-pages
       url: https://pompeybug.co.uk
