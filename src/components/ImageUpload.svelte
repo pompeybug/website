@@ -42,7 +42,7 @@
 </script>
 
 <div class="image-upload-container">
-  <n for={name}>
+  <label for={name}>
     <div
       class="image-upload-button-container"
       style={`display: ${uploadedFile || uploadedFileDataUrl ? "unset" : "none"}`}
