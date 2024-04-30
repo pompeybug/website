@@ -16,6 +16,7 @@ const { title, description, seo } = Astro.props;
 <link rel="mask-icon" href="/img/logo-w.svg" color='#FFFFFF' />
 <link rel="apple-touch-icon" href="/img/logo.png" />
 <meta name="theme-color" content="#c64d0f" />
+<link rel="sitemap" href="/sitemap-index.xml" />
 <Seo title={title} description={description} {...seo} />
 {import.meta.env.PROD && (
   <script
