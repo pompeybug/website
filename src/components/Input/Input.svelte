@@ -4,13 +4,15 @@
   import type { FormEventHandler } from "svelte/elements";
 
   export let id = "input";
+  export let name = id;
   export let placeholder = "Input...";
   export let title = "input";
   export let value = "";
+  export let ariaLabelledBy: string | undefined = undefined;
+  export let ariaLabel = title;
   export let handleInput: FormEventHandler<HTMLInputElement> | undefined =
     undefined;
   export let onEnter: (() => MaybePromise<void>) | undefined = undefined;
-  export let name = id;
 
   const onKeyDown = async (ev: KeyboardEvent) => {
     if (ev.key === "Enter") {
@@ -26,6 +28,8 @@
   {placeholder}
   {title}
   {name}
+  aria-labelledby={ariaLabelledBy}
+  aria-label={ariaLabel}
   bind:value
   on:input={handleInput}
   on:keydown={onKeyDown}

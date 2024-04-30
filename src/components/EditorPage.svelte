@@ -19,6 +19,7 @@
   import createUploadedFiles, {
     type UploadedFileStore,
   } from "src/stores/uploadedFiles";
+  import type { Session } from "@lib/types";
 
   type ArticleData = Pick<
     CollectionEntry<"articles">,
@@ -46,7 +47,7 @@
     showAuthor: boolean;
   };
 
-  export let session: import("@auth/core/types").Session;
+  export let session: Session;
   let editor: Readable<Editor>;
   let editorReady = false;
   let originalArticleData: ArticleData;
@@ -71,7 +72,7 @@
     const article = urlParams.get("article");
 
     if (article) {
-      const res = await fetch(`/api/content/${article}?coverImageHeight=500`);
+      const res = await fetch(`/api/editor/${article}.json`);
 
       if (res.ok) {
         originalArticleData = await res.json();
@@ -170,7 +171,7 @@
     let markdownContent = $editor.storage.markdown.getMarkdown() as string;
 
     $uploadedFiles.forEach((file) => {
-      if (file.deleted && file.type === 'local') {
+      if (file.deleted && file.type === "local") {
         return;
       }
 
@@ -218,12 +219,12 @@
     let response: Response;
 
     if (originalArticleData) {
-      response = await fetch("/api/content/submit", {
+      response = await fetch("/api/editor/submit", {
         method: "PUT",
         body: formData,
       });
     } else {
-      response = await fetch("/api/content/submit", {
+      response = await fetch("/api/editor/submit", {
         method: "POST",
         body: formData,
       });
@@ -287,10 +288,12 @@
       />
       {#if showAuthor}
         <LabelledInput
-          id="author-name-input"
-          name="authorName"
+          inputProps={{
+            id: "author-name-input",
+            name: "authorName",
+            placeholder: "Author Name",
+          }}
           label="Author Name"
-          placeholder="author name"
           bind:value={data.author}
         />
       {/if}

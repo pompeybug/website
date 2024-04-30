@@ -18,7 +18,7 @@ const site =
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
+  output: "hybrid",
   adapter: node({
     mode: "standalone",
   }),
@@ -34,7 +34,7 @@ export default defineConfig({
     }),
     svelte(),
     purgecss(),
-    auth(),
+    auth({injectEndpoints: false}),
   ],
   markdown: {
     remarkPlugins: [remarkReadingTime, remarkStripMarkdown],

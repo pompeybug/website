@@ -12,19 +12,22 @@
 
   let pageNumber = 1;
   let searchQuery = "";
-  $: searchRegex = new RegExp(`.*${searchQuery}.*`, "mi");
 
   let articleSlice: UiCollectionEntry<"articles">[];
   let maxPage = Math.ceil(articles.length / PAGE_SIZE);
   let totalResults: number;
 
-  $: {
+  const updateResults = (searchQuery: string, pageNumber: number) => {
     const filteredArticles = articles.filter(({ collectionEntry }) => {
       return (
-        searchRegex.test(collectionEntry.data.title) ||
-        searchRegex.test(
-          collectionEntry.data.tags.join(" ").replace("-", " ")
-        ) ||
+        collectionEntry.data.title
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase()) ||
+        collectionEntry.data.tags
+          .join(" ")
+          .replace("-", " ")
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase()) ||
         searchQuery.length === 0
       );
     });
@@ -33,7 +36,9 @@
     maxPage = Math.ceil(filteredArticles.length / PAGE_SIZE);
 
     articleSlice = filteredArticles.slice(0, pageNumber * PAGE_SIZE);
-  }
+  };
+
+  $: updateResults(searchQuery, pageNumber);
 
   const handleSearchInputChange: FormEventHandler<HTMLInputElement> = (ev) => {
     const target = ev.target as HTMLInputElement | null;
@@ -74,23 +79,22 @@
   onMount(() => {
     const url = new URL(window.location.href);
 
-    if (url.searchParams.has("q")) {
-      searchQuery = url.searchParams.get("q") ?? "";
-    }
+    searchQuery = url.searchParams.get("q") ?? "";
   });
 </script>
 
 <svelte:window on:scroll={handleScrollToBottom} />
-<Search bind:searchValue={searchQuery} handleInput={debouncedHandleSearchInputChange} />
+<Search
+  bind:searchValue={searchQuery}
+  handleInput={debouncedHandleSearchInputChange}
+/>
 {#if totalResults !== null && searchQuery.length > 0}
   <p id="results">Results: {totalResults}</p>
 {/if}
 <ul class="cards">
-  {#key articleSlice}
-    {#each articleSlice as article}
-      <ArticleCard articleEntry={article} />
-    {/each}
-  {/key}
+  {#each articleSlice as article, index (article.collectionEntry.id)}
+    <ArticleCard articleEntry={article} {index} />
+  {/each}
 </ul>
 {#if pageNumber === maxPage}
   <p id="end">End of results</p>

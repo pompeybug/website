@@ -1,11 +1,13 @@
 ---
-import Base from "@layouts/Base.astro";
 import Editor from "@components/EditorPage.svelte";
+import Base from "@layouts/Base.astro";
 
-const session = Astro.locals.session as import("@auth/core/types").Session;
+export const prerender = false;
+
+const session = Astro.locals.session;
 
 if (!session) {
-  // return Astro.redirect("/");
+  return Astro.redirect("/");
 }
 ---
 
@@ -15,3 +17,4 @@ if (!session) {
     <Editor client:load {session} />
   </main>
 </Base>
+

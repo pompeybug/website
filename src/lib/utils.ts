@@ -1,12 +1,16 @@
-export const debounce = <T extends (...args: Parameters<T>) => void>(
+import type { MaybePromise } from "./types";
+
+export const debounce = <
+  T extends (...args: Parameters<T>) => MaybePromise<void>
+>(
   cb: T,
   timeout: number
 ) => {
-  let timer: ReturnType<typeof setTimeout> | undefined;
+  let timer: number;
 
   return (...args: Parameters<T>) => {
     clearTimeout(timer);
-    timer = setTimeout(() => cb(...args), timeout);
+    timer = window.setTimeout(async () => await cb(...args), timeout);
   };
 };
 

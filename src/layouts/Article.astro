@@ -6,7 +6,7 @@ import { Picture, getImage } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import ReadingTime from "@components/ReadingTime.astro";
 import fallbackSeoLogo from "@assets/article/seo-logo.webp";
-import TablerEdit from 'icons:astro/tabler/edit';
+import TablerEdit from "icons:astro/tabler/edit";
 
 interface Props {
   title: CollectionEntry<"articles">["data"]["title"];
@@ -52,13 +52,17 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
     },
   }}
 >
-  <main data-pagefind-body>
+  <main>
     <div id="title">
       <h1 class="title">{title}</h1>
       {
         slug && (
           <button id="edit-button" role="link" data-show="false">
-            <a href={`/editor?article=${slug}`} title="edit article">
+            <a
+              href={`/editor?article=${slug}`}
+              title="edit article"
+              aria-label="edit article"
+            >
               <TablerEdit name="edit" class="edit" />
             </a>
           </button>
@@ -67,13 +71,22 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
     </div>
     {
       date && (
-        <Metadata date={typeof date === "string" ? new Date(date) : date} />
+        <Metadata
+          date={typeof date === "string" ? new Date(date) : date}
+          imageLoadingMethod="eager"
+        />
       )
     }
     {readingTime && <ReadingTime readingTime={readingTime} />}
     {
       coverImage && (
-        <Picture src={coverImage} alt={title} formats={["avif", "webp"]} height={1000} />
+        <Picture
+          src={coverImage}
+          alt={title}
+          formats={["avif", "webp"]}
+          height={1000}
+          loading="eager"
+        />
       )
     }
     <article>
@@ -97,23 +110,21 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
 </Base>
 
 <script>
-  const getSession = async () => {
-    const res = await fetch("/api/auth/session");
+  const { validateSessionClient } = await import("@lib/session");
 
-    const session = await res.json();
+  const validateSession = async () => {
+    const isSessionValid = await validateSessionClient();
 
-    if (true) {
-      const editButton = document.querySelector<HTMLButtonElement>(
+    if (isSessionValid) {
+      const editButton = document.querySelector(
         "main #title #edit-button"
-      );
+      ) as HTMLButtonElement;
 
-      if (editButton) {
-        editButton.dataset.show = "true";
-      }
+      editButton.dataset.show = "true";
     }
   };
 
-  await getSession();
+  await validateSession();
 </script>
 
 <style>

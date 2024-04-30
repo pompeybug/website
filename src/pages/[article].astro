@@ -2,8 +2,6 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import ArticleComponent from "@layouts/Article.astro";
 
-export const prerender = true;
-
 export async function getStaticPaths() {
   const articleEntries = await getCollection("articles");
   return articleEntries.map((article) => ({

@@ -23,3 +23,5 @@ export interface FrontmatterImage {
   image: string;
   file: string;
 }
+
+export type Session = import("@auth/core/types").Session;

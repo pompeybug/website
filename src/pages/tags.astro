@@ -1,9 +1,7 @@
 ---
 import Base from "@layouts/Base.astro";
 import { getAllUniqueArticleTags } from "@lib/collections/articles";
-import TablerSearch from 'icons:astro/tabler/search';
-
-export const prerender = true;
+import TablerSearch from "icons:astro/tabler/search";
 
 const uniqueTags = (await getAllUniqueArticleTags()).sort((a, b) => {
   if (a.tag < b.tag) {
@@ -55,19 +53,21 @@ const uniqueTags = (await getAllUniqueArticleTags()).sort((a, b) => {
 
       const target = ev.target;
 
-      const regex = new RegExp(`.*${target.value}.*`, "mi");
       const tagList = document.querySelector("#tag-list");
 
       while (tagList.lastChild) {
         tagList.removeChild(tagList.lastChild);
       }
 
-      uniqueTags.forEach(({ tag, slug }) => {
-        if (regex.test(tag) || target.value.length === 0) {
+      uniqueTags.forEach(({ tag, pretty, slug }) => {
+        if (
+          tag.toLowerCase().includes(target.value.toLowerCase()) ||
+          target.value.length === 0
+        ) {
           const listItem = document.createElement("li");
           const tagLink = document.createElement("a");
           tagLink.href = `/tags/${slug}/`;
-          tagLink.textContent = tag;
+          tagLink.textContent = pretty;
           tagLink.setAttribute("data-astro-prefetch", "");
           listItem.appendChild(tagLink);
           tagList.appendChild(listItem);

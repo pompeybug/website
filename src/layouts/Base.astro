@@ -4,10 +4,10 @@ import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import NavMenu from "@components/NavMenu.astro";
 import { Head } from "astro-capo";
-import { type SeoProps } from "astro-seo-meta"
+import type { SeoProps } from "astro-seo-meta";
 import "@styles/style.css";
 
-interface Props {
+export interface Props {
   title?: string;
   description?: string;
   seo?: SeoProps;

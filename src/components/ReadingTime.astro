@@ -8,10 +8,14 @@ const { readingTime } = Astro.props;
 
 {
   readingTime && (
-    <aside id="reading" data-pagefind-ignore>
+    <aside id="reading">
       <img
         class="icon"
         src="/img/clock.svg"
+        loading="eager"
+        decoding="async"
+        width="16"
+        height="24"
         alt="Estimated reading time"
         title="Estimated reading time"
       />

@@ -1,9 +1,14 @@
 ---
-import TablerX from 'icons:astro/tabler/x';
-import TablerBrandFacebook from 'icons:astro/tabler/brand-facebook';
-import TablerBrandInstagram from 'icons:astro/tabler/brand-instagram';
-import TablerBrandX from 'icons:astro/tabler/brand-x';
-import TablerBrandYoutube from 'icons:astro/tabler/brand-youtube';
+import TablerX from "icons:astro/tabler/x";
+import TablerBrandFacebook from "icons:astro/tabler/brand-facebook";
+import TablerBrandInstagram from "icons:astro/tabler/brand-instagram";
+import TablerBrandX from "icons:astro/tabler/brand-x";
+import TablerBrandYoutube from "icons:astro/tabler/brand-youtube";
+// import { getSession } from "auth-astro/server";
+
+// const k = await getSession(Astro.request);
+
+// console.debug(k)
 ---
 
 <nav id="navmenu" class="navmenu-hidden">
@@ -36,7 +41,7 @@ import TablerBrandYoutube from 'icons:astro/tabler/brand-youtube';
   <section>
     <h2>Account</h2>
     <span class="innerlist">
-      <div data-show="true" id="hidden-account-options">
+      <div data-show="false" id="hidden-account-options">
         <a href="/editor">New Article</a>
       </div>
       <button id="logout" data-show="false">Logout</button>
@@ -82,54 +87,44 @@ import TablerBrandYoutube from 'icons:astro/tabler/brand-youtube';
 </nav>
 
 <script>
+  const { validateSessionClient } = await import("@lib/session");
   const { signIn, signOut } = await import("auth-astro/client");
 
-  const login = document.querySelector("#login");
+  const login = document.querySelector("#login") as HTMLButtonElement;
+  const logout = document.querySelector("#logout") as HTMLButtonElement;
 
-  if (login) {
-    login.addEventListener("click", () => signIn("github"));
-  }
-  const logout = document.querySelector("#logout");
+  logout.addEventListener("click", () => signOut());
+  login.addEventListener("click", () => signIn("github"));
 
-  if (logout) {
-    logout.addEventListener("click", () => signOut());
-  }
-
-  document.querySelector(".close-button")?.addEventListener("click", () => {
-    document.querySelector("#navmenu")?.classList.toggle("navmenu-hidden");
-    document.querySelector("body")?.classList.toggle("disable-overflow");
+  document.querySelector(".close-button")!.addEventListener("click", () => {
+    document.querySelector("#navmenu")!.classList.toggle("navmenu-hidden");
+    document.querySelector("body")!.classList.toggle("disable-overflow");
   });
 
-  const getSession = async () => {
-    const res = await fetch("/api/auth/session");
+  const validateSession = async () => {
+    const sessionIsValid = await validateSessionClient();
 
-    const session = await res.json();
+    const accountOptions = document.querySelector(
+      "#navmenu #hidden-account-options"
+    ) as HTMLDivElement;
+    const loginButton = document.querySelector(
+      "#navmenu #login"
+    ) as HTMLButtonElement;
+    const logoutButton = document.querySelector(
+      "#navmenu #logout"
+    ) as HTMLButtonElement;
 
-    const accountOptions =
-      document.querySelector<HTMLDivElement>("#navmenu #hidden-account-options");
-    const loginButton =
-      document.querySelector<HTMLDivElement>("#navmenu #login");
-    const logoutButton =
-      document.querySelector<HTMLDivElement>("#navmenu #logout");
-
-    if (session) {
-      if (accountOptions) {
-        accountOptions.dataset.show = "true";
-      }
-
-      if (loginButton && logoutButton) {
-        loginButton.dataset.show = "false";
-        logoutButton.dataset.show = "true";
-      }
+    if (sessionIsValid) {
+      accountOptions.dataset.show = "true";
+      loginButton.dataset.show = "false";
+      logoutButton.dataset.show = "true";
     } else {
-      if (logoutButton && loginButton) {
-        logoutButton.dataset.show = "false";
-        loginButton.dataset.show = "true";
-      }
+      logoutButton.dataset.show = "false";
+      loginButton.dataset.show = "true";
     }
   };
 
-  await getSession();
+  await validateSession();
 </script>
 
 <style>

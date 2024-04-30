@@ -4,8 +4,11 @@
   import { toTitleCase } from "@lib/utils";
   import slugify from "@sindresorhus/slugify";
   export let articleEntry: UiCollectionEntry<"articles">;
+  export let index: number;
 
   const { collectionEntry: article, rendered, coverImage } = articleEntry;
+
+  const imageLoadingMethod = index < 4 ? 'eager' : 'lazy';
 </script>
 
 <li class="card">
@@ -25,26 +28,30 @@
           <source srcset={coverImage.webp.src} type="image/webp" />
           <img
             {...coverImage.original}
-            loading="lazy"
+            loading={imageLoadingMethod}
             decoding="async"
             alt={article.data.title}
           />
         </picture>
       {:else}
         <div class="placeholder">
-          <img src="/img/logo-w.svg" alt="The PCF Logo" />
+          <img
+            src="/img/logo-w.svg"
+            alt="The PCF Logo"
+            loading={imageLoadingMethod}
+            decoding="async"
+          />
         </div>
       {/if}
     </div>
     <div class="card-body">
       <h2>{article.data.title}</h2>
-      <Metadata date={article.data.date} />
+      <Metadata date={article.data.date} {imageLoadingMethod} />
       <p>
         {rendered.remarkPluginFrontmatter.description
           .split(" ")
           .slice(0, 20)
-          .join(" ")
-          .replace(/\D$/gi, "")}...
+          .join(" ")}...
       </p>
       {#if article.data.tags.length > 0}
         <ul>

@@ -15,36 +15,31 @@ export default defineConfig({
         return false;
       }
 
-      const organisationMembers = await fetch(
-        `https://api.github.com/orgs/${
-          import.meta.env.GITHUB_ORGANISATION
-        }/members`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${account.access_token}`,
-          },
-        }
-      );
+      let organisationMembersRes;
 
-      if (!organisationMembers.ok) {
+      try {
+        organisationMembersRes = await fetch(
+          `https://api.github.com/orgs/${
+            import.meta.env.GITHUB_ORGANISATION
+          }/members`,
+          {
+            headers: {
+              Authorization: `Bearer ${account.access_token}`,
+            },
+          }
+        );
+      } catch (err) {
+        console.error(err);
         return false;
       }
 
-      const body = await organisationMembers.json();
-
-      return body.some((member) => member.id === profile.id);
-    },
-    async session({ session, token }) {
-      session.accessToken = token.accessToken;
-      return session;
-    },
-    async jwt({ token, account }) {
-      if (account) {
-        token.accessToken = account.access_token;
+      if (!organisationMembersRes.ok) {
+        return false;
       }
 
-      return token;
+      const organisationMembers = await organisationMembersRes.json();
+
+      return organisationMembers.some((member) => member.id === profile.id);
     },
   },
 });
