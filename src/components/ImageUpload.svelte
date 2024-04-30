@@ -15,20 +15,6 @@
   let uploadedFile: File | null = null;
   $: uploadedFileDataUrl = initialImageOverride ?? null;
 
-  const onChange = async () => {
-    uploadedFile = imageInputElement.files?.item(0) ?? null;
-
-    await onUpload(uploadedFile);
-  };
-
-  const onImageClear = async () => {
-    if (onClear) {
-      await onClear();
-    }
-    uploadedFile = null;
-    imageInputElement.value = "";
-  };
-
   const readUploadedImage = async (uploadedFile: File | null) => {
     if (!uploadedFile) {
       uploadedFileDataUrl = null;
@@ -38,11 +24,25 @@
     uploadedFileDataUrl = await readFileAsBase64(uploadedFile);
   };
 
-  $: readUploadedImage(uploadedFile);
+  const onChange = async () => {
+    uploadedFile = imageInputElement.files?.item(0) ?? null;
+
+    await onUpload(uploadedFile);
+    await readUploadedImage(uploadedFile);
+  };
+
+  const onImageClear = async () => {
+    if (onClear) {
+      await onClear();
+    }
+    uploadedFile = null;
+    uploadedFileDataUrl = null;
+    imageInputElement.value = "";
+  };
 </script>
 
 <div class="image-upload-container">
-  <label for={name}>
+  <n for={name}>
     <div
       class="image-upload-button-container"
       style={`display: ${uploadedFile || uploadedFileDataUrl ? "unset" : "none"}`}
