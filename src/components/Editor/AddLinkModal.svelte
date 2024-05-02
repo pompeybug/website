@@ -29,11 +29,13 @@
 >
   <div id="link-modal">
     <LabelledInput
+      inputProps={{
+        placeholder: "Link url",
+        onEnter: onSubmitInternal,
+        id: "link-url-input",
+      }}
       bind:value={linkUrl}
-      id="link-url-input"
       label="Link URL"
-      placeholder="Link url"
-      onEnter={onSubmitInternal}
     />
     <LabelledCheckbox
       bind:checked={externalLink}

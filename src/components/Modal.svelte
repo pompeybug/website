@@ -1,6 +1,5 @@
 <script lang="ts">
   import Portal from "@components/Portal.svelte";
-  import { onDestroy, onMount } from "svelte";
   import TablerX from 'icons:svelte/tabler/x';
   import Button from "./Button.svelte";
   import type { MaybePromise } from "@lib/types";
@@ -39,22 +38,11 @@
       await onClose();
     }
   };
-
-  onMount(() => {
-    if (blocker) {
-      blocker.addEventListener("click", onClose);
-    }
-
-    document.addEventListener("keydown", onKeyPress);
-  });
-
-  onDestroy(() => {
-    document.removeEventListener("keydown", onKeyPress);
-  });
 </script>
 
+<svelte:document on:keydown={onKeyPress} />
 <Portal>
-  <div class="blocker" bind:this={blocker} />
+  <div class="blocker" bind:this={blocker} on:click={onClose} aria-hidden="true" />
   <div class="modal">
     <div class="close-bar">
       <h1>{title}</h1>

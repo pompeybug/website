@@ -39,10 +39,12 @@
       initialImageOverride={initialImageBase64}
     />
     <LabelledInput
+      inputProps={{
+        id: "image-description-input",
+        placeholder: "Image description",
+      }}
       bind:value={imageDescription}
-      id="image-description-input"
       label="Image description"
-      placeholder="Image description"
     />
   </div>
 </Modal>

@@ -1,23 +1,23 @@
 <script lang="ts">
   import type { Readable } from "svelte/store";
-
   import type { MaybePromise } from "@lib/types";
   import type { Editor } from "@tiptap/core";
   import type { ComponentType } from "svelte";
 
-  type T = $$Generic;
   export let editor: Readable<Editor>;
   export let activeType: string | undefined = undefined;
   export let title = activeType;
-  export let onClick: () => MaybePromise<T>;
+  export let ariaLabel = title;
+  export let onClick: () => MaybePromise<void | boolean>;
   export let icon: ComponentType;
 </script>
 
 <button
   {title}
+  aria-label={ariaLabel}
   type="button"
   on:click={onClick}
-  class:active={activeType ? $editor.isActive(activeType) : null}
+  class:active={activeType ? $editor.isActive(activeType) : false}
 >
   <svelte:component this={icon} />
 </button>
