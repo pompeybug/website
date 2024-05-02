@@ -81,16 +81,17 @@
 </script>
 
 <svelte:window on:scroll={handleScrollToBottom} />
-<Search bind:searchValue={searchQuery} handleInput={debouncedHandleSearchInputChange} />
+<Search
+  bind:searchValue={searchQuery}
+  handleInput={debouncedHandleSearchInputChange}
+/>
 {#if totalResults !== null && searchQuery.length > 0}
   <p id="results">Results: {totalResults}</p>
 {/if}
 <ul class="cards">
-  {#key articleSlice}
-    {#each articleSlice as article}
-      <ArticleCard articleEntry={article} />
-    {/each}
-  {/key}
+  {#each articleSlice as article, index (article.collectionEntry.slug)}
+    <ArticleCard articleEntry={article} {index} />
+  {/each}
 </ul>
 {#if pageNumber === maxPage}
   <p id="end">End of results</p>

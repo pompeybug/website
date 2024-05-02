@@ -54,13 +54,18 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
     <h1 class="title">{title}</h1>
     {
       date && (
-        <Metadata date={typeof date === "string" ? new Date(date) : date} />
+        <Metadata date={typeof date === "string" ? new Date(date) : date} loading="eager" />
       )
     }
     {readingTime && <ReadingTime readingTime={readingTime} />}
     {
       coverImage && (
-        <Picture src={coverImage} alt={title} formats={["avif", "webp"]} />
+        <Picture
+          src={coverImage}
+          alt={title}
+          formats={["avif", "webp"]}
+          loading="eager"
+        />
       )
     }
     <article>

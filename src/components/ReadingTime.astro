@@ -14,6 +14,10 @@ const { readingTime } = Astro.props;
         src="/img/clock.svg"
         alt="Estimated reading time"
         title="Estimated reading time"
+        width={16}
+        height={24}
+        loading="eager"
+        decoding="async"
       />
       {readingTime}
     </aside>
