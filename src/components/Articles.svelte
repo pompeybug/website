@@ -92,7 +92,7 @@
   <p id="results">Results: {totalResults}</p>
 {/if}
 <ul class="cards">
-  {#each articleSlice as article, index (article.collectionEntry.id)}
+  {#each articleSlice as article, index (article.collectionEntry.slug)}
     <ArticleCard articleEntry={article} {index} />
   {/each}
 </ul>

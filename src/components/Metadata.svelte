@@ -1,6 +1,6 @@
 <script lang="ts">
   export let date: Date | null = null;
-  export let imageLoadingMethod: "lazy" | "eager";
+  export let loading: "eager" | "lazy";
 </script>
 
 {#if date}
@@ -9,10 +9,9 @@
       src="/img/calendar.svg"
       alt="Publication date"
       title="Publication date"
-      width="16"
-      height="24"
-      loading={imageLoadingMethod}
-      decoding="async"
+      width={16}
+      height={24}
+      {loading}
     />
     {date
       .toLocaleDateString("en-GB", {

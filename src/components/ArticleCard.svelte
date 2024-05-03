@@ -3,12 +3,13 @@
   import type { UiCollectionEntry } from "@lib/types";
   import { toTitleCase } from "@lib/utils";
   import slugify from "@sindresorhus/slugify";
+
   export let articleEntry: UiCollectionEntry<"articles">;
   export let index: number;
 
   const { collectionEntry: article, rendered, coverImage } = articleEntry;
 
-  const imageLoadingMethod = index < 4 ? 'eager' : 'lazy';
+  const loading = index < 6 ? "eager" : "lazy";
 </script>
 
 <li class="card">
@@ -28,25 +29,20 @@
           <source srcset={coverImage.webp.src} type="image/webp" />
           <img
             {...coverImage.original}
-            loading={imageLoadingMethod}
+            {loading}
             decoding="async"
             alt={article.data.title}
           />
         </picture>
       {:else}
         <div class="placeholder">
-          <img
-            src="/img/logo-w.svg"
-            alt="The PCF Logo"
-            loading={imageLoadingMethod}
-            decoding="async"
-          />
+          <img src="/img/logo-w.svg" alt="The PCF Logo" {loading} />
         </div>
       {/if}
     </div>
     <div class="card-body">
       <h2>{article.data.title}</h2>
-      <Metadata date={article.data.date} {imageLoadingMethod} />
+      <Metadata date={article.data.date} {loading} />
       <p>
         {rendered.remarkPluginFrontmatter.description
           .split(" ")

@@ -71,10 +71,7 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
     </div>
     {
       date && (
-        <Metadata
-          date={typeof date === "string" ? new Date(date) : date}
-          imageLoadingMethod="eager"
-        />
+        <Metadata date={typeof date === "string" ? new Date(date) : date} loading="eager" />
       )
     }
     {readingTime && <ReadingTime readingTime={readingTime} />}
@@ -84,14 +81,9 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
           src={coverImage}
           alt={title}
           formats={["avif", "webp"]}
-          height={1000}
           loading="eager"
         />
       )
-    }
-    <article>
-      <slot />
-    </article>
     {
       todo && todo.length > 0 && (
         <>
