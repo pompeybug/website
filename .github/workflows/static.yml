@@ -10,8 +10,6 @@ on:
     inputs:
       only-update-submodules:
         type: boolean
-      skip-submodule-updates:
-        type: boolean
 
 # Allow this job to clone the repo and create a page deployment
 permissions:
@@ -22,7 +20,6 @@ permissions:
 jobs:
   update-submodules:
     runs-on: ubuntu-latest
-    if: ${{ inputs.skip-submodule-updates == false || inputs.skip-submodule-updates == 'false' }}
     outputs:
       commit_hash: ${{ steps.commit.outputs.commit_hash }}
     steps:
