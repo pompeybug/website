@@ -1,13 +1,34 @@
 ---
-import {Seo, type SeoProps } from 'astro-seo-meta';
+import { SEO, type Props as SeoProps } from 'astro-seo';
+import { getImage } from 'astro:assets';
+import fallbackSeoLogo from "@assets/article/seo-logo.webp";
 
 interface Props {
-  title?: string;
+  title: string;
   description?: string;
   seo?: SeoProps;
 }
 
 const { title, description, seo } = Astro.props;
+
+const getCoverImage = async () => {
+  if (seo?.openGraph?.basic.image) {
+    return seo.openGraph.basic.image;
+  } else {
+    const coverImageRendered = await getImage({
+			src: fallbackSeoLogo,
+			format: 'jpg',
+			height: 630,
+			width: 1200
+		});
+
+    return coverImageRendered.src.slice(1);
+  }
+};
+
+const coverImageUrl = await getCoverImage();
+
+const image = `${import.meta.env.DEV ? 'http://localhost:4321/' : Astro.site}${coverImageUrl}`;
 ---
 
 <meta charset="UTF-8">
@@ -17,7 +38,25 @@ const { title, description, seo } = Astro.props;
 <link rel="apple-touch-icon" href="/img/logo.png" />
 <meta name="theme-color" content="#c64d0f" />
 <link rel="sitemap" href="/sitemap-index.xml" />
-<Seo title={title} description={description} {...seo} />
+<SEO
+	{title}
+	{description}
+	charset="UTF-8"
+	openGraph={{
+		basic: { title, type: 'website', image },
+		optional: { description, siteName: 'Portsmouth Cycle Forum' },
+		image: { type: 'image/png', height: 630, width: 1200, alt: title },
+	}}
+	twitter={{
+		card: 'summary_large_image',
+		site: '@PompeyBUG',
+		creator: '@PompeyBUG',
+		image,
+		imageAlt: title,
+		description
+	}}
+	{...seo}
+/>
 {import.meta.env.PROD && (
   <script
   type="text/partytown"

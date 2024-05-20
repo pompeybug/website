@@ -4,11 +4,11 @@ import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import NavMenu from "@components/NavMenu.astro";
 import { Head } from "astro-capo";
-import { type SeoProps } from "astro-seo-meta"
+import { type Props as SeoProps } from 'astro-seo';
 import "@styles/style.css";
 
 interface Props {
-  title?: string;
+  title: string;
   description?: string;
   seo?: SeoProps;
 }
@@ -19,7 +19,7 @@ const { title, description, seo } = Astro.props;
 <!doctype html>
 <html lang="en-GB">
   <Head>
-    <BaseHead seo={seo} title={title} description={description} />
+    <BaseHead {seo} {title} {description} />
   </Head>
   <body>
     <Header />
