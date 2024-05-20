@@ -6,7 +6,7 @@ import type { Session } from "@lib/types";
 // This is because it means only one request in the NavMenu.astro component is needed (this component is always loaded).
 // Components within the rest of the page can setup a listener to these stores and update the page accordingly (see Article.astro).
 
-// nanostores doesn't allow null values, empty object is the next best option
+// nanostores doesn't allow null values for maps, empty object is the next best option
 export const $session = map<Session | {}>();
 
 export const $sessionIsValid = computed($session, (session) => {
