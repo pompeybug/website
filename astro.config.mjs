@@ -25,7 +25,9 @@ export default defineConfig({
   site,
   integrations: [
     mdx(),
-    robotsTxt(),
+    robotsTxt({
+      sitemap: `${site}/sitemap-index.xml`,
+    }),
     sitemap(),
     partytown({
       config: {
