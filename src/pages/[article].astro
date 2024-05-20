@@ -22,6 +22,7 @@ const { Content, remarkPluginFrontmatter } = await article.render();
   {...article.data}
   readingTime={remarkPluginFrontmatter.minutesRead}
   description={remarkPluginFrontmatter.description}
+  slug={article.slug}
 >
   <Content />
 </ArticleComponent>

@@ -6,6 +6,7 @@ import { Picture, getImage } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import ReadingTime from "@components/ReadingTime.astro";
 import fallbackSeoLogo from "@assets/article/seo-logo.webp";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   title: CollectionEntry<"articles">["data"]["title"];
@@ -16,9 +17,10 @@ interface Props {
   readingTime?: string;
   description?: string;
   frontmatter?: this;
+  slug?: string;
 }
 
-const { title, date, tags, todo, coverImage, readingTime, description } =
+const { title, date, tags, todo, coverImage, readingTime, description, slug } =
   Astro.props.frontmatter || Astro.props;
 
 const coverImageRendered = await getImage({
@@ -51,10 +53,33 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
   }}
 >
   <main>
-    <h1 class="title">{title}</h1>
+    <div class="title-container">
+      <h1 class="title">{title}</h1>
+      {
+        slug && (
+          <button
+            class="edit-button"
+            aria-label="edit article"
+            role="link"
+            data-show="false"
+          >
+            <a
+              href={`/editor?article=${slug}`}
+              title="edit article"
+              aria-label="edit article"
+            >
+              <Icon name="edit" />
+            </a>
+          </button>
+        )
+      }
+    </div>
     {
       date && (
-        <Metadata date={typeof date === "string" ? new Date(date) : date} loading="eager" />
+        <Metadata
+          date={typeof date === "string" ? new Date(date) : date}
+          loading="eager"
+        />
       )
     }
     {readingTime && <ReadingTime readingTime={readingTime} />}
@@ -87,3 +112,66 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
   </main>
   <TagList tags={tags} slot="tags" />
 </Base>
+
+<script>
+  const { validateSessionClient } = await import("@lib/session");
+
+  const validateSession = async () => {
+    const editButton = document.querySelector(
+      "main .title-container .edit-button"
+    ) as HTMLButtonElement | null;
+
+    if (!editButton) {
+      return;
+    }
+
+    const isSessionValid = await validateSessionClient();
+
+    if (isSessionValid) {
+      editButton.dataset.show = "true";
+    }
+  };
+
+  await validateSession();
+</script>
+
+<style>
+  main .title-container {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--fixedspace) * 0.5);
+  }
+
+  .edit-button[data-show="false"] {
+    display: none;
+  }
+
+  .edit-button {
+    background-color: var(--col2);
+    border: 1px solid var(--page);
+    border-radius: var(--buttoncurve);
+    margin: 0;
+    padding: 0;
+  }
+
+  .edit-button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--page);
+    background: var(--col2);
+    border: none;
+    padding: calc(var(--fixedspace) * 0.25);
+  }
+
+  .edit-button a:hover {
+    cursor: pointer;
+    background-color: var(--page);
+    color: var(--col2);
+    border: 1px solid var(--col2);
+  }
+
+  [data-icon="edit"] {
+    font-size: 2em;
+  }
+</style>
