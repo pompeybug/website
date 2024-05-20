@@ -22,7 +22,7 @@ permissions:
 jobs:
   update-submodules:
     runs-on: ubuntu-latest
-    if: ${{ inputs.skip-submodule-updates == true || inputs.skip-submodule-updates == 'true' }}
+    if: ${{ inputs.skip-submodule-updates == false || inputs.skip-submodule-updates == 'false' }}
     outputs:
       commit_hash: ${{ steps.commit.outputs.commit_hash }}
     steps:
