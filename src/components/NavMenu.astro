@@ -9,7 +9,7 @@ import TablerBrandYoutube from "icons:astro/tabler/brand-youtube";
 <nav id="navmenu" class="navmenu-hidden">
   <div class="close">
     <button class="close-button">
-      <TablerX name="close" class="close" />
+      <TablerX name="close" class="close-icon" />
     </button>
     <h1><a href="/">Portsmouth Cycle Forum</a></h1>
   </div>
@@ -89,7 +89,7 @@ import TablerBrandYoutube from "icons:astro/tabler/brand-youtube";
     flex: 1 !important;
   }
 
-  .socials a [data-icon] {
+  .socials a svg {
     height: var(--navmenu-socials-icon-size);
     width: var(--navmenu-socials-icon-size);
   }
@@ -123,7 +123,7 @@ import TablerBrandYoutube from "icons:astro/tabler/brand-youtube";
     margin-right: var(--fixedspace);
   }
 
-  .close {
+  .close-icon {
     width: 40px;
     height: 40px;
     color: var(--page);
