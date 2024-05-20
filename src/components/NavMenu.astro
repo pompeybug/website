@@ -30,6 +30,17 @@ import { Icon } from "astro-icon/components";
   </section>
 
   <section>
+    <h2>Account</h2>
+    <span class="innerlist">
+      <div data-show="false" id="hidden-account-options">
+        <a href="/editor">New Article</a>
+      </div>
+      <button id="logout" data-show="false">Logout</button>
+      <button id="login" data-show="true">Login</button>
+    </span>
+  </section>
+
+  <section>
     <h2>Socials</h2>
     <div class="socials">
       <a
@@ -67,10 +78,44 @@ import { Icon } from "astro-icon/components";
 </nav>
 
 <script>
-  document.querySelector(".close-button")?.addEventListener("click", () => {
-    document.querySelector("#navmenu")?.classList.toggle("navmenu-hidden");
-    document.querySelector("body")?.classList.toggle("disable-overflow");
+  const { validateSessionClient } = await import("@lib/session");
+  const { signIn, signOut } = await import("auth-astro/client");
+
+  const login = document.querySelector("#login") as HTMLButtonElement;
+  const logout = document.querySelector("#logout") as HTMLButtonElement;
+
+  logout.addEventListener("click", () => signOut());
+  login.addEventListener("click", () => signIn("github"));
+
+  document.querySelector(".close-button")!.addEventListener("click", () => {
+    document.querySelector("#navmenu")!.classList.toggle("navmenu-hidden");
+    document.querySelector("body")!.classList.toggle("disable-overflow");
   });
+
+  const validateSession = async () => {
+    const sessionIsValid = await validateSessionClient();
+
+    const accountOptions = document.querySelector(
+      "#navmenu #hidden-account-options"
+    ) as HTMLDivElement;
+    const loginButton = document.querySelector(
+      "#navmenu #login"
+    ) as HTMLButtonElement;
+    const logoutButton = document.querySelector(
+      "#navmenu #logout"
+    ) as HTMLButtonElement;
+
+    if (sessionIsValid) {
+      accountOptions.dataset.show = "true";
+      loginButton.dataset.show = "false";
+      logoutButton.dataset.show = "true";
+    } else {
+      logoutButton.dataset.show = "false";
+      loginButton.dataset.show = "true";
+    }
+  };
+
+  await validateSession();
 </script>
 
 <style>
@@ -123,5 +168,13 @@ import { Icon } from "astro-icon/components";
     width: 40px;
     height: 40px;
     color: var(--page);
+  }
+
+  #hidden-account-options {
+    display: flex;
+  }
+
+  #navmenu *[data-show="false"] {
+    display: none;
   }
 </style>

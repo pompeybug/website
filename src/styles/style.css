@@ -433,6 +433,7 @@ nav h2 {
 }
 
 #navmenu a,
+#navmenu button,
 #taglist a {
   text-decoration: none;
   list-style-type: none;
@@ -448,7 +449,13 @@ nav h2 {
   display: inline-block;
 }
 
+#navmenu button {
+  text-align: left;
+  font-size: 16px;
+}
+
 #navmenu a:hover,
+#navmenu button:hover,
 #taglist a:hover,
 .link-block:hover,
 .link-block.no-visit:hover {
