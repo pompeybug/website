@@ -16,6 +16,7 @@ interface Props {
   readingTime?: string;
   description?: string;
   frontmatter?: this;
+  slug?: string;
 }
 
 const {
@@ -26,16 +27,36 @@ const {
   coverImage,
   readingTime,
   description,
+  slug,
 } = Astro.props.frontmatter || Astro.props;
 
-const coverImageRendered = await getImage({
-  src: coverImage ?? fallbackSeoLogo,
-  format: "jpg",
-  height: 630,
-  width: 1200,
-});
+const getCoverImage = async () => {
+  if (coverImage) {
+    const coverImageRendered = await getImage({
+      src: coverImage,
+      format: "jpg",
+      height: 630,
+      width: 1200,
+    });
 
-const image = `${import.meta.env.DEV ? "http://localhost:4321/" : Astro.site}${coverImageRendered.src.slice(1)}`;
+    return coverImageRendered.src.slice(1);
+  } else if (slug) {
+    return `api/og/${slug}.png`;
+  } else {
+    const fallbackSeoLogoRendered = await getImage({
+      src: fallbackSeoLogo,
+      format: "jpg",
+      height: 630,
+      width: 1200,
+    });
+
+    return fallbackSeoLogoRendered.src.slice(1);
+  }
+};
+
+const coverImageUrl = await getCoverImage();
+
+const image = `${import.meta.env.DEV ? "http://localhost:4321/" : Astro.site}${coverImageUrl}`;
 
 const date = typeof dateMixed === "string" ? new Date(dateMixed) : dateMixed;
 
