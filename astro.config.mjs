@@ -8,6 +8,7 @@ import svelte from "@astrojs/svelte";
 import icon from "astro-icon";
 import { loadEnv } from "vite";
 import purgecss from 'astro-purgecss';
+import auth from "auth-astro";
 
 const { HTTPS, DOMAIN } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 
@@ -29,6 +30,7 @@ export default defineConfig({
     svelte(),
     icon(),
     purgecss(),
+    auth({ injectEndpoints: false })
   ],
   markdown: {
     remarkPlugins: [remarkReadingTime, remarkStripMarkdown],
