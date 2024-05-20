@@ -1,11 +1,15 @@
 ---
-import { Icon } from "astro-icon/components";
+import TablerX from "icons:astro/tabler/x";
+import TablerBrandFacebook from "icons:astro/tabler/brand-facebook";
+import TablerBrandInstagram from "icons:astro/tabler/brand-instagram";
+import TablerBrandX from "icons:astro/tabler/brand-x";
+import TablerBrandYoutube from "icons:astro/tabler/brand-youtube";
 ---
 
 <nav id="navmenu" class="navmenu-hidden">
   <div class="close">
     <button class="close-button">
-      <Icon name="close" />
+      <TablerX name="close" class="close" />
     </button>
     <h1><a href="/">Portsmouth Cycle Forum</a></h1>
   </div>
@@ -37,28 +41,28 @@ import { Icon } from "astro-icon/components";
         title="Facebook"
         aria-label="Facebook"
         target="_blank"
-        rel="noopener me"><Icon name="facebook" /></a
+        rel="noopener me"><TablerBrandFacebook name="facebook" /></a
       >
       <a
         href="https://www.instagram.com/pompey.bike"
         title="Instagram"
         aria-label="Instagram"
         target="_blank"
-        rel="noopener me"><Icon name="instagram" /></a
+        rel="noopener me"><TablerBrandInstagram name="instagram" /></a
       >
       <a
         href="https://twitter.com/PompeyBUG"
         title="X (Twitter)"
         aria-label="X (Twitter)"
         target="_blank"
-        rel="noopener me"><Icon name="twitter" /></a
+        rel="noopener me"><TablerBrandX name="twitter" /></a
       >
       <a
         href="https://youtube.com/@PompeyBUG"
         title="Youtube"
         aria-label="Youtube"
         target="_blank"
-        rel="noopener me"><Icon name="youtube" /></a
+        rel="noopener me"><TablerBrandYoutube name="youtube" /></a
       >
     </div>
   </section>
@@ -119,7 +123,7 @@ import { Icon } from "astro-icon/components";
     margin-right: var(--fixedspace);
   }
 
-  [data-icon="close"] {
+  .close {
     width: 40px;
     height: 40px;
     color: var(--page);
