@@ -32,7 +32,6 @@
     "@sindresorhus/slugify": "^2.2.1",
     "astro": "^4.7.0",
     "astro-capo": "^0.0.1",
-    "astro-icon": "^1.1.0",
     "astro-purgecss": "^4.1.1",
     "astro-robots-txt": "^1.0.0",
     "astro-seo-meta": "^4.1.1",
