@@ -16,3 +16,5 @@ export interface Tag {
   slug: string;
   pretty: string;
 }
+
+export type Session = import("@auth/core/types").Session;
