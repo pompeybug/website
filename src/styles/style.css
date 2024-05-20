@@ -549,7 +549,7 @@ a.no-hover:hover {
   align-items: center;
 }
 
-.search-container [data-icon="search"] {
+.search-container .search {
   color: var(--search-colour);
   height: 24px;
   width: 24px;

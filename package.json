@@ -28,11 +28,11 @@
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/svelte": "^5.4.0",
     "@astrojs/ts-plugin": "^1.6.1",
+    "@iconify-json/tabler": "^1.1.112",
     "@resvg/resvg-js": "^2.6.2",
     "@sindresorhus/slugify": "^2.2.1",
     "astro": "^4.7.0",
     "astro-capo": "^0.0.1",
-    "astro-icon": "^1.1.0",
     "astro-purgecss": "^4.1.1",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.3",
@@ -43,6 +43,7 @@
     "remove-markdown": "^0.5.0",
     "satori": "^0.10.13",
     "svelte": "^4.2.15",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "unplugin-icons": "^0.19.0"
   }
 }

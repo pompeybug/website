@@ -1,7 +1,7 @@
 ---
 import Base from "@layouts/Base.astro";
 import { getAllUniqueArticleTags } from "@lib/collections/articles";
-import { Icon } from "astro-icon/components";
+import TablerSearch from "icons:astro/tabler/search";
 
 const uniqueTags = (await getAllUniqueArticleTags()).sort((a, b) => {
   if (a.tag < b.tag) {
@@ -21,7 +21,7 @@ const uniqueTags = (await getAllUniqueArticleTags()).sort((a, b) => {
       Articles on this site are tagged to aid navigation. This page lists all
       the tags currently in use.
       <div class="search-container">
-        <Icon name="search" />
+        <TablerSearch name="search" class="search" />
         <input
           id="tag-filter"
           class="search-input"
