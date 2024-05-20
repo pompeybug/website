@@ -29,7 +29,6 @@ jobs:
           submodules: recursive
       - name: Update submodules
         run: |
-          git submodule status
           git submodule update --init --remote
       - name: Commit and Push Changes
         id: commit
