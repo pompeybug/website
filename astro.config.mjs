@@ -8,6 +8,7 @@ import svelte from "@astrojs/svelte";
 import icon from "astro-icon";
 import { loadEnv } from "vite";
 import purgecss from 'astro-purgecss';
+import Icons from "unplugin-icons/vite";
 
 const { HTTPS, DOMAIN } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 
@@ -34,4 +35,28 @@ export default defineConfig({
     remarkPlugins: [remarkReadingTime, remarkStripMarkdown],
   },
   prefetch: true,
+  vite: {
+    resolve: {
+      alias: [
+        {
+          find: "icons:svelte",
+          replacement: "~icons",
+        },
+        {
+          find: "icons:astro",
+          replacement: "~icons",
+        },
+      ],
+    },
+    plugins: [
+      Icons({
+        compiler: "svelte",
+        autoInstall: true,
+      }),
+      Icons({
+        compiler: "astro",
+        autoInstall: true,
+      }),
+    ],
+  },
 });
