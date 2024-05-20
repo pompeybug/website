@@ -6,7 +6,7 @@ import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 import svelte from "@astrojs/svelte";
 import { loadEnv } from "vite";
-import purgecss from 'astro-purgecss';
+import purgecss from "astro-purgecss";
 import Icons from "unplugin-icons/vite";
 
 const { HTTPS, DOMAIN } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
@@ -19,7 +19,9 @@ export default defineConfig({
   site,
   integrations: [
     mdx(),
-    robotsTxt(),
+    robotsTxt({
+      sitemap: `${site}/sitemap-index.xml`,
+    }),
     sitemap(),
     partytown({
       config: {
