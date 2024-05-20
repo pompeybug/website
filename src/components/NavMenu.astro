@@ -78,8 +78,9 @@ import { Icon } from "astro-icon/components";
 </nav>
 
 <script>
-  const { validateSessionClient } = await import("@lib/session");
+  const { getSessionClient } = await import("@lib/session");
   const { signIn, signOut } = await import("auth-astro/client");
+  const { $session } = await import("@lib/sessionStore");
 
   const login = document.querySelector("#login") as HTMLButtonElement;
   const logout = document.querySelector("#logout") as HTMLButtonElement;
@@ -93,7 +94,7 @@ import { Icon } from "astro-icon/components";
   });
 
   const validateSession = async () => {
-    const sessionIsValid = await validateSessionClient();
+    const session = await getSessionClient();
 
     const accountOptions = document.querySelector(
       "#navmenu #hidden-account-options"
@@ -105,11 +106,13 @@ import { Icon } from "astro-icon/components";
       "#navmenu #logout"
     ) as HTMLButtonElement;
 
-    if (sessionIsValid) {
+    if (session) {
+      $session.set(session)
       accountOptions.dataset.show = "true";
       loginButton.dataset.show = "false";
       logoutButton.dataset.show = "true";
     } else {
+      $session.set({});
       logoutButton.dataset.show = "false";
       loginButton.dataset.show = "true";
     }

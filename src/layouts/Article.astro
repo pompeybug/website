@@ -114,9 +114,9 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
 </Base>
 
 <script>
-  const { validateSessionClient } = await import("@lib/session");
+  const { $sessionIsValid } = await import("@lib/sessionStore");
 
-  const validateSession = async () => {
+  $sessionIsValid.listen((v) => {
     const editButton = document.querySelector(
       "main .title-container .edit-button"
     ) as HTMLButtonElement | null;
@@ -125,14 +125,8 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
       return;
     }
 
-    const isSessionValid = await validateSessionClient();
-
-    if (isSessionValid) {
-      editButton.dataset.show = "true";
-    }
-  };
-
-  await validateSession();
+    editButton.dataset.show = String(v);
+  });
 </script>
 
 <style>
