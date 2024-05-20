@@ -16,47 +16,87 @@ interface Props {
   readingTime?: string;
   description?: string;
   frontmatter?: this;
+  slug?: string;
 }
 
-const { title, date, tags, todo, coverImage, readingTime, description } =
-  Astro.props.frontmatter || Astro.props;
+const {
+  title,
+  date: dateMixed,
+  tags,
+  todo,
+  coverImage,
+  readingTime,
+  description,
+  slug,
+} = Astro.props.frontmatter || Astro.props;
 
-const coverImageRendered = await getImage({
-  src: coverImage ?? fallbackSeoLogo,
-  format: "jpg",
-  height: 630,
-  width: 1200,
-});
+const getCoverImage = async () => {
+  if (coverImage) {
+    const coverImageRendered = await getImage({
+      src: coverImage,
+      format: "jpg",
+      height: 630,
+      width: 1200,
+    });
 
-const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
+    return coverImageRendered.src.slice(1);
+  } else if (slug) {
+    return `api/og/${slug}.png`;
+  } else {
+    const fallbackSeoLogoRendered = await getImage({
+      src: fallbackSeoLogo,
+      format: "jpg",
+      height: 630,
+      width: 1200,
+    });
+
+    return fallbackSeoLogoRendered.src.slice(1);
+  }
+};
+
+const coverImageUrl = await getCoverImage();
+
+const image = `${import.meta.env.DEV ? "http://localhost:4321/" : Astro.site}${coverImageUrl}`;
+
+const date = typeof dateMixed === "string" ? new Date(dateMixed) : dateMixed;
+
+const descriptionTrimmed = description
+  ? description.split(" ").slice(0, 20).join(" ").replace(/\D$/gi, "") + "..."
+  : description;
 ---
 
 <Base
+  {title}
+  description={descriptionTrimmed ?? "An article by the Portsmouth Cycle Forum"}
   seo={{
     title,
-    description:
-      description?.split(" ").slice(0, 20).join(" ").replace(/\D$/gi, "") +
-      "...",
-    keywords: tags,
+    description: descriptionTrimmed,
+    charset: "UTF-8",
+    openGraph: {
+      basic: { title, type: "article", image },
+      optional: {
+        description: descriptionTrimmed,
+        siteName: "Portsmouth Cycle Forum",
+      },
+      image: { type: "image/png", height: 630, width: 1200, alt: title },
+      article: {
+        publishedTime: date?.toISOString(),
+        tags,
+      },
+    },
     twitter: {
       card: "summary_large_image",
       site: "@PompeyBUG",
+      creator: "@PompeyBUG",
       image,
-    },
-    facebook: {
-      image,
-      url: Astro.request.url,
-      type: "article",
+      imageAlt: title,
+      description: descriptionTrimmed,
     },
   }}
 >
   <main>
     <h1 class="title">{title}</h1>
-    {
-      date && (
-        <Metadata date={typeof date === "string" ? new Date(date) : date} loading="eager" />
-      )
-    }
+    {date && <Metadata {date} loading="eager" />}
     {readingTime && <ReadingTime readingTime={readingTime} />}
     {
       coverImage && (
