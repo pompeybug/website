@@ -6,7 +6,7 @@ import { Picture, getImage } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import ReadingTime from "@components/ReadingTime.astro";
 import fallbackSeoLogo from "@assets/article/seo-logo.webp";
-import { Icon } from "astro-icon/components";
+import TablerEdit from "icons:astro/tabler/edit";
 
 interface Props {
   title: CollectionEntry<"articles">["data"]["title"];
@@ -111,7 +111,7 @@ const descriptionTrimmed = description
               title="edit article"
               aria-label="edit article"
             >
-              <Icon name="edit" />
+              <TablerEdit name="edit" class="edit" />
             </a>
           </button>
         )
@@ -208,7 +208,7 @@ const descriptionTrimmed = description
     border: 1px solid var(--col2);
   }
 
-  [data-icon="edit"] {
+  .edit {
     font-size: 2em;
   }
 </style>
