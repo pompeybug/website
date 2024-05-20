@@ -29,9 +29,9 @@ jobs:
           submodules: recursive
       - name: Update submodules
         run: |
-          git submodule status -v
+          git submodule status
           git pull --recurse-submodules -v
-          git submodule update --remote --recursive -v
+          git submodule update --remote --recursive
       - name: Commit and Push Changes
         id: commit
         uses: stefanzweifel/git-auto-commit-action@v4
