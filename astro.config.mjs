@@ -7,6 +7,8 @@ import partytown from "@astrojs/partytown";
 import svelte from "@astrojs/svelte";
 import { loadEnv } from "vite";
 import purgecss from "astro-purgecss";
+import auth from "auth-astro";
+import node from "@astrojs/node";
 import Icons from "unplugin-icons/vite";
 
 const { HTTPS, DOMAIN } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
@@ -16,6 +18,10 @@ const site =
 
 // https://astro.build/config
 export default defineConfig({
+  output: "hybrid",
+  adapter: node({
+    mode: "standalone",
+  }),
   site,
   integrations: [
     mdx(),
@@ -30,6 +36,7 @@ export default defineConfig({
     }),
     svelte(),
     purgecss(),
+    auth({ injectEndpoints: false }),
   ],
   markdown: {
     remarkPlugins: [remarkReadingTime, remarkStripMarkdown],

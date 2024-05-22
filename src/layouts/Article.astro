@@ -6,6 +6,7 @@ import { Picture, getImage } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import ReadingTime from "@components/ReadingTime.astro";
 import fallbackSeoLogo from "@assets/article/seo-logo.webp";
+import TablerEdit from "icons:astro/tabler/edit";
 
 interface Props {
   title: CollectionEntry<"articles">["data"]["title"];
@@ -95,8 +96,35 @@ const descriptionTrimmed = description
   }}
 >
   <main>
-    <h1 class="title">{title}</h1>
-    {date && <Metadata {date} loading="eager" />}
+    <div class="title-container">
+      <h1 class="title">{title}</h1>
+      {
+        slug && (
+          <button
+            class="edit-button"
+            aria-label="edit article"
+            role="link"
+            data-show="false"
+          >
+            <a
+              href={`/editor?article=${slug}`}
+              title="edit article"
+              aria-label="edit article"
+            >
+              <TablerEdit name="edit" class="edit" />
+            </a>
+          </button>
+        )
+      }
+    </div>
+    {
+      date && (
+        <Metadata
+          date={typeof date === "string" ? new Date(date) : date}
+          loading="eager"
+        />
+      )
+    }
     {readingTime && <ReadingTime readingTime={readingTime} />}
     {
       coverImage && (
@@ -127,3 +155,60 @@ const descriptionTrimmed = description
   </main>
   <TagList tags={tags} slot="tags" />
 </Base>
+
+<script>
+  const { $sessionIsValid } = await import("@lib/sessionStore");
+
+  $sessionIsValid.listen((v) => {
+    const editButton = document.querySelector(
+      "main .title-container .edit-button"
+    ) as HTMLButtonElement | null;
+
+    if (!editButton) {
+      return;
+    }
+
+    editButton.dataset.show = String(v);
+  });
+</script>
+
+<style>
+  main .title-container {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--fixedspace) * 0.5);
+  }
+
+  .edit-button[data-show="false"] {
+    display: none;
+  }
+
+  .edit-button {
+    background-color: var(--col2);
+    border: 1px solid var(--page);
+    border-radius: var(--buttoncurve);
+    margin: 0;
+    padding: 0;
+  }
+
+  .edit-button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--page);
+    background: var(--col2);
+    border: none;
+    padding: calc(var(--fixedspace) * 0.25);
+  }
+
+  .edit-button a:hover {
+    cursor: pointer;
+    background-color: var(--page);
+    color: var(--col2);
+    border: 1px solid var(--col2);
+  }
+
+  .edit {
+    font-size: 2em;
+  }
+</style>
