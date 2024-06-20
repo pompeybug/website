@@ -4,6 +4,7 @@ import TablerBrandFacebook from "icons:astro/tabler/brand-facebook";
 import TablerBrandInstagram from "icons:astro/tabler/brand-instagram";
 import TablerBrandX from "icons:astro/tabler/brand-x";
 import TablerBrandYoutube from "icons:astro/tabler/brand-youtube";
+import TablerShare from "icons:astro/tabler/share";
 ---
 
 <nav id="navmenu" class="navmenu-hidden">
@@ -67,6 +68,15 @@ import TablerBrandYoutube from "icons:astro/tabler/brand-youtube";
     </div>
   </section>
 
+  <section>
+    <div class="share">
+      <button data-href={Astro.url.href}>
+        <p>Share</p>
+        <TablerShare />
+      </button>
+    </div>
+  </section>
+
   <slot />
 </nav>
 
@@ -74,6 +84,20 @@ import TablerBrandYoutube from "icons:astro/tabler/brand-youtube";
   document.querySelector(".close-button")?.addEventListener("click", () => {
     document.querySelector("#navmenu")?.classList.toggle("navmenu-hidden");
     document.querySelector("body")?.classList.toggle("disable-overflow");
+  });
+
+  const shareLink = document.querySelector(
+    ".share button"
+  ) as HTMLButtonElement;
+
+  const shareData = {
+    url: shareLink.dataset.href,
+  } as ShareData;
+
+  shareLink.addEventListener("click", async () => {
+    if (navigator.canShare(shareData)) {
+      await navigator.share(shareData);
+    }
   });
 </script>
 
@@ -127,5 +151,34 @@ import TablerBrandYoutube from "icons:astro/tabler/brand-youtube";
     width: 40px;
     height: 40px;
     color: var(--page);
+  }
+
+  .share p {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .share button {
+    background-color: var(--col2);
+    border-radius: var(--buttoncurve);
+    border: var(--page) solid thin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: calc(var(--fixedspace) * 0.5);
+    width: 100%;
+    color: var(--page);
+  }
+
+  .share button:hover {
+    background-color: var(--page);
+    border: var(--col2) solid thin;
+    cursor: pointer;
+    color: var(--col2);
+  }
+
+  .share svg {
+    height: var(--navmenu-socials-icon-size);
+    width: var(--navmenu-socials-icon-size);
   }
 </style>
