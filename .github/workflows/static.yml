@@ -25,6 +25,7 @@ jobs:
         uses: actions/checkout@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
           submodules: recursive
       - name: Update submodules to remote HEAD
         run: |
@@ -36,7 +37,8 @@ jobs:
           else
             git add src/content
             git commit -m "Update submodules to latest"
-            git push
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
   build:
     runs-on: ubuntu-latest
