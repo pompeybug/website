@@ -24,7 +24,7 @@ jobs:
       commit_hash: ${{ steps.commit.outputs.commit_hash }}
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           submodules: recursive
       - name: Update submodules
@@ -41,7 +41,7 @@ jobs:
     if: ${{ inputs.only-update-submodules == false || inputs.only-update-submodules == 'false' }}
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           submodules: recursive
           ref: ${{ needs.update-submodules.outputs.commit_hash == '' && 'main' || needs.update-submodules.outputs.commit_hash }}
