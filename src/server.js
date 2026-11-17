@@ -410,14 +410,19 @@ function oldAddress(requestPath) {
   // /wp-content/uploads/2022/03/Accounts.pdf, or a file that has moved within /assets
   const file = /^(?:wp-content\/uploads|assets)\/(?:.*\/)?([^/]+\.[a-z0-9]+)$/.exec(wanted);
   if (file) {
+    // The same name with different capitals is a different file on the server.
     const found = legacyFiles.get(file[1]);
-    return found && normal(found) !== wanted ? encodeURI(found) : null;
+    return found && found !== requestPath ? encodeURI(found) : null;
   }
 
   const topic = /^(?:tag|category)\/([^/]+)$/.exec(wanted);
   if (topic) return content.listTags().some((tag) => tag.slug === topic[1]) ? `/tags/${topic[1]}` : '/tags';
 
-  return null;
+  // An old address that ends in an article's name: /our-cycling-manifesto is
+  // now /2014-05-07-our-cycling-manifesto.
+  const name = wanted.split('/').at(-1);
+  const sameName = content.listEntries('article').filter((entry) => new RegExp(`^\\d{4}-\\d{2}-\\d{2}-${name.replace(/[^a-z0-9-]/g, '')}$`).test(entry.slug));
+  return name && sameName.length === 1 ? publicUrl(sameName[0]) : null;
 }
 
 app.get('/*path', (req, res, next) => {
@@ -427,7 +432,7 @@ app.get('/*path', (req, res, next) => {
 
   if (!entry || slug === '404') {
     const moved = oldAddress(decodeURIComponent(req.path));
-    return moved ? res.redirect(301, moved) : next();
+    return moved ? res.redirect(301, moved + req.url.slice(req.path.length)) : next();
   }
   // One URL per page: /Report, /report/ and /report/index.html all go to /report.
   if (tidy !== req.path) return res.redirect(301, tidy + req.url.slice(req.path.length));
