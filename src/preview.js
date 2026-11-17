@@ -1,8 +1,8 @@
-// Design previews. Three candidate looks for the site, each shown on a
-// "front door" home page, a section page and any article or page, using the
-// real content. Lives under /design and is never indexed. Once a direction is
-// chosen its templates and stylesheet replace render.js and site.css, and
-// this file goes.
+// Design preview. The chosen look ("Campaign": black and orange, big
+// photographs, heavy headlines) shown on a "front door" home page, a section
+// page and any article or page, using the real content. Lives under
+// /design/b and is never indexed. Once it is agreed, its templates and
+// stylesheet replace render.js and site.css, and this file goes.
 
 import { Router } from 'express';
 import { html, raw } from './html.js';
@@ -10,12 +10,8 @@ import * as content from './content.js';
 import { SITE_NAME, coverUrl, formatDate } from './render.js';
 import { SECTIONS, getSection } from './taxonomy.js';
 
-const DIRECTIONS = [
-  { id: 'a', name: 'Civic', logo: '/img/logo.svg', summary: 'Plain, calm and built around tasks, like a public information site. Green leads; orange is kept for the buttons.', home: ['hero', 'tasks', 'campaigns', 'latest', 'stories', 'join'] },
-  { id: 'b', name: 'Campaign', logo: '/img/logo-w.svg', summary: 'Loud and confident, like a campaign poster. Black and orange, big photographs, heavy headlines.', home: ['hero', 'campaigns', 'tasks', 'stories', 'join', 'latest'] },
-  { id: 'c', name: 'Community', logo: '/img/logo.svg', summary: 'Warm and friendly, like a local magazine. Cream paper, serif headlines, people first.', home: ['hero', 'stories', 'campaigns', 'tasks', 'latest', 'join'] },
-];
-const getDirection = (id) => DIRECTIONS.find((direction) => direction.id === id) ?? null;
+const BASE = '/design/b';
+const HOME = ['hero', 'campaigns', 'tasks', 'stories', 'join', 'latest'];
 
 const HERO_ARTICLE = 'kidical-mass-families-demand-safe-cycling-infrastructure';
 const LIST_SIZE = 12;
@@ -48,34 +44,32 @@ const SOCIALS = [
 const isoDay = (date) => date.toISOString().slice(0, 10);
 const shortFormat = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'Europe/London' });
 
-// Keeps links inside the preview of one direction.
-const linker = (direction) => (href) => `/design/${direction.id}${href === '/' ? '' : href}`;
+// Keeps links inside the preview.
+const to = (href) => `${BASE}${href === '/' ? '' : href}`;
 
 // ---------- Layout ----------
-function layout({ direction, title, here, main }) {
-  const to = linker(direction);
+function layout({ title, here, main }) {
   return `<!doctype html>
 ${html`<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${title} | Design ${direction.id.toUpperCase()}: ${direction.name}</title>
+<title>${title} | Design preview</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/css/design.css">
-<link rel="stylesheet" href="/css/design-${direction.id}.css">
 </head>
 <body>
   <a class="skip" href="#content">Skip to the content</a>
   <header class="top">
     <a class="brand" href="${to('/')}">
-      <img src="${direction.logo}" alt="" width="78" height="43">
+      <img src="/img/logo.svg" alt="" width="78" height="43">
       <span>${SITE_NAME}</span>
     </a>
+    <a class="button" href="${to('/join')}">Join us</a>
     <nav class="primary" aria-label="Site">
       <ul>
         ${PRIMARY.map(([href, label]) => html`<li><a href="${to(href)}" ${raw(here === href ? 'aria-current="page"' : '')}>${label}</a></li>`)}
-        <li><a class="button" href="${to('/join')}">Join us</a></li>
       </ul>
     </nav>
   </header>
@@ -114,36 +108,32 @@ ${html`<html lang="en-GB">
     <p>&copy; ${SITE_NAME} ${new Date().getFullYear()}. Volunteers maintain this site.</p>
     <p><a href="https://passionfruit.design">Hosted and supported by Passionfruit Design</a></p>
   </footer>
-  <nav class="switcher" aria-label="Design previews">
+  <aside class="switcher" aria-label="Design preview">
     <p>Design preview</p>
-    <ul>
-      ${DIRECTIONS.map((other) => html`<li><a href="/design/${other.id}${here === '/' ? '' : here}" ${raw(other.id === direction.id ? 'aria-current="true"' : '')}>${other.id.toUpperCase()} ${other.name}</a></li>`)}
-      <li><a href="/design">About these</a></li>
-    </ul>
-  </nav>
+    <a href="/">Back to the current site</a>
+  </aside>
 </body>
 </html>`}
 `;
 }
 
 // ---------- Pieces ----------
-const thumb = (article, to, width = 600) =>
-  html`<a class="thumb" href="${to(`/${article.slug}`)}" tabindex="-1" aria-hidden="true">
+const thumb = (article, width = 600) =>
+  html`<figure class="thumb">
       ${article.cover ? html`<img src="${coverUrl(article, width)}" alt="" loading="lazy" decoding="async">` : html`<img class="empty" src="/img/logo-w.svg" alt="" loading="lazy">`}
-    </a>`;
+    </figure>`;
 
-const feature = (article, to) =>
+const feature = (article) =>
   html`<li>
       <article>
-        ${thumb(article, to)}
+        ${thumb(article)}
         <p class="kicker">${getSection(article.section)?.title}</p>
         <h3><a href="${to(`/${article.slug}`)}">${article.title}</a></h3>
         ${article.date && html`<time datetime="${isoDay(article.date)}">${shortFormat.format(article.date)}</time>`}
-        <p>${article.description}</p>
       </article>
     </li>`;
 
-const dated = (article, to) =>
+const dated = (article) =>
   html`<li>
       <a href="${to(`/${article.slug}`)}">${article.title}</a>
       ${article.date && html`<time datetime="${isoDay(article.date)}">${shortFormat.format(article.date)}</time>`}
@@ -159,8 +149,7 @@ const band = (name, heading, more, body) =>
     </section>`;
 
 // ---------- Home ----------
-function homeParts(direction) {
-  const to = linker(direction);
+function homeParts() {
   const articles = content.listEntries('article');
   const hero = content.getEntry('article', HERO_ARTICLE);
   const campaigns = content.articlesInSection('campaigns').slice(0, 3);
@@ -194,15 +183,15 @@ function homeParts(direction) {
       </ul>`,
     ),
 
-    campaigns: band('campaigns', 'What we are campaigning on', [to('/campaigns'), 'All campaigns'], html`<ul class="features">${campaigns.map((article) => feature(article, to))}</ul>`),
+    campaigns: band('campaigns', 'What we are campaigning on', [to('/campaigns'), 'All campaigns'], html`<ul class="features">${campaigns.map((article) => feature(article))}</ul>`),
 
-    stories: band('stories', 'People who ride here', [to('/stories'), 'More stories'], html`<ul class="features">${stories.map((article) => feature(article, to))}</ul>`),
+    stories: band('stories', 'People who ride here', [to('/stories'), 'More stories'], html`<ul class="features">${stories.map((article) => feature(article))}</ul>`),
 
     latest: band(
       'latest',
       'Latest',
       ['/archive', `Archive: all ${articles.length} articles since ${first}`],
-      html`<ol class="dated">${articles.slice(0, 6).map((article) => dated(article, to))}</ol>`,
+      html`<ol class="dated">${articles.slice(0, 6).map((article) => dated(article))}</ol>`,
     ),
 
     join: html`<section class="join">
@@ -216,15 +205,14 @@ function homeParts(direction) {
   };
 }
 
-function renderHome(direction) {
-  const parts = homeParts(direction);
-  const main = html`<main id="content" class="home">${direction.home.map((name) => parts[name])}</main>`;
-  return layout({ direction, title: SITE_NAME, here: '/', main });
+function renderHome() {
+  const parts = homeParts();
+  const main = html`<main id="content" class="home">${HOME.map((name) => parts[name])}</main>`;
+  return layout({ title: SITE_NAME, here: '/', main });
 }
 
 // ---------- Section ----------
-function renderSection(direction, section) {
-  const to = linker(direction);
+function renderSection(section) {
   const articles = content.articlesInSection(section.slug);
   const main = html`<main id="content" class="listing">
     <header class="page-head">
@@ -232,15 +220,14 @@ function renderSection(direction, section) {
       <h1>${section.title}</h1>
       <p class="lede">${section.intro}</p>
     </header>
-    <ul class="features">${articles.slice(0, LIST_SIZE).map((article) => feature(article, to))}</ul>
+    <ul class="features">${articles.slice(0, LIST_SIZE).map((article) => feature(article))}</ul>
     ${articles.length > LIST_SIZE && html`<p class="older"><a href="/${section.slug}?page=2">Older ${section.title.toLowerCase()}: ${articles.length - LIST_SIZE} more</a></p>`}
   </main>`;
-  return layout({ direction, title: section.title, here: `/${section.slug}`, main });
+  return layout({ title: section.title, here: `/${section.slug}`, main });
 }
 
 // ---------- Article or page ----------
-function renderEntry(direction, entry) {
-  const to = linker(direction);
+function renderEntry(entry) {
   const section = entry.kind === 'article' ? getSection(entry.section) : null;
   const related = entry.kind === 'article' ? content.relatedArticles(entry) : [];
   const main = html`<main id="content" class="entry">
@@ -257,61 +244,24 @@ function renderEntry(direction, entry) {
       </header>
       ${entry.cover && html`<figure class="cover"><img src="${coverUrl(entry, 1200)}" alt="${entry.title}" fetchpriority="high"></figure>`}
       <section class="prose">${raw(entry.html)}</section>
-    </article>
-    ${section &&
-    html`<aside class="filed" aria-label="Topics">
-      <h2>Filed under</h2>
-      <ul>
-        <li><a href="${to(`/${section.slug}`)}">${section.title}</a></li>
-        ${entry.tags.map((tag) => html`<li><a href="/tags/${content.tagSlug(tag)}">${content.toTitleCase(tag.replaceAll('-', ' '))}</a></li>`)}
-      </ul>
-    </aside>`}
-    ${related.length > 0 &&
-    html`<aside class="related" aria-label="Related articles">
-      <h2>Related articles</h2>
-      <ol class="dated">${related.map((article) => dated(article, to))}</ol>
-    </aside>`}
-  </main>`;
-  return layout({ direction, title: entry.title, here: `/${entry.slug}`, main });
-}
-
-// ---------- Chooser ----------
-function renderChooser() {
-  return `<!doctype html>
-${html`<html lang="en-GB">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design previews | ${SITE_NAME}</title>
-<meta name="robots" content="noindex, nofollow">
-<link rel="stylesheet" href="/css/design.css">
-</head>
-<body class="chooser">
-  <main>
-    <h1>Three directions for the new look</h1>
-    <p>Each one is the same pages and the same real content, dressed differently. The home page is a front door (what we do, what you can do here, current campaigns) and the old articles sit behind an archive link. Use the bar at the bottom of any preview to flip between the three on the same page.</p>
-    <ul>
-      ${DIRECTIONS.map(
-        (direction) => html`<li>
-        <article>
-          <h2>${direction.id.toUpperCase()}: ${direction.name}</h2>
-          <p>${direction.summary}</p>
+      ${section &&
+      html`<footer>
+        <nav class="filed" aria-label="Topics">
+          <h2>Filed under</h2>
           <ul>
-            <li><a href="/design/${direction.id}">Home page</a></li>
-            <li><a href="/design/${direction.id}/campaigns">Section page</a></li>
-            <li><a href="/design/${direction.id}/2024-03-elm-grove">Article</a></li>
-            <li><a href="/design/${direction.id}/about">About page</a></li>
+            <li><a href="${to(`/${section.slug}`)}">${section.title}</a></li>
+            ${entry.tags.map((tag) => html`<li><a href="/tags/${content.tagSlug(tag)}">${content.toTitleCase(tag.replaceAll('-', ' '))}</a></li>`)}
           </ul>
-        </article>
-      </li>`,
-      )}
-    </ul>
-    <p>Two boxes on the home page, "Collision map" and "For drivers", are marked as ideas. They are there to show where that kind of information would live; nothing is built behind them.</p>
-    <p><a href="/">Back to the current site</a></p>
-  </main>
-</body>
-</html>`}
-`;
+        </nav>
+        ${related.length > 0 &&
+        html`<nav class="related" aria-label="Related articles">
+          <h2>Related articles</h2>
+          <ol class="dated">${related.map((article) => dated(article))}</ol>
+        </nav>`}
+      </footer>`}
+    </article>
+  </main>`;
+  return layout({ title: entry.title, here: `/${entry.slug}`, main });
 }
 
 // ---------- Routes ----------
@@ -319,22 +269,16 @@ export function createPreviewRouter() {
   const router = Router();
   const send = (res, body) => res.set('Cache-Control', 'no-cache').set('X-Robots-Tag', 'noindex, nofollow').type('html').send(body);
 
-  router.get('/', (req, res) => send(res, renderChooser()));
+  router.get('/', (req, res) => res.redirect(BASE));
+  router.get('/b', (req, res) => send(res, renderHome()));
 
-  router.param('direction', (req, res, next, id) => {
-    req.direction = getDirection(id);
-    return req.direction ? next() : next('route');
-  });
-
-  router.get('/:direction', (req, res) => send(res, renderHome(req.direction)));
-
-  router.get('/:direction/*path', (req, res, next) => {
+  router.get('/b/*path', (req, res, next) => {
     const slug = req.params.path.join('/').toLowerCase();
     const section = getSection(slug);
-    if (section) return send(res, renderSection(req.direction, section));
+    if (section) return send(res, renderSection(section));
     const entry = content.getEntry('page', slug) ?? content.getEntry('article', slug);
     if (!entry || entry.draft) return next();
-    return send(res, renderEntry(req.direction, entry));
+    return send(res, renderEntry(entry));
   });
 
   return router;
