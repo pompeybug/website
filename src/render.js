@@ -4,7 +4,9 @@
 import { html, raw } from './html.js';
 import { tagSlug, toTitleCase } from './content.js';
 
-const SITE_NAME = 'Portsmouth Cycle Forum';
+export const SITE_NAME = 'Portsmouth Cycle Forum';
+const HOME_TITLE = `${SITE_NAME} | Cycling campaign group for Portsmouth`;
+const TITLE_LENGTH = 60;
 const STRAPLINE = 'Portsmouth Cycle Forum is a group for anyone who cycles, or wants to cycle, in and around Portsmouth UK.';
 export const PAGE_SIZE = 16;
 
@@ -19,7 +21,7 @@ const ICONS = {
 };
 
 const NAV = [
-  { heading: 'Inform', links: [['/', 'Home'], ['/tags', 'Tags'], ['/about', 'About']] },
+  { heading: 'Inform', links: [['/', 'Home'], ['/archive', 'All articles'], ['/tags', 'Tags'], ['/about', 'About']] },
   { heading: 'Act', links: [['/join', 'Join'], ['/support-us', 'Donate'], ['/report', 'Report'], ['/help', 'Help']] },
 ];
 const SOCIALS = [
@@ -30,38 +32,83 @@ const SOCIALS = [
 
 const dateFormat = new Intl.DateTimeFormat('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Europe/London' });
 export const formatDate = (date) => dateFormat.format(date).replace(',', '');
+const monthFormat = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', timeZone: 'Europe/London' });
+const shortFormat = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'Europe/London' });
+const isoDay = (date) => date.toISOString().slice(0, 10);
 
 export const coverUrl = (entry, width) => (entry.cover ? `${entry.cover}?w=${width}` : null);
 
+// ---------- Structured data ----------
+// Read by search engines; a "<" is escaped so the text cannot end the script.
+const structured = (data) => raw(`<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`);
+
+const organisation = (site) => ({
+  '@type': 'NGO',
+  '@id': `${site.origin}/#organisation`,
+  name: SITE_NAME,
+  alternateName: ['PCF', 'Pompey BUG'],
+  url: `${site.origin}/`,
+  logo: { '@type': 'ImageObject', url: `${site.origin}/img/icon-512.png`, width: 512, height: 512 },
+  description: STRAPLINE,
+  email: 'info@pompeybug.co.uk',
+  areaServed: { '@type': 'City', name: 'Portsmouth', containedInPlace: { '@type': 'AdministrativeArea', name: 'Hampshire, England' } },
+  knowsAbout: ['Cycling', 'Cycle campaigning', 'Active travel', 'Cycle routes in Portsmouth'],
+  sameAs: SOCIALS.map(([href]) => href),
+});
+
+function breadcrumbs(site, trail) {
+  if (trail.length < 2) return null;
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: trail.map(([name, path], index) => ({ '@type': 'ListItem', position: index + 1, name, item: `${site.origin}${path}` })),
+  };
+}
+
+const graph = (...items) => structured({ '@context': 'https://schema.org', '@graph': items.filter(Boolean) });
+
 // ---------- Layout ----------
-function head({ site, title, description, path, image, type = 'website', entry }) {
-  const fullTitle = title === SITE_NAME ? title : `${title} - ${SITE_NAME}`;
+// A long title is shown without the site name, so it is not cut off in results.
+export function pageTitle(title) {
+  if (title === SITE_NAME) return HOME_TITLE;
+  const full = `${title} | ${SITE_NAME}`;
+  return full.length <= TITLE_LENGTH ? full : title;
+}
+
+function head({ site, title, seoTitle, description, path, image, type = 'website', entry, robots, data }) {
   const url = `${site.origin}${path}`;
   const shareImage = `${site.origin}${image ?? '/img/og-default.jpg'}`;
+  const robotsValue = site.noindex ? 'noindex, nofollow' : robots;
   return html`<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${fullTitle}</title>
+<title>${pageTitle(seoTitle ?? title)}</title>
 ${description && html`<meta name="description" content="${description}">`}
-${site.noindex && html`<meta name="robots" content="noindex, nofollow">`}
+${robotsValue && html`<meta name="robots" content="${robotsValue}">`}
+${site.verification && html`<meta name="google-site-verification" content="${site.verification}">`}
 <link rel="canonical" href="${url}">
-<link rel="icon" href="/img/logo.svg">
+<link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/img/icon-180.png">
 <link rel="mask-icon" href="/img/logo-w.svg" color="#FFFFFF">
 <meta name="theme-color" content="#c64d0f">
 <link rel="sitemap" href="/sitemap.xml">
+<link rel="alternate" type="application/rss+xml" title="${SITE_NAME} articles" href="/feed.xml">
 <link rel="stylesheet" href="/css/site.css?v=${site.assetVersion}">
 <script type="module" src="/js/site.js?v=${site.assetVersion}"></script>
-<meta property="og:title" content="${title}">
+<meta property="og:title" content="${seoTitle ?? title}">
 <meta property="og:type" content="${type}">
 <meta property="og:url" content="${url}">
 <meta property="og:site_name" content="${SITE_NAME}">
+<meta property="og:locale" content="en_GB">
 ${description && html`<meta property="og:description" content="${description}">`}
 <meta property="og:image" content="${shareImage}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="${title}">
 ${entry?.date && type === 'article' && html`<meta property="article:published_time" content="${entry.date.toISOString()}">`}
+${entry?.modified && type === 'article' && html`<meta property="article:modified_time" content="${entry.modified.toISOString()}">`}
 ${type === 'article' && (entry?.tags ?? []).map((tag) => html`<meta property="article:tag" content="${tag}">`)}
-<meta name="twitter:card" content="summary_large_image">`;
+<meta name="twitter:card" content="summary_large_image">
+${data}`;
 }
 
 const tagSection = (tags) =>
@@ -73,11 +120,11 @@ const tagSection = (tags) =>
       </ul>
     </section>`;
 
-export function layout({ site, title, description, path, image, type, entry, tags, main, editLink }) {
+export function layout({ site, title, seoTitle, description, path, image, type, entry, tags, main, editLink, robots, data }) {
   return `<!doctype html>
 ${html`<html lang="en-GB">
 <head>
-${head({ site, title, description, path, image, type, entry })}
+${head({ site, title, seoTitle, description, path, image, type, entry, robots, data })}
 </head>
 <body>
   <header class="site-header">
@@ -167,9 +214,10 @@ export function renderHome({ site, articles, query, page, editLink }) {
   const current = Math.min(Math.max(1, page), pages);
   const shown = articles.slice((current - 1) * PAGE_SIZE, current * PAGE_SIZE);
   const link = (n) => `/?${new URLSearchParams({ ...(query ? { q: query } : {}), ...(n > 1 ? { page: n } : {}) })}`.replace(/\?$/, '');
+  const heading = query ? `Articles matching “${query}”` : 'Cycling news and campaigns in Portsmouth';
 
   const main = html`<main class="column">
-    <h1>Our Articles</h1>
+    <h1>${heading}</h1>
     <search>
       <form class="search-container" action="/" method="get" role="search">
         <label for="search">${ICONS.search}<span class="visually-hidden">Search articles</span></label>
@@ -189,11 +237,25 @@ export function renderHome({ site, articles, query, page, editLink }) {
     <p id="end" ${raw(current < pages ? 'hidden' : '')}>End of results</p>
   </main>`;
 
+  const website = {
+    '@type': 'WebSite',
+    '@id': `${site.origin}/#website`,
+    url: `${site.origin}/`,
+    name: SITE_NAME,
+    inLanguage: 'en-GB',
+    publisher: { '@id': `${site.origin}/#organisation` },
+    potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: `${site.origin}/?q={search_term_string}` }, 'query-input': 'required name=search_term_string' },
+  };
+
   return layout({
     site,
     title: SITE_NAME,
-    description: STRAPLINE,
-    path: '/',
+    seoTitle: current > 1 ? `Articles, page ${current} of ${pages}` : undefined,
+    description: `${STRAPLINE} News, campaigns, rides and meetings since 2007.`,
+    // Every page of the list is its own address; search results are not indexed.
+    path: current > 1 ? `/?page=${current}` : '/',
+    robots: query ? 'noindex, follow' : undefined,
+    data: current === 1 && !query ? graph(organisation(site), website) : undefined,
     main,
     editLink,
   });
@@ -207,12 +269,18 @@ function hubspot(form) {
     </section>`;
 }
 
-export function renderEntry({ site, entry, editLink, notice }) {
+const datedLink = (article) =>
+  html`<li>
+      <a href="/${article.slug}">${article.title}</a>
+      ${article.date && html`<time datetime="${isoDay(article.date)}">${shortFormat.format(article.date)}</time>`}
+    </li>`;
+
+export function renderEntry({ site, entry, editLink, notice, related = [], parents = [] }) {
   const isArticle = entry.kind === 'article';
   const cover =
     entry.cover &&
     html`<figure class="cover">
-        <img src="${coverUrl(entry, 1200)}" srcset="${coverUrl(entry, 500)} 500w, ${coverUrl(entry, 800)} 800w, ${coverUrl(entry, 1200)} 1200w" sizes="(width > 60em) 48em, 100vw" alt="${entry.title}" loading="eager">
+        <img src="${coverUrl(entry, 1200)}" srcset="${coverUrl(entry, 500)} 500w, ${coverUrl(entry, 800)} 800w, ${coverUrl(entry, 1200)} 1200w" sizes="(width > 60em) 48em, 100vw" alt="${entry.title}" loading="eager" fetchpriority="high">
       </figure>`;
 
   const main = html`<main>
@@ -240,13 +308,53 @@ export function renderEntry({ site, entry, editLink, notice }) {
         </ul>
       </footer>`}
     </article>
+    ${isArticle &&
+    entry.tags.length > 0 &&
+    html`<aside class="filed" aria-label="Topics">
+      <h2>Filed under</h2>
+      <ul class="card-tags">
+        ${entry.tags.map((tag) => html`<li><a href="/tags/${tagSlug(tag)}">${toTitleCase(tag.replaceAll('-', ' '))}</a></li>`)}
+      </ul>
+    </aside>`}
+    ${related.length > 0 &&
+    html`<aside class="related" aria-label="Related articles">
+      <h2>Related articles</h2>
+      <ul class="dated">
+        ${related.map(datedLink)}
+      </ul>
+    </aside>`}
   </main>`;
+
+  const url = `${site.origin}/${entry.slug}`;
+  const description = entry.description || `${entry.title}, from ${SITE_NAME}.`;
+  const trail = [['Home', '/'], ...parents.map((parent) => [parent.title, `/${parent.slug}`]), [entry.title, `/${entry.slug}`]];
+  const thing = isArticle
+    ? {
+        '@type': 'Article',
+        '@id': `${url}#article`,
+        headline: entry.title.slice(0, 110),
+        description,
+        datePublished: entry.date?.toISOString(),
+        dateModified: (entry.modified ?? entry.date)?.toISOString(),
+        image: entry.cover ? [`${site.origin}${entry.cover}?og=1`] : undefined,
+        author: entry.author ? { '@type': 'Person', name: entry.author } : { '@id': `${site.origin}/#organisation` },
+        publisher: { '@id': `${site.origin}/#organisation` },
+        mainEntityOfPage: url,
+        inLanguage: 'en-GB',
+        keywords: entry.tags.length > 0 ? entry.tags.join(', ') : undefined,
+        wordCount: entry.text ? entry.text.split(' ').length : undefined,
+      }
+    : { '@type': entry.slug === 'about' ? 'AboutPage' : entry.slug === 'contact' ? 'ContactPage' : 'WebPage', '@id': `${url}#page`, url, name: entry.title, description, inLanguage: 'en-GB', about: { '@id': `${site.origin}/#organisation` } };
 
   return layout({
     site,
     title: entry.title,
-    description: entry.description || `An article by the ${SITE_NAME}`,
+    // "Open Meeting" was used many times; the month tells the results apart.
+    seoTitle: isArticle && entry.sharedTitle && entry.date ? `${entry.title}, ${monthFormat.format(entry.date)}` : undefined,
+    description,
     path: `/${entry.slug}`,
+    robots: entry.noindex ? 'noindex, follow' : undefined,
+    data: graph(organisation(site), thing, breadcrumbs(site, trail)),
     image: entry.cover ? `${entry.cover}?og=1` : null,
     type: isArticle ? 'article' : 'website',
     entry,
@@ -269,35 +377,85 @@ export function renderTags({ site, tags }) {
       ${tags.map(({ slug, pretty }) => html`<li><a href="/tags/${slug}">${pretty}</a></li>`)}
     </ul>
   </main>`;
-  return layout({ site, title: 'Tags', description: 'Every tag used on Portsmouth Cycle Forum articles.', path: '/tags', main });
+  return layout({ site, title: 'Tags', description: `Browse ${SITE_NAME} articles by topic: all ${tags.length} tags, from campaigns and cycle routes to rides and meetings.`, path: '/tags', main });
 }
 
 const articleList = (articles, withTodo = false) =>
-  html`<ol class="menu">
+  html`<ol class="menu dated">
       ${articles.map(
         (article) => html`<li>
         <a href="/${article.slug}">${article.title}</a>
+        ${article.date && html`<time datetime="${isoDay(article.date)}">${shortFormat.format(article.date)}</time>`}
         ${withTodo && html`<ul>${article.todo.map((item) => html`<li>${item}</li>`)}</ul>`}
       </li>`,
       )}
     </ol>`;
 
+const years = (articles) => `${articles.at(-1).date?.getUTCFullYear() ?? ''}`.concat(articles[0].date?.getUTCFullYear() === articles.at(-1).date?.getUTCFullYear() ? '' : ` to ${articles[0].date?.getUTCFullYear()}`);
+
 export function renderTag({ site, tag, articles }) {
+  const count = articles.length === 1 ? '1 article' : `${articles.length} articles`;
   const main = html`<main>
-    <h1>Tag: ${tag.pretty}</h1>
-    <p>A list of articles that have been tagged: <a href="/tags/${tag.slug}">${tag.pretty}</a></p>
+    <h1>${tag.pretty}</h1>
+    <p>${count} from ${SITE_NAME} tagged ${tag.pretty}, newest first. <a href="/tags">See every tag</a>.</p>
     ${articleList(articles)}
   </main>`;
-  return layout({ site, title: `Articles with ${tag.pretty} tag`, path: `/tags/${tag.slug}`, main });
+  const path = `/tags/${tag.slug}`;
+  const list = {
+    '@type': 'CollectionPage',
+    '@id': `${site.origin}${path}#page`,
+    url: `${site.origin}${path}`,
+    name: `${tag.pretty} articles`,
+    isPartOf: { '@id': `${site.origin}/#website` },
+    mainEntity: { '@type': 'ItemList', numberOfItems: articles.length, itemListElement: articles.slice(0, 50).map((article, index) => ({ '@type': 'ListItem', position: index + 1, url: `${site.origin}/${article.slug}`, name: article.title })) },
+  };
+  return layout({
+    site,
+    title: `${tag.pretty} articles`,
+    description: `${count} about ${tag.pretty} from ${SITE_NAME} (${years(articles)}), including ${articles.slice(0, 2).map((article) => `“${article.title}”`).join(' and ')}.`,
+    path,
+    // A tag used once only repeats its one article.
+    robots: articles.length < 2 ? 'noindex, follow' : undefined,
+    data: graph(list, breadcrumbs(site, [['Home', '/'], ['Tags', '/tags'], [tag.pretty, path]])),
+    main,
+  });
 }
 
+export function renderArchive({ site, articles }) {
+  const byYear = Map.groupBy(articles, (article) => article.date?.getUTCFullYear() ?? 'Undated');
+  const main = html`<main>
+    <h1>All articles</h1>
+    <p>Every article published by ${SITE_NAME}: ${articles.length} in all, newest first.</p>
+    <nav class="years" aria-label="Years">
+      <ul class="card-tags">
+        ${[...byYear.keys()].map((year) => html`<li><a href="#y${year}">${year}</a></li>`)}
+      </ul>
+    </nav>
+    ${[...byYear].map(
+      ([year, list]) => html`<section id="y${year}">
+      <h2>${year}</h2>
+      ${articleList(list)}
+    </section>`,
+    )}
+  </main>`;
+  return layout({
+    site,
+    title: 'All articles',
+    description: `The full archive of ${SITE_NAME}: ${articles.length} articles on cycling campaigns, routes, rides and meetings in Portsmouth, ${years(articles)}.`,
+    path: '/archive',
+    data: graph(breadcrumbs(site, [['Home', '/'], ['All articles', '/archive']])),
+    main,
+  });
+}
+
+// Housekeeping lists for editors; not for search engines.
 export function renderList({ site, title, intro, path, articles, withTodo }) {
   const main = html`<main>
     <h1>${title}</h1>
     <p>${intro}</p>
     ${articleList(articles, withTodo)}
   </main>`;
-  return layout({ site, title, path, main });
+  return layout({ site, title, path, main, robots: 'noindex, follow' });
 }
 
 export function renderNotFound({ site, entry }) {
@@ -310,5 +468,33 @@ export function renderNotFound({ site, entry }) {
       </section>
     </article>
   </main>`;
-  return layout({ site: { ...site, noindex: true }, title: entry?.title ?? 'Page Not Found', path: '/404', main });
+  return layout({ site, robots: 'noindex, follow', title: entry?.title ?? 'Page Not Found', path: '/404', main });
+}
+
+// ---------- Feed ----------
+const xml = (value) => String(value ?? '').replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[ch]);
+
+export function renderFeed({ site, articles }) {
+  const items = articles.map(
+    (article) => `<item>
+<title>${xml(article.title)}</title>
+<link>${site.origin}/${xml(article.slug)}</link>
+<guid isPermaLink="true">${site.origin}/${xml(article.slug)}</guid>
+${article.date ? `<pubDate>${article.date.toUTCString()}</pubDate>` : ''}
+<description>${xml(article.description)}</description>
+${article.tags.map((tag) => `<category>${xml(tag)}</category>`).join('')}
+</item>`,
+  );
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>${xml(SITE_NAME)}</title>
+<link>${site.origin}/</link>
+<atom:link href="${site.origin}/feed.xml" rel="self" type="application/rss+xml"/>
+<description>${xml(STRAPLINE)}</description>
+<language>en-gb</language>
+${items.join('\n')}
+</channel>
+</rss>
+`;
 }

@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { statSync } from 'node:fs';
+import { readdirSync, statSync } from 'node:fs';
 import express from 'express';
 import helmet from 'helmet';
 import compression from 'compression';
@@ -9,7 +9,7 @@ import { rateLimit } from 'express-rate-limit';
 import * as content from './content.js';
 import * as auth from './auth.js';
 import { createResizer, prepareUpload, wantsResize } from './images.js';
-import { PAGE_SIZE, cardData, formatDate, renderEntry, renderHome, renderList, renderNotFound, renderTag, renderTags } from './render.js';
+import { PAGE_SIZE, cardData, formatDate, renderArchive, renderEntry, renderFeed, renderHome, renderList, renderNotFound, renderTag, renderTags } from './render.js';
 
 const root = path.resolve(import.meta.dirname, '..');
 const publicDir = path.join(root, 'public');
@@ -21,7 +21,9 @@ const origin = (process.env.SITE_ORIGIN ?? `http://localhost:${port}`).replace(/
 const noindex = process.env.NOINDEX === 'true';
 
 const mtime = (file) => Math.round(statSync(path.join(publicDir, file)).mtimeMs).toString(36);
-const site = { origin, noindex, assetVersion: mtime('css/site.css') + mtime('js/site.js') };
+// The code Google Search Console gives for the "HTML tag" way of proving ownership.
+const verification = process.env.GOOGLE_SITE_VERIFICATION ?? '';
+const site = { origin, noindex, verification, assetVersion: mtime('css/site.css') + mtime('js/site.js') };
 
 const loaded = await content.init();
 await auth.init();
@@ -162,6 +164,9 @@ const detail = (entry) => ({
   coverImage: entry.coverSource,
   coverUrl: entry.cover ? `${entry.cover}?w=500` : '',
   coverImageAlignment: entry.coverAlignName,
+  description: entry.summary,
+  // What search engines are shown when no summary has been written.
+  autoDescription: entry.summary ? '' : entry.description,
 });
 
 const sendEntry = (res, entry, status = 200) => res.status(status).set('ETag', etag(entry)).json(detail(entry));
@@ -217,6 +222,7 @@ for (const [collection, kind] of [['articles', 'article'], ['pages', 'page']]) {
     const fields = {
       title: form.title || 'Untitled',
       date: form.date || '',
+      description: form.description ?? '',
       tags: String(form.tags ?? '').split('\n'),
       todo: String(form.todo ?? '').split('\n'),
       coverImage: form.coverImage ?? '',
@@ -261,10 +267,22 @@ const editLinkFor = (req, entry) => {
 const send = (res, body, status = 200) => res.status(status).set('Cache-Control', 'no-cache').type('html').send(body);
 
 app.get('/', (req, res) => {
+  // WordPress short links: /?p=4238
+  const old = typeof req.query.p === 'string' && content.findByWordPressId(req.query.p);
+  if (old) return res.redirect(301, publicUrl(old));
   const query = typeof req.query.q === 'string' ? req.query.q.trim().slice(0, 100) : '';
   const page = Number.parseInt(req.query.page, 10) || 1;
-  send(res, renderHome({ site, articles: content.searchArticles(query), query, page, editLink: editLinkFor(req) }));
+  return send(res, renderHome({ site, articles: content.searchArticles(query), query, page, editLink: editLinkFor(req) }));
 });
+
+app.get('/archive', (req, res) => send(res, renderArchive({ site, articles: content.listEntries('article') })));
+
+app.get('/feed.xml', (req, res) => {
+  res.set('Cache-Control', 'public, max-age=900').type('application/rss+xml').send(renderFeed({ site, articles: content.listEntries('article').slice(0, 30) }));
+});
+app.get(['/feed', '/rss.xml', '/rss', '/atom.xml'], (req, res) => res.redirect(301, '/feed.xml'));
+
+app.get('/favicon.ico', (req, res) => res.sendFile(path.join(publicDir, 'img/icon-48.png'), { maxAge: week }));
 
 app.get('/api/articles', (req, res) => {
   const query = typeof req.query.q === 'string' ? req.query.q.trim().slice(0, 100) : '';
@@ -297,14 +315,32 @@ app.get('/cleanup', (req, res) => {
 });
 
 app.get('/robots.txt', (req, res) => {
-  res.type('text').send(noindex ? 'User-agent: *\nDisallow: /\n' : `User-agent: *\nDisallow: /edit\nSitemap: ${origin}/sitemap.xml\n`);
+  res.type('text').send(noindex ? 'User-agent: *\nDisallow: /\n' : `User-agent: *\nDisallow: /edit\nDisallow: /api/\nAllow: /api/og/\n\nSitemap: ${origin}/sitemap.xml\n`);
 });
 
 app.get('/sitemap-index.xml', (req, res) => res.redirect(301, '/sitemap.xml'));
 
+// Only addresses that search engines are asked to index are listed.
 app.get('/sitemap.xml', (req, res) => {
-  const paths = ['/', '/tags', ...content.listTags().map((tag) => `/tags/${tag.slug}`), ...content.listEntries('page').filter((page) => page.slug !== '404').map(publicUrl), ...content.listEntries('article').map(publicUrl)];
-  res.type('application/xml').send(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${paths.map((p) => `<url><loc>${origin}${p}</loc></url>`).join('')}</urlset>\n`);
+  const articles = content.listEntries('article').filter((article) => !article.noindex);
+  const newest = (list) => list.map((item) => item.modified).filter(Boolean).sort((a, b) => b - a)[0];
+  const urls = [
+    { path: '/', modified: newest(articles) },
+    { path: '/archive', modified: newest(articles) },
+    { path: '/tags', modified: newest(articles) },
+    ...content
+      .listTags()
+      .map((tag) => ({ tag, tagged: content.articlesWithTag(tag.slug) }))
+      .filter(({ tagged }) => tagged.length > 1)
+      .map(({ tag, tagged }) => ({ path: `/tags/${tag.slug}`, modified: newest(tagged) })),
+    ...content
+      .listEntries('page')
+      .filter((page) => page.slug !== '404' && !page.noindex)
+      .map((page) => ({ path: publicUrl(page), modified: page.modified })),
+    ...articles.map((article) => ({ path: publicUrl(article), modified: article.modified })),
+  ];
+  const entry = ({ path: loc, modified }) => `<url><loc>${origin}${encodeURI(loc)}</loc>${modified ? `<lastmod>${modified.toISOString().slice(0, 10)}</lastmod>` : ''}</url>`;
+  res.type('application/xml').send(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(entry).join('\n')}\n</urlset>\n`);
 });
 
 // Share images the old site generated at /api/og/<slug>.png are still in
@@ -314,7 +350,46 @@ app.get('/api/og/:name', (req, res) => {
   res.redirect(302, entry?.cover ? `${entry.cover}?og=1` : '/img/og-default.jpg');
 });
 
-const findRedirect = (wanted) => [...content.listEntries('article'), ...content.listEntries('page')].find((entry) => entry.redirectFrom.some((from) => from.replace(/^\/|\/$/g, '').toLowerCase() === wanted));
+// ---------- Old addresses ----------
+// Other sites still link to addresses from the WordPress years. Each is sent,
+// permanently, to where that article or file lives now.
+const normal = (address) => address.toLowerCase().replace(/\/index\.html?$/, '').replace(/^\/+|\/+$/g, '');
+
+const legacyFiles = new Map();
+for (const item of readdirSync(path.join(publicDir, 'assets'), { withFileTypes: true, recursive: true })) {
+  if (!item.isFile()) continue;
+  const url = `/${path.relative(publicDir, path.join(item.parentPath, item.name)).split(path.sep).join('/')}`;
+  // A file at the top of /assets wins over a copy in a sub-folder.
+  if (!legacyFiles.has(item.name.toLowerCase()) || url.split('/').length === 3) legacyFiles.set(item.name.toLowerCase(), url);
+}
+
+function oldAddress(requestPath) {
+  const wanted = normal(requestPath);
+  const everything = [...content.listEntries('article'), ...content.listEntries('page')];
+
+  const named = everything.find((entry) => entry.redirectFrom.some((from) => normal(from) === wanted));
+  if (named) return publicUrl(named);
+
+  // /2014/10/a-city-to-share or /2014/10/17/a-city-to-share
+  const dated = /^(\d{4})\/(\d{2})\/(?:\d{2}\/)?([^/]+)$/.exec(wanted);
+  if (dated) {
+    const [, year, month, name] = dated;
+    const article = content.listEntries('article').find((entry) => entry.slug.startsWith(`${year}-${month}-`) && entry.slug.endsWith(`-${name}`)) ?? content.getEntry('article', name);
+    return article ? publicUrl(article) : `/archive#y${year}`;
+  }
+
+  // /wp-content/uploads/2022/03/Accounts.pdf, or a file that has moved within /assets
+  const file = /^(?:wp-content\/uploads|assets)\/(?:.*\/)?([^/]+\.[a-z0-9]+)$/.exec(wanted);
+  if (file) {
+    const found = legacyFiles.get(file[1]);
+    return found && normal(found) !== wanted ? encodeURI(found) : null;
+  }
+
+  const topic = /^(?:tag|category)\/([^/]+)$/.exec(wanted);
+  if (topic) return content.listTags().some((tag) => tag.slug === topic[1]) ? `/tags/${topic[1]}` : '/tags';
+
+  return null;
+}
 
 app.get('/*path', (req, res, next) => {
   const tidy = req.path.toLowerCase().replace(/\/index\.html?$/, '/').replace(/(.)\/+$/, '$1');
@@ -322,8 +397,8 @@ app.get('/*path', (req, res, next) => {
   const entry = content.getEntry('page', slug) ?? content.getEntry('article', slug);
 
   if (!entry || slug === '404') {
-    const moved = findRedirect(slug);
-    return moved ? res.redirect(301, publicUrl(moved)) : next();
+    const moved = oldAddress(decodeURIComponent(req.path));
+    return moved ? res.redirect(301, moved) : next();
   }
   // One URL per page: /Report, /report/ and /report/index.html all go to /report.
   if (tidy !== req.path) return res.redirect(301, tidy + req.url.slice(req.path.length));
@@ -331,7 +406,14 @@ app.get('/*path', (req, res, next) => {
   const editor = auth.currentEditor(req);
   if (entry.draft && !editor) return next();
   const notice = entry.draft ? 'This is a draft. Only signed-in editors can see it.' : null;
-  return send(res, renderEntry({ site, entry, editLink: editLinkFor(req, entry), notice }));
+  const related = entry.kind === 'article' ? content.relatedArticles(entry) : [];
+  // A page inside a folder sits under the pages above it.
+  const parents = slug
+    .split('/')
+    .slice(0, -1)
+    .map((_part, index, parts) => content.getEntry('page', parts.slice(0, index + 1).join('/')))
+    .filter(Boolean);
+  return send(res, renderEntry({ site, entry, editLink: editLinkFor(req, entry), notice, related, parents }));
 });
 
 app.use((req, res) => {

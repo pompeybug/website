@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { renderMarkdown, resolveUrl } from '../src/markdown.js';
+import { summarise, renderMarkdown, resolveUrl } from '../src/markdown.js';
 
 const base = '/media/articles/ride';
 
@@ -40,11 +40,33 @@ test('MDX imports are dropped and its components translated', () => {
   assert.match(html, /<img src="\/media\/articles\/ride\/pic\.jpg\?w=1200" alt="A path"/);
 });
 
-test('description is the first twenty words of the paragraphs', () => {
-  const words = Array.from({ length: 30 }, (_, i) => `w${i}`).join(' ');
+test('description is cut at a word, within what search engines show', () => {
+  const words = Array.from({ length: 80 }, (_, i) => `word${i}`).join(' ');
   const { description, readingTime } = renderMarkdown(`## Heading\n\n${words}`);
-  assert.equal(description, `${Array.from({ length: 20 }, (_, i) => `w${i}`).join(' ')}...`);
+  assert.ok(description.length <= 156);
+  assert.match(description, /^word0 word1 .* word\d+…$/);
   assert.equal(readingTime, '1 min read');
+  assert.equal(renderMarkdown('Short and whole.').description, 'Short and whole.');
+});
+
+test('description prefers to stop at the end of a sentence', () => {
+  const first = 'The council has published its plans for the seafront, and we have a lot to say about the cycle route that runs along it.';
+  assert.equal(summarise(`${first} ${'A second sentence that runs on for quite a while without stopping at all '.repeat(3)}`), first);
+});
+
+test('a body that uses a top-level heading has its headings moved down', () => {
+  const { html } = renderMarkdown('# Top\n\n## Next\n\ntext');
+  assert.match(html, /<h2 id="top">Top<\/h2>/);
+  assert.match(html, /<h3 id="next">Next<\/h3>/);
+  assert.match(renderMarkdown('## Only').html, /<h2 id="only">/);
+});
+
+test("links to the site's old addresses become links within the site", () => {
+  const { html } = renderMarkdown('[a](http://www.pompeybug.co.uk/infrastructure/) [b](https://pompey.bike/join) [c](https://pompeybug.co.uk) [d](https://example.org/pompeybug.co.uk/)');
+  assert.match(html, /<a href="\/infrastructure\/"/);
+  assert.match(html, /<a href="\/join"/);
+  assert.match(html, /<a href="\/"/);
+  assert.match(html, /<a href="https:\/\/example\.org\/pompeybug\.co\.uk\/"/);
 });
 
 test('headings get unique ids', () => {

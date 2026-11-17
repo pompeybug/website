@@ -9,7 +9,11 @@ import { escape } from './html.js';
 const RASTER = /\.(jpe?g|png|webp|avif)$/i;
 const BODY_IMAGE_WIDTH = 1200;
 const WORDS_PER_MINUTE = 200;
-const DESCRIPTION_WORDS = 20;
+// Search engines show roughly this much of a description.
+const DESCRIPTION_LENGTH = 155;
+
+// Links written with the site's own old addresses become links within the site.
+const OWN_SITE = /\b(href|src)="https?:\/\/(?:www\.)?(?:pompeybug\.co\.uk|pompey\.bike)(?=[/"])\/?/gi;
 
 const YOUTUBE_LINE = /^[ \t]*<?https?:\/\/(?:www\.|m\.)?(?:youtube\.com\/(?:watch\?(?:\S*&)?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})\S*?>?[ \t]*$/gm;
 
@@ -60,12 +64,24 @@ const decodeEntities = (text) =>
 
 const toText = (fragment) => decodeEntities(fragment.replace(/<(script|style|iframe)[\s\S]*?<\/\1>/gi, ' ').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
 
+// Cuts at a word boundary, preferring the end of a sentence.
+export function summarise(text, limit = DESCRIPTION_LENGTH) {
+  const clean = String(text ?? '').replace(/\s+/g, ' ').trim();
+  if (clean.length <= limit) return clean;
+  const cut = clean.slice(0, limit + 1);
+  const sentence = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('? '), cut.lastIndexOf('! '));
+  if (sentence > limit * 0.6) return cut.slice(0, sentence + 1);
+  return `${cut.slice(0, cut.lastIndexOf(' ')).replace(/[\s,;:.-]+$/, '')}…`;
+}
+
 function describe(htmlText) {
   const paragraphs = [...htmlText.matchAll(/<p>([\s\S]*?)<\/p>/g)].map((match) => toText(match[1])).filter(Boolean);
-  const words = paragraphs.join(' ').split(' ').filter(Boolean);
-  if (words.length === 0) return '';
-  return `${words.slice(0, DESCRIPTION_WORDS).join(' ').replace(/\D$/, '')}...`;
+  return summarise(paragraphs.join(' '));
 }
+
+// The page template supplies the only <h1>, so a body that uses one has all
+// of its headings moved down a level.
+const demoteHeadings = (htmlText) => (/<h1\b/i.test(htmlText) ? htmlText.replace(/<(\/?)h([1-5])\b/gi, (_tag, slash, level) => `<${slash}h${Number(level) + 1}`) : htmlText);
 
 function makeParser(mediaBase) {
   const usedIds = new Map();
@@ -99,9 +115,12 @@ function makeParser(mediaBase) {
 // Returns the rendered body plus the plain-text values derived from it.
 export function renderMarkdown(source, { mediaBase = '', mdx = false } = {}) {
   const prepared = (mdx ? fromMdx(source) : source).replace(YOUTUBE_LINE, (_line, id) => youtubeEmbed(id));
-  const html = makeParser(mediaBase)
-    .parse(prepared)
-    .replace(/\b(src|href)="\/public\//g, '$1="/');
+  const html = demoteHeadings(
+    makeParser(mediaBase)
+      .parse(prepared)
+      .replace(OWN_SITE, '$1="/')
+      .replace(/\b(src|href)="\/public\//g, '$1="/'),
+  );
   const text = toText(html);
   const words = text ? text.split(' ').length : 0;
   return {

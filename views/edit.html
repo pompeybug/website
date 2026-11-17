@@ -126,6 +126,12 @@
         </fieldset>
 
         <fieldset>
+          <legend>Search engines and sharing</legend>
+          <label for="field-description">Summary <small>One or two sentences, about 150 characters, shown under the title in Google and when the page is shared. Leave it empty to use the opening words of the page.</small></label>
+          <textarea id="field-description" name="description" rows="3" maxlength="300"></textarea>
+        </fieldset>
+
+        <fieldset>
           <legend>Notes for editors</legend>
           <label for="field-todo">Things still to do on this page, one per line <small>These appear at the bottom of the page under &ldquo;Work in progress&rdquo;.</small></label>
           <textarea id="field-todo" name="todo" rows="3"></textarea>
@@ -144,6 +150,7 @@
         <form id="preview-form" method="post" target="preview-frame" hidden>
           <input type="hidden" name="title">
           <input type="hidden" name="date">
+          <input type="hidden" name="description">
           <input type="hidden" name="tags">
           <input type="hidden" name="todo">
           <input type="hidden" name="coverImage">

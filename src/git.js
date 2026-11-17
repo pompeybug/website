@@ -14,6 +14,7 @@ const run = promisify(execFile);
 
 const MODE = process.env.CONTENT_GIT ?? 'off';
 const BRANCH = process.env.CONTENT_BRANCH ?? 'main';
+const BULK_COMMIT = 20;
 const COMMITTER = { name: 'PCF website editor', email: 'noreply@pompey.bike' };
 
 export function createGit(contentDir) {
@@ -72,8 +73,27 @@ export function createGit(contentDir) {
     }
   }
 
+  // When each file last changed, from the history. Commits that touch many
+  // files at once (imports, tidy-ups) say nothing about a single article.
+  async function lastChanged() {
+    const changed = new Map();
+    if (!existsSync(path.join(contentDir, '.git'))) return changed;
+    try {
+      const log = await run('git', ['-c', 'core.quotePath=false', 'log', '--format=%x00%cI', '--name-only'], { cwd: contentDir, maxBuffer: 64 * 1024 * 1024 });
+      for (const block of log.stdout.split('\0')) {
+        const [when, ...files] = block.split('\n').filter(Boolean);
+        if (!when || files.length > BULK_COMMIT) continue;
+        for (const file of files) if (!changed.has(file)) changed.set(file, new Date(when));
+      }
+    } catch (error) {
+      console.error('Could not read the content history:', error.message);
+    }
+    return changed;
+  }
+
   return {
     status: () => ({ ...status }),
+    lastChanged,
     // Resolves once the commit exists; the push carries on in the background.
     commit(message, authorName, onPulled) {
       if (!enabled) return Promise.resolve();

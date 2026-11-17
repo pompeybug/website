@@ -859,3 +859,35 @@ li.card h2 a:hover {
   border-radius: var(--card-curve);
   color-scheme: light;
 }
+
+/* Lists of article links with their dates: tag pages, the archive and
+   "related articles". */
+.dated time {
+  display: inline-block;
+  margin-left: 0.5em;
+  font-size: 0.85em;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+.filed,
+.related {
+  margin-top: calc(var(--fixedspace) * 2);
+}
+
+.filed h2,
+.related h2 {
+  font-size: 1.1em;
+}
+
+.related .dated {
+  padding-left: 1.2em;
+}
+
+.related .dated li {
+  margin-bottom: 0.4em;
+}
+
+.years {
+  margin-bottom: var(--fixedspace);
+}

@@ -8,7 +8,7 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import YAML from 'yaml';
 import slugify from '@sindresorhus/slugify';
-import { renderMarkdown, resolveUrl } from './markdown.js';
+import { renderMarkdown, resolveUrl, summarise } from './markdown.js';
 import { createGit } from './git.js';
 
 const root = path.resolve(import.meta.dirname, '..');
@@ -49,7 +49,7 @@ function splitSource(text) {
   return match ? { frontMatter: match[1], body: text.slice(match[0].length) } : { frontMatter: '', body: text };
 }
 
-function parseEntry(kind, slug, file, text) {
+function parseEntry(kind, slug, file, text, changed = null) {
   const { frontMatter, body } = splitSource(text);
   const raw = YAML.parse(frontMatter) ?? {};
   const mediaBase = `/media/${path.relative(contentDir, path.dirname(file)).split(path.sep).join('/')}`;
@@ -65,8 +65,13 @@ function parseEntry(kind, slug, file, text) {
     revision: stamp(text),
     body,
     ...rendered,
+    // A summary written by an editor wins over the opening words of the text.
+    description: raw.description ? summarise(String(raw.description), 300) : rendered.description,
+    summary: raw.description ? String(raw.description) : '',
     title: String(raw.title ?? slug),
     date: toDate(raw.date),
+    modified: [toDate(raw.date), changed].filter(Boolean).sort((a, b) => b - a)[0] ?? null,
+    wpId: raw.id ? String(raw.id) : null,
     tags: toArray(raw.tags),
     todo: toArray(raw.todo),
     author: raw.author ? String(raw.author) : null,
@@ -78,6 +83,8 @@ function parseEntry(kind, slug, file, text) {
     hubspotForm: raw.hubspotForm ?? null,
     ok: raw.ok === true || raw.ok === 'true',
     redirectFrom: toArray(raw.redirect_from),
+    // For pages that should stay out of search results, such as a thank-you page.
+    noindex: raw.noindex === true,
   };
 }
 
@@ -100,8 +107,16 @@ const slugFor = (relative) =>
     .toLowerCase()
     .replace(/\s+/g, '-');
 
+// Articles that share a title ("Open Meeting") need the date to tell them apart.
+function markSharedTitles(map) {
+  const counts = new Map();
+  for (const entry of map.values()) counts.set(entry.title.toLowerCase(), (counts.get(entry.title.toLowerCase()) ?? 0) + 1);
+  for (const entry of map.values()) entry.sharedTitle = counts.get(entry.title.toLowerCase()) > 1;
+}
+
 async function loadAll() {
   const next = new Map();
+  const changed = await git.lastChanged();
   for (const [kind, folder] of Object.entries(KINDS)) {
     const base = path.join(contentDir, folder);
     for (const relative of await walk(base)) {
@@ -109,12 +124,13 @@ async function loadAll() {
       if (!slug) continue;
       const file = path.join(base, relative);
       try {
-        next.set(key(kind, slug), parseEntry(kind, slug, file, await readFile(file, 'utf8')));
+        next.set(key(kind, slug), parseEntry(kind, slug, file, await readFile(file, 'utf8'), changed.get(path.relative(contentDir, file).split(path.sep).join('/'))));
       } catch (error) {
         console.error(`Skipping ${relative}: ${error.message}`);
       }
     }
   }
+  markSharedTitles(next);
   entries = next;
   version += 1;
 }
@@ -150,6 +166,30 @@ export function listTags() {
 
 export const articlesWithTag = (slug) => listEntries('article').filter((article) => article.tags.some((tag) => tagSlug(tag) === slug));
 
+const tagCounts = () => {
+  const counts = new Map();
+  for (const article of listEntries('article')) for (const tag of new Set(article.tags.map(tagSlug))) counts.set(tag, (counts.get(tag) ?? 0) + 1);
+  return counts;
+};
+
+// Other articles sharing this one's tags. A rare shared tag says more than a
+// common one, and between equals the nearest in date wins.
+export function relatedArticles(entry, limit = 5) {
+  const mine = new Set(entry.tags.map(tagSlug));
+  if (mine.size === 0) return [];
+  const counts = tagCounts();
+  const when = entry.date?.getTime() ?? 0;
+  return listEntries('article')
+    .filter((article) => article !== entry && article.slug !== entry.slug)
+    .map((article) => ({ article, score: [...new Set(article.tags.map(tagSlug))].filter((tag) => mine.has(tag)).reduce((sum, tag) => sum + 1 / Math.sqrt(counts.get(tag) ?? 1), 0) }))
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score || Math.abs((a.article.date?.getTime() ?? 0) - when) - Math.abs((b.article.date?.getTime() ?? 0) - when))
+    .slice(0, limit)
+    .map((item) => item.article);
+}
+
+export const findByWordPressId = (id) => listEntries('article').find((article) => article.wpId === String(id)) ?? null;
+
 // Title and tag matches come first, then matches in the article text.
 export function searchArticles(query, { drafts = false } = {}) {
   const all = listEntries('article', { drafts });
@@ -180,6 +220,7 @@ function applyFields(text, fields, body) {
 
   put('title', fields.title.trim(), false);
   if (fields.date !== undefined) put('date', fields.date, !fields.date);
+  if (fields.description !== undefined) put('description', String(fields.description).replace(/\s+/g, ' ').trim(), !String(fields.description).trim());
   if (fields.tags !== undefined) put('tags', cleanList(fields.tags), cleanList(fields.tags).length === 0);
   if (fields.todo !== undefined) put('todo', cleanList(fields.todo), cleanList(fields.todo).length === 0);
   if (fields.coverImage !== undefined) put('coverImage', fields.coverImage, !fields.coverImage);
@@ -197,7 +238,8 @@ export class ContentError extends Error {
 }
 
 const reload = async (kind, slug, file) => {
-  entries.set(key(kind, slug), parseEntry(kind, slug, file, await readFile(file, 'utf8')));
+  entries.set(key(kind, slug), parseEntry(kind, slug, file, await readFile(file, 'utf8'), new Date()));
+  markSharedTitles(entries);
   version += 1;
   return entries.get(key(kind, slug));
 };
