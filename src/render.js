@@ -113,7 +113,7 @@ ${head({ site, title, description, path, image, type, entry })}
   <footer class="site-footer">
     <p>&copy; ${SITE_NAME} ${new Date().getFullYear()}.</p>
     <p>Volunteers maintain this site - <a href="/help">could you help?</a></p>
-    <p><a href="https://passionfruit.design">Website by Passionfruit Design</a></p>
+    <p><a href="https://passionfruit.design">Hosted and supported by Passionfruit Design</a></p>
     ${editLink && html`<p><a href="${editLink}">Edit this page</a></p>`}
   </footer>
 </body>
