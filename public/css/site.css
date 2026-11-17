@@ -75,6 +75,11 @@
   --header-font-size: 7cqw;
 
   --header-justify: flex-start;
+
+  /* The sign-up form is drawn by HubSpot in its own light colours, so in
+     dark mode it sits on a light panel to stay readable. */
+  --form-panel: transparent;
+  --form-panel-padding: 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -90,6 +95,8 @@
     --link: var(--col2light);
     --vlink: var(--text);
     --search-colour: var(--col2light);
+    --form-panel: #fff;
+    --form-panel-padding: var(--fixedspace);
   }
 }
 
@@ -847,4 +854,8 @@ li.card h2 a:hover {
 
 .hubspot-form {
   margin-top: var(--fixedspace);
+  padding: var(--form-panel-padding);
+  background: var(--form-panel);
+  border-radius: var(--card-curve);
+  color-scheme: light;
 }
