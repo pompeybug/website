@@ -1,0 +1,49 @@
+name: Deploy
+
+# Checks the code on every push and pull request. Deploys the code to the VPS
+# on a push to main, or when run by hand from the Actions tab.
+# Content (articles, pages, pictures) is not deployed from here: it is saved
+# straight onto the server by the editor at /edit.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+
+  deploy:
+    needs: check
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      # The deploy key is locked on the VPS (authorized_keys command=) to
+      # running ~/github/pcf-website/deploy.sh, so no remote command is given.
+      - name: Deploy over SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o BatchMode=yes \
+            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}"
+
+      - name: Check the site is up
+        run: curl --fail --silent --show-error --retry 5 --retry-delay 3 --retry-all-errors -o /dev/null "${{ vars.SITE_URL }}/"

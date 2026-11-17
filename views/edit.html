@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Editor - Portsmouth Cycle Forum</title>
+  <link rel="icon" href="/img/logo.svg">
+  <link rel="stylesheet" href="/css/edit.css">
+  <script type="module" src="/js/edit.js"></script>
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="/edit">PCF website editor</a>
+    <nav aria-label="Editor" hidden>
+      <ul>
+        <li><a href="/edit" data-pane="articles">Articles</a></li>
+        <li><a href="/edit/pages" data-pane="pages">Pages</a></li>
+        <li data-owner-only hidden><a href="/edit/people" data-pane="people">People</a></li>
+        <li><a href="/" target="_blank" rel="noopener">View the site</a></li>
+      </ul>
+    </nav>
+    <p class="who" hidden>
+      <span data-who></span>
+      <button type="button" class="quiet" data-action="sign-out">Sign out</button>
+    </p>
+  </header>
+
+  <p class="banner" role="alert" data-backup-warning hidden>
+    Your changes are saved and live, but the backup copy on GitHub is not updating. Please tell the site owner.
+  </p>
+
+  <main>
+    <p data-loading>Loading&hellip;</p>
+
+    <section id="sign-in" aria-labelledby="sign-in-heading" hidden>
+      <h1 id="sign-in-heading">Sign in to edit the website</h1>
+      <p>Use the Google account that the site owner has added for you.</p>
+      <p class="error" role="alert" data-sign-in-error hidden></p>
+      <p><a class="button primary" href="/api/auth/google" data-sign-in-link>Sign in with Google</a></p>
+      <p data-sign-in-unready hidden>Google sign-in has not been set up on this server yet.</p>
+    </section>
+
+    <section id="list" aria-labelledby="list-heading" hidden>
+      <header class="pane-header">
+        <h1 id="list-heading"></h1>
+        <button type="button" class="primary" data-action="new"></button>
+      </header>
+      <search>
+        <label for="list-search">Find by title, tag or words in the text</label>
+        <input id="list-search" type="search" autocomplete="off">
+      </search>
+      <p data-list-count aria-live="polite"></p>
+      <ul class="entries"></ul>
+    </section>
+
+    <section id="editor" aria-labelledby="editor-heading" hidden>
+      <header class="pane-header">
+        <p><a href="/edit" data-back>&larr; Back to the list</a></p>
+        <h1 id="editor-heading"></h1>
+        <p class="status" role="status" aria-live="polite" data-status></p>
+      </header>
+
+      <form id="entry-form" novalidate>
+        <fieldset>
+          <legend>Details</legend>
+          <label for="field-title">Title</label>
+          <input id="field-title" name="title" type="text" required maxlength="200">
+
+          <label for="field-date" data-article-only>Date shown on the article</label>
+          <input id="field-date" name="date" type="date" data-article-only>
+
+          <label for="tag-input" data-article-only>Tags <small>Type a tag and press Enter. Tags group related articles.</small></label>
+          <ul class="chips" data-tags data-article-only></ul>
+          <input id="tag-input" type="text" list="known-tags" autocomplete="off" data-article-only>
+          <datalist id="known-tags"></datalist>
+
+          <label class="check">
+            <input name="published" type="checkbox">
+            <span>Published <small>Untick to keep this as a draft that only editors can see.</small></span>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Text</legend>
+          <menu class="toolbar" aria-label="Formatting">
+            <li><button type="button" data-format="bold" title="Bold"><strong>B</strong></button></li>
+            <li><button type="button" data-format="italic" title="Italic"><em>I</em></button></li>
+            <li><button type="button" data-format="heading">Heading</button></li>
+            <li><button type="button" data-format="list">List</button></li>
+            <li><button type="button" data-format="quote">Quote</button></li>
+            <li><button type="button" data-format="link">Link</button></li>
+            <li><button type="button" data-format="image">Picture</button></li>
+            <li><button type="button" data-format="video">YouTube video</button></li>
+          </menu>
+          <label for="field-body" class="visually-hidden">Text of the page</label>
+          <textarea id="field-body" name="body" rows="22" spellcheck="true"></textarea>
+          <details>
+            <summary>How formatting works</summary>
+            <p>Leave a blank line between paragraphs. The buttons above add the marks for you; this is what they mean:</p>
+            <dl>
+              <dt><code>**bold**</code> and <code>*italic*</code></dt><dd>Stars around words make them bold or italic.</dd>
+              <dt><code>## Heading</code></dt><dd>Two hashes at the start of a line make a heading. Three make a smaller one.</dd>
+              <dt><code>- item</code></dt><dd>A dash at the start of a line makes a bullet point.</dd>
+              <dt><code>[words](https://example.org)</code></dt><dd>A link: the words in square brackets, the address in round ones.</dd>
+              <dt><code>![description](./photo.jpg)</code></dt><dd>A picture. Use the Picture button to upload one.</dd>
+            </dl>
+          </details>
+        </fieldset>
+
+        <fieldset>
+          <legend>Pictures</legend>
+          <p>Upload photos here, then add them to the text or use one as the picture at the top.</p>
+          <p>
+            <button type="button" data-action="upload">Upload a picture</button>
+            <input type="file" accept="image/*" data-file hidden>
+            <span role="status" aria-live="polite" data-upload-status></span>
+          </p>
+          <ul class="pictures" data-pictures></ul>
+          <label for="field-cover-align" data-cover-only hidden>Which part of the top picture to show on the home page</label>
+          <select id="field-cover-align" name="coverImageAlignment" data-cover-only hidden>
+            <option value="top">The top</option>
+            <option value="middle">The middle</option>
+            <option value="bottom">The bottom</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Notes for editors</legend>
+          <label for="field-todo">Things still to do on this page, one per line <small>These appear at the bottom of the page under &ldquo;Work in progress&rdquo;.</small></label>
+          <textarea id="field-todo" name="todo" rows="3"></textarea>
+        </fieldset>
+
+        <footer class="actions">
+          <button type="submit" class="primary" data-save>Save</button>
+          <a class="button" target="_blank" rel="noopener" data-view>View on the site</a>
+          <button type="button" class="danger" data-action="delete">Delete</button>
+        </footer>
+      </form>
+
+      <aside class="preview" aria-labelledby="preview-heading">
+        <h2 id="preview-heading">Preview <small>How it will look. Nothing here is live until you save.</small></h2>
+        <iframe name="preview-frame" title="Preview of the page"></iframe>
+        <form id="preview-form" method="post" target="preview-frame" hidden>
+          <input type="hidden" name="title">
+          <input type="hidden" name="date">
+          <input type="hidden" name="tags">
+          <input type="hidden" name="todo">
+          <input type="hidden" name="coverImage">
+          <input type="hidden" name="coverImageAlignment">
+          <input type="hidden" name="body">
+        </form>
+      </aside>
+    </section>
+
+    <section id="people" aria-labelledby="people-heading" hidden>
+      <header class="pane-header">
+        <h1 id="people-heading">People who can edit</h1>
+      </header>
+      <p>Each person signs in with their own Google account. Add the email address of that account here.</p>
+      <ul class="entries" data-people></ul>
+      <form id="people-form">
+        <label for="person-email">Google account email</label>
+        <input id="person-email" name="email" type="email" required autocomplete="off">
+        <button type="submit" class="primary">Add this person</button>
+        <p class="error" role="alert" data-people-error hidden></p>
+      </form>
+    </section>
+  </main>
+
+  <dialog id="new-dialog" aria-labelledby="new-heading">
+    <form method="dialog" id="new-form">
+      <h2 id="new-heading"></h2>
+      <label for="new-title">Title</label>
+      <input id="new-title" name="title" type="text" required maxlength="200">
+      <label for="new-slug">Web address <small>Chosen once and then fixed, so links to it keep working.</small></label>
+      <p class="address"><span data-origin></span><input id="new-slug" name="slug" type="text" required pattern="[a-z0-9]+(-[a-z0-9]+)*(/[a-z0-9]+(-[a-z0-9]+)*)*"></p>
+      <p class="error" role="alert" data-new-error hidden></p>
+      <footer class="actions">
+        <button type="submit" class="primary" value="create">Create as a draft</button>
+        <button type="button" data-action="close-dialog">Cancel</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <dialog id="ask-dialog" aria-labelledby="ask-heading">
+    <form method="dialog" id="ask-form">
+      <h2 id="ask-heading"></h2>
+      <p data-ask-text></p>
+      <label for="ask-input" data-ask-label></label>
+      <input id="ask-input" type="text">
+      <footer class="actions">
+        <button type="submit" class="primary" value="ok" data-ask-ok>OK</button>
+        <button type="button" data-action="close-dialog">Cancel</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <template id="entry-row">
+    <li>
+      <a href="">
+        <strong data-title></strong>
+        <span class="badge" data-draft hidden>Draft</span>
+        <span class="badge quiet" data-notes hidden>Has notes</span>
+        <time data-date></time>
+      </a>
+    </li>
+  </template>
+
+  <template id="chip">
+    <li><span data-label></span> <button type="button" class="quiet" data-remove aria-label="Remove tag">&times;</button></li>
+  </template>
+
+  <template id="picture">
+    <li>
+      <figure>
+        <img alt="" loading="lazy">
+        <figcaption data-name></figcaption>
+      </figure>
+      <p class="cover-mark" data-cover-mark hidden>Shown at the top</p>
+      <button type="button" data-insert>Add to the text</button>
+      <button type="button" data-cover>Use at the top</button>
+    </li>
+  </template>
+
+  <template id="person-row">
+    <li>
+      <span>
+        <strong data-email></strong>
+        <span class="badge quiet" data-owner hidden>Site owner</span>
+      </span>
+      <button type="button" class="danger" data-remove>Remove</button>
+    </li>
+  </template>
+</body>
+</html>
