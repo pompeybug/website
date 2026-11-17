@@ -11,6 +11,7 @@ import * as auth from './auth.js';
 import { createResizer, prepareUpload, wantsResize } from './images.js';
 import { PAGE_SIZE, cardData, formatDate, renderArchive, renderEntry, renderFeed, renderList, renderListing, renderNotFound, renderTag, renderTags } from './render.js';
 import { SECTIONS, TAG_REDIRECTS, getSection } from './taxonomy.js';
+import { createPreviewRouter } from './preview.js';
 
 const root = path.resolve(import.meta.dirname, '..');
 const publicDir = path.join(root, 'public');
@@ -268,6 +269,9 @@ const editLinkFor = (req, entry) => {
 };
 
 const send = (res, body, status = 200) => res.status(status).set('Cache-Control', 'no-cache').type('html').send(body);
+
+// Candidate designs, shown on real content. Temporary.
+app.use('/design', createPreviewRouter());
 
 app.get('/', (req, res) => {
   // WordPress short links: /?p=4238

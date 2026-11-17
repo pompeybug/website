@@ -65,4 +65,4 @@ export const TAG_REDIRECTS = {
 };
 
 // Addresses that an article or page may not take.
-export const RESERVED = ['archive', 'tags', 'edit', 'api', 'feed', 'media', 'assets', 'img', 'css', 'js', 'todos', 'cleanup', ...SECTIONS.map((section) => section.slug)];
+export const RESERVED = ['archive', 'tags', 'edit', 'api', 'feed', 'media', 'assets', 'img', 'css', 'js', 'todos', 'cleanup', 'design', ...SECTIONS.map((section) => section.slug)];

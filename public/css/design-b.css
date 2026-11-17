@@ -1,0 +1,230 @@
+/* Direction B, "Campaign": loud and confident, like a poster. Black and
+   orange, a full-width photograph, heavy uppercase headlines. */
+
+:root {
+  --page: #ffffff;
+  --surface: #111111;
+  --text: #111111;
+  --muted: #55524e;
+  --rule: #111111;
+  --brand: #c64d0f;
+  --brand-text: #ffffff;
+  --accent: #c64d0f;
+  --accent-text: #ffffff;
+  --link: #a8400b;
+  --thumb: #c64d0f;
+  --ink: #111111;
+  --ink-text: #ffffff;
+  --shade: rgb(0 0 0 / 62%);
+  --font-head: "Arial Black", "Helvetica Neue", system-ui, sans-serif;
+  --radius: 0;
+}
+
+h1,
+h2,
+.brand span {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.top {
+  background: var(--ink);
+  color: var(--ink-text);
+}
+
+/* The photograph fills the hero and the words sit on it. */
+.hero {
+  position: relative;
+  min-height: min(34rem, 80vh);
+  align-content: end;
+  background: var(--ink);
+  color: var(--ink-text);
+}
+
+.hero figure {
+  position: absolute;
+  inset: 0;
+}
+
+.hero img {
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.hero figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--shade) 35%, transparent);
+}
+
+.hero header {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  max-width: 11em;
+  font-size: clamp(2.6rem, 8vw, 5.5rem);
+  line-height: 0.95;
+}
+
+.hero .kicker {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.band h2 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+}
+
+.band > header {
+  padding-bottom: 0.75rem;
+  border-bottom: 6px solid var(--ink);
+}
+
+.more {
+  color: inherit;
+  text-transform: uppercase;
+}
+
+/* Titles sit on the photograph. */
+.features article {
+  position: relative;
+  min-height: 20rem;
+  justify-content: end;
+  padding: 1.1rem;
+  background: var(--thumb);
+  color: var(--ink-text);
+  overflow: hidden;
+}
+
+.features .thumb {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+.features .thumb img {
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.features .thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--shade) 45%, transparent 85%);
+}
+
+.features article > :not(.thumb) {
+  position: relative;
+}
+
+.features h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.features .kicker,
+.features time {
+  color: inherit;
+}
+
+.features p:not(.kicker) {
+  display: none;
+}
+
+.tasks {
+  background: var(--ink);
+  color: var(--ink-text);
+}
+
+.tasks > header {
+  border-color: var(--accent);
+}
+
+.tasks li a,
+.tasks li p {
+  border: 0;
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.tasks strong {
+  color: inherit;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.tasks .idea p {
+  background: transparent;
+  border: 2px dashed currentColor;
+  color: inherit;
+}
+
+.dated li {
+  border-width: 2px;
+}
+
+.dated a {
+  color: inherit;
+}
+
+.join h2 {
+  font-size: clamp(2rem, 6vw, 3.6rem);
+}
+
+.join .button {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--ink-text);
+}
+
+.join .button.quiet {
+  background: transparent;
+  border-color: currentColor;
+  color: inherit;
+}
+
+.foot {
+  color: var(--ink-text);
+}
+
+.foot a {
+  color: inherit;
+}
+
+.filed a {
+  border: 2px solid var(--ink);
+  color: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #111111;
+    --surface: #000000;
+    --text: #f3f1ed;
+    --muted: #b3aea7;
+    --rule: #f3f1ed;
+    --brand: #c64d0f;
+    --accent: #e2672a;
+    --accent-text: #170800;
+    --link: #f39a6b;
+    --ink: #000000;
+  }
+
+  .band > header,
+  .filed a {
+    border-color: var(--text);
+  }
+
+  .join .button:not(.quiet) {
+    color: var(--ink-text);
+  }
+}

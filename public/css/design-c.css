@@ -1,0 +1,146 @@
+/* Direction C, "Community": warm and friendly, like a local magazine. Cream
+   paper, serif headlines, rounded pictures, people first. */
+
+:root {
+  --page: #faf6ee;
+  --surface: #f0e9da;
+  --card: #ffffff;
+  --text: #2a2620;
+  --muted: #6a6256;
+  --rule: #ddd3bf;
+  --brand: #4d5f1f;
+  --brand-text: #ffffff;
+  --accent: #c64d0f;
+  --accent-text: #ffffff;
+  --link: #a8400b;
+  --thumb: #8a9a45;
+  --shadow: rgb(60 45 20 / 10%);
+  --font-head: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --radius: 0.9rem;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+
+.brand span {
+  font-size: 1.3rem;
+}
+
+.button {
+  border-radius: 2rem;
+}
+
+/* Words on the left, a rounded photograph on the right. */
+.hero {
+  align-items: center;
+}
+
+.hero h1 {
+  color: var(--brand);
+}
+
+.hero img {
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 1rem 2.5rem var(--shadow);
+}
+
+@media (width >= 56rem) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding-block: 4rem;
+  }
+}
+
+.band > header {
+  justify-content: flex-start;
+  gap: 0.5rem 1.5rem;
+}
+
+.features article {
+  height: 100%;
+  padding: 0 0 1.25rem;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 0.25rem 1rem var(--shadow);
+  overflow: hidden;
+}
+
+.features article > :not(.thumb) {
+  padding-inline: 1.25rem;
+}
+
+.features .thumb {
+  border-radius: 0;
+}
+
+.features h3 {
+  font-size: 1.4rem;
+}
+
+.features .kicker {
+  color: var(--brand);
+}
+
+.tasks {
+  background: var(--surface);
+}
+
+.tasks li a,
+.tasks li p {
+  background: var(--card);
+  border-color: transparent;
+  box-shadow: 0 0.15rem 0.6rem var(--shadow);
+}
+
+.tasks .idea p {
+  background: transparent;
+  border-color: var(--rule);
+  box-shadow: none;
+}
+
+.dated {
+  max-width: 48rem;
+}
+
+.join {
+  margin: 2.5rem max(var(--pad), calc((100% - var(--wide)) / 2));
+  padding: 2.5rem;
+  border-radius: var(--radius);
+}
+
+.filed a {
+  border-radius: 2rem;
+  background: var(--card);
+}
+
+.prose {
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #1b1915;
+    --surface: #24211b;
+    --card: #2b2821;
+    --text: #efe9dc;
+    --muted: #b0a794;
+    --rule: #433e33;
+    --brand: #a9c04a;
+    --brand-text: #1b1915;
+    --accent: #e2672a;
+    --accent-text: #170800;
+    --link: #f39a6b;
+    --thumb: #4c5720;
+    --shadow: rgb(0 0 0 / 35%);
+  }
+
+  .join {
+    background: var(--surface);
+    color: var(--text);
+  }
+}
