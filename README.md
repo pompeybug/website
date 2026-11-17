@@ -70,5 +70,6 @@ The site runs under pm2 on the VPS, behind nginx. Code is deployed by
 `deploy.sh` (run by GitHub Actions on a push to `main`). Content, the resized
 picture cache and the list of editors live in `DATA_DIR`, outside the code
 folder, so a deploy never touches them. `deploy/install-nginx.sh` installs the
-nginx site and its certificate.
+nginx site and its certificate; names after the first
+(`install-nginx.sh pompey.bike www.pompey.bike`) are redirected to it.
 
