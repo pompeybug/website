@@ -85,7 +85,7 @@ async function loadCards({ replace }) {
   const page = replace ? 1 : listing.page + 1;
   listing.loading = true;
   try {
-    const response = await fetch(`/api/articles?${new URLSearchParams({ q: listing.query, page })}`);
+    const response = await fetch(`/api/articles?${new URLSearchParams({ q: listing.query, page, section: cards.dataset.section ?? '' })}`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     // A newer search has started; this answer is out of date.

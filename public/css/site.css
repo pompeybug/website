@@ -891,3 +891,54 @@ li.card h2 a:hover {
 .years {
   margin-bottom: var(--fixedspace);
 }
+
+/* Finding things: breadcrumbs, the row of sections and the topic lists. */
+.breadcrumb ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin: 0 0 calc(var(--fixedspace) / 2);
+  padding: 0;
+  font-size: 0.9em;
+}
+
+.breadcrumb li::after {
+  content: '›';
+  margin-left: 0.4em;
+  opacity: 0.6;
+}
+
+.intro {
+  max-width: 44em;
+}
+
+.sections,
+.topics,
+.topic-group {
+  margin-bottom: var(--fixedspace);
+}
+
+.sections a[aria-current='page'] {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.topics h2,
+.topic-group h2 {
+  font-size: 1.1em;
+  margin-bottom: 0.4em;
+}
+
+.card-tags small {
+  opacity: 0.7;
+}
+
+.sections .card-tags,
+.topics .card-tags,
+.topic-group .card-tags,
+.filed .card-tags,
+.years .card-tags {
+  margin: 0;
+  padding-left: 0;
+}

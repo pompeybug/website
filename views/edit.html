@@ -70,7 +70,18 @@
           <label for="field-date" data-article-only>Date shown on the article</label>
           <input id="field-date" name="date" type="date" data-article-only>
 
-          <label for="tag-input" data-article-only>Tags <small>Type a tag and press Enter. Tags group related articles.</small></label>
+          <!-- Keep these in step with SECTIONS in src/taxonomy.js; a test checks. -->
+          <label for="field-section" data-article-only>Section <small>The part of the site this article belongs in.</small></label>
+          <select id="field-section" name="section" data-article-only>
+            <option value="campaigns">Campaigns</option>
+            <option value="meetings">Meetings</option>
+            <option value="rides-and-events">Rides and events</option>
+            <option value="stories">Stories and opinion</option>
+            <option value="guides">Guides</option>
+            <option value="news">News</option>
+          </select>
+
+          <label for="tag-input" data-article-only>Topics <small>Type a topic and press Enter, choosing an existing one where you can. Topics link related articles across sections.</small></label>
           <ul class="chips" data-tags data-article-only></ul>
           <input id="tag-input" type="text" list="known-tags" autocomplete="off" data-article-only>
           <datalist id="known-tags"></datalist>
@@ -151,6 +162,7 @@
           <input type="hidden" name="title">
           <input type="hidden" name="date">
           <input type="hidden" name="description">
+          <input type="hidden" name="section">
           <input type="hidden" name="tags">
           <input type="hidden" name="todo">
           <input type="hidden" name="coverImage">

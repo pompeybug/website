@@ -3,6 +3,7 @@
 
 import { html, raw } from './html.js';
 import { tagSlug, toTitleCase } from './content.js';
+import { SECTIONS, TOPIC_GROUPS, getSection } from './taxonomy.js';
 
 export const SITE_NAME = 'Portsmouth Cycle Forum';
 const HOME_TITLE = `${SITE_NAME} | Cycling campaign group for Portsmouth`;
@@ -21,8 +22,10 @@ const ICONS = {
 };
 
 const NAV = [
-  { heading: 'Inform', links: [['/', 'Home'], ['/archive', 'All articles'], ['/tags', 'Tags'], ['/about', 'About']] },
-  { heading: 'Act', links: [['/join', 'Join'], ['/support-us', 'Donate'], ['/report', 'Report'], ['/help', 'Help']] },
+  { heading: 'Read', links: [['/', 'Latest'], ...SECTIONS.map((section) => [`/${section.slug}`, section.title])] },
+  { heading: 'Find', links: [['/tags', 'Topics'], ['/archive', 'All articles by year']] },
+  { heading: 'Act', links: [['/join', 'Join'], ['/support-us', 'Donate'], ['/report', 'Report a problem'], ['/help', 'Help us']] },
+  { heading: 'About', links: [['/about', 'Who we are'], ['/contact', 'Contact']] },
 ];
 const SOCIALS = [
   ['https://www.facebook.com/PortsmouthCycleForum', 'Facebook', ICONS.facebook],
@@ -209,23 +212,47 @@ function card(data, index) {
 
 const EMPTY_CARD = { url: '', title: '', date: '', isoDate: '', description: '', cover: null, align: 'middle', tags: [] };
 
-export function renderHome({ site, articles, query, page, editLink }) {
+const sectionNav = (current) =>
+  html`<nav class="sections" aria-label="Sections">
+      <ul class="card-tags">
+        <li><a href="/" ${raw(current ? '' : 'aria-current="page"')}>Latest</a></li>
+        ${SECTIONS.map((section) => html`<li><a href="/${section.slug}" ${raw(current === section.slug ? 'aria-current="page"' : '')}>${section.title}</a></li>`)}
+        <li><a href="/tags">Topics</a></li>
+      </ul>
+    </nav>`;
+
+// The home page and each section page are the same list of cards: all the
+// articles, or those of one section.
+export function renderListing({ site, articles, query, page, editLink, section = null, topics = [] }) {
+  const base = section ? `/${section.slug}` : '/';
   const pages = Math.max(1, Math.ceil(articles.length / PAGE_SIZE));
   const current = Math.min(Math.max(1, page), pages);
   const shown = articles.slice((current - 1) * PAGE_SIZE, current * PAGE_SIZE);
-  const link = (n) => `/?${new URLSearchParams({ ...(query ? { q: query } : {}), ...(n > 1 ? { page: n } : {}) })}`.replace(/\?$/, '');
-  const heading = query ? `Articles matching “${query}”` : 'Cycling news and campaigns in Portsmouth';
+  const link = (n) => `${base}?${new URLSearchParams({ ...(query ? { q: query } : {}), ...(n > 1 ? { page: n } : {}) })}`.replace(/\?$/, '');
+  const name = section ? section.title : 'Cycling news and campaigns in Portsmouth';
+  const heading = query ? `${section ? `${section.title}: articles` : 'Articles'} matching “${query}”` : name;
+  const prompt = section ? `Search ${section.title.toLowerCase()}...` : 'Search all articles...';
 
   const main = html`<main class="column">
     <h1>${heading}</h1>
+    ${section && !query && html`<p class="intro">${section.intro}</p>`}
+    ${sectionNav(section?.slug)}
+    ${topics.length > 0 &&
+    !query &&
+    html`<nav class="topics" aria-label="Topics in ${section.title}">
+      <h2>Topics</h2>
+      <ul class="card-tags">
+        ${topics.map((tag) => html`<li><a href="/tags/${tag.slug}">${tag.pretty} <small>${tag.count}</small></a></li>`)}
+      </ul>
+    </nav>`}
     <search>
-      <form class="search-container" action="/" method="get" role="search">
-        <label for="search">${ICONS.search}<span class="visually-hidden">Search articles</span></label>
-        <input id="search" class="search-input" type="search" name="q" value="${query}" placeholder="Search..." autocomplete="off">
+      <form class="search-container" action="${base}" method="get" role="search">
+        <label for="search">${ICONS.search}<span class="visually-hidden">${prompt}</span></label>
+        <input id="search" class="search-input" type="search" name="q" value="${query}" placeholder="${prompt}" autocomplete="off">
       </form>
     </search>
     <p id="results" aria-live="polite" ${raw(query ? '' : 'hidden')}>Results: ${articles.length}</p>
-    <ul class="cards" data-total="${articles.length}" data-page="${current}">
+    <ul class="cards" data-total="${articles.length}" data-page="${current}" data-section="${section?.slug ?? ''}">
       ${shown.map((article, index) => card(cardData(article), index))}
     </ul>
     <template id="card-template">${card(EMPTY_CARD, 99)}</template>
@@ -246,16 +273,26 @@ export function renderHome({ site, articles, query, page, editLink }) {
     publisher: { '@id': `${site.origin}/#organisation` },
     potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: `${site.origin}/?q={search_term_string}` }, 'query-input': 'required name=search_term_string' },
   };
+  const collection = section && {
+    '@type': 'CollectionPage',
+    '@id': `${site.origin}${base}#page`,
+    url: `${site.origin}${base}`,
+    name: section.title,
+    description: section.intro,
+    isPartOf: { '@id': `${site.origin}/#website` },
+  };
+  const first = current === 1 && !query;
+  const title = section ? section.title : SITE_NAME;
 
   return layout({
     site,
-    title: SITE_NAME,
-    seoTitle: current > 1 ? `Articles, page ${current} of ${pages}` : undefined,
-    description: `${STRAPLINE} News, campaigns, rides and meetings since 2007.`,
+    title,
+    seoTitle: current > 1 ? `${section ? section.title : 'Articles'}, page ${current} of ${pages}` : section ? `${section.title}: cycling in Portsmouth` : undefined,
+    description: section ? `${section.intro} ${articles.length} articles from ${SITE_NAME}.` : `${STRAPLINE} News, campaigns, rides and meetings since 2007.`,
     // Every page of the list is its own address; search results are not indexed.
-    path: current > 1 ? `/?page=${current}` : '/',
+    path: current > 1 ? `${base}?page=${current}` : base,
     robots: query ? 'noindex, follow' : undefined,
-    data: current === 1 && !query ? graph(organisation(site), website) : undefined,
+    data: first ? (section ? graph(collection, breadcrumbs(site, [['Home', '/'], [section.title, base]])) : graph(organisation(site), website)) : undefined,
     main,
     editLink,
   });
@@ -283,7 +320,16 @@ export function renderEntry({ site, entry, editLink, notice, related = [], paren
         <img src="${coverUrl(entry, 1200)}" srcset="${coverUrl(entry, 500)} 500w, ${coverUrl(entry, 800)} 800w, ${coverUrl(entry, 1200)} 1200w" sizes="(width > 60em) 48em, 100vw" alt="${entry.title}" loading="eager" fetchpriority="high">
       </figure>`;
 
+  const section = isArticle ? getSection(entry.section) : null;
+  const above = section ? [[section.title, `/${section.slug}`]] : parents.map((parent) => [parent.title, `/${parent.slug}`]);
+  const trail = [['Home', '/'], ...above, [entry.title, `/${entry.slug}`]];
+
   const main = html`<main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        ${trail.slice(0, -1).map(([name, href]) => html`<li><a href="${href}">${name}</a></li>`)}
+      </ol>
+    </nav>
     <article>
       ${notice && html`<p class="notice" role="status">${notice}</p>`}
       <header>
@@ -309,10 +355,10 @@ export function renderEntry({ site, entry, editLink, notice, related = [], paren
       </footer>`}
     </article>
     ${isArticle &&
-    entry.tags.length > 0 &&
     html`<aside class="filed" aria-label="Topics">
       <h2>Filed under</h2>
       <ul class="card-tags">
+        <li><a href="/${section.slug}">${section.title}</a></li>
         ${entry.tags.map((tag) => html`<li><a href="/tags/${tagSlug(tag)}">${toTitleCase(tag.replaceAll('-', ' '))}</a></li>`)}
       </ul>
     </aside>`}
@@ -327,7 +373,6 @@ export function renderEntry({ site, entry, editLink, notice, related = [], paren
 
   const url = `${site.origin}/${entry.slug}`;
   const description = entry.description || `${entry.title}, from ${SITE_NAME}.`;
-  const trail = [['Home', '/'], ...parents.map((parent) => [parent.title, `/${parent.slug}`]), [entry.title, `/${entry.slug}`]];
   const thing = isArticle
     ? {
         '@type': 'Article',
@@ -341,7 +386,8 @@ export function renderEntry({ site, entry, editLink, notice, related = [], paren
         publisher: { '@id': `${site.origin}/#organisation` },
         mainEntityOfPage: url,
         inLanguage: 'en-GB',
-        keywords: entry.tags.length > 0 ? entry.tags.join(', ') : undefined,
+        articleSection: section.title,
+        keywords: entry.tags.length > 0 ? entry.tags.map((tag) => tag.replaceAll('-', ' ')).join(', ') : undefined,
         wordCount: entry.text ? entry.text.split(' ').length : undefined,
       }
     : { '@type': entry.slug === 'about' ? 'AboutPage' : entry.slug === 'contact' ? 'ContactPage' : 'WebPage', '@id': `${url}#page`, url, name: entry.title, description, inLanguage: 'en-GB', about: { '@id': `${site.origin}/#organisation` } };
@@ -365,19 +411,41 @@ export function renderEntry({ site, entry, editLink, notice, related = [], paren
 }
 
 // ---------- Lists ----------
+const topicLink = (tag) => html`<li><a href="/tags/${tag.slug}">${tag.pretty} <small>${tag.count}</small></a></li>`;
+
 export function renderTags({ site, tags }) {
+  const bySlug = new Map(tags.map((tag) => [tag.slug, tag]));
   const main = html`<main class="column">
-    <h1>Tags</h1>
-    <p>Articles on this site are tagged to aid navigation. This page lists all the tags currently in use.</p>
-    <search class="search-container">
-      <label for="tag-filter">${ICONS.search}<span class="visually-hidden">Filter tags</span></label>
-      <input id="tag-filter" class="search-input" type="search" placeholder="Filter tags..." autocomplete="off">
-    </search>
-    <ul id="tag-list">
-      ${tags.map(({ slug, pretty }) => html`<li><a href="/tags/${slug}">${pretty}</a></li>`)}
-    </ul>
+    <h1>Topics</h1>
+    <p class="intro">Find articles by subject. The number beside each topic is how many articles it has.</p>
+    ${sectionNav('tags')}
+    ${TOPIC_GROUPS.map(
+      (group) => html`<section class="topic-group">
+      <h2>${group.title}</h2>
+      <ul class="card-tags">
+        ${group.tags.map((slug) => bySlug.get(slug)).filter(Boolean).map(topicLink)}
+      </ul>
+    </section>`,
+    )}
+    <section class="topic-group">
+      <h2>Every topic, A to Z</h2>
+      <search class="search-container">
+        <label for="tag-filter">${ICONS.search}<span class="visually-hidden">Filter topics</span></label>
+        <input id="tag-filter" class="search-input" type="search" placeholder="Filter topics..." autocomplete="off">
+      </search>
+      <ul id="tag-list" class="card-tags">
+        ${tags.map(topicLink)}
+      </ul>
+    </section>
   </main>`;
-  return layout({ site, title: 'Tags', description: `Browse ${SITE_NAME} articles by topic: all ${tags.length} tags, from campaigns and cycle routes to rides and meetings.`, path: '/tags', main });
+  return layout({
+    site,
+    title: 'Topics',
+    description: `Browse ${SITE_NAME} articles by topic: all ${tags.length} of them, from the seafront cycle route and Eastern Road to elections, rides and meetings.`,
+    path: '/tags',
+    data: graph(breadcrumbs(site, [['Home', '/'], ['Topics', '/tags']])),
+    main,
+  });
 }
 
 const articleList = (articles, withTodo = false) =>
@@ -396,8 +464,14 @@ const years = (articles) => `${articles.at(-1).date?.getUTCFullYear() ?? ''}`.co
 export function renderTag({ site, tag, articles }) {
   const count = articles.length === 1 ? '1 article' : `${articles.length} articles`;
   const main = html`<main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tags">Topics</a></li>
+      </ol>
+    </nav>
     <h1>${tag.pretty}</h1>
-    <p>${count} from ${SITE_NAME} tagged ${tag.pretty}, newest first. <a href="/tags">See every tag</a>.</p>
+    <p class="intro">${count} from ${SITE_NAME} on this topic, newest first.</p>
     ${articleList(articles)}
   </main>`;
   const path = `/tags/${tag.slug}`;
@@ -416,7 +490,7 @@ export function renderTag({ site, tag, articles }) {
     path,
     // A tag used once only repeats its one article.
     robots: articles.length < 2 ? 'noindex, follow' : undefined,
-    data: graph(list, breadcrumbs(site, [['Home', '/'], ['Tags', '/tags'], [tag.pretty, path]])),
+    data: graph(list, breadcrumbs(site, [['Home', '/'], ['Topics', '/tags'], [tag.pretty, path]])),
     main,
   });
 }
@@ -464,7 +538,7 @@ export function renderNotFound({ site, entry }) {
       <header><h1 class="title">${entry?.title ?? 'Page Not Found'}</h1></header>
       <section class="prose">
         ${entry?.html ? raw(entry.html) : html`<p>Sorry, there is nothing at this address.</p>`}
-        <p><a href="/">Go to the home page</a> or <a href="/tags">browse by tag</a>.</p>
+        <p><a href="/">Go to the home page</a>, <a href="/tags">browse by topic</a> or see <a href="/archive">every article by year</a>.</p>
       </section>
     </article>
   </main>`;

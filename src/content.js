@@ -10,6 +10,7 @@ import YAML from 'yaml';
 import slugify from '@sindresorhus/slugify';
 import { renderMarkdown, resolveUrl, summarise } from './markdown.js';
 import { createGit } from './git.js';
+import { DEFAULT_SECTION, RESERVED, getSection } from './taxonomy.js';
 
 const root = path.resolve(import.meta.dirname, '..');
 export const dataDir = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : path.join(root, 'data');
@@ -72,6 +73,7 @@ function parseEntry(kind, slug, file, text, changed = null) {
     date: toDate(raw.date),
     modified: [toDate(raw.date), changed].filter(Boolean).sort((a, b) => b - a)[0] ?? null,
     wpId: raw.id ? String(raw.id) : null,
+    section: kind === 'article' ? (getSection(raw.section)?.slug ?? DEFAULT_SECTION) : null,
     tags: toArray(raw.tags),
     todo: toArray(raw.todo),
     author: raw.author ? String(raw.author) : null,
@@ -153,16 +155,21 @@ export function listEntries(kind, { drafts = false } = {}) {
   return [...entries.values()].filter((entry) => entry.kind === kind && (drafts || !entry.draft)).sort(kind === 'article' ? byDateDesc : (a, b) => a.slug.localeCompare(b.slug));
 }
 
+// Every tag in use, in alphabetical order, with how many articles carry it.
 export function listTags() {
   const tags = new Map();
   for (const article of listEntries('article')) {
-    for (const tag of article.tags) {
-      const slug = tagSlug(tag);
-      if (slug && !tags.has(slug)) tags.set(slug, { tag, slug, pretty: toTitleCase(tag.replaceAll('-', ' ')) });
+    for (const slug of new Set(article.tags.map(tagSlug))) {
+      if (!slug) continue;
+      const tag = article.tags.find((name) => tagSlug(name) === slug);
+      if (!tags.has(slug)) tags.set(slug, { tag, slug, pretty: toTitleCase(tag.replaceAll('-', ' ')), count: 0 });
+      tags.get(slug).count += 1;
     }
   }
-  return [...tags.values()].sort((a, b) => a.tag.localeCompare(b.tag));
+  return [...tags.values()].sort((a, b) => a.slug.localeCompare(b.slug));
 }
+
+export const articlesInSection = (slug) => listEntries('article').filter((article) => article.section === slug);
 
 export const articlesWithTag = (slug) => listEntries('article').filter((article) => article.tags.some((tag) => tagSlug(tag) === slug));
 
@@ -190,14 +197,17 @@ export function relatedArticles(entry, limit = 5) {
 
 export const findByWordPressId = (id) => listEntries('article').find((article) => article.wpId === String(id)) ?? null;
 
-// Title and tag matches come first, then matches in the article text.
-export function searchArticles(query, { drafts = false } = {}) {
-  const all = listEntries('article', { drafts });
-  const needle = String(query ?? '').trim().toLowerCase();
-  if (!needle) return all;
-  const inHeading = (article) => article.title.toLowerCase().includes(needle) || article.tags.some((tag) => tag.toLowerCase().replaceAll('-', ' ').includes(needle));
+// Every word of the search must appear somewhere in the article. Those with
+// all the words in the title or tags come first, then the rest, newest first.
+export function searchArticles(query, { drafts = false, section = null } = {}) {
+  const all = listEntries('article', { drafts }).filter((article) => !section || article.section === section);
+  const words = String(query ?? '').toLowerCase().split(/\s+/).filter(Boolean);
+  if (words.length === 0) return all;
+  const heading = (article) => `${article.title} ${article.tags.join(' ').replaceAll('-', ' ')}`.toLowerCase();
+  const inHeading = (article) => words.every((word) => heading(article).includes(word));
+  const anywhere = (article) => words.every((word) => `${heading(article)} ${article.text.toLowerCase()}`.includes(word));
   const headings = all.filter(inHeading);
-  const bodies = all.filter((article) => !inHeading(article) && article.text.toLowerCase().includes(needle));
+  const bodies = all.filter((article) => !inHeading(article) && anywhere(article));
   return [...headings, ...bodies];
 }
 
@@ -221,6 +231,7 @@ function applyFields(text, fields, body) {
   put('title', fields.title.trim(), false);
   if (fields.date !== undefined) put('date', fields.date, !fields.date);
   if (fields.description !== undefined) put('description', String(fields.description).replace(/\s+/g, ' ').trim(), !String(fields.description).trim());
+  if (fields.section !== undefined) put('section', getSection(fields.section)?.slug ?? DEFAULT_SECTION, !fields.section);
   if (fields.tags !== undefined) put('tags', cleanList(fields.tags), cleanList(fields.tags).length === 0);
   if (fields.todo !== undefined) put('todo', cleanList(fields.todo), cleanList(fields.todo).length === 0);
   if (fields.coverImage !== undefined) put('coverImage', fields.coverImage, !fields.coverImage);
@@ -252,7 +263,7 @@ export async function createEntry(kind, { slug, title }, editor) {
   if (!parts.every((part) => SLUG.test(part)) || (kind === 'article' && parts.length > 1)) {
     throw new ContentError('The web address can only use lower-case letters, numbers and hyphens.');
   }
-  if (getEntry('article', clean) || getEntry('page', clean)) throw new ContentError('Something already uses that web address.', 409);
+  if (getEntry('article', clean) || getEntry('page', clean) || RESERVED.includes(parts[0])) throw new ContentError('Something already uses that web address.', 409);
   if (!String(title ?? '').trim()) throw new ContentError('Please give it a title.');
 
   const file = path.join(contentDir, KINDS[kind], clean, 'index.md');

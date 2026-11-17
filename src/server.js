@@ -9,7 +9,8 @@ import { rateLimit } from 'express-rate-limit';
 import * as content from './content.js';
 import * as auth from './auth.js';
 import { createResizer, prepareUpload, wantsResize } from './images.js';
-import { PAGE_SIZE, cardData, formatDate, renderArchive, renderEntry, renderFeed, renderHome, renderList, renderNotFound, renderTag, renderTags } from './render.js';
+import { PAGE_SIZE, cardData, formatDate, renderArchive, renderEntry, renderFeed, renderList, renderListing, renderNotFound, renderTag, renderTags } from './render.js';
+import { SECTIONS, TAG_REDIRECTS, getSection } from './taxonomy.js';
 
 const root = path.resolve(import.meta.dirname, '..');
 const publicDir = path.join(root, 'public');
@@ -153,6 +154,7 @@ const summary = (entry) => ({
   dateLabel: entry.date ? formatDate(entry.date) : '',
   draft: entry.draft,
   tags: entry.tags,
+  section: entry.section ?? '',
   notes: entry.todo.length,
 });
 
@@ -223,6 +225,7 @@ for (const [collection, kind] of [['articles', 'article'], ['pages', 'page']]) {
       title: form.title || 'Untitled',
       date: form.date || '',
       description: form.description ?? '',
+      section: form.section || undefined,
       tags: String(form.tags ?? '').split('\n'),
       todo: String(form.todo ?? '').split('\n'),
       coverImage: form.coverImage ?? '',
@@ -272,7 +275,25 @@ app.get('/', (req, res) => {
   if (old) return res.redirect(301, publicUrl(old));
   const query = typeof req.query.q === 'string' ? req.query.q.trim().slice(0, 100) : '';
   const page = Number.parseInt(req.query.page, 10) || 1;
-  return send(res, renderHome({ site, articles: content.searchArticles(query), query, page, editLink: editLinkFor(req) }));
+  return send(res, renderListing({ site, articles: content.searchArticles(query), query, page, editLink: editLinkFor(req) }));
+});
+
+// One page per section: /campaigns, /meetings and so on.
+app.get('/:section', (req, res, next) => {
+  const section = getSection(req.params.section);
+  if (!section) return next();
+  const query = typeof req.query.q === 'string' ? req.query.q.trim().slice(0, 100) : '';
+  const page = Number.parseInt(req.query.page, 10) || 1;
+  const all = content.articlesInSection(section.slug);
+  // The topics that say most about this section: its most used tags.
+  const counts = Map.groupBy(all.flatMap((article) => [...new Set(article.tags.map(content.tagSlug))]), (slug) => slug);
+  const topics = content
+    .listTags()
+    .filter((tag) => (counts.get(tag.slug)?.length ?? 0) >= 3)
+    .map((tag) => ({ ...tag, count: counts.get(tag.slug).length }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 14);
+  return send(res, renderListing({ site, section, topics, articles: content.searchArticles(query, { section: section.slug }), query, page, editLink: editLinkFor(req) }));
 });
 
 app.get('/archive', (req, res) => send(res, renderArchive({ site, articles: content.listEntries('article') })));
@@ -287,7 +308,7 @@ app.get('/favicon.ico', (req, res) => res.sendFile(path.join(publicDir, 'img/ico
 app.get('/api/articles', (req, res) => {
   const query = typeof req.query.q === 'string' ? req.query.q.trim().slice(0, 100) : '';
   const page = Math.max(1, Number.parseInt(req.query.page, 10) || 1);
-  const found = content.searchArticles(query);
+  const found = content.searchArticles(query, { section: getSection(req.query.section)?.slug ?? null });
   res.set('Cache-Control', 'no-cache').json({
     total: found.length,
     pages: Math.max(1, Math.ceil(found.length / PAGE_SIZE)),
@@ -300,7 +321,14 @@ app.get('/tags', (req, res) => send(res, renderTags({ site, tags: content.listTa
 
 app.get('/tags/:tag', (req, res, next) => {
   const tag = content.listTags().find((item) => item.slug === req.params.tag.toLowerCase());
-  if (!tag) return next();
+  if (!tag) {
+    // A tag that was merged into another, or a year, which is now in the archive.
+    const wanted = req.params.tag.toLowerCase();
+    const moved = TAG_REDIRECTS[wanted];
+    if (moved) return res.redirect(301, moved.startsWith('/') ? moved : `/tags/${moved}`);
+    if (/^(19|20)\d{2}$/.test(wanted)) return res.redirect(301, `/archive#y${wanted}`);
+    return next();
+  }
   return send(res, renderTag({ site, tag, articles: content.articlesWithTag(tag.slug) }));
 });
 
@@ -327,6 +355,7 @@ app.get('/sitemap.xml', (req, res) => {
   const urls = [
     { path: '/', modified: newest(articles) },
     { path: '/archive', modified: newest(articles) },
+    ...SECTIONS.map((section) => ({ path: `/${section.slug}`, modified: newest(content.articlesInSection(section.slug)) })),
     { path: '/tags', modified: newest(articles) },
     ...content
       .listTags()

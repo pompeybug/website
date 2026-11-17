@@ -101,3 +101,26 @@ test('deleting removes the entry and its folder', async () => {
   assert.equal(content.getEntry('article', 'brand-new'), null);
   assert.equal(existsSync(path.join(dir, 'content/articles/brand-new')), false);
 });
+
+test('articles sit in a section, and an unknown one falls back to news', async () => {
+  const { SECTIONS } = await import('../src/taxonomy.js');
+  assert.equal(content.getEntry('article', 'in-a-folder').section, 'news');
+  const created = await content.createEntry('article', { slug: 'sectioned', title: 'Sectioned' }, 'Tester');
+  const saved = await content.saveEntry('article', 'sectioned', { fields: { title: 'Sectioned', section: 'campaigns', draft: false }, body: 'Text', revision: created.revision }, 'Tester');
+  assert.equal(saved.section, 'campaigns');
+  assert.ok(content.articlesInSection('campaigns').some((article) => article.slug === 'sectioned'));
+  const edit = await readFile(new URL('../views/edit.html', import.meta.url), 'utf8');
+  for (const section of SECTIONS) assert.match(edit, new RegExp(`<option value="${section.slug}">${section.title}</option>`));
+});
+
+test('an article cannot take the address of a section', async () => {
+  await assert.rejects(content.createEntry('article', { slug: 'campaigns', title: 'Clash' }, 'Tester'), /already uses/);
+});
+
+test('search needs every word, and counts tags once per article', async () => {
+  const created = await content.createEntry('article', { slug: 'elm-trial', title: 'Elm Grove trial' }, 'Tester');
+  await content.saveEntry('article', 'elm-trial', { fields: { title: 'Elm Grove trial', tags: ['Elm Grove', 'elm-grove', 'wands'], draft: false }, body: 'The council removed the wands.', revision: created.revision }, 'Tester');
+  assert.deepEqual(content.searchArticles('grove council').map((article) => article.slug), ['elm-trial']);
+  assert.equal(content.searchArticles('grove nonsense').length, 0);
+  assert.equal(content.listTags().find((tag) => tag.slug === 'elm-grove').count, 1);
+});

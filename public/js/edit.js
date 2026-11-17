@@ -318,6 +318,7 @@ function readFields() {
     title: form.elements.title.value,
     date: form.elements.date.value,
     description: form.elements.description.value,
+    ...(state.kind === 'article' ? { section: form.elements.section.value } : {}),
     tags: state.tags,
     todo: lines(form.elements.todo.value),
     coverImage: state.coverImage,
@@ -337,6 +338,7 @@ function refreshPreview() {
   previewForm.elements.title.value = fields.title;
   previewForm.elements.date.value = fields.date;
   previewForm.elements.description.value = fields.description;
+  previewForm.elements.section.value = fields.section ?? '';
   previewForm.elements.tags.value = fields.tags.join('\n');
   previewForm.elements.todo.value = fields.todo.join('\n');
   previewForm.elements.coverImage.value = fields.coverImage;
@@ -368,6 +370,7 @@ function fillForm(entry, etag) {
   form.elements.title.value = entry.title;
   form.elements.date.value = entry.date;
   form.elements.description.value = entry.description;
+  form.elements.section.value = entry.section || 'news';
   form.elements.description.placeholder = entry.autoDescription;
   form.elements.published.checked = !entry.draft;
   form.elements.todo.value = entry.todo.join('\n');
