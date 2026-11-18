@@ -4,6 +4,7 @@
 // /design/b and is never indexed. Once it is agreed, its templates and
 // stylesheet replace render.js and site.css, and this file goes.
 
+import { statSync } from 'node:fs';
 import { Router } from 'express';
 import { html, raw } from './html.js';
 import * as content from './content.js';
@@ -11,6 +12,8 @@ import { SITE_NAME, coverUrl, formatDate } from './render.js';
 import { SECTIONS, getSection } from './taxonomy.js';
 
 const BASE = '/design/b';
+// Stylesheets are cached for a week, so the address changes when the file does.
+const CSS_VERSION = Math.round(statSync(new URL('../public/css/design.css', import.meta.url)).mtimeMs).toString(36);
 const HOME = ['hero', 'campaigns', 'tasks', 'stories', 'join', 'latest'];
 
 const HERO_ARTICLE = 'kidical-mass-families-demand-safe-cycling-infrastructure';
@@ -57,7 +60,7 @@ ${html`<html lang="en-GB">
 <title>${title} | Design preview</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/css/design.css">
+<link rel="stylesheet" href="/css/design.css?v=${CSS_VERSION}">
 </head>
 <body>
   <a class="skip" href="#content">Skip to the content</a>
