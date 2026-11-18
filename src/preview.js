@@ -14,6 +14,7 @@ import { SECTIONS, getSection } from './taxonomy.js';
 const BASE = '/design/b';
 // Stylesheets are cached for a week, so the address changes when the file does.
 const CSS_VERSION = Math.round(statSync(new URL('../public/css/design.css', import.meta.url)).mtimeMs).toString(36);
+const JS_VERSION = Math.round(statSync(new URL('../public/js/design.js', import.meta.url)).mtimeMs).toString(36);
 const HOME = ['hero', 'campaigns', 'tasks', 'stories', 'join', 'latest'];
 
 const HERO_ARTICLE = 'kidical-mass-families-demand-safe-cycling-infrastructure';
@@ -61,6 +62,7 @@ ${html`<html lang="en-GB">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/css/design.css?v=${CSS_VERSION}">
+<script type="module" src="/js/design.js?v=${JS_VERSION}"></script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to the content</a>
@@ -69,8 +71,9 @@ ${html`<html lang="en-GB">
       <img src="/img/logo.svg" alt="" width="78" height="43">
       <span>${SITE_NAME}</span>
     </a>
+    <button type="button" class="menu-toggle" id="site-menu-toggle" aria-controls="site-menu" aria-expanded="false" hidden>Menu</button>
     <a class="button" href="${to('/join')}">Join us</a>
-    <nav class="primary" aria-label="Site">
+    <nav class="primary" id="site-menu" aria-label="Site">
       <ul>
         ${PRIMARY.map(([href, label]) => html`<li><a href="${to(href)}" ${raw(here === href ? 'aria-current="page"' : '')}>${label}</a></li>`)}
       </ul>
