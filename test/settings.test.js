@@ -75,3 +75,21 @@ test('the home page needs a headline and keeps only pictures from this site', as
 test('featured articles come before newer ones on the home page', () => {
   assert.deepEqual(settings.resolvedHome().campaigns.map((article) => article.slug), ['old', 'new']);
 });
+
+test('a preview of unfinished settings leaves out what a save would refuse', () => {
+  const menu = settings.draft('menu', { primary: [{ label: 'Broken', link: { type: 'page', target: 'gone' } }, { label: '', link: { type: 'page', target: 'join' } }], footer: [{ label: '', link: null }] });
+  const drawn = settings.resolvedMenu(menu);
+  assert.deepEqual(drawn.primary.map((item) => [item.label, item.index]), [['Become a Member', 1]]);
+  assert.deepEqual(drawn.footer, []);
+
+  const home = settings.resolvedHome(settings.draft('home', { headline: '', tasks: [{ title: '', text: '', link: null }, { title: 'Join', link: { type: 'page', target: 'join' } }] }));
+  assert.equal(home.headline, '');
+  assert.deepEqual(home.tasks.map((task) => task.title), ['Join']);
+});
+
+test('a preview does not change what is saved', () => {
+  const before = settings.revision('home');
+  settings.draft('home', { headline: 'Only looking' });
+  assert.equal(settings.revision('home'), before);
+  assert.notEqual(settings.get('home').headline, 'Only looking');
+});

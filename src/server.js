@@ -135,6 +135,7 @@ app.use('/edit/api', api);
 //   /tags                         GET every tag in use
 //   /links                        GET everything a menu item can point at
 //   /settings/menu, /settings/home  GET, PUT (with If-Match)
+//   /settings/:name/preview       POST unsaved settings, get the home page back
 //   /settings/home/images         POST an upload
 //   /people, /people/:email       GET, POST, DELETE (owners only)
 // A page inside a folder has a slash in its slug, sent as %2F.
@@ -259,6 +260,22 @@ api.put('/settings/:name', auth.requireEditor, findSetting, json, async (req, re
   return sendSetting(res, req.params.name);
 });
 
+// Like the article preview: a form post into a frame, answered with the home
+// page drawn from the unsaved settings. The menus are on every page, so the
+// home page shows them too.
+api.post('/settings/:name/preview', auth.requireEditor, findSetting, express.urlencoded({ extended: false, limit: '2mb' }), (req, res) => {
+  let data;
+  try {
+    data = JSON.parse(req.body?.data ?? '');
+  } catch {
+    return res.status(400).type('text').send('The preview could not be drawn. Please reload the page.');
+  }
+  const { name } = req.params;
+  const unsaved = settings.draft(name, data);
+  const drawn = name === 'home' ? { home: settings.resolvedHome(unsaved) } : { menu: settings.resolvedMenu(unsaved) };
+  return res.type('html').send(renderHome({ site: { ...site, noindex: true }, ...drawn }));
+});
+
 api.post('/settings/home/images', auth.requireEditor, upload.single('image'), async (req, res) => {
   if (!req.file) return res.status(422).json({ error: 'Please choose an image.' });
   const prepared = await prepareUpload(req.file.buffer).catch(() => null);
@@ -375,8 +392,9 @@ app.get('/tags/:tag', (req, res, next) => {
 });
 
 app.get('/todos', (req, res) => {
-  const articles = content.listEntries('article').filter((article) => article.todo.length > 0);
-  send(res, renderList({ site, title: 'Articles that need work', intro: 'We always have articles with todos, why not take a look and see if you can contribute.', path: '/todos', articles, withTodo: true }));
+  // Pages come first: they include the "coming soon" pages still to be written.
+  const articles = [...content.listEntries('page'), ...content.listEntries('article')].filter((entry) => entry.todo.length > 0);
+  send(res, renderList({ site, title: 'Pages and articles that need work', intro: 'We always have pages and articles with todos, why not take a look and see if you can contribute.', path: '/todos', articles, withTodo: true }));
 });
 
 app.get('/cleanup', (req, res) => {

@@ -68,6 +68,8 @@ const DEFAULTS = {
       { title: 'Find a route', text: 'The Portsmouth cycle tube map and rides we recommend.', link: { type: 'article', target: 'cycle-tube-map' } },
       { title: 'Respond to a planning application', text: 'A step by step guide to having your say.', link: { type: 'article', target: 'how-to-respond-to-a-planning-application' } },
       { title: 'Come to a meeting', text: 'Open meetings are for everyone. See what was discussed.', link: section('meetings') },
+      { title: 'Collision map', text: 'Coming soon: where people walking and cycling have been hurt on Portsmouth roads.', link: page('collision-map') },
+      { title: 'For drivers', text: 'Coming soon: what the Highway Code asks of drivers around people on bikes and on foot.', link: page('for-drivers') },
     ],
     joinHeading: 'More of us means a louder voice',
     joinText: 'Join the forum to hear about meetings, rides and consultations, and to add your name to the case for safer streets.',
@@ -146,17 +148,18 @@ function resolveItem(entry) {
 }
 
 // The menus as the templates need them: names and addresses, broken links gone.
-export function resolvedMenu() {
-  const menu = get('menu');
-  return { primary: menu.primary.map(resolveItem).filter((entry) => entry?.href), footer: menu.footer.map(resolveItem).filter(Boolean) };
+export function resolvedMenu(menu = get('menu')) {
+  // "index" is an item's place in the stored menu, which the editor's preview
+  // uses to find it once items with broken links have been left out.
+  const primary = menu.primary.map((entry, index) => ({ ...resolveItem(entry), index })).filter((entry) => entry.href);
+  return { primary, footer: menu.footer.map(resolveItem).filter(Boolean) };
 }
 
 const featuredFirst = (a, b) => Number(b.featured) - Number(a.featured);
 
 // The home page with its links resolved and its articles chosen. Articles an
 // editor has ticked "feature on the home page" come first, then the newest.
-export function resolvedHome() {
-  const home = get('home');
+export function resolvedHome(home = get('home')) {
   const hero = content.getEntry('article', HERO_ARTICLE);
   const pick = (slug) => content.articlesInSection(slug).toSorted(featuredFirst).slice(0, 3);
   return {
@@ -171,35 +174,43 @@ export function resolvedHome() {
 // ---------- Saving ----------
 const text = (value, length) => String(value ?? '').replace(/\s+/g, ' ').trim().slice(0, length);
 
-function cleanLink(link, { required }) {
+// Each cleaner is strict when saving and forgiving when drawing a preview of
+// half-finished work: where a save would be refused, a preview leaves the
+// unfinished part out.
+function refuse(strict, message) {
+  if (strict) throw new content.ContentError(message);
+}
+
+function cleanLink(link, { required, strict }) {
   if (!link?.type) {
-    if (required) throw new content.ContentError('Every item needs something to link to.');
+    if (required) refuse(strict, 'Every item needs something to link to.');
     return null;
   }
   const clean = { type: String(link.type), target: String(link.target ?? '').trim() };
   if (!resolveLink(clean)) {
+    if (!strict) return null;
     throw new content.ContentError(clean.type === 'url' ? `“${clean.target}” is not a full web address. It should start with https://` : 'One of the links points at something that is not on the site, or is still a draft. Choose it again.');
   }
   return clean;
 }
 
-function cleanItem(entry, { depth, linkRequired }) {
-  const children = depth === 0 ? (Array.isArray(entry?.children) ? entry.children : []).slice(0, MAX_CHILDREN).map((child) => cleanItem(child, { depth: 1, linkRequired: true })) : [];
+function cleanItem(entry, { depth, linkRequired, strict }) {
+  const children = depth === 0 ? (Array.isArray(entry?.children) ? entry.children : []).slice(0, MAX_CHILDREN).map((child) => cleanItem(child, { depth: 1, linkRequired: true, strict })) : [];
   const label = text(entry?.label, LABEL_LENGTH);
-  const link = cleanLink(entry?.link, { required: linkRequired });
-  if (!label && link?.type === 'url') throw new content.ContentError('A link to another website needs a name.');
-  if (!label && !link) throw new content.ContentError('Each group of footer links needs a heading.');
+  const link = cleanLink(entry?.link, { required: linkRequired, strict });
+  if (!label && link?.type === 'url') refuse(strict, 'A link to another website needs a name.');
+  if (!label && !link) refuse(strict, 'Each group of footer links needs a heading.');
   return { label, link, children };
 }
 
 const CLEANERS = {
-  menu: (data) => ({
-    primary: (Array.isArray(data?.primary) ? data.primary : []).slice(0, MAX_TOP).map((entry) => cleanItem(entry, { depth: 0, linkRequired: true })),
-    footer: (Array.isArray(data?.footer) ? data.footer : []).slice(0, MAX_TOP).map((entry) => cleanItem(entry, { depth: 0, linkRequired: false })),
+  menu: (data, strict) => ({
+    primary: (Array.isArray(data?.primary) ? data.primary : []).slice(0, MAX_TOP).map((entry) => cleanItem(entry, { depth: 0, linkRequired: true, strict })),
+    footer: (Array.isArray(data?.footer) ? data.footer : []).slice(0, MAX_TOP).map((entry) => cleanItem(entry, { depth: 0, linkRequired: false, strict })),
   }),
-  home(data) {
+  home(data, strict) {
     const headline = text(data?.headline, 120);
-    if (!headline) throw new content.ContentError('The home page needs a headline.');
+    if (!headline) refuse(strict, 'The home page needs a headline.');
     const heroImage = String(data?.heroImage ?? '');
     return {
       kicker: text(data?.kicker, 60),
@@ -211,8 +222,8 @@ const CLEANERS = {
       tasksHeading: text(data?.tasksHeading, 60) || DEFAULTS.home.tasksHeading,
       tasks: (Array.isArray(data?.tasks) ? data.tasks : []).slice(0, MAX_TASKS).map((task) => {
         const title = text(task?.title, LABEL_LENGTH);
-        if (!title) throw new content.ContentError('Each box needs a title.');
-        return { title, text: text(task?.text, 160), link: cleanLink(task?.link, { required: true }) };
+        if (!title) refuse(strict, 'Each box needs a title.');
+        return { title, text: text(task?.text, 160), link: cleanLink(task?.link, { required: true, strict }) };
       }),
       joinHeading: text(data?.joinHeading, 80) || DEFAULTS.home.joinHeading,
       joinText: text(data?.joinText, 300),
@@ -220,6 +231,9 @@ const CLEANERS = {
     };
   },
 };
+
+// Unsaved settings from the editor, made safe to draw as a preview.
+export const draft = (name, data) => CLEANERS[name](data, false);
 
 const NAMES = { menu: 'the menus', home: 'the home page' };
 
@@ -234,7 +248,7 @@ export async function save(name, data, basedOn, editor) {
   if (basedOn !== revision(name)) {
     throw new content.ContentError('Someone else has changed this since you opened it. Reload the page and make your changes again.', 412);
   }
-  const clean = CLEANERS[name](data);
+  const clean = CLEANERS[name](data, true);
   await writeAtomic(fileFor(name), `${JSON.stringify(clean, null, 2)}\n`);
   loaded.set(name, { data: clean, revision: stamp(JSON.stringify(clean)) });
   await content.commit(`Update ${NAMES[name]}`, editor);

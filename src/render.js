@@ -99,8 +99,9 @@ ${data}`;
 const current = (href, path) => raw(href === path ? 'aria-current="page"' : '');
 const outside = (item) => raw(item.outside ? 'rel="noopener me"' : '');
 
-export function layout({ site, title, seoTitle, description, path, image, type, entry, main, editLink, robots, data }) {
-  const menu = resolvedMenu();
+// "menu" and, on the home page, "home" are passed only by the editor's
+// preview, which draws settings that have not been saved yet.
+export function layout({ site, title, seoTitle, description, path, image, type, entry, main, editLink, robots, data, menu = resolvedMenu() }) {
   return `<!doctype html>
 ${html`<html lang="en-GB">
 <head>
@@ -118,7 +119,7 @@ ${head({ site, title, seoTitle, description, path, image, type, entry, robots, d
     <nav class="primary" id="site-menu" aria-label="Site">
       <ul>
         ${menu.primary.map(
-          (item) => html`<li>
+          (item) => html`<li data-item="${item.index}">
           <a href="${item.href}" ${outside(item)} ${current(item.href, path)}>${item.label}</a>
           ${item.children.length > 0 &&
           html`<ul class="sub">
@@ -223,8 +224,7 @@ const website = (site) => ({
 // ---------- Home ----------
 // The front door: what the forum is for, what a visitor can do here and what
 // it is working on. Its words, picture and boxes are edited at /edit/home.
-export function renderHome({ site, editLink }) {
-  const home = resolvedHome();
+export function renderHome({ site, editLink, home = resolvedHome(), menu }) {
   const articles = listEntries('article');
   const first = articles.at(-1)?.date?.getUTCFullYear();
   const features = (list) => html`<ul class="features">${list.map((article) => card(cardData(article)))}</ul>`;
@@ -282,6 +282,7 @@ export function renderHome({ site, editLink }) {
     data: graph(organisation(site), website(site)),
     main,
     editLink,
+    menu,
   });
 }
 

@@ -5,6 +5,8 @@
 //   /edit/article/<slug>  one article   /edit/page/<slug>    one page
 //   /edit/home            the home page /edit/menu           the menus
 //   /edit/people          who can edit (site owners only)
+// The article, home page and menu panes each have a preview beside them,
+// drawn by the server from what is on screen, saved or not.
 
 const API = '/edit/api';
 const PREVIEW_DELAY_MS = 700;
@@ -29,7 +31,7 @@ const clone = (id) => $(`#${id}`).content.cloneNode(true);
 const panes = { signIn: $('#sign-in'), list: $('#list'), editor: $('#editor'), home: $('#home'), menu: $('#menu'), people: $('#people') };
 const form = $('#entry-form');
 const previewForm = $('#preview-form');
-const previewFrame = $('iframe[name="preview-frame"]');
+const settingsPreviewForm = $('#settings-preview-form');
 const bodyField = $('#field-body');
 const statusLine = $('[data-status]');
 const tagInput = $('#tag-input');
@@ -44,7 +46,6 @@ const state = {
   coverUrl: '',
   pictures: [],
   dirty: false,
-  previewScroll: 0,
   // The menus or the home page, whichever is open.
   settingsEtag: null,
   heroImage: '',
@@ -107,6 +108,112 @@ function markCurrentLink(pane) {
     if (link.dataset.pane === pane) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   });
+}
+
+// ---------- Previews ----------
+// A preview is a frame showing the real page at the width of a phone or a
+// computer, shrunk to fit the space beside the form.
+const PREVIEW_WIDTHS = { phone: 390, computer: 1280 };
+const SIZE_KEY = 'pcf-editor-preview-size';
+const WIDE_SCREEN = '(width > 70rem)';
+const previews = new Map();
+
+function startingSize() {
+  try {
+    const saved = window.localStorage.getItem(SIZE_KEY);
+    if (PREVIEW_WIDTHS[saved]) return saved;
+  } catch {
+    // The browser is not keeping settings; use the default.
+  }
+  return window.matchMedia(WIDE_SCREEN).matches ? 'computer' : 'phone';
+}
+
+function fitPreview(preview) {
+  const width = PREVIEW_WIDTHS[preview.size];
+  const room = preview.screen.clientWidth;
+  if (!room) return;
+  preview.screen.style.setProperty('--frame-width', `${width}px`);
+  preview.screen.style.setProperty('--frame-scale', Math.min(1, room / width).toFixed(4));
+}
+
+const previewWatcher = new ResizeObserver((changes) => {
+  changes.forEach((change) => fitPreview([...previews.values()].find((preview) => preview.screen === change.target)));
+});
+
+function setPreviewSize(size) {
+  previews.forEach((preview) => {
+    preview.size = size;
+    $$('[data-size]', preview.aside).forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.size === size)));
+    fitPreview(preview);
+  });
+}
+
+function handleSizeClick(event) {
+  const button = event.target.closest('[data-size]');
+  if (!button) return;
+  setPreviewSize(button.dataset.size);
+  try {
+    window.localStorage.setItem(SIZE_KEY, button.dataset.size);
+  } catch {
+    // Not remembered for next time; nothing else is lost.
+  }
+}
+
+function frameDocument(preview) {
+  try {
+    return preview.frame.contentDocument;
+  } catch {
+    // The frame is showing something this page may not script.
+    return null;
+  }
+}
+
+// Shows, in the preview, the part of the page being worked on: scrolls to it
+// and, for the top menu, opens the menu and the drop-down of the item in hand.
+function spotlight(preview, { scroll }) {
+  const page = frameDocument(preview);
+  if (!page || !preview.focus) return;
+  const { selector, opensMenu, row } = preview.focus;
+  const siteMenu = page.querySelector('#site-menu');
+  if (opensMenu && siteMenu) {
+    siteMenu.classList.add('open');
+    page.querySelector('#site-menu-toggle')?.setAttribute('aria-expanded', 'true');
+    $$('li.show', siteMenu).forEach((item) => item.classList.remove('show'));
+    if (row?.isConnected) siteMenu.querySelector(`li[data-item="${[...row.parentElement.children].indexOf(row)}"]`)?.classList.add('show');
+  }
+  if (scroll) page.querySelector(selector)?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+}
+
+function handlePreviewLoad(preview) {
+  try {
+    preview.frame.contentWindow.scrollTo(0, preview.scroll);
+  } catch {
+    // Nothing to restore.
+  }
+  spotlight(preview, { scroll: false });
+}
+
+// Sends a hidden form into the preview's frame, keeping its place on the page.
+function postPreview(preview, hiddenForm) {
+  try {
+    preview.scroll = preview.frame.contentWindow.scrollY;
+  } catch {
+    preview.scroll = 0;
+  }
+  hiddenForm.target = preview.frame.name;
+  hiddenForm.submit();
+}
+
+function buildPreview(aside) {
+  const parts = clone('preview');
+  const frame = $('iframe', parts);
+  frame.name = `${aside.dataset.preview}-preview-frame`;
+  const preview = { aside, frame, screen: $('.screen', parts), size: 'computer', scroll: 0, focus: null };
+  aside.append(parts);
+  previews.set(aside.dataset.preview, preview);
+  frame.addEventListener('load', () => handlePreviewLoad(preview));
+  aside.addEventListener('click', handleSizeClick);
+  previewWatcher.observe(preview.screen);
 }
 
 // ---------- List ----------
@@ -339,11 +446,6 @@ function readFields() {
 
 function refreshPreview() {
   const fields = readFields();
-  try {
-    state.previewScroll = previewFrame.contentWindow.scrollY;
-  } catch {
-    state.previewScroll = 0;
-  }
   previewForm.action = `${API}${entryPath(state.kind, state.slug)}/preview`;
   previewForm.elements.title.value = fields.title;
   previewForm.elements.date.value = fields.date;
@@ -354,15 +456,7 @@ function refreshPreview() {
   previewForm.elements.coverImage.value = fields.coverImage;
   previewForm.elements.coverImageAlignment.value = fields.coverImageAlignment;
   previewForm.elements.body.value = bodyField.value;
-  previewForm.submit();
-}
-
-function restorePreviewScroll() {
-  try {
-    previewFrame.contentWindow.scrollTo(0, state.previewScroll);
-  } catch {
-    // The frame is showing something this page may not script; nothing to restore.
-  }
+  postPreview(previews.get('entry'), previewForm);
 }
 
 function markDirty() {
@@ -517,7 +611,7 @@ function buildGroup(group) {
   return element;
 }
 
-const pickerOf = (row) => row.querySelector(':scope > [data-picker]');
+const pickerOf = (row) => row.querySelector(':scope > details [data-picker]');
 
 function showPickerExtras(picker) {
   const choice = $('[data-link]', picker).value;
@@ -552,6 +646,16 @@ function readPicker(row) {
   return { type, target: target.join(':') };
 }
 
+// The name of what a row links to, for its one-line summary.
+function describeLink(row) {
+  const picker = pickerOf(row);
+  const select = $('[data-link]', picker);
+  if (select.value === 'url') return $('[data-link-url]', picker).value.trim();
+  if (select.value !== 'article') return select.value ? select.selectedOptions[0].textContent : '';
+  const slug = $('[data-link-article]', picker).value.trim();
+  return linkChoices.articles.find((article) => article.slug === slug)?.title ?? slug;
+}
+
 function handlePickerChange(event) {
   const select = event.target.closest('[data-link]');
   if (select) showPickerExtras(select.closest('[data-picker]'));
@@ -564,9 +668,47 @@ function setPaneStatus(pane, text, tone = '') {
   line.dataset.tone = tone;
 }
 
-function markSettingsDirty(event) {
+// Brings each row's summary line and arrow buttons up to date.
+function tidyRows(pane) {
+  $$('.row', pane).forEach((row) => {
+    const name = row.querySelector(':scope > details [data-names]').value.trim();
+    const destination = describeLink(row);
+    row.querySelector(':scope > details [data-summary-name]').textContent = name || destination || 'New: press to fill in';
+    row.querySelector(':scope > details [data-summary-link]').textContent = name && destination ? `links to ${destination}` : '';
+    row.querySelector(':scope > .row-buttons [data-move="up"]').disabled = !row.previousElementSibling;
+    row.querySelector(':scope > .row-buttons [data-move="down"]').disabled = !row.nextElementSibling;
+  });
+}
+
+function refreshSettingsPreview(name) {
+  settingsPreviewForm.action = `${API}/settings/${name}/preview`;
+  settingsPreviewForm.elements.data.value = JSON.stringify(SETTINGS[name].read());
+  postPreview(previews.get(name), settingsPreviewForm);
+}
+
+// Called after any change to the home page or menus form.
+function settingsChanged(name) {
   state.dirty = true;
-  setPaneStatus(event.currentTarget.closest('section'), UNSAVED, 'pending');
+  tidyRows(panes[name]);
+  setPaneStatus(panes[name], UNSAVED, 'pending');
+  clearTimeout(previewTimer);
+  previewTimer = setTimeout(refreshSettingsPreview, PREVIEW_DELAY_MS, name);
+}
+
+const paneName = (event) => event.currentTarget.closest('section').id;
+
+function markSettingsDirty(event) {
+  settingsChanged(paneName(event));
+}
+
+// Moving into a part of the form shows that part of the page in the preview.
+function handleSettingsFocus(event) {
+  const fieldset = event.target.closest('fieldset[data-shows]');
+  if (!fieldset) return;
+  const preview = previews.get(paneName(event));
+  const moved = preview.focus?.selector !== fieldset.dataset.shows;
+  preview.focus = { selector: fieldset.dataset.shows, opensMenu: fieldset.hasAttribute('data-opens-menu'), row: event.target.closest('[data-menu="primary"] > .row') };
+  spotlight(preview, { scroll: moved });
 }
 
 // Handles the Move up, Move down and Remove buttons. True if a row changed.
@@ -589,7 +731,8 @@ function buildTaskRow(task) {
   $('[data-title]', row).value = task?.title ?? '';
   $('[data-text]', row).value = task?.text ?? '';
   fillPicker(row, task?.link ?? null);
-  $('[data-buttons]', row).append(clone('row-buttons'));
+  // A new box starts open, ready to be filled in.
+  $('details', row).open = !task;
   return row;
 }
 
@@ -611,6 +754,7 @@ function fillHome(home, etag) {
   homeForm.elements.showLatest.checked = home.showLatest;
   $('[data-tasks]').replaceChildren(...home.tasks.map(buildTaskRow));
   drawHero();
+  tidyRows(panes.home);
   state.dirty = false;
 }
 
@@ -621,6 +765,7 @@ async function showHome() {
   fillHome(data, etag);
   setPaneStatus(panes.home, '');
   show(panes.home);
+  refreshSettingsPreview('home');
 }
 
 function readHome() {
@@ -628,23 +773,26 @@ function readHome() {
   return { ...fields, heroImage: state.heroImage, showLatest: homeForm.elements.showLatest.checked, tasks: $$('[data-tasks] > .row').map(readTaskRow) };
 }
 
-async function saveSettings(event, { name, pane, read, fill }) {
+async function saveSettings(event) {
   event.preventDefault();
+  const name = paneName(event);
+  const pane = panes[name];
+  const { read, fill } = SETTINGS[name];
   const saveButton = $('[type="submit"]', pane);
   saveButton.disabled = true;
   setPaneStatus(pane, 'Saving…', 'pending');
   try {
     const { data, etag } = await request(`/settings/${name}`, { method: 'PUT', headers: { 'If-Match': state.settingsEtag }, body: read() });
+    clearTimeout(previewTimer);
     fill(data, etag);
     setPaneStatus(pane, 'Saved. It is live on the site now.', 'good');
+    refreshSettingsPreview(name);
   } catch (error) {
     setPaneStatus(pane, error.message, 'error');
   } finally {
     saveButton.disabled = false;
   }
 }
-
-const saveHome = (event) => saveSettings(event, { name: 'home', pane: panes.home, read: readHome, fill: fillHome });
 
 function handleHomeClick(event) {
   let changed = handleRowButton(event);
@@ -669,8 +817,7 @@ async function uploadHero(event) {
     state.heroImage = data.url;
     drawHero();
     uploadStatus.textContent = 'Uploaded. Press Save to put it on the home page.';
-    state.dirty = true;
-    setPaneStatus(panes.home, UNSAVED, 'pending');
+    settingsChanged('home');
   } catch (error) {
     uploadStatus.textContent = error.message;
   }
@@ -681,7 +828,7 @@ function buildMenuRow(item, { child }) {
   const row = $('.row', clone('menu-row'));
   $('[data-label]', row).value = item?.label ?? '';
   fillPicker(row, item?.link ?? null);
-  $('[data-buttons]', row).append(clone('row-buttons'));
+  $('details', row).open = !item;
   if (child) {
     $('[data-children]', row).remove();
     $('[data-add-child]', row).remove();
@@ -692,7 +839,7 @@ function buildMenuRow(item, { child }) {
 }
 
 const readMenuRow = (row) => ({
-  label: row.querySelector(':scope > label [data-label]').value,
+  label: row.querySelector(':scope > details [data-label]').value,
   link: readPicker(row),
   children: [...(row.querySelector(':scope > [data-children]')?.children ?? [])].map(readMenuRow),
 });
@@ -702,6 +849,7 @@ const menuList = (name) => $(`[data-menu="${name}"]`);
 function fillMenu(menu, etag) {
   state.settingsEtag = etag;
   ['primary', 'footer'].forEach((name) => menuList(name).replaceChildren(...menu[name].map((item) => buildMenuRow(item, { child: false }))));
+  tidyRows(panes.menu);
   state.dirty = false;
 }
 
@@ -712,11 +860,12 @@ async function showMenu() {
   fillMenu(data, etag);
   setPaneStatus(panes.menu, '');
   show(panes.menu);
+  refreshSettingsPreview('menu');
 }
 
 const readMenu = () => Object.fromEntries(['primary', 'footer'].map((name) => [name, [...menuList(name).children].map(readMenuRow)]));
 
-const saveMenu = (event) => saveSettings(event, { name: 'menu', pane: panes.menu, read: readMenu, fill: fillMenu });
+const SETTINGS = { home: { read: readHome, fill: fillHome }, menu: { read: readMenu, fill: fillMenu } };
 
 function handleMenuClick(event) {
   let changed = handleRowButton(event);
@@ -831,6 +980,8 @@ async function start() {
   $('[data-owner-only]').hidden = !data.editor.owner;
   $('[data-backup-warning]').hidden = !data.backup?.lastError;
 
+  $$('[data-preview]').forEach(buildPreview);
+  setPreviewSize(startingSize());
   document.addEventListener('click', handleLinkClick);
   window.addEventListener('popstate', route);
   window.addEventListener('beforeunload', warnBeforeUnload);
@@ -851,16 +1002,17 @@ async function start() {
   $('[data-action="upload"]').addEventListener('click', choosePicture);
   $('[data-file]').addEventListener('change', uploadPicture);
   $('[data-action="delete"]').addEventListener('click', deleteEntry);
-  previewFrame.addEventListener('load', restorePreviewScroll);
   $('#people-form').addEventListener('submit', addPerson);
   $('[data-people]').addEventListener('click', removePerson);
-  homeForm.addEventListener('submit', saveHome);
+  homeForm.addEventListener('submit', saveSettings);
   homeForm.addEventListener('input', markSettingsDirty);
+  homeForm.addEventListener('focusin', handleSettingsFocus);
   homeForm.addEventListener('change', handlePickerChange);
   homeForm.addEventListener('click', handleHomeClick);
   $('[data-hero-file]').addEventListener('change', uploadHero);
-  $('#menu-form').addEventListener('submit', saveMenu);
+  $('#menu-form').addEventListener('submit', saveSettings);
   $('#menu-form').addEventListener('input', markSettingsDirty);
+  $('#menu-form').addEventListener('focusin', handleSettingsFocus);
   $('#menu-form').addEventListener('change', handlePickerChange);
   $('#menu-form').addEventListener('click', handleMenuClick);
 

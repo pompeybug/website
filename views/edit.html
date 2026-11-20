@@ -56,7 +56,7 @@
       <ul class="entries"></ul>
     </section>
 
-    <section id="editor" aria-labelledby="editor-heading" hidden>
+    <section id="editor" class="split" aria-labelledby="editor-heading" hidden>
       <header class="pane-header">
         <p><a href="/edit" data-back>&larr; Back to the list</a></p>
         <h1 id="editor-heading"></h1>
@@ -157,15 +157,14 @@
 
         <footer class="actions">
           <button type="submit" class="primary" data-save>Save</button>
+          <a class="button to-preview" href="#entry-preview">See the preview</a>
           <a class="button" target="_blank" rel="noopener" data-view>View on the site</a>
           <button type="button" class="danger" data-action="delete">Delete</button>
         </footer>
       </form>
 
-      <aside class="preview" aria-labelledby="preview-heading">
-        <h2 id="preview-heading">Preview <small>How it will look. Nothing here is live until you save.</small></h2>
-        <iframe name="preview-frame" title="Preview of the page"></iframe>
-        <form id="preview-form" method="post" target="preview-frame" hidden>
+      <aside class="preview" id="entry-preview" aria-label="Preview" data-preview="entry">
+        <form id="preview-form" method="post" target="entry-preview-frame" hidden>
           <input type="hidden" name="title">
           <input type="hidden" name="date">
           <input type="hidden" name="description">
@@ -179,14 +178,14 @@
       </aside>
     </section>
 
-    <section id="home" aria-labelledby="home-heading" hidden>
+    <section id="home" class="split" aria-labelledby="home-heading" hidden>
       <header class="pane-header">
         <h1 id="home-heading">Home page</h1>
         <p class="status" role="status" aria-live="polite" data-home-status></p>
+        <p>The words, picture and boxes on the front page of the site. The preview shows your changes as you make them; nothing is live until you save.</p>
       </header>
-      <p>The words, picture and boxes on the front page of the site. Saving puts your changes live straight away.</p>
       <form id="home-form" novalidate>
-        <fieldset>
+        <fieldset data-shows=".hero">
           <legend>Top of the page</legend>
           <label for="home-kicker">Small label above the headline</label>
           <input id="home-kicker" name="kicker" type="text" maxlength="60">
@@ -196,7 +195,7 @@
           <textarea id="home-intro" name="intro" rows="3" maxlength="400"></textarea>
         </fieldset>
 
-        <fieldset>
+        <fieldset data-shows=".hero">
           <legend>Picture behind the headline</legend>
           <figure class="hero-picture">
             <img alt="" data-hero-image>
@@ -211,15 +210,15 @@
           <input id="home-hero-alt" name="heroAlt" type="text" maxlength="200">
         </fieldset>
 
-        <fieldset>
+        <fieldset data-shows=".band.tasks">
           <legend>Boxes: what people come to do</legend>
           <label for="home-tasks-heading">Heading above the boxes</label>
           <input id="home-tasks-heading" name="tasksHeading" type="text" maxlength="60">
           <ol class="rows" data-tasks></ol>
-          <p><button type="button" data-action="add-task">Add a box</button> <small>Up to six.</small></p>
+          <p><button type="button" data-action="add-task">Add a box</button> <small>Up to six. A box is left off the page until it has a title and a link.</small></p>
         </fieldset>
 
-        <fieldset>
+        <fieldset data-shows="section.join">
           <legend>Join band</legend>
           <label for="home-join-heading">Heading</label>
           <input id="home-join-heading" name="joinHeading" type="text" maxlength="80">
@@ -227,7 +226,7 @@
           <textarea id="home-join-text" name="joinText" rows="3" maxlength="300"></textarea>
         </fieldset>
 
-        <fieldset>
+        <fieldset data-shows=".band.latest">
           <legend>Latest articles</legend>
           <label class="check">
             <input name="showLatest" type="checkbox">
@@ -238,26 +237,28 @@
 
         <footer class="actions">
           <button type="submit" class="primary" data-home-save>Save</button>
+          <a class="button to-preview" href="#home-preview">See the preview</a>
           <a class="button" href="/" target="_blank" rel="noopener">View the home page</a>
         </footer>
       </form>
+      <aside class="preview" id="home-preview" aria-label="Preview" data-preview="home"></aside>
     </section>
 
-    <section id="menu" aria-labelledby="menu-heading" hidden>
+    <section id="menu" class="split" aria-labelledby="menu-heading" hidden>
       <header class="pane-header">
         <h1 id="menu-heading">Menus</h1>
         <p class="status" role="status" aria-live="polite" data-menu-status></p>
+        <p>The links at the top and bottom of every page. Press an item to change it. The preview shows your changes as you make them; nothing is live until you save.</p>
       </header>
-      <p>The links at the top and bottom of every page. Leave a name empty to use the title of the page it links to. Saving puts your changes live straight away.</p>
       <form id="menu-form" novalidate>
-        <fieldset>
+        <fieldset data-shows=".top" data-opens-menu>
           <legend>Menu at the top</legend>
-          <p>Up to eight items. Sub-items appear in a list under their item. The &ldquo;Join us&rdquo; button is always there.</p>
+          <p>Up to eight items. Links under an item drop down from it; the preview opens the one you are working on. The &ldquo;Join us&rdquo; button is always there.</p>
           <ol class="rows" data-menu="primary"></ol>
           <p><button type="button" data-action="add-item" data-list="primary">Add an item</button></p>
         </fieldset>
 
-        <fieldset>
+        <fieldset data-shows=".foot">
           <legend>Links at the bottom</legend>
           <p>Each group has a heading and a list of links under it.</p>
           <ol class="rows" data-menu="footer"></ol>
@@ -266,10 +267,17 @@
 
         <footer class="actions">
           <button type="submit" class="primary" data-menu-save>Save</button>
+          <a class="button to-preview" href="#menu-preview">See the preview</a>
           <a class="button" href="/" target="_blank" rel="noopener">View the site</a>
         </footer>
       </form>
+      <aside class="preview" id="menu-preview" aria-label="Preview" data-preview="menu"></aside>
     </section>
+
+    <!-- Sends unsaved menus or home page settings to be drawn in a preview frame. -->
+    <form id="settings-preview-form" method="post" hidden>
+      <input type="hidden" name="data">
+    </form>
 
     <section id="people" aria-labelledby="people-heading" hidden>
       <header class="pane-header">
@@ -361,36 +369,54 @@
     </label>
   </template>
 
-  <template id="row-buttons">
-    <menu class="row-buttons">
-      <li><button type="button" class="quiet" data-move="up">Move up</button></li>
-      <li><button type="button" class="quiet" data-move="down">Move down</button></li>
-      <li><button type="button" class="danger" data-remove-row>Remove</button></li>
-    </menu>
+  <template id="preview">
+    <header>
+      <h2>Preview <small>How it will look. Nothing here is live until you save.</small></h2>
+      <menu class="sizes" aria-label="Size of the preview">
+        <li><button type="button" data-size="phone" aria-pressed="false">Phone</button></li>
+        <li><button type="button" data-size="computer" aria-pressed="false">Computer</button></li>
+      </menu>
+    </header>
+    <figure class="screen"><iframe title="Preview of the page"></iframe></figure>
   </template>
 
+  <!-- A row shows one line until it is opened to be changed. -->
   <template id="menu-row">
     <li class="row">
-      <label>Name
-        <input type="text" maxlength="60" data-label>
-      </label>
-      <span data-picker></span>
-      <span data-buttons></span>
+      <details>
+        <summary><strong data-summary-name></strong> <small data-summary-link></small></summary>
+        <label>Name <small>Leave empty to use the title of the page it links to.</small>
+          <input type="text" maxlength="60" data-label data-names>
+        </label>
+        <span data-picker></span>
+      </details>
+      <menu class="row-buttons">
+        <li><button type="button" data-move="up" aria-label="Move up" title="Move up">&uarr;</button></li>
+        <li><button type="button" data-move="down" aria-label="Move down" title="Move down">&darr;</button></li>
+        <li><button type="button" class="danger" data-remove-row>Remove</button></li>
+      </menu>
       <ol class="rows" data-children></ol>
-      <p data-add-child><button type="button" data-action="add-child">Add a link under this</button></p>
+      <p data-add-child><button type="button" class="add-under" data-action="add-child">Add a link under this</button></p>
     </li>
   </template>
 
   <template id="task-row">
     <li class="row">
-      <label>Title
-        <input type="text" maxlength="60" data-title>
-      </label>
-      <label>Text
-        <input type="text" maxlength="160" data-text>
-      </label>
-      <span data-picker></span>
-      <span data-buttons></span>
+      <details>
+        <summary><strong data-summary-name></strong> <small data-summary-link></small></summary>
+        <label>Title
+          <input type="text" maxlength="60" data-title data-names>
+        </label>
+        <label>Text
+          <input type="text" maxlength="160" data-text>
+        </label>
+        <span data-picker></span>
+      </details>
+      <menu class="row-buttons">
+        <li><button type="button" data-move="up" aria-label="Move up" title="Move up">&uarr;</button></li>
+        <li><button type="button" data-move="down" aria-label="Move down" title="Move down">&darr;</button></li>
+        <li><button type="button" class="danger" data-remove-row>Remove</button></li>
+      </menu>
     </li>
   </template>
 

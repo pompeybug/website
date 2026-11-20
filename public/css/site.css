@@ -1045,8 +1045,10 @@ main > * {
     border-top: 4px solid var(--accent);
   }
 
+  /* "show" is set by the editor's preview on the item being worked on. */
   .primary li:hover > .sub,
-  .primary li:focus-within > .sub {
+  .primary li:focus-within > .sub,
+  .primary li.show > .sub {
     display: block;
   }
 

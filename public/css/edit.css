@@ -136,8 +136,6 @@ main {
 
 #sign-in,
 #people,
-#home,
-#menu,
 #list {
   max-width: 48rem;
   margin: 0 auto;
@@ -377,23 +375,33 @@ form > .actions {
 
 /* ---------- Editor ---------- */
 
-#editor:not([hidden]) {
+.split:not([hidden]) {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: var(--space);
 }
 
-#editor > .pane-header {
+.split > .pane-header {
   margin: 0;
 }
 
 @media (width > 70rem) {
-  #editor:not([hidden]) {
+  .split:not([hidden]) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 
-  #editor > .pane-header {
+  #home:not([hidden]),
+  #menu:not([hidden]) {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+
+  .split > .pane-header {
     grid-column: 1 / -1;
+  }
+
+  /* The preview is beside the form, so no link down to it is needed. */
+  .to-preview {
+    display: none;
   }
 
   .preview {
@@ -404,18 +412,80 @@ form > .actions {
   }
 }
 
+/* ---------- Previews ---------- */
+
 .preview {
   display: flex;
   flex-direction: column;
-  min-height: 30rem;
+  min-height: 34rem;
 }
 
-.preview iframe {
+.preview header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: calc(var(--space) / 2);
+  margin-bottom: calc(var(--space) / 2);
+}
+
+.preview h2 {
+  margin: 0;
+}
+
+.sizes {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sizes button {
+  border-radius: 0;
+  padding: 0.25em 0.8em;
+  font-size: 0.9em;
+}
+
+.sizes li:first-child button {
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.sizes li:last-child button {
+  border-radius: 0 var(--radius) var(--radius) 0;
+  border-left: none;
+}
+
+.sizes button[aria-pressed="true"] {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--page);
+  font-weight: bold;
+}
+
+/* The frame is laid out at the width of a real screen (--frame-width) and
+   shrunk by --frame-scale to fit; edit.js sets both. */
+.screen {
+  --frame-width: 100%;
+  --frame-scale: 1;
+  position: relative;
   flex: 1;
-  width: 100%;
+  margin: 0;
+  overflow: hidden;
   border: thin solid var(--line);
   border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.screen iframe {
+  position: absolute;
+  top: 0;
+  left: calc((100% - var(--frame-width) * var(--frame-scale)) / 2);
+  width: var(--frame-width);
+  height: calc(100% / var(--frame-scale));
+  border: none;
   background: var(--page);
+  transform: scale(var(--frame-scale));
+  transform-origin: 0 0;
 }
 
 .toolbar {
@@ -562,26 +632,53 @@ legend,
   padding: 0;
 }
 
+/* A row is one line (its summary and buttons) until it is opened. */
 .row {
-  margin-bottom: var(--space);
-  padding: var(--space);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 0 calc(var(--space) / 2);
+  margin-bottom: calc(var(--space) / 2);
+  padding: calc(var(--space) / 2) calc(var(--space) * 0.75);
   border: thin solid var(--line);
   border-left: 0.3rem solid var(--brand);
   border-radius: var(--radius);
   background: var(--page);
 }
 
-.row .rows {
-  margin: var(--space) 0 0 var(--space);
+.row > details {
+  margin: 0;
+}
+
+.row summary {
+  color: var(--text);
+  padding: 0.2em 0;
+}
+
+.row summary small {
+  display: inline;
+  overflow-wrap: anywhere;
+}
+
+.add-under {
+  padding: 0.2em 0.6em;
+  font-size: 0.9em;
+}
+
+.row > .rows,
+.row > p {
+  grid-column: 1 / -1;
+  margin: calc(var(--space) / 2) 0 0 var(--space);
 }
 
 .row .row {
   border-left-color: var(--line);
+  background: var(--panel);
 }
 
 .row label {
   display: block;
-  margin-bottom: calc(var(--space) / 2);
+  margin: calc(var(--space) / 2) 0;
 }
 
 .row input,
@@ -590,17 +687,22 @@ legend,
   width: 100%;
 }
 
-.row p {
-  margin: 0;
-}
-
 .row-buttons {
   display: flex;
-  flex-wrap: wrap;
-  gap: calc(var(--space) / 2);
+  gap: calc(var(--space) / 4);
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.row-buttons button {
+  padding: 0.2em 0.6em;
+  font-size: 0.9em;
+}
+
+.row-buttons button:disabled {
+  opacity: 0.35;
+  cursor: default;
 }
 
 .hero-picture {
