@@ -380,9 +380,11 @@
     <figure class="screen"><iframe title="Preview of the page"></iframe></figure>
   </template>
 
-  <!-- A row shows one line until it is opened to be changed. -->
+  <!-- A row shows one line until it is opened to be changed. It is moved by
+       dragging its grip, or with the arrow buttons from the keyboard. -->
   <template id="menu-row">
     <li class="row">
+      <button type="button" class="grip" data-drag tabindex="-1" aria-label="Drag to move" title="Drag to move">&#x283F;</button>
       <details>
         <summary><strong data-summary-name></strong> <small data-summary-link></small></summary>
         <label>Name <small>Leave empty to use the title of the page it links to.</small>
@@ -402,6 +404,7 @@
 
   <template id="task-row">
     <li class="row">
+      <button type="button" class="grip" data-drag tabindex="-1" aria-label="Drag to move" title="Drag to move">&#x283F;</button>
       <details>
         <summary><strong data-summary-name></strong> <small data-summary-link></small></summary>
         <label>Title

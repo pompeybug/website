@@ -711,7 +711,7 @@ function handleSettingsFocus(event) {
   spotlight(preview, { scroll: moved });
 }
 
-// Handles the Move up, Move down and Remove buttons. True if a row changed.
+// Handles the Move up, Move down and Remove buttons (rows can also be dragged). True if a row changed.
 function handleRowButton(event) {
   const row = event.target.closest('.row');
   const move = event.target.closest('[data-move]');
@@ -720,6 +720,68 @@ function handleRowButton(event) {
   else if (event.target.closest('[data-remove-row]')) row.remove();
   else return false;
   return true;
+}
+
+// ---------- Dragging rows ----------
+// A row is dragged by its grip, up and down the list it is already in. It
+// moves through the list as the pointer passes its neighbours, so what is
+// shown while dragging is what will be kept. Pointer events cover mouse,
+// touch and pen alike.
+let drag = null;
+const DRAG_EDGE_PX = 60;
+const DRAG_SCROLL_PX = 12;
+
+// Puts the dragged row where the pointer now is among its neighbours.
+function placeDraggedRow() {
+  const { row, y } = drag;
+  const isBelowPointer = (other) => {
+    const box = other.getBoundingClientRect();
+    return y < box.top + box.height / 2;
+  };
+  const others = [...row.parentElement.children].filter((other) => other !== row);
+  const next = others.find(isBelowPointer) ?? null;
+  if (next !== row.nextElementSibling) row.parentElement.insertBefore(row, next);
+}
+
+// While the pointer is held near the top or bottom of the window the page
+// scrolls, so a row can be taken further than what is on screen.
+function scrollWhileDragging() {
+  if (!drag) return;
+  if (drag.y < DRAG_EDGE_PX) window.scrollBy(0, -DRAG_SCROLL_PX);
+  else if (drag.y > window.innerHeight - DRAG_EDGE_PX) window.scrollBy(0, DRAG_SCROLL_PX);
+  placeDraggedRow();
+  requestAnimationFrame(scrollWhileDragging);
+}
+
+function startRowDrag(event) {
+  const grip = event.target.closest('[data-drag]');
+  if (!grip || event.button > 0) return;
+  event.preventDefault();
+  const row = grip.closest('.row');
+  drag = { row, y: event.clientY, pane: paneName(event), order: [...row.parentElement.children] };
+  grip.setPointerCapture(event.pointerId);
+  row.classList.add('dragging');
+  requestAnimationFrame(scrollWhileDragging);
+}
+
+function moveRowDrag(event) {
+  if (drag) drag.y = event.clientY;
+}
+
+function endRowDrag() {
+  if (!drag) return;
+  const { row, pane, order } = drag;
+  drag = null;
+  row.classList.remove('dragging');
+  const moved = order.some((other, index) => row.parentElement.children[index] !== other);
+  if (moved) settingsChanged(pane);
+}
+
+function listenForRowDrags(target) {
+  target.addEventListener('pointerdown', startRowDrag);
+  target.addEventListener('pointermove', moveRowDrag);
+  target.addEventListener('pointerup', endRowDrag);
+  target.addEventListener('pointercancel', endRowDrag);
 }
 
 // ---------- Home page ----------
@@ -1015,6 +1077,8 @@ async function start() {
   $('#menu-form').addEventListener('focusin', handleSettingsFocus);
   $('#menu-form').addEventListener('change', handlePickerChange);
   $('#menu-form').addEventListener('click', handleMenuClick);
+  listenForRowDrags(homeForm);
+  listenForRowDrags($('#menu-form'));
 
   await route();
 }

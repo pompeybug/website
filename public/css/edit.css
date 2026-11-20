@@ -635,7 +635,7 @@ legend,
 /* A row is one line (its summary and buttons) until it is opened. */
 .row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: start;
   gap: 0 calc(var(--space) / 2);
   margin-bottom: calc(var(--space) / 2);
@@ -644,6 +644,30 @@ legend,
   border-left: 0.3rem solid var(--brand);
   border-radius: var(--radius);
   background: var(--page);
+}
+
+/* The grip a row is dragged by. touch-action stops a finger scrolling the page instead. */
+button.grip {
+  padding: 0.2em 0.3em;
+  border-color: transparent;
+  background: none;
+  color: var(--muted);
+  cursor: grab;
+  touch-action: none;
+}
+
+button.grip:hover {
+  color: var(--text);
+}
+
+.row.dragging {
+  border-color: var(--brand);
+  outline: 0.15rem solid var(--brand);
+  user-select: none;
+}
+
+.row.dragging .grip {
+  cursor: grabbing;
 }
 
 .row > details {
@@ -687,12 +711,24 @@ legend,
   width: 100%;
 }
 
+/* On a phone the buttons sit under the row's name; wider, beside it. */
 .row-buttons {
+  grid-column: 2;
   display: flex;
   gap: calc(var(--space) / 4);
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+@media (width > 40rem) {
+  .row {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .row-buttons {
+    grid-column: auto;
+  }
 }
 
 .row-buttons button {
