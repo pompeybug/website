@@ -1,573 +1,97 @@
+/* The public site. The look is "Campaign": black and orange, big
+   photographs, heavy uppercase headlines. Colours come from the tokens below
+   only.
+
+   Mobile first: the plain rules are the phone layout, and the min-width
+   queries add columns as the screen gets wider.
+
+   One page width: the header, every band, article pages and the footer all
+   use --gutter, so their left and right edges line up on every page. */
+
 :root {
-  --col1: hsl(70, 68%, 28%);
-  --col1light: #929d5955;
-  --col2: hsl(20, 85%, 42%);
-  --col2light: #d7713d55;
-  --col2dark: hsla(20, 85%, 32%, 50%);
-  --page: #fdfdfd;
-  --text: #222222;
-  --col3: #555555;
-  --midgrey: #ccc;
-  --textinv: #eeeeee;
-  --footerspace: 0.5em;
-  --fixedspace: 0.5rem;
-  --curve: 0;
-  --buttoncurve: calc(var(--fixedspace) * 0.25);
-  --lineheight: 1.5rem;
-  --bgcol: var(--page);
-  --link: var(--col2);
-  --vlink: var(--col1);
-
-  --navmenu-direction: column;
-  --navmenu-gap: calc(var(--fixedspace) / 4);
-  --navmenu-padding: calc(var(--fixedspace) / 4);
-  --navmenu-curve: var(--buttoncurve);
-  --navmenu-margin: 1em;
-  --navmenu-wrap: nowrap;
-  --navmenu-aside-position: fixed;
-  --navmenu-width: 100%;
-  --navmenu-height: 100%;
-  --navmenu-background: var(--page);
-  --navmenu-container-padding: calc(var(--fixedspace) * 2);
-  --navmenu-close-display: flex;
-  --navmenu-default-display: none;
-  --navmenu-a-padding: 0.5em 0.2em;
-  --navmenu-socials-icon-size: 32px;
-
-  --taglist-direction: column;
-  --taglist-gap: calc(var(--fixedspace) / 4);
-  --taglist-padding: calc(var(--fixedspace) / 4);
-  --taglist-curve: var(--buttoncurve);
-  --taglist-margin: 1em;
-  --taglist-wrap: nowrap;
-
-  --header-sticky: sticky;
-
-  --flexgrow: 0;
-
-  --gridcols: 1fr;
-  --gridrows: auto auto auto auto 1fr auto;
-  --gridtemplateareas: "header" "menu" "metadata" "article" "taglist" "footer";
-
-  --headergridcols: auto;
-  --headergridrows: auto;
-  --headergridtemplateareas: "h1 h1" "logo text";
-
-  --footerspace: 0;
-
-  --showhide: none;
-
-  --cardlist-columns: 1fr;
-  --cardlist-gap: calc(var(--fixedspace) * 4);
-  --cardlist-padding: var(--fixedspace);
-
-  --card-curve: calc(var(--fixedspace) * 0.2);
-  --card-image-height: 8em;
-  --card-gap: calc(var(--fixedspace) * 0.5);
-
-  --pagination-padding: 0 0;
-  --pagination-page-padding: 0.75em 0;
-
-  --search-colour: var(--col2);
-
-  --hambuger-button-container-display: flex;
-
-  --header-font-size: 7cqw;
-
-  --header-justify: flex-start;
-
-  /* The sign-up form is drawn by HubSpot in its own light colours, so in
-     dark mode it sits on a light panel to stay readable. */
-  --form-panel: transparent;
-  --form-panel-padding: 0;
+  --page: #ffffff;
+  --text: #111111;
+  --muted: #55524e;
+  --rule: #111111;
+  --ink: #111111;
+  --ink-text: #ffffff;
+  --footer: #111111;
+  --accent: #c64d0f;
+  --accent-text: #ffffff;
+  --link: #a8400b;
+  --thumb: #c64d0f;
+  --shade: rgb(0 0 0 / 62%);
+  --panel: #ffffff;
+  --panel-text: #111111;
+  --field: #ffffff;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-head: "Arial Black", "Helvetica Neue", system-ui, sans-serif;
+  --wide: 72rem;
+  --measure: 42rem;
+  --gap: 1.25rem;
+  --pad: 1rem;
+  --gutter: max(var(--pad), calc((100% - var(--wide)) / 2));
+  color-scheme: light dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --col1: hsl(70, 0%, 68%);
-    --col1light: hsl(70, 0%, 38%);
-    --col2: hsl(20, 95%, 62%);
-    --col2light: hsl(20, 85%, 72%);
-    --bgcol: #222;
-    --page: #222;
-    --text: #eeeeee;
-    --textinv: #222;
-    --link: var(--col2light);
-    --vlink: var(--text);
-    --search-colour: var(--col2light);
-    --form-panel: #fff;
-    --form-panel-padding: var(--fixedspace);
-  }
-}
-
-@media screen and (width > 40rem) {
-  :root {
-    --fixedspace: 1rem;
-    --footerspace: 0;
-    --padding: 2rem;
-    --gridcols: 10rem 1fr;
-    --gridrows: auto auto auto 1fr auto;
-    --gridtemplateareas: "header header" "menu article" "taglist article"
-      ". article" ". footer";
-
-    --navmenu-aside-position: sticky;
-    --navmenu-width: unset;
-    --navmenu-height: unset;
-    --navmenu-background: transparent;
-    --navmenu-container-padding: 0;
-    --navmenu-close-display: none;
-    --navmenu-default-display: unset;
-    --navmenu-a-padding: 0.1em 0.2em;
-    --navmenu-socials-icon-size: 26px;
-
-    --taglist-margin: 0;
-
-    --header-sticky: relative;
-
-    --flexgrow: 1;
-
-    --curve: calc(var(--fixedspace) * 0.25);
-
-    --showhide: block;
-
-    --cardlist-columns: 1fr;
-    --cardlist-gap: var(--fixedspace);
-
-    --pagination-padding: 0 10em;
-    --pagination-page-padding: 0.25em 0;
-    --hambuger-button-display: none;
-    --header-font-size: 8cqw;
-    --header-justify: center;
-  }
-}
-
-@media screen and (width > 50rem) {
-  :root {
-    --cardlist-columns: 1fr 1fr;
-  }
-}
-
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
-  display: grid;
-  grid-template-columns: var(--gridcols);
-  grid-template-rows: var(--gridrows);
-  grid-template-areas: var(--gridtemplateareas);
-
-  background-color: var(--bgcol);
+  margin: 0;
+  background: var(--page);
   color: var(--text);
-  font-family: sans-serif;
-  margin: 0 auto;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
 
-  padding: var(--padding);
-  min-height: 100dvh;
-  max-width: 60em;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 a {
   color: var(--link);
-  background: var(--page);
-  text-decoration: none;
-  padding-left: 0.25em;
-  padding-right: 0.25em;
-  border-radius: var(--buttoncurve);
-}
-
-a:hover {
-  background-color: var(--col2);
-  color: var(--page);
-}
-
-main {
-  margin: var(--fixedspace);
-  background-color: var(--page);
-  color: var(--text);
+  text-underline-offset: 0.15em;
 }
 
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--text);
-}
-
-main h1 {
-  font-size: 1.6em;
-}
-main h2 {
-  font-size: 1.45em;
-}
-main h3 {
-  font-size: 1.3em;
-}
-main h4 {
-  font-size: 1.2em;
-}
-main h5 {
-  font-size: 1.1em;
-}
-main h6 {
-  font-size: 1em;
-}
-
-.site-header,
-.site-footer {
+h3 {
+  font-family: var(--font-head);
+  line-height: 1.1;
   margin: 0;
-  padding: var(--fixedspace);
-  border-radius: var(--curve);
+  text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
-.site-footer {
-  grid-area: footer;
-  margin-bottom: var(--footerspace);
-  background-color: var(--col1light);
-  color: var(--text);
-  line-height: var(--lineheight);
+h1,
+h2,
+.brand span {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
-.site-footer p {
+ul,
+ol {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
-.site-header {
-  grid-area: header;
-  display: grid;
-  grid-template-columns: var(--headergridcols);
-  grid-template-rows: var(--headergridrows);
-  grid-template-areas: var(--headergridtemplateareas);
-
-  background-color: var(--col2);
-  color: var(--textinv);
-  align-items: center;
-  gap: var(--fixedspace);
-
-  container-type: inline-size;
-}
-
-.site-header #masthead {
-  grid-area: logo;
-  max-height: 4rem;
-  margin-inline-start: 2cqw;
-}
-
-.site-header > div {
-  grid-area: h1;
-  display: flex;
-  justify-content: var(--header-justify);
-  gap: var(--fixedspace);
-}
-
-.site-header > div > button {
-  display: var(--hambuger-button-display);
-  background-color: transparent;
-  border: none;
-  padding: 1em var(--fixedspace) var(--fixedspace) 0;
-}
-
-.site-header > div > button svg {
-  height: 32px;
-  width: 32px;
-}
-
-.site-header > div .site-title {
-  margin: 0;
-  padding: 0;
-  font-size: var(--header-font-size);
-  text-align: center;
-  display: flex;
-  align-items: center;
-}
-
-.site-header > div .site-title a {
-  padding: 0;
-}
-
-.site-header p {
-  grid-area: text;
-  margin: 0;
-  padding: 0;
-  display: var(--showhide);
-  margin-inline-end: 2cqw;
-}
-
-.site-header img {
-  display: var(--showhide);
-}
-
-.site-header a,
-.site-header a:visited {
-  color: var(--page);
-  background: var(--col2);
-  text-decoration: none;
-  display: block;
-}
-
-.site-header a:hover {
-  color: var(--text);
-}
-
-.header-sticky {
-  position: var(--header-sticky);
-  top: 0;
-  z-index: 999;
-}
-
-.site-footer a,
-.site-footer a:visited {
-  border: var(--page) solid thin;
-  color: var(--page);
-  background: var(--col2);
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  background: var(--page);
-  color: var(--col2);
-  border: var(--col2) solid thin;
-}
-
-main {
-  grid-area: article;
-  line-height: var(--lineheight);
-}
-
-main > h1,
-main article > header h1 {
-  color: var(--text);
-  line-height: 1em;
+figure {
   margin: 0;
 }
 
-main img {
-  max-width: 100%;
-  border-radius: var(--curve);
-  height: auto;
+[hidden] {
+  display: none !important;
 }
-
-.meta,
-.tags,
-.categories {
-  color: var(--col1);
-}
-
-nav.metadata {
-  grid-area: metadata;
-}
-
-.meta h2,
-nav h2 {
-  display: inline-block;
-  font-size: 1em;
-  margin: 0;
-  padding: 0.1em 0.2em;
-  min-width: 4em;
-}
-
-#navmenu {
-  grid-area: menu;
-  position: var(--navmenu-aside-position);
-  align-self: start;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  background-color: var(--navmenu-background);
-  height: var(--navmenu-height);
-  width: var(--navmenu-width);
-  padding: var(--navmenu-container-padding);
-  overflow-y: auto;
-}
-
-.navmenu-hidden {
-  display: var(--navmenu-default-display);
-}
-
-#navmenu section {
-  display: flex;
-  flex-direction: var(--navmenu-direction);
-  padding: var(--navmenu-padding);
-  border-radius: var(--taglist-curve);
-  gap: var(--navmenu-gap);
-  align-content: stretch;
-  background-color: var(--col1light);
-  margin-top: var(--navmenu-margin);
-}
-
-#navmenu section:first-of-type {
-  padding: var(--navmenu-padding);
-}
-
-#taglist {
-  /* grid-area: taglist; */
-  display: flex;
-  flex-direction: var(--taglist-direction);
-  padding: var(--taglist-padding);
-  border-radius: var(--taglist-curve);
-  gap: var(--taglist-gap);
-  align-content: stretch;
-  justify-content: flex-start;
-  background-color: var(--col1light);
-  margin-top: var(--navmenu-margin);
-  margin-bottom: var(--navmenu-margin);
-  margin-left: var(--taglist-margin);
-  margin-right: var(--taglist-margin);
-}
-
-.innerlist {
-  display: flex;
-  flex-direction: var(--taglist-direction);
-  gap: var(--taglist-gap);
-  flex-wrap: var(--taglist-wrap);
-}
-
-.link-block {
-  text-decoration: none;
-  list-style-type: none;
-  cursor: pointer;
-  padding: 0.1em 0.2em;
-  margin: 0;
-  border-radius: var(--buttoncurve);
-  color: var(--text);
-  flex-grow: var(--flexgrow);
-  background: var(--col2);
-  color: var(--page);
-  border: var(--page) solid thin;
-  display: inline-block;
-}
-
-#navmenu a,
-#taglist a {
-  text-decoration: none;
-  list-style-type: none;
-  cursor: pointer;
-  padding: var(--navmenu-a-padding);
-  margin: 0;
-  border-radius: var(--buttoncurve);
-  color: var(--text);
-  flex-grow: var(--flexgrow);
-  background: var(--col2);
-  color: var(--page);
-  border: var(--page) solid thin;
-  display: inline-block;
-}
-
-#navmenu a:hover,
-#taglist a:hover,
-.link-block:hover,
-.link-block.no-visit:hover {
-  background: var(--page);
-  color: var(--col2);
-  border: var(--col2) solid thin;
-}
-
-a.link-block.no-visit {
-  color: var(--page);
-}
-
-input[type="text"],
-input[type="email"] {
-  width: 100%;
-}
-
-.floater {
-  max-width: 50%;
-  float: right;
-  margin-left: 1em;
-}
-
-main .menu a {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.meta {
-  display: flex;
-  gap: calc(var(--fixedspace) / 2);
-}
-
-main figure {
-  margin: 0;
-  position: relative;
-  border-radius: var(--curve);
-  overflow: hidden;
-}
-
-main figure > img {
-  width: 100%;
-}
-
-main figure > figcaption {
-  position: absolute;
-  bottom: 0;
-  background: var(--col3);
-  color: var(--page);
-  padding: calc(var(--fixedspace) / 2) var(--fixedspace);
-  width: 100%;
-}
-
-ul.cards {
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: var(--cardlist-columns);
-  grid-auto-rows: 1fr;
-  gap: var(--cardlist-gap);
-}
-
-main.column {
-  display: flex;
-  flex-direction: column;
-  gap: var(--fixedspace);
-}
-
-a.active {
-  background-color: var(--col2);
-  color: var(--page);
-}
-
-a.no-hover:hover {
-  color: var(--link);
-  background-color: unset;
-}
-
-.search-input {
-  flex: 1;
-  background-color: transparent;
-  border: 1px solid transparent;
-  padding: 0.5em;
-  border-bottom: 1px solid var(--search-colour);
-  color: var(--col1);
-}
-
-.search-input:focus {
-  outline: 1px solid var(--search-colour);
-  border-radius: var(--buttoncurve);
-  border: 1px solid transparent;
-}
-
-.search-container {
-  display: flex;
-  gap: calc(var(--fixedspace) / 2);
-  justify-content: center;
-  align-items: center;
-}
-
-.search-container .search {
-  color: var(--search-colour);
-  height: 24px;
-  width: 24px;
-}
-
-.disable-overflow {
-  overflow: hidden;
-}
-
-/* ---------- Added for the server-rendered site ---------- */
 
 .visually-hidden {
   position: absolute;
@@ -578,24 +102,654 @@ a.no-hover:hover {
   white-space: nowrap;
 }
 
-[hidden] {
-  display: none !important;
+.skip {
+  position: absolute;
+  left: -100rem;
 }
 
-.site-title {
-  font-weight: bold;
+.skip:focus {
+  left: var(--pad);
+  top: var(--pad);
+  z-index: 3;
+  padding: 0.5rem 1rem;
+  background: var(--page);
 }
 
-.meta {
-  margin: 0;
+/* ---------- Header ----------
+   Phone: logo and Join on the first row, the menu wrapped underneath.
+   Wide: logo, menu, Join on one row. */
+.top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 0.5rem;
+  padding: 0.6rem var(--gutter);
+  background: var(--ink);
+  color: var(--ink-text);
 }
 
-main article > header {
+.brand {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+  color: inherit;
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.brand img {
+  flex: none;
+  width: 3rem;
+}
+
+/* On the narrowest phones there is no room for the name beside the two
+   buttons, so it is kept for screen readers only. */
+.brand span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.top > .button,
+.menu-toggle {
+  padding: 0.5rem 0.75rem;
+}
+
+.primary {
+  flex-basis: 100%;
+}
+
+.primary ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.1rem;
+}
+
+.primary a {
+  display: block;
+  padding: 0.6rem 0;
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* The Menu button only appears once the script is running. Until someone
+   presses it, a phone shows just the logo, Menu and Join. */
+.menu-toggle {
+  border: 2px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.menu-toggle[aria-expanded='true'] {
+  background: var(--ink-text);
+  color: var(--ink);
+}
+
+.has-toggle .primary:not(.open) {
+  display: none;
+}
+
+.has-toggle .primary ul {
+  display: block;
+  margin-top: 0.4rem;
+}
+
+.has-toggle .primary li {
+  border-top: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+}
+
+.has-toggle .primary a {
+  padding: 0.8rem 0;
+}
+
+/* Sub-items: an indented list in the phone menu, a drop-down on a wide screen. */
+.primary .sub {
+  display: block;
+  margin: 0 0 0.5rem 1rem;
+}
+
+.has-toggle .primary .sub li {
+  border-top: 0;
+}
+
+.has-toggle .primary .sub a,
+.primary .sub a {
+  padding: 0.4rem 0;
+  font-weight: 400;
+}
+
+.primary a:hover,
+.primary a[aria-current] {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 0.2em;
+  text-underline-offset: 0.4em;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  border: 2px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.button.quiet {
+  background: transparent;
+  color: inherit;
+  border-color: currentColor;
+}
+
+.button:hover {
+  filter: brightness(1.1);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+}
+
+/* ---------- Main ---------- */
+main > * {
+  padding-inline: var(--gutter);
+}
+
+.kicker {
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lede {
+  max-width: var(--measure);
+  margin: 1rem 0 0;
+  font-size: 1.15rem;
+}
+
+/* The photograph fills the hero and the words sit on it. */
+.hero {
+  position: relative;
+  display: grid;
+  align-content: end;
+  min-height: min(32rem, 75svh);
+  padding-block: 2rem;
+  background: var(--ink);
+  color: var(--ink-text);
+}
+
+.hero figure {
+  position: absolute;
+  inset: 0;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--shade) 45%, transparent);
+}
+
+.hero header {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  max-width: 11em;
+  font-size: clamp(2.4rem, 11vw, 5.5rem);
+  line-height: 0.95;
+}
+
+.hero .kicker {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.band {
+  padding-block: 2rem;
+}
+
+.band > header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 6px solid var(--rule);
+}
+
+.band h2 {
+  font-size: clamp(1.7rem, 7vw, 3rem);
+}
+
+.more {
+  color: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ---------- Cards: the title sits on the photograph ---------- */
+.features,
+.tasks ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gap);
+}
+
+.features article {
+  position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: end;
+  gap: 0.35rem;
+  height: 100%;
+  min-height: 15rem;
+  padding: 1rem;
+  background: var(--thumb);
+  color: var(--ink-text);
+  overflow: hidden;
 }
 
+.thumb {
+  position: absolute;
+  inset: 0;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb[data-align='top'] img {
+  object-position: top;
+}
+
+.thumb[data-align='bottom'] img {
+  object-position: bottom;
+}
+
+.thumb .empty {
+  object-fit: contain;
+  padding: 2.5rem;
+}
+
+.thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--shade) 45%, transparent 85%);
+}
+
+.features article > :not(.thumb) {
+  position: relative;
+}
+
+.features .kicker {
+  margin: 0;
+  color: inherit;
+}
+
+.features :is(h2, h3) {
+  position: static;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.features :is(h2, h3) a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* The whole card is the link. */
+.features :is(h2, h3) a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.features article:hover :is(h2, h3) a,
+.features :is(h2, h3) a:focus-visible {
+  text-decoration: underline;
+}
+
+.features time {
+  font-size: 0.9rem;
+}
+
+/* ---------- Tasks ---------- */
+.tasks {
+  background: var(--ink);
+  color: var(--ink-text);
+}
+
+.tasks > header {
+  border-color: var(--accent);
+}
+
+.tasks li a,
+.tasks li p {
+  display: block;
+  height: 100%;
+  margin: 0;
+  padding: 1rem 1.1rem;
+  background: var(--accent);
+  color: var(--accent-text);
+  text-decoration: none;
+}
+
+.tasks strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.tasks a:hover strong {
+  text-decoration: underline;
+}
+
+.tasks .idea p {
+  background: transparent;
+  border: 2px dashed currentColor;
+  color: inherit;
+}
+
+.tasks small {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 700;
+}
+
+/* ---------- Dated lists ---------- */
+.dated li {
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem 0;
+  border-top: 2px solid var(--rule);
+}
+
+.dated a {
+  color: inherit;
+  font-weight: 600;
+}
+
+.dated time,
+.meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Join band ---------- */
+.join {
+  padding-block: 2.5rem;
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.join h2 {
+  font-size: clamp(1.9rem, 8vw, 3.6rem);
+}
+
+.join p {
+  max-width: var(--measure);
+}
+
+.join .button {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--ink-text);
+}
+
+.join .button.quiet {
+  background: transparent;
+  border-color: currentColor;
+  color: inherit;
+}
+
+/* ---------- Section and article pages ---------- */
+.page-head {
+  padding-block: 1.5rem 1.25rem;
+}
+
+.page-head h1 {
+  font-size: clamp(1.9rem, 8vw, 3.2rem);
+}
+
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.crumbs li::after {
+  content: "/";
+  margin-left: 0.5rem;
+  color: var(--muted);
+}
+
+.listing .features,
+.older {
+  padding-bottom: 2rem;
+}
+
+/* The article is one column on a phone. On a wide screen the text keeps a
+   readable width on the left and "Filed under" and related articles move
+   into the space on the right, so the page is as wide as every other. */
+.entry article {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 3rem;
+  padding-bottom: 2.5rem;
+}
+
+.cover {
+  margin-bottom: 1.5rem;
+}
+
+.cover img {
+  width: 100%;
+  max-height: 32rem;
+  object-fit: cover;
+}
+
+.prose {
+  max-width: var(--measure);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose h2,
+.prose h3 {
+  margin: 2rem 0 0.5rem;
+}
+
+.prose img,
+.prose iframe {
+  max-width: 100%;
+  margin-block: 1rem;
+}
+
+.prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5rem;
+  list-style: revert;
+}
+
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid var(--accent);
+}
+
+.entry article > footer {
+  display: grid;
+  gap: 2rem;
+  align-content: start;
+  margin-top: 2.5rem;
+}
+
+.entry footer h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+/* ---------- Chips: sections, topics, years ---------- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chips a {
+  display: block;
+  padding: 0.35rem 0.7rem;
+  border: 2px solid var(--rule);
+  color: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.chips a:hover,
+.chips a[aria-current] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--ink-text);
+}
+
+.chips small {
+  font-weight: 400;
+}
+
+/* ---------- Lists of articles ---------- */
+.listing > * {
+  margin-bottom: 1.5rem;
+}
+
+.listing > .page-head {
+  margin-bottom: 0;
+}
+
+.listing > :last-child {
+  margin-bottom: 0;
+  padding-bottom: 2.5rem;
+}
+
+.topics h2,
+.topic-group h2,
+.year h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+}
+
+.year {
+  scroll-margin-top: 1rem;
+}
+
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 0.5rem;
+  max-width: var(--measure);
+  margin-bottom: 1rem;
+}
+
+.search label {
+  flex-basis: 100%;
+  font-weight: 700;
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid var(--rule);
+  background: var(--field);
+  color: var(--text);
+  font: inherit;
+}
+
+.search .button {
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#results,
+#end {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 700;
+}
+
+/* With the script running, more cards load as the page is scrolled. */
+.pager[data-enhanced] a {
+  visibility: hidden;
+}
+
+.dated ul {
+  margin: 0.25rem 0 0 1.25rem;
+  list-style: disc;
+  color: var(--muted);
+}
+
+/* ---------- Article text ---------- */
 .prose::after {
   content: "";
   display: block;
@@ -607,338 +761,315 @@ main article > header {
 }
 
 .float-images img {
-  max-width: 50%;
   float: right;
-  margin-left: 1em;
+  max-width: 45%;
+  margin: 0.25rem 0 1rem 1.25rem;
 }
 
-.prose table {
-  border-collapse: collapse;
-  display: block;
-  max-width: 100%;
-  overflow-x: auto;
+.prose figcaption {
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
-.prose td,
-.prose th {
-  border: thin solid var(--midgrey);
-  padding: calc(var(--fixedspace) / 4) calc(var(--fixedspace) / 2);
+.prose th,
+.prose td {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--muted);
   text-align: left;
   vertical-align: top;
 }
 
-figure.video {
-  aspect-ratio: 16 / 9;
-  margin-block: var(--fixedspace);
+.prose table {
+  border-collapse: collapse;
 }
 
-figure.video iframe {
+.prose .video {
+  aspect-ratio: 16 / 9;
+  margin-block: 1.5rem;
+}
+
+.prose .video iframe {
   width: 100%;
   height: 100%;
+  margin: 0;
   border: 0;
 }
 
 .notice {
-  background-color: var(--col2light);
-  border-radius: var(--buttoncurve);
-  padding: calc(var(--fixedspace) / 2) var(--fixedspace);
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.4rem 0.75rem;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 700;
 }
 
-footer.todo {
-  border-top: thin solid var(--midgrey);
-  margin-top: var(--fixedspace);
+.todo {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--rule);
 }
 
-/* Navigation menu */
-
-#navmenu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* ---------- A page with a sign-up form ----------
+   The headline sits on an orange band the full width of the screen. The form
+   is drawn by HubSpot in its own light colours, so it always sits on a white
+   panel: beside the text on a wide screen, under it on a phone. */
+.signup .page-head {
+  margin-bottom: 2rem;
+  padding-block: 2rem 2.5rem;
+  /* Paints the band and carries it out to both edges of the screen. */
+  border-image: conic-gradient(var(--accent) 0 0) fill 0 / 0 / 0 100vmax;
+  color: var(--accent-text);
 }
 
-#navmenu li {
-  display: flex;
-  flex-grow: var(--flexgrow);
+.signup .page-head h1 {
+  font-size: clamp(2.4rem, 11vw, 5rem);
+  line-height: 0.95;
 }
 
-#navmenu li a {
-  flex: 1;
+.signup .page-head a,
+.signup .crumbs li::after {
+  color: inherit;
 }
 
-.socials {
-  display: flex;
-  gap: calc(var(--fixedspace) / 4);
+.signup .prose > p:first-child {
+  font-size: 1.35rem;
+  line-height: 1.45;
 }
 
-.socials li {
-  flex: 1;
-}
-
-.socials a {
-  display: flex !important;
-  justify-content: center;
-}
-
-.socials a svg {
-  height: var(--navmenu-socials-icon-size);
-  width: var(--navmenu-socials-icon-size);
-}
-
-#navmenu .close {
-  display: var(--navmenu-close-display);
-  gap: var(--fixedspace);
-  align-items: center;
-}
-
-#navmenu .close .site-title {
-  margin: 0;
-  font-size: calc(var(--header-font-size) - 0.5cqw);
-}
-
-#navmenu .close .site-title a {
-  background-color: transparent;
-  border: none;
-  color: var(--col2);
-  padding: 0;
-}
-
-.close-button {
-  background-color: var(--col2);
-  border: none;
-  border-radius: var(--buttoncurve);
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  margin-right: var(--fixedspace);
-  color: var(--page);
-  cursor: pointer;
-}
-
-.close-button svg {
-  width: 40px;
-  height: 40px;
-}
-
-#navmenuToggle {
-  color: var(--page);
-  cursor: pointer;
-}
-
-/* Home page: search and article cards */
-
-search label {
-  display: flex;
-  color: var(--search-colour);
-}
-
-search form {
-  width: 100%;
-}
-
-#results,
-#end {
-  margin: 0;
-  color: var(--col1);
-}
-
-#end {
-  text-align: center;
-  font-size: 1.15em;
-  margin-bottom: 0.5em;
-}
-
-.pager {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--fixedspace);
-}
-
-.pager[data-enhanced] a {
-  visibility: hidden;
-}
-
-li.card {
-  list-style: none;
-  background-color: var(--page);
-  border-radius: var(--card-curve);
-  min-width: 0;
-}
-
-li.card article {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--fixedspace) / 3);
-}
-
-li.card h2,
-li.card p,
-li.card ul {
-  margin: 0;
-  padding-inline: calc(var(--fixedspace) / 1.5);
-}
-
-li.card h2 {
-  font-size: 1.1em;
-  font-weight: 900;
-}
-
-li.card h2 a,
-.card-image {
-  padding: 0;
-  background: unset;
-  color: var(--text);
-}
-
-li.card h2 a:hover {
-  background: unset;
-  color: var(--text);
-  text-decoration: underline;
-}
-
-.card-image {
-  display: flex;
-  height: var(--card-image-height);
-  overflow: hidden;
-  border-radius: var(--card-curve);
-  align-items: center;
-}
-
-.card-image[data-align="top"] {
-  align-items: flex-start;
-}
-
-.card-image[data-align="bottom"] {
-  align-items: flex-end;
-}
-
-.card-image:hover {
-  background: unset;
-}
-
-.card-cover {
-  width: 100%;
-}
-
-.card-placeholder {
-  background-color: var(--col1light);
-  width: 100%;
-  height: 100%;
-  padding: 2em;
-  object-fit: contain;
-}
-
-.card-description {
-  overflow: hidden;
-  line-height: 1.5em;
-  color: var(--text);
-}
-
-.card-tags {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: calc(var(--fixedspace) / 4);
-  padding-bottom: calc(var(--fixedspace) / 1.5);
-}
-
-.card-tags a {
-  display: block;
-  width: max-content;
-  padding: 0.2em 0.25em;
-}
-
-#tag-list {
-  margin: 0;
-}
-
-.hubspot-form {
-  margin-top: var(--fixedspace);
-  padding: var(--form-panel-padding);
-  background: var(--form-panel);
-  border-radius: var(--card-curve);
+.signup-panel {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  border-top: 8px solid var(--ink);
+  background: var(--panel);
+  color: var(--panel-text);
   color-scheme: light;
 }
 
-/* Lists of article links with their dates: tag pages, the archive and
-   "related articles". */
-.dated time {
+.signup-panel h2 {
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+}
+
+.hubspot-form {
+  min-height: 20rem;
+}
+
+/* ---------- Footer ---------- */
+.foot {
+  padding: 2.5rem var(--gutter);
+  background: var(--footer);
+  color: var(--ink-text);
+  font-size: 0.95rem;
+}
+
+.foot a {
   display: inline-block;
-  margin-left: 0.5em;
-  font-size: 0.85em;
-  opacity: 0.75;
-  white-space: nowrap;
+  padding: 0.3rem 0;
+  color: inherit;
 }
 
-.filed,
-.related {
-  margin-top: calc(var(--fixedspace) * 2);
+.foot nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+  margin-bottom: 2rem;
 }
 
-.filed h2,
-.related h2 {
-  font-size: 1.1em;
+.foot h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
 }
 
-.related .dated {
-  padding-left: 1.2em;
+.foot p {
+  margin: 0.25rem 0;
 }
 
-.related .dated li {
-  margin-bottom: 0.4em;
+/* ---------- Wider screens ---------- */
+@media (min-width: 22.5rem) {
+  .brand span {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    font-size: 0.85rem;
+  }
 }
 
-.years {
-  margin-bottom: var(--fixedspace);
+@media (min-width: 40rem) {
+  :root {
+    --pad: 1.5rem;
+    --gap: 1.5rem;
+  }
+
+  .features,
+  .tasks ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .features article {
+    min-height: 18rem;
+  }
+
+  .brand {
+    font-size: 1.1rem;
+  }
+
+  .brand img {
+    width: 4.5rem;
+  }
+
+  .hero {
+    padding-block: 3rem;
+  }
+
+  .band {
+    padding-block: 2.5rem;
+  }
+
+  .dated li {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .dated time {
+    flex: none;
+  }
+
+  .foot nav {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
-/* Finding things: breadcrumbs, the row of sections and the topic lists. */
-.breadcrumb ol {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4em;
-  margin: 0 0 calc(var(--fixedspace) / 2);
-  padding: 0;
-  font-size: 0.9em;
+@media (min-width: 64rem) {
+  .top {
+    flex-wrap: nowrap;
+    gap: 2rem;
+  }
+
+  .brand {
+    flex: none;
+    gap: 0.75rem;
+  }
+
+  .brand img {
+    width: 3.5rem;
+  }
+
+  .brand span {
+    font-size: 0.95rem;
+  }
+
+  .top > .button {
+    padding: 0.6rem 1.1rem;
+  }
+
+  .primary {
+    flex: 1;
+    order: 1;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .has-toggle .primary:not(.open) {
+    display: block;
+  }
+
+  .primary ul,
+  .has-toggle .primary ul {
+    display: flex;
+    justify-content: end;
+    gap: 0 1.5rem;
+    margin-top: 0;
+  }
+
+  .has-toggle .primary li {
+    border-top: 0;
+  }
+
+  .has-toggle .primary a {
+    padding: 0.6rem 0;
+  }
+
+  .top > .button {
+    order: 2;
+  }
+
+  .features,
+  .tasks ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .features article {
+    min-height: 20rem;
+  }
+
+  .entry article {
+    grid-template-columns: minmax(0, var(--measure)) minmax(0, 1fr);
+  }
+
+  .entry .page-head,
+  .cover {
+    grid-column: 1 / -1;
+  }
+
+  .entry article > footer {
+    margin-top: 0;
+  }
+
+  .entry .dated li {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* The drop-down under a menu item that has sub-items. */
+  .primary li {
+    position: relative;
+  }
+
+  .primary .sub,
+  .has-toggle .primary .sub {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+    min-width: 13rem;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    background: var(--ink);
+    border-top: 4px solid var(--accent);
+  }
+
+  .primary li:hover > .sub,
+  .primary li:focus-within > .sub {
+    display: block;
+  }
+
+  .signup-panel {
+    position: sticky;
+    top: 1.5rem;
+    align-self: start;
+    margin-top: 0;
+    padding: 1.75rem;
+  }
 }
 
-.breadcrumb li::after {
-  content: '›';
-  margin-left: 0.4em;
-  opacity: 0.6;
-}
-
-.intro {
-  max-width: 44em;
-}
-
-.sections,
-.topics,
-.topic-group {
-  margin-bottom: var(--fixedspace);
-}
-
-.sections a[aria-current='page'] {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.topics h2,
-.topic-group h2 {
-  font-size: 1.1em;
-  margin-bottom: 0.4em;
-}
-
-.card-tags small {
-  opacity: 0.7;
-}
-
-.sections .card-tags,
-.topics .card-tags,
-.topic-group .card-tags,
-.filed .card-tags,
-.years .card-tags {
-  margin: 0;
-  padding-left: 0;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #111111;
+    --text: #f3f1ed;
+    --muted: #b3aea7;
+    --rule: #f3f1ed;
+    --ink: #000000;
+    --footer: #000000;
+    --accent: #e2672a;
+    --accent-text: #170800;
+    --link: #f39a6b;
+    --field: #1c1c1c;
+  }
 }

@@ -29,6 +29,13 @@ let entries = new Map();
 let version = 0;
 export const getVersion = () => version;
 
+// Called after the whole folder has been read again (a pull from GitHub).
+const reloadListeners = [];
+export const onReload = (listener) => reloadListeners.push(listener);
+
+// The one place an entry's web address is worked out.
+export const entryUrl = (entry) => `/${entry.slug}`;
+
 const key = (kind, slug) => `${kind}:${slug}`;
 const stamp = (text) => createHash('sha256').update(text).digest('hex').slice(0, 16);
 const toArray = (value) => (value === null || value === undefined || value === '' ? [] : [value].flat().map(String));
@@ -78,6 +85,8 @@ function parseEntry(kind, slug, file, text, changed = null) {
     todo: toArray(raw.todo),
     author: raw.author ? String(raw.author) : null,
     draft: raw.draft === true,
+    // Ticked by an editor to put an article on the home page.
+    featured: raw.featured === true,
     cover,
     coverSource: raw.coverImage ? String(raw.coverImage) : '',
     coverAlignName: raw.coverImageAlignment in ALIGNMENTS ? raw.coverImageAlignment : 'middle',
@@ -135,6 +144,7 @@ async function loadAll() {
   markSharedTitles(next);
   entries = next;
   version += 1;
+  for (const listener of reloadListeners) await listener();
 }
 
 export async function init() {
@@ -237,6 +247,7 @@ function applyFields(text, fields, body) {
   if (fields.coverImage !== undefined) put('coverImage', fields.coverImage, !fields.coverImage);
   if (fields.coverImageAlignment !== undefined) put('coverImageAlignment', fields.coverImageAlignment, !fields.coverImage || fields.coverImageAlignment === 'middle');
   if (fields.draft !== undefined) put('draft', true, !fields.draft);
+  if (fields.featured !== undefined) put('featured', true, !fields.featured);
 
   return `---\n${doc.toString({ lineWidth: 0 })}---\n\n${String(body ?? '').replace(/\r\n/g, '\n').trim()}\n`;
 }
@@ -301,6 +312,9 @@ export async function deleteEntry(kind, slug, editor) {
   version += 1;
   await git.commit(`Delete ${describeKind(kind)}: ${entry.title}`, editor, loadAll);
 }
+
+// Commits a change made outside this file (the site settings).
+export const commit = (message, editor) => git.commit(message, editor, loadAll);
 
 // ---------- Images ----------
 // An article stored as a single file is moved into a folder of its own the

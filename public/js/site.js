@@ -1,48 +1,41 @@
 // Progressive enhancements for the public site. Every page works without
-// this file; it adds the menu toggle, live search and endless scrolling.
+// this file; it adds the Menu button, live search and endless scrolling.
 
 const SEARCH_DELAY_MS = 300;
-const UPTICKS_BEFORE_STICKY = 50;
 
 // ---------- Menu ----------
-const navMenu = document.querySelector('#navmenu');
-const menuToggle = document.querySelector('#navmenuToggle');
-const menuClose = document.querySelector('#navmenu .close-button');
+// Without this script the whole menu is shown under the logo.
+const header = document.querySelector('.top');
+const menu = document.querySelector('#site-menu');
+const menuToggle = document.querySelector('#site-menu-toggle');
+
+function setMenu(open) {
+  menu.classList.toggle('open', open);
+  menuToggle.setAttribute('aria-expanded', String(open));
+}
 
 function toggleMenu() {
-  const hidden = navMenu.classList.toggle('navmenu-hidden');
-  document.body.classList.toggle('disable-overflow', !hidden);
-  menuToggle.setAttribute('aria-expanded', String(!hidden));
+  setMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
 }
 
-menuToggle?.addEventListener('click', toggleMenu);
-menuClose?.addEventListener('click', toggleMenu);
-
-// ---------- Header reappears when scrolling back up ----------
-const siteHeader = document.querySelector('.site-header');
-let upticks = 0;
-let lastScroll = 0;
-
-function trackScroll() {
-  const top = Math.max(0, document.documentElement.scrollTop);
-  if (top < lastScroll) {
-    upticks += 1;
-    if (upticks > UPTICKS_BEFORE_STICKY) siteHeader.classList.add('header-sticky');
-  } else {
-    siteHeader.classList.remove('header-sticky');
-    upticks = 0;
-  }
-  lastScroll = top;
+function closeOnEscape(event) {
+  if (event.key !== 'Escape' || menuToggle.getAttribute('aria-expanded') !== 'true') return;
+  setMenu(false);
+  menuToggle.focus();
 }
 
-if (siteHeader) document.addEventListener('scroll', trackScroll, { passive: true });
+if (header && menu && menuToggle) {
+  header.classList.add('has-toggle');
+  menuToggle.hidden = false;
+  menuToggle.addEventListener('click', toggleMenu);
+  document.addEventListener('keydown', closeOnEscape);
+}
 
 // ---------- Article search and endless scrolling ----------
 const cards = document.querySelector('ul.cards');
 const searchForm = document.querySelector('search form');
 const searchInput = document.querySelector('#search');
 const cardTemplate = document.querySelector('#card-template');
-const tagTemplate = document.querySelector('#card-tag-template');
 const results = document.querySelector('#results');
 const end = document.querySelector('#end');
 const pager = document.querySelector('.pager');
@@ -50,33 +43,22 @@ const pager = document.querySelector('.pager');
 const listing = { query: '', page: 1, pages: 1, loading: false, request: 0 };
 let searchTimer;
 
-function buildTag(tag) {
-  const item = tagTemplate.content.cloneNode(true);
-  const link = item.querySelector('a');
-  link.href = tag.url;
-  link.textContent = tag.label;
-  return item;
-}
-
 function buildCard(data) {
   const card = cardTemplate.content.cloneNode(true);
-  const imageLink = card.querySelector('.card-image');
   const cover = card.querySelector('.card-cover');
   const titleLink = card.querySelector('h2 a');
   const time = card.querySelector('time');
 
-  imageLink.href = data.url;
-  imageLink.dataset.align = data.align;
+  card.querySelector('.thumb').dataset.align = data.align;
   cover.hidden = !data.cover;
   if (data.cover) cover.src = data.cover;
   else cover.removeAttribute('src');
-  card.querySelector('.card-placeholder').hidden = Boolean(data.cover);
+  card.querySelector('.empty').hidden = Boolean(data.cover);
+  card.querySelector('.kicker').textContent = data.section;
   titleLink.href = data.url;
   titleLink.textContent = data.title;
   time.dateTime = data.isoDate;
   time.textContent = data.date;
-  card.querySelector('.card-description').textContent = data.description;
-  card.querySelector('.card-tags').append(...data.tags.map(buildTag));
   return card;
 }
 
@@ -135,7 +117,7 @@ function loadMoreWhenVisible(entries) {
 if (cards && searchInput && cardTemplate) {
   listing.query = searchInput.value.trim();
   listing.page = Number(cards.dataset.page) || 1;
-  listing.pages = Math.max(1, Math.ceil(Number(cards.dataset.total) / 16));
+  listing.pages = Number(cards.dataset.pages) || 1;
   searchInput.addEventListener('input', scheduleSearch);
   searchForm.addEventListener('submit', submitSearch);
   // The pager links stay in the page for visitors without JavaScript; here
@@ -144,7 +126,7 @@ if (cards && searchInput && cardTemplate) {
   new IntersectionObserver(loadMoreWhenVisible, { rootMargin: '600px' }).observe(pager);
 }
 
-// ---------- Tag filter ----------
+// ---------- Topic filter ----------
 const tagFilter = document.querySelector('#tag-filter');
 
 function filterTags() {

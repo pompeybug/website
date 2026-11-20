@@ -8,10 +8,10 @@ import { rateLimit } from 'express-rate-limit';
 
 import * as content from './content.js';
 import * as auth from './auth.js';
+import * as settings from './settings.js';
 import { createResizer, prepareUpload, wantsResize } from './images.js';
-import { PAGE_SIZE, cardData, formatDate, renderArchive, renderEntry, renderFeed, renderList, renderListing, renderNotFound, renderTag, renderTags } from './render.js';
+import { PAGE_SIZE, cardData, formatDate, renderArchive, renderEntry, renderFeed, renderHome, renderList, renderListing, renderNotFound, renderTag, renderTags } from './render.js';
 import { SECTIONS, TAG_REDIRECTS, getSection } from './taxonomy.js';
-import { createPreviewRouter } from './preview.js';
 
 const root = path.resolve(import.meta.dirname, '..');
 const publicDir = path.join(root, 'public');
@@ -28,6 +28,7 @@ const verification = process.env.GOOGLE_SITE_VERIFICATION ?? '';
 const site = { origin, noindex, verification, assetVersion: mtime('css/site.css') + mtime('js/site.js') };
 
 const loaded = await content.init();
+await settings.init();
 await auth.init();
 console.log(`Loaded ${loaded} articles and pages from ${content.contentDir}`);
 
@@ -132,6 +133,9 @@ app.use('/edit/api', api);
 //   /articles/:slug/images        GET the list, POST an upload
 //   /articles/:slug/preview       POST unsaved text, get the rendered page back
 //   /tags                         GET every tag in use
+//   /links                        GET everything a menu item can point at
+//   /settings/menu, /settings/home  GET, PUT (with If-Match)
+//   /settings/home/images         POST an upload
 //   /people, /people/:email       GET, POST, DELETE (owners only)
 // A page inside a folder has a slash in its slug, sent as %2F.
 api.get('/session', (req, res) => {
@@ -144,7 +148,7 @@ api.delete('/session', (req, res) => {
   res.status(204).end();
 });
 
-const publicUrl = (entry) => `/${entry.slug}`;
+const publicUrl = content.entryUrl;
 const etag = (entry) => `"${entry.revision}"`;
 
 const summary = (entry) => ({
@@ -154,6 +158,7 @@ const summary = (entry) => ({
   date: entry.date ? entry.date.toISOString().slice(0, 10) : '',
   dateLabel: entry.date ? formatDate(entry.date) : '',
   draft: entry.draft,
+  featured: entry.featured,
   tags: entry.tags,
   section: entry.section ?? '',
   notes: entry.todo.length,
@@ -232,11 +237,35 @@ for (const [collection, kind] of [['articles', 'article'], ['pages', 'page']]) {
       coverImage: form.coverImage ?? '',
       coverImageAlignment: form.coverImageAlignment || 'middle',
       draft: false,
+      featured: false,
     };
     const entry = await content.previewEntry(kind, req.entry.slug, { fields, body: form.body ?? '' });
     res.type('html').send(renderEntry({ site: { ...site, noindex: true }, entry }));
   });
 }
+
+// ---------- Menus and the home page ----------
+api.get('/links', auth.requireEditor, (req, res) => res.json(settings.linkChoices()));
+
+const findSetting = (req, res, next) => (settings.has(req.params.name) ? next() : res.status(404).json({ error: 'Not found.' }));
+const sendSetting = (res, name) => res.set('ETag', `"${settings.revision(name)}"`).json(settings.get(name));
+
+api.get('/settings/:name', auth.requireEditor, findSetting, (req, res) => sendSetting(res, req.params.name));
+
+api.put('/settings/:name', auth.requireEditor, findSetting, json, async (req, res) => {
+  const match = req.get('If-Match');
+  if (!match) return res.status(428).json({ error: 'This save did not say which version it was based on. Please reload the page.' });
+  await settings.save(req.params.name, req.body, match.replaceAll('"', ''), req.editor.name);
+  return sendSetting(res, req.params.name);
+});
+
+api.post('/settings/home/images', auth.requireEditor, upload.single('image'), async (req, res) => {
+  if (!req.file) return res.status(422).json({ error: 'Please choose an image.' });
+  const prepared = await prepareUpload(req.file.buffer).catch(() => null);
+  if (!prepared) return res.status(415).json({ error: 'That file is not an image this site can use. Try a JPEG or PNG.' });
+  const image = await settings.addImage({ originalName: req.file.originalname, ...prepared }, req.editor.name);
+  return res.status(201).location(image.url).json(image);
+});
 
 api.get('/people', auth.requireOwner, (req, res) => res.json(auth.listPeople()));
 
@@ -270,24 +299,33 @@ const editLinkFor = (req, entry) => {
 
 const send = (res, body, status = 200) => res.status(status).set('Cache-Control', 'no-cache').type('html').send(body);
 
-// Candidate designs, shown on real content. Temporary.
-app.use('/design', createPreviewRouter());
+// The design previews are over; their links go to the real pages.
+app.get(['/design', '/design/b', '/design/b/*rest'], (req, res) => res.redirect(302, `/${(req.params.rest ?? []).join('/')}`));
+
+const listingQuery = (req) => ({
+  query: typeof req.query.q === 'string' ? req.query.q.trim().slice(0, 100) : '',
+  page: Number.parseInt(req.query.page, 10) || 1,
+});
 
 app.get('/', (req, res) => {
   // WordPress short links: /?p=4238
   const old = typeof req.query.p === 'string' && content.findByWordPressId(req.query.p);
   if (old) return res.redirect(301, publicUrl(old));
-  const query = typeof req.query.q === 'string' ? req.query.q.trim().slice(0, 100) : '';
-  const page = Number.parseInt(req.query.page, 10) || 1;
-  return send(res, renderListing({ site, articles: content.searchArticles(query), query, page, editLink: editLinkFor(req) }));
+  // The list of articles and its search used to be the home page.
+  if (req.query.q || req.query.page) return res.redirect(301, `/articles${req.url.slice(req.path.length)}`);
+  return send(res, renderHome({ site, editLink: auth.currentEditor(req) ? '/edit/home' : null }));
+});
+
+app.get('/articles', (req, res) => {
+  const { query, page } = listingQuery(req);
+  send(res, renderListing({ site, articles: content.searchArticles(query), query, page, editLink: editLinkFor(req) }));
 });
 
 // One page per section: /campaigns, /meetings and so on.
 app.get('/:section', (req, res, next) => {
   const section = getSection(req.params.section);
   if (!section) return next();
-  const query = typeof req.query.q === 'string' ? req.query.q.trim().slice(0, 100) : '';
-  const page = Number.parseInt(req.query.page, 10) || 1;
+  const { query, page } = listingQuery(req);
   const all = content.articlesInSection(section.slug);
   // The topics that say most about this section: its most used tags.
   const counts = Map.groupBy(all.flatMap((article) => [...new Set(article.tags.map(content.tagSlug))]), (slug) => slug);
@@ -358,6 +396,7 @@ app.get('/sitemap.xml', (req, res) => {
   const newest = (list) => list.map((item) => item.modified).filter(Boolean).sort((a, b) => b - a)[0];
   const urls = [
     { path: '/', modified: newest(articles) },
+    { path: '/articles', modified: newest(articles) },
     { path: '/archive', modified: newest(articles) },
     ...SECTIONS.map((section) => ({ path: `/${section.slug}`, modified: newest(content.articlesInSection(section.slug)) })),
     { path: '/tags', modified: newest(articles) },

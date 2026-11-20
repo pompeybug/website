@@ -1,12 +1,15 @@
 /* Styles for the editor at /edit. Colours come from the tokens below only. */
 
 :root {
-  --brand: hsl(20, 85%, 42%);
-  --brand-dark: hsl(20, 85%, 32%);
-  --accent: hsl(70, 68%, 28%);
-  --page: #fdfdfd;
-  --panel: #f3f3ee;
-  --text: #222222;
+  --brand: #c64d0f;
+  --brand-dark: #a8400b;
+  --accent: #c64d0f;
+  --bar: #111111;
+  --on-bar: #ffffff;
+  --font-head: "Arial Black", "Helvetica Neue", system-ui, sans-serif;
+  --page: #ffffff;
+  --panel: #f4f2ee;
+  --text: #111111;
   --muted: #5c5c5c;
   --line: #cccccc;
   --on-brand: #ffffff;
@@ -19,10 +22,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --brand: hsl(20, 85%, 52%);
-    --brand-dark: hsl(20, 85%, 62%);
-    --accent: hsl(70, 40%, 70%);
-    --page: #1f1f1f;
+    --brand: #e2672a;
+    --brand-dark: #f39a6b;
+    --accent: #e2672a;
+    --bar: #000000;
+    --page: #111111;
     --panel: #2b2b2b;
     --text: #eeeeee;
     --muted: #b5b5b5;
@@ -79,13 +83,14 @@ small {
   align-items: center;
   gap: calc(var(--space) / 2) var(--space);
   padding: calc(var(--space) / 2) var(--space);
-  background: var(--brand);
-  color: var(--on-brand);
+  background: var(--bar);
+  color: var(--on-bar);
+  border-bottom: 4px solid var(--brand);
 }
 
 .bar a,
 .bar button.quiet {
-  color: var(--on-brand);
+  color: var(--on-bar);
 }
 
 .bar .brand {
@@ -131,6 +136,8 @@ main {
 
 #sign-in,
 #people,
+#home,
+#menu,
 #list {
   max-width: 48rem;
   margin: 0 auto;
@@ -217,6 +224,7 @@ input[type="text"],
 input[type="email"],
 input[type="search"],
 input[type="date"],
+input[type="url"],
 select,
 textarea {
   font: inherit;
@@ -537,4 +545,70 @@ dialog .actions {
   gap: 0.2em;
   margin: 0;
   color: var(--muted);
+}
+
+/* ---------- Home page and menus ---------- */
+
+h1,
+legend,
+.bar .brand {
+  font-family: var(--font-head);
+  text-transform: uppercase;
+}
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  margin-bottom: var(--space);
+  padding: var(--space);
+  border: thin solid var(--line);
+  border-left: 0.3rem solid var(--brand);
+  border-radius: var(--radius);
+  background: var(--page);
+}
+
+.row .rows {
+  margin: var(--space) 0 0 var(--space);
+}
+
+.row .row {
+  border-left-color: var(--line);
+}
+
+.row label {
+  display: block;
+  margin-bottom: calc(var(--space) / 2);
+}
+
+.row input,
+.row select {
+  display: block;
+  width: 100%;
+}
+
+.row p {
+  margin: 0;
+}
+
+.row-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--space) / 2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-picture {
+  margin: 0 0 var(--space);
+}
+
+.hero-picture img {
+  display: block;
+  max-width: 100%;
+  border-radius: var(--radius);
 }

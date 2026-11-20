@@ -16,6 +16,8 @@
       <ul>
         <li><a href="/edit" data-pane="articles">Articles</a></li>
         <li><a href="/edit/pages" data-pane="pages">Pages</a></li>
+        <li><a href="/edit/home" data-pane="home">Home page</a></li>
+        <li><a href="/edit/menu" data-pane="menu">Menus</a></li>
         <li data-owner-only hidden><a href="/edit/people" data-pane="people">People</a></li>
         <li><a href="/" target="_blank" rel="noopener">View the site</a></li>
       </ul>
@@ -85,6 +87,11 @@
           <ul class="chips" data-tags data-article-only></ul>
           <input id="tag-input" type="text" list="known-tags" autocomplete="off" data-article-only>
           <datalist id="known-tags"></datalist>
+
+          <label class="check" data-article-only>
+            <input name="featured" type="checkbox">
+            <span>Feature on the home page <small>The home page shows three campaigns and three stories. Ticked articles are shown first, newest first; the newest others fill any gaps.</small></span>
+          </label>
 
           <label class="check">
             <input name="published" type="checkbox">
@@ -172,6 +179,98 @@
       </aside>
     </section>
 
+    <section id="home" aria-labelledby="home-heading" hidden>
+      <header class="pane-header">
+        <h1 id="home-heading">Home page</h1>
+        <p class="status" role="status" aria-live="polite" data-home-status></p>
+      </header>
+      <p>The words, picture and boxes on the front page of the site. Saving puts your changes live straight away.</p>
+      <form id="home-form" novalidate>
+        <fieldset>
+          <legend>Top of the page</legend>
+          <label for="home-kicker">Small label above the headline</label>
+          <input id="home-kicker" name="kicker" type="text" maxlength="60">
+          <label for="home-headline">Headline</label>
+          <input id="home-headline" name="headline" type="text" required maxlength="120">
+          <label for="home-intro">Introduction <small>One or two sentences under the headline.</small></label>
+          <textarea id="home-intro" name="intro" rows="3" maxlength="400"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>Picture behind the headline</legend>
+          <figure class="hero-picture">
+            <img alt="" data-hero-image>
+            <figcaption data-hero-default hidden>Using the built-in picture.</figcaption>
+          </figure>
+          <p>
+            <button type="button" data-action="hero-upload">Upload a different picture</button>
+            <input type="file" accept="image/*" data-hero-file hidden>
+            <span role="status" aria-live="polite" data-hero-status></span>
+          </p>
+          <label for="home-hero-alt">Describe the picture <small>Read out to people who cannot see it.</small></label>
+          <input id="home-hero-alt" name="heroAlt" type="text" maxlength="200">
+        </fieldset>
+
+        <fieldset>
+          <legend>Boxes: what people come to do</legend>
+          <label for="home-tasks-heading">Heading above the boxes</label>
+          <input id="home-tasks-heading" name="tasksHeading" type="text" maxlength="60">
+          <ol class="rows" data-tasks></ol>
+          <p><button type="button" data-action="add-task">Add a box</button> <small>Up to six.</small></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Join band</legend>
+          <label for="home-join-heading">Heading</label>
+          <input id="home-join-heading" name="joinHeading" type="text" maxlength="80">
+          <label for="home-join-text">Text</label>
+          <textarea id="home-join-text" name="joinText" rows="3" maxlength="300"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>Latest articles</legend>
+          <label class="check">
+            <input name="showLatest" type="checkbox">
+            <span>Show the six newest articles at the bottom <small>Untick this when the newest articles are old.</small></span>
+          </label>
+          <p>The campaigns and stories shown on the home page are chosen with the &ldquo;Feature on the home page&rdquo; tick on each article.</p>
+        </fieldset>
+
+        <footer class="actions">
+          <button type="submit" class="primary" data-home-save>Save</button>
+          <a class="button" href="/" target="_blank" rel="noopener">View the home page</a>
+        </footer>
+      </form>
+    </section>
+
+    <section id="menu" aria-labelledby="menu-heading" hidden>
+      <header class="pane-header">
+        <h1 id="menu-heading">Menus</h1>
+        <p class="status" role="status" aria-live="polite" data-menu-status></p>
+      </header>
+      <p>The links at the top and bottom of every page. Leave a name empty to use the title of the page it links to. Saving puts your changes live straight away.</p>
+      <form id="menu-form" novalidate>
+        <fieldset>
+          <legend>Menu at the top</legend>
+          <p>Up to eight items. Sub-items appear in a list under their item. The &ldquo;Join us&rdquo; button is always there.</p>
+          <ol class="rows" data-menu="primary"></ol>
+          <p><button type="button" data-action="add-item" data-list="primary">Add an item</button></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Links at the bottom</legend>
+          <p>Each group has a heading and a list of links under it.</p>
+          <ol class="rows" data-menu="footer"></ol>
+          <p><button type="button" data-action="add-item" data-list="footer">Add a group</button></p>
+        </fieldset>
+
+        <footer class="actions">
+          <button type="submit" class="primary" data-menu-save>Save</button>
+          <a class="button" href="/" target="_blank" rel="noopener">View the site</a>
+        </footer>
+      </form>
+    </section>
+
     <section id="people" aria-labelledby="people-heading" hidden>
       <header class="pane-header">
         <h1 id="people-heading">People who can edit</h1>
@@ -220,6 +319,7 @@
       <a href="">
         <strong data-title></strong>
         <span class="badge" data-draft hidden>Draft</span>
+        <span class="badge quiet" data-featured hidden>On the home page</span>
         <span class="badge quiet" data-notes hidden>Has notes</span>
         <time data-date></time>
       </a>
@@ -239,6 +339,58 @@
       <p class="cover-mark" data-cover-mark hidden>Shown at the top</p>
       <button type="button" data-insert>Add to the text</button>
       <button type="button" data-cover>Use at the top</button>
+    </li>
+  </template>
+
+  <datalist id="known-articles"></datalist>
+
+  <!-- Chooses what a menu item or box links to. Its first options are filled in from the server. -->
+  <template id="link-picker">
+    <label>Links to
+      <select data-link>
+        <option value="">Nothing</option>
+        <option value="article">An article&hellip;</option>
+        <option value="url">Another website&hellip;</option>
+      </select>
+    </label>
+    <label data-link-article-label hidden>Which article <small>Start typing its title.</small>
+      <input type="text" list="known-articles" autocomplete="off" data-link-article>
+    </label>
+    <label data-link-url-label hidden>Web address <small>Starting with https://</small>
+      <input type="url" data-link-url>
+    </label>
+  </template>
+
+  <template id="row-buttons">
+    <menu class="row-buttons">
+      <li><button type="button" class="quiet" data-move="up">Move up</button></li>
+      <li><button type="button" class="quiet" data-move="down">Move down</button></li>
+      <li><button type="button" class="danger" data-remove-row>Remove</button></li>
+    </menu>
+  </template>
+
+  <template id="menu-row">
+    <li class="row">
+      <label>Name
+        <input type="text" maxlength="60" data-label>
+      </label>
+      <span data-picker></span>
+      <span data-buttons></span>
+      <ol class="rows" data-children></ol>
+      <p data-add-child><button type="button" data-action="add-child">Add a link under this</button></p>
+    </li>
+  </template>
+
+  <template id="task-row">
+    <li class="row">
+      <label>Title
+        <input type="text" maxlength="60" data-title>
+      </label>
+      <label>Text
+        <input type="text" maxlength="160" data-text>
+      </label>
+      <span data-picker></span>
+      <span data-buttons></span>
     </li>
   </template>
 

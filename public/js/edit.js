@@ -1,12 +1,17 @@
-// The editor at /edit. One page, four panes (sign in, list, editor, people),
+// The editor at /edit. One page with a pane for each job (sign in, list,
+// editor, home page, menus, people),
 // each with its own address so it can be bookmarked or sent to someone:
 //   /edit                 articles      /edit/pages          pages
 //   /edit/article/<slug>  one article   /edit/page/<slug>    one page
+//   /edit/home            the home page /edit/menu           the menus
 //   /edit/people          who can edit (site owners only)
 
 const API = '/edit/api';
 const PREVIEW_DELAY_MS = 700;
 const SEARCH_DELAY_MS = 250;
+const MAX_TASKS = 6;
+const MAX_MENU_ITEMS = 8;
+const UNSAVED = 'You have changes that are not saved yet.';
 const COLLECTIONS = { article: 'articles', page: 'pages' };
 const WORDS = {
   article: { list: 'Articles', add: 'Write a new article', heading: 'New article' },
@@ -21,7 +26,7 @@ const $ = (selector, parent = document) => parent.querySelector(selector);
 const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
 const clone = (id) => $(`#${id}`).content.cloneNode(true);
 
-const panes = { signIn: $('#sign-in'), list: $('#list'), editor: $('#editor'), people: $('#people') };
+const panes = { signIn: $('#sign-in'), list: $('#list'), editor: $('#editor'), home: $('#home'), menu: $('#menu'), people: $('#people') };
 const form = $('#entry-form');
 const previewForm = $('#preview-form');
 const previewFrame = $('iframe[name="preview-frame"]');
@@ -40,7 +45,11 @@ const state = {
   pictures: [],
   dirty: false,
   previewScroll: 0,
+  // The menus or the home page, whichever is open.
+  settingsEtag: null,
+  heroImage: '',
 };
+let linkChoices = null;
 let previewTimer;
 let searchTimer;
 
@@ -107,6 +116,7 @@ function buildRow(entry) {
   link.href = `/edit/${entry.kind}/${entry.slug}`;
   $('[data-title]', row).textContent = entry.title;
   $('[data-draft]', row).hidden = !entry.draft;
+  $('[data-featured]', row).hidden = !entry.featured;
   $('[data-notes]', row).hidden = entry.notes === 0;
   const time = $('[data-date]', row);
   time.dateTime = entry.date;
@@ -318,7 +328,7 @@ function readFields() {
     title: form.elements.title.value,
     date: form.elements.date.value,
     description: form.elements.description.value,
-    ...(state.kind === 'article' ? { section: form.elements.section.value } : {}),
+    ...(state.kind === 'article' ? { section: form.elements.section.value, featured: form.elements.featured.checked } : {}),
     tags: state.tags,
     todo: lines(form.elements.todo.value),
     coverImage: state.coverImage,
@@ -357,7 +367,7 @@ function restorePreviewScroll() {
 
 function markDirty() {
   state.dirty = true;
-  setStatus('You have changes that are not saved yet.', 'pending');
+  setStatus(UNSAVED, 'pending');
   clearTimeout(previewTimer);
   previewTimer = setTimeout(refreshPreview, PREVIEW_DELAY_MS);
 }
@@ -373,6 +383,7 @@ function fillForm(entry, etag) {
   form.elements.section.value = entry.section || 'news';
   form.elements.description.placeholder = entry.autoDescription;
   form.elements.published.checked = !entry.draft;
+  form.elements.featured.checked = entry.featured;
   form.elements.todo.value = entry.todo.join('\n');
   form.elements.coverImageAlignment.value = entry.coverImageAlignment;
   bodyField.value = entry.body;
@@ -491,6 +502,237 @@ function closeDialog(event) {
   event.target.closest('dialog').close();
 }
 
+// ---------- Choosing what something links to ----------
+async function loadLinkChoices() {
+  if (linkChoices) return;
+  const { data } = await request('/links');
+  linkChoices = data;
+  $('#known-articles').replaceChildren(...data.articles.map((article) => new Option(article.title, article.slug)));
+}
+
+function buildGroup(group) {
+  const element = document.createElement('optgroup');
+  element.label = group.label;
+  element.append(...group.options.map((option) => new Option(option.label, option.value)));
+  return element;
+}
+
+const pickerOf = (row) => row.querySelector(':scope > [data-picker]');
+
+function showPickerExtras(picker) {
+  const choice = $('[data-link]', picker).value;
+  $('[data-link-article-label]', picker).hidden = choice !== 'article';
+  $('[data-link-url-label]', picker).hidden = choice !== 'url';
+}
+
+function fillPicker(row, link) {
+  const picker = pickerOf(row);
+  picker.append(clone('link-picker'));
+  const select = $('[data-link]', picker);
+  $('option[value="article"]', select).before(...linkChoices.groups.map(buildGroup));
+  if (link?.type === 'article') {
+    select.value = 'article';
+    $('[data-link-article]', picker).value = link.target;
+  } else if (link?.type === 'url') {
+    select.value = 'url';
+    $('[data-link-url]', picker).value = link.target;
+  } else {
+    select.value = link ? `${link.type}:${link.target}` : '';
+  }
+  showPickerExtras(picker);
+}
+
+function readPicker(row) {
+  const picker = pickerOf(row);
+  const choice = $('[data-link]', picker).value;
+  if (!choice) return null;
+  if (choice === 'article') return { type: 'article', target: $('[data-link-article]', picker).value.trim() };
+  if (choice === 'url') return { type: 'url', target: $('[data-link-url]', picker).value.trim() };
+  const [type, ...target] = choice.split(':');
+  return { type, target: target.join(':') };
+}
+
+function handlePickerChange(event) {
+  const select = event.target.closest('[data-link]');
+  if (select) showPickerExtras(select.closest('[data-picker]'));
+}
+
+// ---------- Rows that can be moved and removed ----------
+function setPaneStatus(pane, text, tone = '') {
+  const line = $('.status', pane);
+  line.textContent = text;
+  line.dataset.tone = tone;
+}
+
+function markSettingsDirty(event) {
+  state.dirty = true;
+  setPaneStatus(event.currentTarget.closest('section'), UNSAVED, 'pending');
+}
+
+// Handles the Move up, Move down and Remove buttons. True if a row changed.
+function handleRowButton(event) {
+  const row = event.target.closest('.row');
+  const move = event.target.closest('[data-move]');
+  if (move?.dataset.move === 'up') row.previousElementSibling?.before(row);
+  else if (move?.dataset.move === 'down') row.nextElementSibling?.after(row);
+  else if (event.target.closest('[data-remove-row]')) row.remove();
+  else return false;
+  return true;
+}
+
+// ---------- Home page ----------
+const homeForm = $('#home-form');
+const HOME_TEXT_FIELDS = ['kicker', 'headline', 'intro', 'heroAlt', 'tasksHeading', 'joinHeading', 'joinText'];
+
+function buildTaskRow(task) {
+  const row = $('.row', clone('task-row'));
+  $('[data-title]', row).value = task?.title ?? '';
+  $('[data-text]', row).value = task?.text ?? '';
+  fillPicker(row, task?.link ?? null);
+  $('[data-buttons]', row).append(clone('row-buttons'));
+  return row;
+}
+
+const readTaskRow = (row) => ({ title: $('[data-title]', row).value, text: $('[data-text]', row).value, link: readPicker(row) });
+
+function drawHero() {
+  const image = $('[data-hero-image]');
+  image.hidden = !state.heroImage;
+  if (state.heroImage) image.src = `${state.heroImage}?w=500`;
+  $('[data-hero-default]').hidden = Boolean(state.heroImage);
+}
+
+function fillHome(home, etag) {
+  state.settingsEtag = etag;
+  state.heroImage = home.heroImage;
+  HOME_TEXT_FIELDS.forEach((name) => {
+    homeForm.elements[name].value = home[name];
+  });
+  homeForm.elements.showLatest.checked = home.showLatest;
+  $('[data-tasks]').replaceChildren(...home.tasks.map(buildTaskRow));
+  drawHero();
+  state.dirty = false;
+}
+
+async function showHome() {
+  markCurrentLink('home');
+  await loadLinkChoices();
+  const { data, etag } = await request('/settings/home');
+  fillHome(data, etag);
+  setPaneStatus(panes.home, '');
+  show(panes.home);
+}
+
+function readHome() {
+  const fields = Object.fromEntries(HOME_TEXT_FIELDS.map((name) => [name, homeForm.elements[name].value]));
+  return { ...fields, heroImage: state.heroImage, showLatest: homeForm.elements.showLatest.checked, tasks: $$('[data-tasks] > .row').map(readTaskRow) };
+}
+
+async function saveSettings(event, { name, pane, read, fill }) {
+  event.preventDefault();
+  const saveButton = $('[type="submit"]', pane);
+  saveButton.disabled = true;
+  setPaneStatus(pane, 'Saving…', 'pending');
+  try {
+    const { data, etag } = await request(`/settings/${name}`, { method: 'PUT', headers: { 'If-Match': state.settingsEtag }, body: read() });
+    fill(data, etag);
+    setPaneStatus(pane, 'Saved. It is live on the site now.', 'good');
+  } catch (error) {
+    setPaneStatus(pane, error.message, 'error');
+  } finally {
+    saveButton.disabled = false;
+  }
+}
+
+const saveHome = (event) => saveSettings(event, { name: 'home', pane: panes.home, read: readHome, fill: fillHome });
+
+function handleHomeClick(event) {
+  let changed = handleRowButton(event);
+  if (event.target.closest('[data-action="add-task"]') && $$('[data-tasks] > .row').length < MAX_TASKS) {
+    $('[data-tasks]').append(buildTaskRow(null));
+    changed = true;
+  }
+  if (event.target.closest('[data-action="hero-upload"]')) $('[data-hero-file]').click();
+  if (changed) markSettingsDirty(event);
+}
+
+async function uploadHero(event) {
+  const [file] = event.target.files;
+  event.target.value = '';
+  if (!file) return;
+  const uploadStatus = $('[data-hero-status]');
+  uploadStatus.textContent = 'Uploading…';
+  const body = new FormData();
+  body.append('image', file);
+  try {
+    const { data } = await request('/settings/home/images', { method: 'POST', body });
+    state.heroImage = data.url;
+    drawHero();
+    uploadStatus.textContent = 'Uploaded. Press Save to put it on the home page.';
+    state.dirty = true;
+    setPaneStatus(panes.home, UNSAVED, 'pending');
+  } catch (error) {
+    uploadStatus.textContent = error.message;
+  }
+}
+
+// ---------- Menus ----------
+function buildMenuRow(item, { child }) {
+  const row = $('.row', clone('menu-row'));
+  $('[data-label]', row).value = item?.label ?? '';
+  fillPicker(row, item?.link ?? null);
+  $('[data-buttons]', row).append(clone('row-buttons'));
+  if (child) {
+    $('[data-children]', row).remove();
+    $('[data-add-child]', row).remove();
+  } else {
+    $('[data-children]', row).append(...(item?.children ?? []).map((entry) => buildMenuRow(entry, { child: true })));
+  }
+  return row;
+}
+
+const readMenuRow = (row) => ({
+  label: row.querySelector(':scope > label [data-label]').value,
+  link: readPicker(row),
+  children: [...(row.querySelector(':scope > [data-children]')?.children ?? [])].map(readMenuRow),
+});
+
+const menuList = (name) => $(`[data-menu="${name}"]`);
+
+function fillMenu(menu, etag) {
+  state.settingsEtag = etag;
+  ['primary', 'footer'].forEach((name) => menuList(name).replaceChildren(...menu[name].map((item) => buildMenuRow(item, { child: false }))));
+  state.dirty = false;
+}
+
+async function showMenu() {
+  markCurrentLink('menu');
+  await loadLinkChoices();
+  const { data, etag } = await request('/settings/menu');
+  fillMenu(data, etag);
+  setPaneStatus(panes.menu, '');
+  show(panes.menu);
+}
+
+const readMenu = () => Object.fromEntries(['primary', 'footer'].map((name) => [name, [...menuList(name).children].map(readMenuRow)]));
+
+const saveMenu = (event) => saveSettings(event, { name: 'menu', pane: panes.menu, read: readMenu, fill: fillMenu });
+
+function handleMenuClick(event) {
+  let changed = handleRowButton(event);
+  const addItem = event.target.closest('[data-action="add-item"]');
+  const addChild = event.target.closest('[data-action="add-child"]');
+  if (addItem && menuList(addItem.dataset.list).children.length < MAX_MENU_ITEMS) {
+    menuList(addItem.dataset.list).append(buildMenuRow(null, { child: false }));
+    changed = true;
+  }
+  if (addChild) {
+    addChild.closest('.row').querySelector(':scope > [data-children]').append(buildMenuRow(null, { child: true }));
+    changed = true;
+  }
+  if (changed) markSettingsDirty(event);
+}
+
 // ---------- People ----------
 function buildPerson(person) {
   const row = clone('person-row');
@@ -538,6 +780,8 @@ function route() {
   const entry = /^\/edit\/(article|page)\/(.+)$/.exec(path);
   if (entry) return showEditor(entry[1], entry[2]);
   if (path === '/edit/pages') return showList('page');
+  if (path === '/edit/home') return showHome();
+  if (path === '/edit/menu') return showMenu();
   if (path === '/edit/people' && state.editor.owner) return showPeople();
   return showList('article');
 }
@@ -610,6 +854,15 @@ async function start() {
   previewFrame.addEventListener('load', restorePreviewScroll);
   $('#people-form').addEventListener('submit', addPerson);
   $('[data-people]').addEventListener('click', removePerson);
+  homeForm.addEventListener('submit', saveHome);
+  homeForm.addEventListener('input', markSettingsDirty);
+  homeForm.addEventListener('change', handlePickerChange);
+  homeForm.addEventListener('click', handleHomeClick);
+  $('[data-hero-file]').addEventListener('change', uploadHero);
+  $('#menu-form').addEventListener('submit', saveMenu);
+  $('#menu-form').addEventListener('input', markSettingsDirty);
+  $('#menu-form').addEventListener('change', handlePickerChange);
+  $('#menu-form').addEventListener('click', handleMenuClick);
 
   await route();
 }
