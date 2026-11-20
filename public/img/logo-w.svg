@@ -18,9 +18,12 @@
     animation: dash 12s linear infinite;
 }
 
+/* The dashes repeat every 24 units, so the chain must move a whole number of
+   repeats per loop (96 = 4) or it jumps when the animation restarts. The path
+   is declared 768 long (32 repeats) so the dashes also meet cleanly. */
 @keyframes dash {
   from {
-    stroke-dashoffset: 100;
+    stroke-dashoffset: 96;
   }
   to {
     stroke-dashoffset: 0;
@@ -34,7 +37,7 @@ svg {
 </style>
 
     <path
-        id="chain" stroke="#FFF" fill="none" stroke-width="10"
+        id="chain" stroke="#FFF" fill="none" stroke-width="10" pathLength="768"
         d="M90,0.4 C-30,-9.5 -30,170.4 90,161.4 C190,145.4 190,145.4 254,135.4 C318,125.4 318,35.4 254,25.4 C190,15.4 190,15.4 90,0.4 Z"
     ></path>    
     <path

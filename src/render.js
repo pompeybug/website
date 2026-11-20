@@ -91,7 +91,7 @@ ${site.verification && html`<meta name="google-site-verification" content="${sit
 <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="/img/icon-180.png">
-<link rel="mask-icon" href="/img/logo-w.svg" color="#FFFFFF">
+<link rel="mask-icon" href="/img/logo-w.svg?v=2" color="#FFFFFF">
 <meta name="theme-color" content="#c64d0f">
 <link rel="sitemap" href="/sitemap.xml">
 <link rel="alternate" type="application/rss+xml" title="${SITE_NAME} articles" href="/feed.xml">
@@ -131,7 +131,7 @@ ${head({ site, title, seoTitle, description, path, image, type, entry, robots, d
 </head>
 <body>
   <header class="site-header">
-    <img id="masthead" src="/img/logo-w.svg" alt="">
+    <img id="masthead" src="/img/logo-w.svg?v=2" alt="">
     <div>
       <button type="button" id="navmenuToggle" aria-label="Open the menu" aria-controls="navmenu" aria-expanded="false">${ICONS.menu}</button>
       <p class="site-title"><a href="/">${SITE_NAME}</a></p>
@@ -198,7 +198,7 @@ function card(data, index) {
     <article>
       <a class="card-image" href="${data.url}" tabindex="-1" aria-hidden="true" data-align="${data.align}">
         <img class="card-cover" src="${data.cover ?? ''}" alt="" loading="${loading}" decoding="async" ${raw(data.cover ? '' : 'hidden')}>
-        <img class="card-placeholder" src="/img/logo-w.svg" alt="" loading="${loading}" ${raw(data.cover ? 'hidden' : '')}>
+        <img class="card-placeholder" src="/img/logo-w.svg?v=2" alt="" loading="${loading}" ${raw(data.cover ? 'hidden' : '')}>
       </a>
       <h2><a href="${data.url}">${data.title}</a></h2>
       ${published(data.isoDate, data.date, loading)}

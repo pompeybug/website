@@ -126,7 +126,7 @@ ${html`<html lang="en-GB">
 // ---------- Pieces ----------
 const thumb = (article, width = 600) =>
   html`<figure class="thumb">
-      ${article.cover ? html`<img src="${coverUrl(article, width)}" alt="" loading="lazy" decoding="async">` : html`<img class="empty" src="/img/logo-w.svg" alt="" loading="lazy">`}
+      ${article.cover ? html`<img src="${coverUrl(article, width)}" alt="" loading="lazy" decoding="async">` : html`<img class="empty" src="/img/logo-w.svg?v=2" alt="" loading="lazy">`}
     </figure>`;
 
 const feature = (article) =>
@@ -166,8 +166,8 @@ function homeParts() {
     hero: html`<section class="hero">
       <header>
         <p class="kicker">Portsmouth and Southsea</p>
-        <h1>A city where anyone can cycle</h1>
-        <p class="lede">We are the people who ride in Portsmouth, working with the council and each other for streets that are safe to cycle on.</p>
+        <h1>A city where anyone can walk, wheel or cycle</h1>
+        <p class="lede">We speak up for every kind of active travel in Portsmouth, working with the council and each other for streets that are safe on foot, on wheels and by bike.</p>
         <p class="actions">
           <a class="button" href="${to('/join')}">Join us</a>
           <a class="button quiet" href="${to('/report')}">Report a problem</a>
