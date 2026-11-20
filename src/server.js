@@ -104,9 +104,10 @@ app.get('/media/*file', async (req, res, next) => {
   }
 });
 
-// The editor script is always revalidated, so a deploy that changes the save
-// protocol reaches browsers that already have the editor open.
-app.use('/js/edit.js', (req, res, next) => {
+// The editor's script and styles are always revalidated, so a deploy that
+// changes the editor reaches browsers that already have it open, and the two
+// never get out of step with each other.
+app.use(['/js/edit.js', '/css/edit.css'], (req, res, next) => {
   res.set('Cache-Control', 'no-cache');
   next();
 });
